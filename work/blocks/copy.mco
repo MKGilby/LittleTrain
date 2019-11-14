@@ -1,0 +1,9 @@
+m create 832 32 2
+r tga goodies 1
+m copyto 0 0 256 32 0 0 1 2
+r tga trains 1
+m copyto 0 0 544 32 256 0 1 2
+r tga wall 1
+m copyto 0 0 32 32 800 0 1 2 
+w atga blocks.tga 26 4 2
+w atga2 blockz.tga 26 4 0 0 0 128 2

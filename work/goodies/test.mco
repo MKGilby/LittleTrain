@@ -1,0 +1,20 @@
+m create 256 32 2
+r tga g02.tga 1
+m copyto 0 0 32 32 0 0 1 2
+r tga g04.tga 1
+m copyto 0 0 32 32 32 0 1 2
+r tga g07.tga 1
+m copyto 0 0 32 32 64 0 1 2
+r tga g08.tga 1
+m copyto 0 0 32 32 96 0 1 2
+r tga g09.tga 1
+m copyto 0 0 32 32 128 0 1 2
+r tga g12.tga 1
+m copyto 0 0 32 32 160 0 1 2
+r tga g17.tga 1
+m copyto 0 0 32 32 192 0 1 2
+r tga g18.tga 1
+m copyto 0 0 32 32 224 0 1 2
+
+w atga goodies.tga 8 0 2
+

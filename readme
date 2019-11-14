@@ -1,0 +1,8 @@
+aat          Autodesk Animator for drawing tiles and things (use start_aa.bat to run it)
+data         Files which are packed into LittleTrain.data (maps, gfx, fonts, logos...)
+editor       Map editor (incompleted!)
+music        Music files which are packed into LittleTrain.data
+pov          POV-Ray sources (fonts, logo...)
+source       Game source
+test         The final files, these will be distributed as demo or release
+work         Other things

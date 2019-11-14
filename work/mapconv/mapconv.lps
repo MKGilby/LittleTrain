@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="1">
+      <Unit0>
+        <Filename Value="mapconv.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="95"/>
+        <CursorPos X="20" Y="121"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit0>
+    </Units>
+    <JumpHistory Count="12" HistoryIndex="11">
+      <Position1>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="32"/>
+      </Position1>
+      <Position2>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="24" Column="13"/>
+      </Position2>
+      <Position3>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="44" Column="38" TopLine="21"/>
+      </Position3>
+      <Position4>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="55" TopLine="21"/>
+      </Position4>
+      <Position5>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="39" TopLine="10"/>
+      </Position5>
+      <Position6>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="46" TopLine="35"/>
+      </Position6>
+      <Position7>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="65" TopLine="52"/>
+      </Position7>
+      <Position8>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="16" Column="26"/>
+      </Position8>
+      <Position9>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="30" TopLine="8"/>
+      </Position9>
+      <Position10>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="17" Column="32"/>
+      </Position10>
+      <Position11>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="28" Column="20"/>
+      </Position11>
+      <Position12>
+        <Filename Value="mapconv.lpr"/>
+        <Caret Line="65" Column="34" TopLine="53"/>
+      </Position12>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

@@ -1,0 +1,970 @@
+MPKT
+[01]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP#   aaaaaaaaaaaa   #
+MP#                  #
+MP#                  #
+MP#%    aaaaaaaa     #
+MP#                  #
+MP#                  #
+MP#       aaaa       #
+MP#                  !
+MP#                  #
+MP####################
+EXUUURRRRRRRRRRRRRRDDDLLLLLLLLLDDDRRRRRRRRRRRDRR
+XX
+
+[02]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP#                  #
+MP#     a a a a      #
+MP#     c c c c      #
+MP#     ccccccc      #
+MP#     ccccccc      #
+MP#     ccccccc      #
+MP#      #####       #
+MP#  %               #
+MP#                  #
+MP#########!##########
+EXRRRUUUUUURRRRRRDLLLLLDRRRRRDLLLLLDRRRRRDDLLLDD
+XX
+
+[03]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP#  a    #          #
+MP# aaa   #   b b    #
+MP# aca   #  b b b   #
+MP# aaa   #   b b    #
+MP#  a    !  b b b   #
+MP#       #   b b    #
+MP#       #          #
+MP#  %    #          #
+MP#       #          #
+MP####################
+EXUUULUUUURDDDRUUUURRRRRRRDDRRRRDDDDLUUULLLDRDRDLLULLL
+XX
+
+[04]
+MAPT
+WI20
+HE12
+MP#########!##########
+MP# a a a a a a a a  #
+MP#                  #
+MP#                  #
+MP#                  #
+MP#%       d         #
+MP#       ddd        #
+MP#      ddbdd       #
+MP#  #  ddb#bdd  #   #
+MP#  # ddbd#dbdd #   #
+MP#  #ddbdddddbdd#   #
+MP####################
+EXDDRRRDRRRRDLLLLDRRRRRRRRRRULLLLURRULLLLLURRRULLLLLLLLUUUURRRRRRDRRRRRRRRULLLLLLLU
+XX
+
+[05]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP# bbbbbbbbbbbbbbb  #
+MP#                  #
+MP#  e e e #  e e e  #
+MP#%  e e  #   e e   #
+MP#  e e e #  e e e  #
+MP#   e e  #   e e   #
+MP!  e e e #  e e e  #
+MP#        #         #
+MP#        c         #
+MP####################
+EXURRRRRRDLLLLDRRRRDLLLLDRRRRRDDRRRUURRRRRULLLLURRRRULLLLURRRRUULLLLLLLLLLLLLLDDDDDDLL
+XX
+
+[06]
+MAPT
+WI20
+HE12
+MP####################
+MP#            c     #
+MP#      fff   # a   #
+MP#     fffff  # a   #
+MP#     fffff  # a   #
+MP#%    ffcff  # a   #
+MP#     fffff  # a   #
+MP#     fffff  # a   #
+MP#      fff   # a   #
+MP############## a   #
+MP!  bbbbbbbbb       #
+MP####################
+EXDDDRRRRRUUUUUURDDDDDDRUUUUUURDDDDDDRUUUUUUURRRRRDDDDDDDDDLLLLLLLLLLLLLLL
+XX
+
+[07]
+MAPT
+WI20
+HE12
+MP#########!##########
+MP#                  #
+MP#                  #
+MP#   a   bbb   e e  #
+MP#   #  b g b       #
+MP#%  a  bg gb   e e #
+MP#   #  b g b       #
+MP#   a  bg gb  e e  #
+MP#   #  b # b       #
+MP#   a   b#b    e e #
+MP#        #         #
+MP####################
+EXUURRRRDDLLDDRRDDLDRRRRULUUUUUURDDDDRUUUURDRDLDRDLDDRURDRRRRRUULLLUURRRUULLLLLLLLUUU
+XX
+
+[08]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP#  a #### #### a   #
+MP#  a #       # a   #
+MP#  a #  b b  # a   #
+MP#% a # d h d # a   #
+MP#  a #  b b  # a   #
+MP#  a #   g   # a   #
+MP#  a # b   b # a   #
+MP#  a ######### a   #
+MP#        !         #
+MP####################
+EXDDDDRRUUUUUUUURRRRRRDDRRRDLLLLLDRRRRDLLLDRRRDLLLLUUUUURRUURRRRRRDDDDDDDDDLLLLLL
+XX
+
+[09]
+MAPT
+WI20
+HE12
+MP####################
+MP#dddddddddddddddddd#
+MP#        cc        #
+MP#      ######      #
+MP#      #    #      #
+MP#  aa  # ii #  aa  #
+MP# aaaa # ii # aaaa #
+MP# aaaa # ii # aaaa #
+MP#  aa  # ii #  aa  #
+MP#      ##  ##      #
+MP#        %         #
+MP#########!##########
+EXLLLLLUULULURRDRUULLLLUUUURRRRRRRRDRURRRRRRRRDDDDLLLDLDRRURDDLLDLDLLLLUUUUULDDDDDD
+XX
+
+[10]
+MAPT
+WI20
+HE12
+MP####################
+MP#  b   i i i   b   #
+MP#  b    i i    b   #
+MP#  b #   a   # b   #
+MP#  b #   c   # b   #
+MP#% g #  #!#  # h   #
+MP#  b #f #j# f# b   #
+MP#  b #  #a#  # b   #
+MP#  b #  #a#  # b   #
+MP#  b #  #a#  # b   #
+MP#  b           b   #
+MP####################
+EXDDDDDRRUUUUUUUUURRRRRRRRDLDLLULLDDDDRUURRRRDDRUUUUURRRDDDDDDDDDLLLLLLUUUUU
+XX
+
+[11]
+MAPT
+WI20
+HE12
+MP####################
+MP#      g ## g      #
+MP#      # kk #      #
+MP#  kk ######## kk  #
+MP#  kk #  cc  # kk  #
+MP#% k !      c   k  #
+MP#  k #b#k  k#b# k  #
+MP#  k #b# kk #b# k  #
+MP# kk #b# kk #b# kk #
+MP# kk #b#kkkk#b# kk #
+MP#      #    #      #
+MP####################
+EXDDDRDRUUUUURULUURRRRRDRRRURRRDDDRURDDDDDRDLDLLLUUUUULLDDDDLUUUUULDDDDDLUUUULLDDDDDLLUUUUUR
+XX
+
+[12]
+MAPT
+WI20
+HE12
+MP#########!##########
+MP#                  #
+MP# eeeeeeeeeeeeeeee #
+MP# e              e #
+MP# e              e #
+MP#%e              e #
+MP# e j          j e #
+MP# e #####l###### e #
+MP# e #llll lllll# e #
+MP# e #llll lllll# e #
+MP#   #llll lllll#   #
+MP####################
+EXDDDDDRRUUUUURRDRRRRDDLLLLDDRURDRURDRURDRURDRUULLLLLUURRRRRRRDDDRUUUUUUULLLLLLLLLLLLLLDDDRDLDDDLUUUUUUUURRRRRRRU
+XX
+
+[13]
+MAPT
+WI20
+HE12
+MP####################
+MP##ii##           dd#
+MP##iii#   m       dd#
+MP##iii#  m m      ###
+MP###ii#   m hbc     #
+MP#%        eb## a   #
+MP#       hb###      #
+MP#     eb###a a     #
+MP#   hb###a       ###
+MP#  b###a  a a a  dd#
+MP# e##   a   lll  dd#
+MP#######!############
+EXRRRUUULULDDRDDLLDDDDDRURURRURRURRUULUURRDDDRURRUUURRRRRDLLLDDDRDDDDRRDLLLLUUULDDDLUUULDDDLUULDDLULDD
+XX
+
+[14]
+MAPT
+WI20
+HE12
+MP####################
+MP#nnn n n  n        #
+MP# n  n n n         #
+MP# n  n nn   nnn    #
+MP# n  n n n         #
+MP# n  n n  n        #
+MP!%                 #
+MP#       nnn  n  n n#
+MP#        n  n n nn #
+MP#        n  nnn n n#
+MP#        n  n n n n#
+MP####################
+EXDRRRRRRRRRDLDDRRRRRRRRRULLLLLLURRRRRRULLLLLUUURULLLUULDDDDLUUULDDDLUUUULLDDDDLLLUUURULLDDDDDL
+XX
+
+[15]
+MAPT
+WI20
+HE12
+MP####################
+MP#        a         #
+MP#   #####c######   #
+MP#   #obo    gbg#   #
+MP#   #bob #f bgb#   #
+MP#%  !###kd#l####   #
+MP#   ####id#i####   #
+MP#   #bhbj#ijbeb#   #
+MP#   #hbhjjjjebe#   #
+MP#   ############   #
+MP#                  #
+MP####################
+EXUUUURRRRRRRRDDRDRDDDLDLLUURULUURRRRRRDLLLDDDRRRDLLLLLLLLLURRRURULULLLURRRRUULLLLLLDDDDR
+XX
+
+[16]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP#    #ppppppppp#   #
+MP#     #ppppppp#    #
+MP#      #ppppp#     #
+MP#       #ppp#      #
+MP#  %     #!#       #
+MP#        a#a       #
+MP#        a#a       #
+MP#        ###       #
+MP#       ccccc      #
+MP####################
+EXUUUUURRRDRDRDRDRRULULULURRDRDRRURURRDDLDLDLDLDLDRDDLLLLUURULULULULULUURRRRRRRRDDDLLDD
+XX
+
+[17]
+MAPT
+WI20
+HE12
+MP####################
+MP#acaclllll         #
+MP#caca####q#####    #
+MP#ac#c#qqqq#qqq#    #
+MP#caca#q####q#q#    #
+MP#acac#qqqqqq#q#    #
+MP#%a#########qq#    #
+MP#acac#qqqq#qq##    #
+MP#c##a#q##qqqqq#    #
+MP#acac#qqq###qq#    #
+MP#caca#qqqqqqqc#    #
+MP#############!######
+EXDDDDRURDRUUULLUULURRDRUUULLDLUURRRRRRRRDDLLLDDRRRRRUURRDDDLDLDLLULLLDDDRURDRRRRUURDDD
+XX
+
+[18]
+MAPT
+WI20
+HE12
+MP####################
+MP#    #       !     #
+MP# j  #r # # r#   l #
+MP# j  #  # #  #  ll #
+MP# jj ###   ### lll #
+MP# jj  a  h  a llll #
+MP#%jj  a  o  a llll #
+MP# jj ###   ### lll #
+MP# j  #  # #  #  ll #
+MP# j  #r # # r#   l #
+MP#    #       #     #
+MP####################
+EXDDDDRRUURUURRRRDRDDDLLUULDDRRRRRRUULDDLLUUULUUURUUULLLDDRUURRDDDDLLLLLLUUULDDDDDDDRUUURRRRRRRRRRRRDRDDRUUULURUUULDDLDLLLLLLUUUURRDRUR
+XX
+
+[19]
+MAPT
+WI20
+HE12
+MP####################
+MP#aaaaaaaaaaaaaaaaaa#
+MP#aaaaaaaaaaaaaaaaaa#
+MP#aaaaaaaaaaaaaaaaaa#
+MP#aaaaaaaaaaaaaaaaaa#
+MP#%aaaaaa!aaaaaaaaaa#
+MP#aaaaaaaaaaaaaaaaaa#
+MP#aaaaaaaaaaaaaaaaaa#
+MP#aaaaaaaaaaaaaaaaaa#
+MP#aaaaaaaaaaaaaaaaaa#
+MP#aaaaaaaaaaaaaaaaaa#
+MP####################
+EXRRRRRRULLLLLLURRRRRRULLLLLLURRRRRRRDDDRUUURDDDRUUURDDDRUUURDDDRUUURDDDRUUURDDDDDDDDDLUUUUULDDDDDLUUUUULDDDDDLUUUUULDDDDDLUUUUULDDDDDLLLLLLLLLURRRRRRRRULLLLLLLLUURDRURDRURDRURDRUUL
+XX
+
+[20]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP#    c     oooo    #
+MP#    ##    ####    #
+MP#   #a #  #bhbh#   #
+MP#%      ##bhbhbh#  #
+MP#   ###  bhbhbhb#  #
+MP#      # hbhbhbhb#a#
+MP#       ##hbhbhbh! #
+MP#       # #######  #
+MP#fdfdfd##     ## df#
+MP####################
+EXRRRRRRDRRRURURRRDRDDRDLLUULULDLDRRDLLLULLULULULDLLDDRRRDDDLLLLLUUUUUUUURRRRRRRRRRRRRRRRRDDDDDDDDLUU
+XX
+
+[21]
+MAPT
+WI20
+HE12
+MP####################
+MP#bbbb#        #bbbb#
+MP# k   #      #   k #
+MP#n j   #    #   j n#
+MP####i   #  #   i####
+MP#   #i   ##   i#   #
+MP#aa  #i  %   i#  aa#
+MP#a#a  #i pp i#  a#a#
+MP#  #a  # pp #  a#  #
+MP# c #a  #pp#  a# c #
+MP#    #a  pp  a#    !
+MP####################
+EXLDDRDDLLULULULULULLDDDDDRRULULUURRDRDRDRDRRRUULULULULULULLLUURDRURDRDRDRDRDDRRURURURURURURDRURDDLLLDLDLDLDLDLDDRRRURURURURRDDLDDRR
+XX
+
+[22]
+MAPT
+WI20
+HE12
+MP####################
+MP#%bbbbbb b#b bbbbbb#
+MP# bbbbbbbb#bbbbbbbb#
+MP#bbbbbb b # b bbbbb#
+MP# bbbb b#####b b bb#
+MP#bbbb # #   # # bbb#
+MP# bbb # # g # # bbb#
+MP#  b  # #   # #  b #
+MP# bbbb# ## ## #bbbb#
+MP#bbbb##       ##bbb#
+MP! b b #bbbhbbb# b b#
+MP####################
+EXDDDDDDRRRRUUURRDDDDDRRRUULUURDRDLDDRRRUUUUUULURRDDRDDDDRDDRRULURULLURRULLURRULLLURRRULLLLLLLDDRRDDDDDDDLLLLLLUUUUUUURRUULDLULLLLLDRRRRDLLLLDRRDLLDRRRDDLLLLDRRRDLLLL
+XX
+
+[23]
+MAPT
+WI20
+HE12
+MP####################
+MP#    pppp  pp      #
+MP#   p####p pp      #
+MP#  p######ppp      #
+MP# p########pp      #
+MP#%p##mmm####p      #
+MP# p##mrmiii#p b b b#
+MP# p##mmmiii#pbbbbbb#
+MP# p#####iii#p b b b#
+MP# p#####ii##p b b b#
+MP# ppppppppppp b b b!
+MP####################
+EXRDDDDDRRRRRRUUULLLUURRDRRRDLDDDRRRRRRRRRUUUULDDDLUUULDDDLUUULDDDLUUUUUUUULDDLULULLLLLDLDLDLDRDLDRDLDRDRRRRRRUUULLLUURDRRRRDDLDDRRRRRRRUUUUUUUUULDDDDDLLLUULULULULLLLLLLLDRRDLLDRDLDRDLDRDLDRRRRRRRUUUURRDDLDDRRRRRRRRRR
+XX
+
+[24]
+MAPT
+WI20
+HE12
+MP####################
+MP# f  # #   # #   f #
+MP# f  # #   # #   f #
+MP#### # # g # # #####
+MP# f  # # h # #   f #
+MP# #### #   # ##### #
+MP# f    #   #     f #
+MP# #### ##%## ##### #
+MP# f  #  d d  #   f #
+MP#    #b     b#     #
+MP# f  #ddddddd#   f #
+MP#########!##########
+EXDDLLULUULLLLLUURRRUULLURRDDDLLLDDRRRRRDDRDRRRRURUURRRRRRUULLLLUURRRRULLLLDDDRRRRDDLLLLLLDDLDLLLLULUULLLLLDDRRRDDLULDLUUUURRRRRDDRDRRRRURUURRRRRRDDDDLLLLUURDRRURUULLLLLLDDDLLULUURULURULURULLDDDDDRDDLLLDDRRURRRRDLLLD
+XX
+
+[25]
+MAPT
+WI20
+HE12
+MP####################
+MP#%aaaaaaaaaaaaaaaaa#
+MP# c c c c  c c c c #
+MP##jjaaaaaaaaaaaajj##
+MP##jj#jj c  c jj#jj##
+MP##jj#jj#j#jj#jj#jj##
+MP##jj#jj#j#jj#jj#jj##
+MP##jj#jj#j#jj#jj#jj##
+MP##jj#jj#j#jj#jj#jj##
+MP##jj#jj#j#jj#jj#jj##
+MP##jj#jj#j#jj#jj#jj##
+MP########!###########
+EXRDDDDDDDDDRUUUUUUUUURRRRRRRRRRRRRRRDLDDDDDDDDLUUUUUUULULLLLLLLLLLLDRDDDDDDDRUUUUUUURRRRRRRRDDDDDDDLUUUUUULLDDDDDDLUUUUUULLDDDDDDD
+XX
+
+[26]
+MAPT
+WI20
+HE12
+MP####################
+MP######      d f ####
+MP##hoh#   bbgpd#f ###
+MP##oho   b##bgpd#f ##
+MP##hoh  b#  #bgpd#f #
+MP##oho b#    #bgpd# #
+MP#### b#      #bgpd #
+MP#   b#        #bgpd#
+MP#  b#          #bgp#
+MP# b#            #bg#
+MP#b%#            #!b#
+MP####################
+EXLURURURURUUURUURRRRRRRRRDRDRDRDDDDLUULULULULULULLLLLLDDLDLUULLDRDLDRRDRURURURURRRDRDRDRDRDRDRDRDL
+XX
+
+[27]
+MAPT
+WI20
+HE12
+MP####################
+MP#%a## a  #  a      #
+MP#   # # #a ##### # #
+MP### # #        #   #
+MP#  a  # # ## ## a  #
+MP# #####a#!# a  # # #
+MP#    #  #c a # a  ##
+MP#### # ## # a# #aa #
+MP#    # a # a # a  ##
+MP# ## ##   #  #a  # #
+MP# a   #   # # # #  #
+MP####################
+EXRDRDDRRUUURRDDDDDLDDRRDRDLLUULUURUUUUULLDDDLLLLDDRRRDDDDLLLUURRRUULLLUURRRRUUURRDDRRURURRRRRRDDDDDRDLDLDLUUUULLUULLUURRRRRRDDDDDLLULLDDDLUULLU
+XX
+
+[28]
+MAPT
+WI20
+HE12
+MP####################
+MP#        !         #
+MP#   ##        ##   #
+MP#  #hh#      #hh#  #
+MP# #hhhh# ## #hhhh# #
+MP#%#hhh   oo   hhh# #
+MP# #hhh hoooo# hhh# #
+MP# #hhhh######hhhh# #
+MP#  #hh#      #hh#  #
+MP#   ##        ##   #
+MP#                  #
+MP####################
+EXUUUURRRRRRRDDRRRDDRRURURDRDLLDRRDLDLULUULLDLULDLLLDLDLULURRULLURURDRDRRUUUUR
+XX
+
+[29]
+MAPT
+WI20
+HE12
+MP####################
+MP#    #    #   #    #
+MP#  h # e  # o # h  #
+MP#    #    #   #    #
+MP### ### ##%# ### ###
+MP#b   b    b   b   b#
+MP#b   b    b   b   b#
+MP### ### ##!# ### ###
+MP#    #   #    #    #
+MP#  e # o #  h # e  #
+MP#    #   #    #    #
+MP####################
+EXDRRUUULDRDDLLLLLDDDDDLUURUUUUUUURDDLDDLLLLUURUULDLDRDDDDDRDDLULDLUURRUUURRRRRRRRRRRRRUULUURDRURDDLLDDDDDRRDDLULDLUURUURRULLLDLULLLLLLLLLLLLLDRRRRRRRRRRRDDDLLUU
+XX
+
+[30]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP#  ##############  #
+MP#  #nnnnn##aaaaa#  #
+MP#  #g#ggg##ccc#c#  #
+MP#  #i##ii##dd##d#  #
+MP#  #rl##l##k##kk#  #
+MP#  #jjj#j##e#eee#  #
+MP#  #mmmmm##ppppp#  #
+MP#  ####bb##bb####  #
+MP#%                 !
+MP####################
+EXRRRRRRUULULDLUUUUURRDRURDDDDDDDRRRUUUUURULURRRRDDDLDRDLLLDDRRRRRUUUUUUUUULLLLLLLLLLLLLLLDDDDDDDDDRRRRRUULULULUUURRDRDRDDDDDRRRUUUUURURURRDDDLDLDLDDRRRRRRR
+XX
+
+[31]
+MAPT
+WI20
+HE12
+MP####################
+MP# a a a abba a a a #
+MP# ################ #
+MP# a a a abba a a a #
+MP# ################ #
+MP#%a a a abba a a a #
+MP# ################ #
+MP# a a a abba a a a #
+MP# ################ #
+MP# a a a abba a a a #
+MP# #######!######## #
+MP####################
+EXDDDDRRRRRRRRRRRRRRRRRUUUUUUUULLLLLLLLLLLLLLLLLDDRRRRRRRRRRRRRRRRRDDLLLLLLLLLLLLLLLLLDDRRRRRRRRRRRRRRRRRDDLLLLLLLLLD
+XX
+
+[32]
+MAPT
+WI20
+HE12
+MP####################
+MP#   #bbbb##bbbb#bb##
+MP#  #bb#bb#bb#bb#bbb#
+MP#b#bb#bb#bb#bb#bb#b#
+MP#bbb#bb#bb#bb#bb#bb#
+MP#%b##b##b##b##b##b##
+MP#bbb#bb#bb#bb#bb#bb#
+MP#b#bb#bb#bb#bb#bb#b!
+MP#bb#bb#bb#bb#bb#bb##
+MP##bb#bb#bb#bb#bb#bb#
+MP###bbbb##bbbb##bbbb#
+MP####################
+EXUUURULDDDDDDDRDRDRRRULULULULUURURURURRRDLDLDLDDRDRDRDRDRRRULULULULUURURURURRRDLDLDLDDRDRDRDRDRRRULULULULUURURUURDRDDLDDRDR
+XX
+
+[33]
+MAPT
+WI20
+HE12
+MP####################
+MP# i###i  jj  ffff  #
+MP# i###i j##j f###f #
+MP#  i#i j####jf###f #
+MP#  i#i j####jf###f #
+MP#%  i  j####jf###f #
+MP#   i  j####jffff  !
+MP#  i#i j####jf#f   #
+MP#  i#i j####jf##f  #
+MP# i###i j##j f###f #
+MP# i###i  jj  f###f #
+MP####################
+EXUUUURDDRDDRRUURUURDRURRRDRRURRRRDDDDDRDDDDLUULULULLUUULDDDDRDLDLDLLLULDLUURULLULLDDLDDLUUUUUUUUURDDRDLDRRRRDRUULLURRULURRRRRDRURRRRRRDLDRDLDDLLLLDDDDLLLLLLLUULUULLLLURRRRRDRUULLURRULURRRRRDRURRRRRRDLDRDDDR
+XX
+
+[34]
+MAPT
+WI20
+HE12
+MP####################
+MP#        %         #
+MP#   #pppppppppp#   #
+MP#   ##pppppppp##   #
+MP#   ###pppppp###   #
+MP#   ####pppp####   #
+MP#   #####pp#####   #
+MP#   ####pppp####   #
+MP#   ###pppppp###   #
+MP#   ##pppppppp##   #
+MP#   ##pppppppp##   #
+MP#########!##########
+EXLLLLDRDRDRDRDRURURURULLDLDLUURURRRRRRRDLDRDLDRDLDRDLDDRRUUUUUUUUULLLLDLLLLLLLDRRDDDDLDLDLDRRURURURDRDRDLLULDLD
+XX
+
+[35]
+MAPT
+WI20
+HE12
+MP####################
+MP#        c         #
+MP#       #!#        #
+MP#      #e h#       #
+MP#     #ee hh#      #
+MP#%   #eee hhh#     #
+MP#    #eee hhh#     #
+MP#     #ee hh#      #
+MP#      #e h#       #
+MP#       # #        #
+MP#bbbbbbbbbbbbbbbbbb#
+MP####################
+EXRRRDDRDRDRDRRUULULULURURURRDRDLLDDRDLDDRRRRRRRRRUUUUUUUUULLLLLLLLLLLLLLLLLDDDDDDDDDRRRRRRRRUURURURULLDLLURUUU
+XX
+
+[36]
+MAPT
+WI20
+HE12
+MP####################
+MP##%#   #   #   #   #
+MP## # c # c # c # c #
+MP## # # # # # # # # #
+MP## # # # # # # # # #
+MP## # # # # # # # # #
+MP## # # # # # # # # #
+MP## # # # # # # # # #
+MP## # # # # # # # # #
+MP#  c # c # c # c # #
+MP## a #   #   # a # #
+MP###############!####
+EXDDDDDDDDDRRUUUUUUUUURRDDDDDDDDDRRUUUUUUUUURRDDDDDDDDDRRUUUUUUUUURRDDDDDDDDDRRUUUUUUUURRULLDDDDDDDDDLLUUUUUUUUULLDDDDDDDDDLLUUUUUUUUULLDDDDDDDDDLLUUUUUUUUULLDDDDDDDDDLLURRUUUUUUURRDDDDDDDRRUUUUUUURRDDDDDDDRRUUUUUUURRDDDDDDDRDD
+XX
+
+[37]
+MAPT
+WI20
+HE12
+MP####################
+MP#   #ffffffffff#   #
+MP#   #fdddffdddf#   #
+MP# a #fd#dffd#df# a #
+MP#   #dd#dddd#dd#   #
+MP#%a bd###dd###db a !
+MP#   #dd#dddd#dd#   #
+MP# a #fd#dffd#df# a #
+MP#   #fdddffdddf#   #
+MP#   #ffffffffff#   #
+MP#   ############   #
+MP####################
+EXDDRUUUURDDRRURULUURDRURDDDRDDLDDLLUULDDDRRRRUURDDRRRRUUULDDLLUULUURULLUURDRURDRURDDLDRDRRUURDDDDRUUR
+XX
+
+[38]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP#       b  b       #
+MP#  r   b#bb#b   r  #
+MP#     b#    #b     #
+MP#%   b#  #b  #b    #
+MP#   b#   #b   #b   #
+MP#  b#b b  # b b#b  #
+MP# b#  ##bb#b##  #b #
+MP# #   #  #   #   #b!
+MP##    #  #   #    ##
+MP####################
+EXRRRUUUURRRRRDDDLDDDDDDLURURULUUURRRDDDDDRDLLURUUURRDRDDDRRULULULULULULLLDLDLDLDDDLLURURURRRUUURRRDRDRDLLULUUUULLLDLDLDLDLDLDLUUUUURRURRURRRRRRRRRRRDDLULLLLLLLLLURRRRRRRRRRDDLULLLDRDRDRDRDRDRDR
+XX
+
+[39]
+MAPT
+WI20
+HE12
+MP####################
+MP#%                 #
+MP#kkkkkk#  kkkkkkk# #
+MP# kk# kk#  kk#  k# #
+MP# kk# kk#  kk#  k# #
+MP# kk# kk#  kk#k#   #
+MP# kkkkk#   kkkk#   #
+MP# kk#      kk#k#   #
+MP# kk#      kk#     #
+MP# kk#      kk#     #
+MP#kkk##    kkk##    !
+MP####################
+EXDDDDDDDDDRRULURULURRRRURUULUURRRRRRRRDRRDDDDDDLLUULLDDDDLLURUUUURULURULLDDDDDDLDDLLLULUURUUUUULDDDDLLULURULURRURRRRRRRRRDRDDDDDDDRDRRRR
+XX
+
+[40]
+MAPT
+WI20
+HE12
+MP####################
+MP########bbbbbbd#####
+MP#######bbbbbbdd#####
+MP######bbbbbbddd#####
+MP#####eeeeeeeddd#####
+MP####%eeeeeeeddd#####
+MP#####eeeeeeeddd#####
+MP#####eee#eeedd######
+MP#####eeeeeeed#######
+MP#####eeeeeee########
+MP###########!########
+MP####################
+EXRURURURURDDLDLDLDLDDDRUURURURURUUURRRRDLLLDRRRDLLLDLDLDDLLDRRRUURURURRDLDLDLDD
+XX
+
+[41]
+MAPT
+WI20
+HE12
+MP####################
+MP#                  #
+MP#g#g#g#g#  #g#g#g#g#
+MP#g#g#g#g#  #g#g#g#g#
+MP#g#g#g#g#  #g#g#g#g#
+MP#g#g#g#g#h #g#g#g#g#
+MP#g#g#g#g# o#g#g#g#g#
+MP#g#g#g#g#  #g#g#g#g#
+MP#g#g#g#g#  #g#g#g#g#
+MP#g#g#g#g#  #g#g#g#g#
+MP#         %        #
+MP##########!#########
+EXRRUUUUUUUUULLLLLDDDDDDDDDRRRRRRRUUUUUUUUULLLLLLLLLDDDDDDDDDRRRRUUUURDDDDRRRRRRUUUUUUUUULLLLLLDDDDLUUUULLLLLLDDDDDDDDDRRRRRRUUUURDDDDRRRRRRRRUUUUUUUUULLLLLLLLDDDDLUUUULLLLLLLLDDDDDDDDDRRRRRRRRUUUURDDDDD
+XX
+
+[42]
+MAPT
+WI20
+HE12
+MP####################
+MP#####ii######j!#####
+MP####iiii#####ii#####
+MP### iiii ####ii#####
+MP#####ii######ii#####
+MP####eiihhhhhhiie####
+MP####eiiooooooiie####
+MP#####ii######ii#####
+MP#####ii#### iiii ###
+MP#####ii#####iiii####
+MP#####j%######ii#####
+MP####################
+EXLURULURULLURUULURURDRDLDDRDRURDRURDRURDDDLDRDRURULUURULULURULUR
+XX
+
+[43]
+MAPT
+WI20
+HE12
+MP####################
+MP#   n   g#f   d    #
+MP#  ##n #g#f# d##   #
+MP#  ###n g#f d###   #
+MP#  ####ng#fd####   #
+MP#%aaaaaa ! bbbbbbb #
+MP#  ####df#gn####   #
+MP#  ###d f#g n###   #
+MP#  ##d #f#g# n##   #
+MP#  #d ##f#g## n#   #
+MP#  d    f g    n   #
+MP####################
+EXRRRRRRRDDDDDRRUUUUURRRRRRRRDLLDRRDLLDRRDLLLLLLLLLLLLLLLLLURULURULURULURULURRRRDRDRDDDDLDLDLDLLLURULURULURULURULURRRRRRRDDDDDDDDDRRRRRRRRRRULLURRULLURRULLURRULLURRULLLLLDLDLDDDDRDRDRDRRRRULLURRULLURRULLURRULLURRULLLLLLLLDDDDL
+XX
+
+[44]
+MAPT
+WI20
+HE12
+MP####################
+MP## bb ##### bb #####
+MP# b##b##bb b##b bb #
+MP#b### bb  b ## b  b#
+MP#b# bbb# b#b# b#b# !
+MP#%#b##b#b##b#b##b###
+MP###b##b#b##b#b##b###
+MP###b#b #b##b#b##b###
+MP### b ##b#b #b#b ###
+MP######## b ## b ####
+MP####################
+MP####################
+EXUUURURRRDDDLLDDDDRRURUUUURRURDDLDDDDDRRURUUUUULURURRRDDDLDDDDDRRURUUUUULURRRDDR
+XX
+
+[45]
+MAPT
+WI20
+HE12
+MP####################
+MP# ii %  jj    ff   #
+MP#i##i  j##j  f##f  #
+MP#i##i  j##j  f##f  #
+MP! ii    jj    ff   #
+MP##bb####bb####bb####
+MP##bb####bb####bb####
+MP# ii    jj    dd   #
+MP#i##i  j##j  d##d  #
+MP#i##i  j##j  d##d  #
+MP# ii    jj    ##   #
+MP####################
+EXDDDRRRRRRRRRRDDDRDDDRRULURULLLUUURUUULLLDDDRDDDLDDDLLLLLLLLLLLLUUURUUURDDDRDDRUURDDRUURUURDDRDDRRRUURUUULLLLUUULLLDDDLLLUUULLLDDDL
+XX
+
+[46]
+MAPT
+WI20
+HE12
+MP####################
+MP#% o #ee# h h h #  #
+MP# o o#eh#  o o  #bg#
+MP#  o #ee    e      #
+MP#o   #oee h   h ####
+MP# o  ####  o o     #
+MP#### o o o ####o   #
+MP# b   o o  hhh#oo  #
+MP#gg#o  o    hh#ooo #
+MP!bb# o  o  #hh#oooo#
+MP#gg#o o   h#hh#oooo#
+MP####################
+EXDDRDRRDDDRDRDRDRRURUUUULUURRDRRURRRRURDLLLLLDLLULLDDRDDLDDDLLULULULUULLLUUURURRDDLDRDDDRDRDRDRRUUURUULUURRDRRURRDDRRRDDDDDLLLURRULLURRULLULUUUULDDDDLUUUULDDDDLUUUULDDLLUULDDDRRRDDRDRRRDDDLUULLDDLLLLLLUURDRRRULURULLDLULDLLLDRDDLUL
+XX
+
+[47]
+MAPT
+WI20
+HE12
+MP####################
+MP#    p       p     #
+MP# ###p#l#r#l#p#### #
+MP# lllp#l#r#l#pllll #
+MP# ###p#l#r#l#p#### #
+MP# lllp#l#r#l#pllll #
+MP#%###p#l#r#l#p#### #
+MP# lllp#l#r#l#pllll #
+MP# ###p#l#r#l#p#### #
+MP# lllp#l#r#l#pllll #
+MP#                  #
+MP#########!##########
+EXDDDDRRRRRRRRUUUUUUUUULLDDDDDDDDDRRRRUUUUUUUUULLLLLLLLLLDDRRRRDDLLLLDDRRRRDDLLLLDRRRRRRRRRRRRUUUUUUUUULLLLLLLLLLLLDDRRRRDDLLLLDDRRRRDDLLLLDRRRRRRRRRRRRRRRRRULLLLLUURRRRRUULLLLLUURRRRRUULLLLLLLLLLLLLDDLLLLDDRRRRDDDDDRRRRD
+XX
+
+[48]
+MAPT
+WI20
+HE12
+MP####################
+MP#     ########     #
+MP# f#d #hhhhhh# d#f #
+MP# f#d #b#ee#b# d#f #
+MP# f#d #oo##oo# d#f #
+MP#%### iooggooi ### !
+MP# d#f #oo##oo# f#d #
+MP# d#f #b#ee#b# f#d #
+MP# d#f #hhhhhh# f#d #
+MP#     ########     #
+MP#        ##        #
+MP####################
+EXDDDDRRRRUUUURRDRURRRURDRRURUUURRDDDRDDDDDLLLLUUUULLLLLLLLLULURULULLDLDRDLDDRDLDRDLDRRURDRUULUURURRDDDRRURDRRUULULLLULUURRDRURRDDDRRDRDDDRRUUURUR
+XX
+
+[49]
+MAPT
+WI20
+HE12
+MP####################
+MP#        %         #
+MP# #b##bb#bb#bb##b# #
+MP# #b ##b#bb#b## b# #
+MP# #rb #bb##bb# br# #
+MP#  #rb bb##bb br#  #
+MP#   #rb #bb# br#   #
+MP#    #rb#bb#br#    #
+MP# e   #llllll#   e #
+MP#  e   ######   e  #
+MP#        !#        #
+MP####################
+EXRRRRDLDDLDRDRRURURUUURRDDDDDDDLDRDLLLLLURRRUUURRUUUUULLDDDLDLDLDLDLLLLLULULULULUUURRRRRRDDRUURRDRURRRDDDLDLLLDRDLDLLUULDDLLULULURRRULUULULLLLLDDDDDDDRRDDRRRRRR
+XX
+
+[50]
+MAPT
+WI20
+HE12
+MP####################
+MP#abcdefghijklmnopqr#
+MP#abcd####ij####opqr#
+MP#abcd#fghij#  #opqr#
+MP!abcd#fghij#  #opqr#
+MP#%bcd####ij#  #opqr#
+MP#abcdefg#ij#  #opqr#
+MP#abcdefg#ij#  #opqr#
+MP#abcd#fg#ij#  #opqr#
+MP#abcd####ij####opqr#
+MP#abcdefghijklmnopqr#
+MP####################
+EXDDDDDRRULURULURRRRRDDLULLDDDRRRRRUUUUUULLLURRRURDDDDDDDDRRRRRRRRULLLURRRULLLURRRULLLURRRULLLURRRULLLLLLLLLLLLLLLDRDLDRDLLUUUULDDDL
+XX
+
+[51]
+MAPT
+WI20
+HE12
+MP
+MP####################
+MP#       u          #
+MP#     t      w     #
+MP# %      v        y#
+MP#    s        x    #
+MP#################  #
+MP#####!            z#
+MP####################
+MP
+MP
+MP
+EXDRRRUURURRDDRRURRRDDRRURRRDDDLLLLLLLLLLLL
+XX
+!END

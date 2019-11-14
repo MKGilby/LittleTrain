@@ -1,0 +1,39 @@
+m create 576 32 2
+r tga g01.tga 1
+m copyto 0 0 32 32 0 0 1 2
+r tga g02.tga 1
+m copyto 0 0 32 32 32 0 1 2
+r tga g03.tga 1
+m copyto 0 0 32 32 64 0 1 2
+r tga g04.tga 1
+m copyto 0 0 32 32 96 0 1 2
+r tga g05.tga 1
+m copyto 0 0 32 32 128 0 1 2
+r tga g06.tga 1
+m copyto 0 0 32 32 160 0 1 2
+r tga g07.tga 1
+m copyto 0 0 32 32 192 0 1 2
+r tga g08.tga 1
+m copyto 0 0 32 32 224 0 1 2
+r tga g09.tga 1
+m copyto 0 0 32 32 256 0 1 2
+r tga g10.tga 1
+m copyto 0 0 32 32 288 0 1 2
+r tga g11.tga 1
+m copyto 0 0 32 32 320 0 1 2
+r tga g12.tga 1
+m copyto 0 0 32 32 352 0 1 2
+r tga g13.tga 1
+m copyto 0 0 32 32 384 0 1 2
+r tga g14.tga 1
+m copyto 0 0 32 32 416 0 1 2
+r tga g15.tga 1
+m copyto 0 0 32 32 448 0 1 2
+r tga g16.tga 1
+m copyto 0 0 32 32 480 0 1 2
+r tga g17.tga 1
+m copyto 0 0 32 32 512 0 1 2
+r tga g18.tga 1
+m copyto 0 0 32 32 544 0 1 2
+w tga objects.tga 2
+

@@ -1,0 +1,87 @@
+Todo:
+* Make the congratulations map endless: When the engine stops at
+  the red-light, another engine (a blue one) comes from right and goes
+  away with the wagons. Then the light changes to green, more present appears
+  and the train goes to pick them up again. Light changes back to red after
+  the engine passes it.
+  (This increases the probability to the player listens to the "congrats" music
+  in its entirety.)
+* EYE-CANDY: When completing a map, during the end of map sfx, the wagons should
+  be rushing into the exit with increasing speed.
+  (Curtain should be delayed a few secs.)
+* Draw a tunnel in the wall piece for the entry/exit point of the blue engine.
+
+
+2019.11.14
+* Explosion keeps the direction of the engine.
+* In the congratulations map the blue engine comes in and pulls the
+  congratulations wagons off-screen.
+* Under the hood: Implemented ping-pong animation mode in TAnimation.
+
+2019.11.13
+* Under the hood: Animations reworked again, even smaller file size.
+
+2019.11.07
+* Preparations under the hood to allow the endless congratulations map.
+* Engine on congratulations map now starts from the signal, but only when it is
+  turns green.
+
+2019.11.01
+* The congratulations map plays the congratulations music.
+* Made a signal to stop the train instead of the end-track piece.
+* Made a blue engine. It will be used in the congratulations map.
+* Using the stopped wheel animation when the train stops at the red signal.
+* Congratulations map layout modified to let the engine go around and
+  collect the presents again and again.
+
+2019.10.31
+* Created an engine animation with stopped wheels only puffing the steam.
+* Sprites are reworked, animations loads by bytecode.
+* Using the stopped wheel animation at the start of a map.
+
+2019.10.24
+* Congratulations map plays itself.
+* The train stops at the track-end piece.
+* There are a fixed text that appears at "Congratulations" type maps.
+
+2019.10.11
+* Animation data comes from the ImageList bytecode.
+  (No need to set framedelays in the code)
+
+2019.10.07
+* Map data reworked again, to hold flags and optionally the solution sequence.
+* Congrats map have only the total score and a "Congratulations!" text in the map selector.
+* Congrats thumbnail shows the track end piece instead of door.
+
+2019.10.06
+* Map data reworked, to hold congratulations blocks too.
+* Congrats map is added to map selector.
+* It is playable, in the final version it will play itself.
+* Congrats map hides scoreboard when playing itself.
+* Congrats wagons are animated.
+
+2019.10.04
+* BUG: Animations are not looped (except crash2)
+* Created sprites of "congratulations" map.
+
+2019.10.03
+* ImageCollections changed to ImageLists and are loaded by interpreted bytecode.
+
+2019.09.24
+* Animated goodies starts at a random frame.
+
+2019.09.20-23
+* Map file reworked, XMap and XMapPack dropped. (EXE and DATA size reduced.)
+* Options text is centered vertically
+* Options font color changed
+* After total score you can see how much points you got for the currently
+  selected map.
+
+2019.09.19
+* BUGFIX: Memory leaks
+* REWORK: Sprites
+* REWORK: PlayerRegistry
+
+2014.09.18 - V0.1.406
+* Intro is now synchronized to timer instead of count of frames.
++ Press F12 anytime when key input accepted to access volume settings.

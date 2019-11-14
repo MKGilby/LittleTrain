@@ -1,0 +1,141 @@
+(..system..) Starting Application. 2019. 11. 07. 15:54:00
+(..system..) (Status) [Warning] {Error} <Debug>
+(uses) Logger.pas, version 1.14
+(uses) MKToolbox.pas, version 3.42
+(uses) QuickSortUnit.pas, version 1.01
+(uses) Lists.pas, version 3.15
+(uses) MAD4LowLevelUnit.pas, version 1.10a
+(uses) MyZStreamUnit.pas, version 1.02
+(uses) RLEUnit.pas, version 1.25a
+(uses) HuffmanUnit.pas, version 1.03a
+(uses) CodingUnit.pas, version 1.08
+(uses) CompressorUnit.pas, version 1.22
+(uses) MAD4MidLevelUnit.pas, version 1.10a
+(uses) MAD4HighLevelUnit.pas, version 1.05
+(uses) MKStream.pas, version 2.08
+(uses) MKINIFile.pas, version 2.17
+(uses) TileMapUnit.pas, version 1.04
+(uses) XMapUnit.pas, version 1.89
+(uses) RiffReaderUnit.pas, version 2.02
+(uses) SPackUnit.pas, version 1.00
+(uses) XMapChainUnit.pas, version 1.04a
+(uses) XMapPackUnit.pas, version 3.09
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('ltrain.mpk')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (ltrain.mpk)
+<MKStream.pas, TMKStreamOpener.OpenStream> Check on disk (ltrain.mpk)
+(XMapPackUnit.pas, TXMapPack.Load) 51 maps loaded.
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "01".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "02".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "03".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "04".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "05".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "06".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "07".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "08".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "09".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "10".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "11".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "12".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "13".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "14".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "15".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "16".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "17".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "18".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "19".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "20".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "21".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "22".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "23".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "24".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "25".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "26".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "27".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "28".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "29".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "30".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "31".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "32".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "33".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "34".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "35".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "36".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "37".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "38".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "39".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "40".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "41".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "42".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "43".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "44".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "45".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "46".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "47".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "48".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "49".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "50".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+(XMapPackUnit.pas, TXMapPack.GetMap) GetMap serves map having name "51".
+<XMapUnit.pas, TXMap.Load> First 4 char: 'MAPT'
+< Trace > FF
+< Trace > C1
+< Trace > 54
+< Trace > 11
+< Trace > 69
+< Trace > 45
+< Trace > 69
+< Trace > 45
+< Trace > 6A
+< Trace > FF
+< Trace > FF
+< Trace > FF
+(..system..) Terminating Application. 2019. 11. 07. 15:54:00

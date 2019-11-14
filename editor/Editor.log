@@ -1,0 +1,16 @@
+(..system..) Starting Application. 2019/09/08 11:02
+(..system..) () carets -> Status message
+(..system..) [] carets -> Warning message
+(..system..) {} carets -> Error message
+(..system..) ControlMemory initializing...
+(..system..) ControlMemory initializing successful.
+--------------------------------------
+<> LittleTrain Editor V0.00 Build 0093
+--------------------------------------
+{MK_SDL_AUDIO.II, Init_Audio} An incorrect version of BASS.DLL was loaded
+(MADREAD.II, TMad.Init) (LittleTrain.mad)
+(MADREAD.II, TMad.Init) HeadStart=797000
+(MADREAD.II, TMad.Init) Compressed filelist...
+(..system..) ControlMemory finalizing...
+(..system..) ControlMemory finalizing successful.
+(..system..) Terminating Application. 2019/09/08 11:02

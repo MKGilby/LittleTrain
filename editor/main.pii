@@ -1,0 +1,116 @@
+type PMain=^TMain;
+     TMain=object
+       constructor Init;
+       destructor Done;
+       procedure Run;
+     private
+       function BackPattern:PImage;
+       fBack:PImage;
+       fButtons:array[0..11] of PButton;
+     end;
+
+var Main:PMain;
+     
+constructor TMain.Init;
+var i:integer;
+begin
+  fBack:=BackPattern;
+  new(Blocks,Init(675,17));
+  MouseObjects^.Add(Blocks);
+  new(MapEdit,Init(17,17));
+  MouseObjects^.Add(MapEdit);
+  new(MapSelect,Init(40,484));
+  MouseObjects^.Add(MapSelect);
+  MapSelect^.Add;
+  MapEdit^.SetMap(MapSelect^.GetMap(0));
+  new(fButtons[0],Init('controls.ini','InsertBefore',MAD));
+  new(fButtons[1],Init('controls.ini','InsertAfter',MAD));
+  new(fButtons[2],Init('controls.ini','Duplicate',MAD));
+  new(fButtons[3],Init('controls.ini','Delete',MAD));
+  new(fButtons[4],Init('controls.ini','MoveLeft',MAD));
+  new(fButtons[5],Init('controls.ini','MoveRight',MAD));
+  new(fButtons[6],Init('controls.ini','New',MAD));
+  new(fButtons[7],Init('controls.ini','Save',MAD));
+  new(fButtons[8],Init('controls.ini','Open',MAD));
+  new(fButtons[9],Init('controls.ini','SaveAs',MAD));
+  new(fButtons[10],Init('controls.ini','Import',MAD));
+  new(fButtons[11],Init('controls.ini','Quit',MAD));
+  for i:=0 to 11 do
+    MouseObjects^.Add(fButtons[i]);
+end;
+
+destructor TMain.Done;
+var i:integer;
+begin
+  dispose(Blocks,Done);
+  dispose(MapEdit,Done);
+  dispose(MapSelect,Done);
+  for i:=0 to 11 do
+    dispose(fButtons[i],Done);
+  DestroyImage(fBack);
+end;
+
+function TMain.BackPattern:PImage;
+type TScreen=Array [0..800,0..600] of integer;
+var i,j,k,l,v1,d:integer;
+    pattern:^TScreen;
+    atm:PImage;
+begin
+  randomize;
+  atm:=CreateImageWH(800,600);
+  new(pattern);
+  v1:=64;
+  for i:=0 to 800 do begin
+    pattern^[i,0]:=v1;
+    v1+=random(3)-1;
+  end;
+  v1:=64;
+  for i:=0 to 600 do begin
+    pattern^[0,i]:=v1;
+    v1+=random(3)-1;
+  end;
+  for i:=0 to 799 do begin
+    for j:=0 to 599 do begin
+      d:=((pattern^[i+1,j]+pattern^[i,j+1]) div 2)+random(4)-1;
+      pattern^[i+1,j+1]:=d;
+    end;
+  end;
+  for i:=0 to 799 do begin
+    k:=trunc(cos(i*pi/2400)*255);
+    l:=trunc(cos((799-i)*pi/2400)*255);
+    for j:=0 to 599 do begin
+      d:=(round(sin(pattern^[i+1,j+1]*pi/400)*k)+round(sin(pattern^[800-i,600-j]*pi/400)*l)) div 2;
+      putpixel(atm^.Surface,i,j,BackR*d>>8,BackG*d>>8,BackB*d>>8);
+    end;
+  end;
+  dispose(pattern);
+  BackPattern:=atm;
+end;
+
+procedure TMain.Run;
+begin
+  PutImage(0,0,fBack);
+  Rectangle(16,16,657,401,BackR,BackG,BackB);
+  bar(17,17,656,400,0,0,0);
+  Rectangle(674,16,783,269,BackR,BackG,BackB);
+  Rectangle(39,483,760,584,BackR,BackG,BackB);
+
+//  bar(675,17,782,272,0,0,0);
+  Flip;
+  repeat
+    MouseObjects^.Draw;
+    SDL_Delay(TimeLeft);
+    Flip;
+    HandleMessages;
+    if Blocks^.SelectedBlock>-1 then begin
+      MapEdit^.SetBlock(Blocks^.SelectedBlock);
+      Blocks^.SelectedBlock:=-1;
+    end;
+    if MapEdit^.Refresh then begin
+      MapSelect^.RefreshThumbnail(0);
+      MapEdit^.Refresh:=false;
+    end;
+  until keys[SDLK_Escape];
+end;
+
+

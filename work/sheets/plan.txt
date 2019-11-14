@@ -1,0 +1,16 @@
+
+
+
+In memory sheets:
+        [ D ][ C ][ A ][ B ]    Notrotated
+        [ E ][ A ][ F ]         Rotated
+
+Optimized gfx files:
+        [ E ][ D ][ C ][ A ][ B ][ F ]
+          R    N    N    NR   N    R
+
+Frames: [ A ][ B ][ C ][ D ][ E ][ F ]
+          NR   N    N    N    R    R
+
+Anim1.: [ A ][ B ][ C ][ D ][ C ][ B ]                 NotRotated  2,3,1,0,1,3
+Anim2.:                               [ E ][ A ][ F ]  Rotated     0,1,2

@@ -1,0 +1,9 @@
+m create 448 32 2
+r tga crash1.tga 1
+m copyto 0 0 192 32 0 0 1 2
+r tga crash2.tga 1
+m copyto 0 0 256 32 192 0 1 2
+w atga crash.tga 14 4 2
+w atga2 crask.tga 14 4 0 0 0 128 2
+w png crash.png 2
+

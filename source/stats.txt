@@ -1,0 +1,90 @@
+Graphics: (18+18+4)/(18+18+4)=(40/40)= 100.0%
+
+ Goodies
+
+  Name       Goodie Wagon
+ +------------+----+----+
+ |Gem         | OK | OK |
+ |Tree        | OK | OK |
+ |Crown       | OK | OK |
+ |Apple       | OK | OK |
+ |Cow         | OK | OK |
+ |Cherry      | OK | OK |
+ |Fish(Oasis) | OK | OK |
+ |Giraffe     | OK | OK |
+ |IceCream    | OK | OK |
+ |Cake        | OK | OK |
+ |Computer    | OK | OK |
+ |Car         | OK | OK |
+ |Balloon     | OK | OK |
+ |Clock       | OK | OK |
+ |Elephant    | OK | OK |
+ |Cocktail    | OK | OK |
+ |Cash(Money) | OK | OK |
+ |Airplane    | OK | OK |
+ +------------+----+----+
+
+  Other objects
+ +------+----+
+ |Door  | OK |
+ |Engine| OK |
+ |Wall  | OK |
+ |Crash | OK |
+ +------+----+
+
+Levels: (50+50)/(50+50)=100/100=100%
+  No Pass  Rip  Build
+ +--+-----+----+----+
+ |01|     | OK | OK |
+ |02|KRONE| OK | OK |
+ |03|MYDLO| OK | OK |
+ |04|LEDEN| OK | OK |
+ |05|STROP| OK | OK |
+ |06|LILIE| OK | OK |
+ |07|RYBKA| OK | OK |
+ |08|KLAUN| OK | OK |
+ |09|BRAUN| OK | OK |
+ |10|WHITE| OK | OK |
+ |11|MOUSE| OK | OK |
+ |12|DREAM| OK | OK |
+ |13|IDEAL| OK | OK |
+ |14|ILUZE| OK | OK |
+ |15|SAINT| OK | OK |
+ |16|BELLS| OK | OK |
+ |17|TROJA| OK | OK |
+ |18|EMOCE| OK | OK |
+ |19|BASTL| OK | OK |
+ |20|ISLAM| OK | OK |
+ |21|JEANS| OK | OK |
+ |22|METAL| OK | OK |
+ |23|MIKRO| OK | OK |
+ |24|SENZA| OK | OK |
+ |25|GALAX| OK | OK |
+ |26|STONE| OK | OK |
+ |27|SLAVE| OK | OK |
+ |28|FORTE| OK | OK |
+ |29|LUCIE| OK | OK |
+ |30|NATUR| OK | OK |
+ |31|BIENE| OK | OK |
+ |32|KATZE| OK | OK |
+ |33|HYDRO| OK | OK |
+ |34|FAUNA| OK | OK |
+ |35|ULTRA| OK | OK |
+ |36|TODAY| OK | OK |
+ |37|HOROR| OK | OK |
+ |38|GAPPA| OK | OK |
+ |39|RETAL| OK | OK |
+ |40|CLOCK| OK | OK |
+ |41|HOMER| OK | OK |
+ |42|BUNNY| OK | OK |
+ |43|FOTON| OK | OK |
+ |44|QUACK| OK | OK |
+ |45|HAFIK| OK | OK |
+ |46|DIZZY| OK | OK |
+ |47|STARK| OK | OK |
+ |48|ZARAZ| OK | OK |
+ |49|DUKEN| OK | OK |
+ |50|STORY| OK | OK |
+ +--+-----+----+----+
+
+

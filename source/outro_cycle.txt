@@ -1,0 +1,12 @@
+
+-> Itt kezdünk, mert az elsõ kört a congrats térképpel együtt töltjük be.
+*  Kész
+
+   0. A mozdony áll a piros lámpánál
+   1. Megjelennek az ajándékok, a solution string feltöltõdik az összeszedéshez szükséges lépésekkel
+*->2. Még várunk egy picit
+*  3. Zöldre vált a lámpa
+*  4. A mozdony összeszedi az ajándékokat és visszamegy a lámpához (közben a lámpa visszavált pirosra)
+   5. Kicsi szünet
+   6. A kék mozdony bejön, majd kiviszi a congrats vagonokat
+   7. Goto 1

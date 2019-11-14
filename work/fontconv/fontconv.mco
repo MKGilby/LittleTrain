@@ -1,0 +1,10 @@
+r bmp font2.bmp 1
+r bmf font2.bmf 1
+w tga font2.tga 1
+
+r gsd font.gsd 1
+r bmf font.bmf 1
+w tga font.tga 1
+
+r cel congafnt.cel 1
+w tga congafnt.tga 1

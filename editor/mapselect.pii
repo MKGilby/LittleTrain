@@ -1,0 +1,122 @@
+// uses the globally defined IC variable
+
+type PMapSelectItem=^TMapSelectItem;
+     TMapSelectItem=record
+       fMap:PXMap;
+       fThumbnail:PImage;
+     end;
+
+type PMapSelect=^TMapSelect;
+     TMapSelect=object(TMouseObject)
+       constructor Init(iX,iY:integer);
+       destructor Done;
+       
+       procedure Add;
+       procedure Insert(iIndex:integer);
+       procedure RefreshThumbnail(iIndex:integer);
+       function GetMap(iIndex:integer):PXMap;
+       
+       procedure Draw; virtual;
+       procedure OnMouseMove(x,y,buttons:integer); virtual;
+       procedure OnMouseLeave(x,y,buttons:integer); virtual;
+       procedure OnClick(x,y,buttons:integer); virtual;
+
+     private
+       fItems:array of PMapSelectItem;
+       fFirst:integer;
+       fMOver:integer;
+       fAlpha:integer;
+       fCursor:PImage;
+     end;
+
+var MapSelect:PMapSelect;
+     
+constructor TMapSelect.Init(iX,iY:integer);
+begin
+  SetBounds(iX,iY,iX+719,iY+99);
+  fMOver:=-1;
+  fAlpha:=0;
+  fFirst:=0;
+  fCursor:=CreateImageWH(160,96);
+  bar(fCursor,0,0,159,96,128,128,128);
+end;
+
+destructor TMapSelect.Done;
+begin
+  DestroyImage(fCursor);
+end;
+
+procedure TMapSelect.Draw;
+var i:integer;
+begin
+  bar(fLeft+32,fTop,fRight-32,fBottom,0,0,0);
+  if fAlpha<128 then
+    SDL_SetAlpha(fCursor^.Surface,SDL_SRCALPHA,fAlpha+64)
+  else
+    SDL_SetAlpha(fCursor^.Surface,SDL_SRCALPHA,320-fAlpha);
+  inc(fAlpha,4);
+  if fAlpha=256 then fAlpha:=0;
+  for i:=0 to 3 do
+    if fFirst+i<length(fItems) then PutImage(fLeft+34+i*164,fTop+2,fItems[fFirst+i]^.fThumbnail);
+//  putimage(fLeft+(fActive mod 3)*36+2,fTop+(fActive div 3)*36+2,fCursor);
+//  if fMOver>-1 then
+//    rectangle(fLeft+(fMOver mod 3)*36+1,fTop+(fMOver div 3)*36+1,fLeft+(fMOver mod 3)*36+34,fTop+(fMOver div 3)*36+34,255,255,255);
+  if fMOver>-1 then
+    putimage(fLeft+34+fMOver*164,fTop+2,fCursor);
+end;
+
+procedure TMapSelect.OnMouseMove(x,y,buttons:integer);
+begin
+  fMOver:=(x-fLeft-32) div 164;
+  if fMOver+fFirst>=length(fItems) then fMOver:=-1;
+end;
+
+procedure TMapSelect.OnMouseLeave(x,y,buttons:integer);
+begin
+  fMOver:=-1;
+end;
+
+procedure TMapSelect.OnClick(x,y,buttons:integer);
+begin
+end;
+
+procedure TMapSelect.Add;
+begin
+  Insert(length(fItems));
+end;
+
+procedure TMapSelect.Insert(iIndex:integer);
+var atm:PMapSelectItem;i:integer;
+begin
+  if (iIndex>=0) and (iIndex<=length(fItems)) then begin
+    new(atm);
+    new(atm^.fMap,Init);
+    atm^.fMap^.Load('empty.mpt',MAD);
+    atm^.fThumbnail:=CreateImageWH(160,96);
+    SetLength(fItems,length(fItems)+1);
+    for i:=length(fItems)-2 downto iIndex do fItems[i+1]:=fItems[i];
+    fItems[iIndex]:=atm;
+    RefreshThumbnail(iIndex);
+  end;
+end;
+
+procedure TMapSelect.RefreshThumbnail(iIndex:integer);
+var x,y:integer;b:byte;
+begin
+  if (iIndex>=0) and (iIndex<=length(fItems)) then begin
+    bar(fItems[iIndex]^.fThumbnail,0,0,159,95,0,0,0);
+    for y:=0 to 11 do
+      for x:=0 to 19 do begin
+        b:=fItems[iIndex]^.fMap^.GetOrigTile(x,y);
+        if b<>32 then
+          PutImagePart(fItems[iIndex]^.fThumbnail,x*8,y*8,0,0,7,7,IC^.Find(chr(b)+'/4'));
+      end;
+  end;
+end;
+
+function TMapSelect.GetMap(iIndex:integer):PXMap;
+begin
+  if (iIndex>=0) and (iIndex<length(fItems)) then
+    GetMap:=fItems[iIndex]^.fMap;
+end;
+

@@ -1,0 +1,3 @@
+r tga mksztsz_noremakes.tga 1
+m crop 0 0 0 1
+w tga mksztsz.tga 1
