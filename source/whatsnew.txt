@@ -17,6 +17,7 @@ Todo:
 * In the congratulations map the blue engine comes in and pulls the
   congratulations wagons off-screen.
 * Under the hood: Implemented ping-pong animation mode in TAnimation.
+* GIT integration
 
 2019.11.13
 * Under the hood: Animations reworked again, even smaller file size.
