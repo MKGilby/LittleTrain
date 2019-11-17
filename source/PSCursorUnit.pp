@@ -24,6 +24,7 @@ type TPSCursor=class
        fPosition:integer;
        fTPosition:integer;
        fSpeed:integer;
+       fInOutState:(ioHidden,ioComingInDelay,ioComingIn,ioVisible,ioGoingOutDelay,ioGoingOut);
        fFase:integer;
        fLight,fLight2:integer;
      end;
@@ -32,7 +33,7 @@ implementation
 
 uses SysUtils;
 
-const CursorSteps:integer=64;
+const CursorSteps:integer=64;  // How many steps to fly the cursor in and out
       CursorMul:integer=10; // 640 div CursorSteps;
 
 constructor TPSCursor.Create(iPosition,iDelay:integer);
@@ -44,6 +45,7 @@ begin
   fPosition:=iPosition;
   fTPosition:=fPosition;
   fImage:=TImage.Create(512+640,2);
+  fInOutState:=ioComingInDelay;
   v:=0;d:=1;
   for i:=0 to 512+640-1 do begin
     fImage.bar(i,0,1,2,r*v>>8,g*v>>8,b*v>>8);
@@ -71,14 +73,20 @@ end;
 procedure TPSCursor.StartOut;
 begin
   fDelay:=fSaveDelay;
-  fFase:=CursorSteps+1
+  fInOutState:=ioGoingOutDelay;
 end;
 
 procedure TPSCursor.Draw;
 begin
   if fDelay>0 then begin
     dec(fDelay);
-    if fDelay=0 then inc(fFase);
+    if fDelay=0 then begin
+      case fInOutState of
+        ioComingInDelay:fInOutState:=ioComingIn;
+        ioGoingOutDelay:fInOutState:=ioGoingOut;
+      end;
+      fFase:=0;
+    end;
   end;
   inc(fLight,2);
   if fLight=512 then fLight:=0;
@@ -96,23 +104,44 @@ begin
     inc(fPosition,1<<fSpeed);
   end;
 
-  if (fFase>0) and (fFase<=CursorSteps) then begin
+  case fInOutState of
+    ioComingIn:begin
+      inc(fFase);
+      PutImagePart(0,fPosition   ,640-fFase*CursorMul+fLight,0,639+fLight,1,fImage);
+      PutImagePart(0,fPosition+28,640-fFase*CursorMul+fLight2,0,639+fLight2,1,fImage);
+      barWH(0,fPosition+2,fFase*CursorMul,26,5,27,40);
+      if fFase=CursorSteps then fInOutState:=ioVisible;
+    end;
+    ioVisible:begin
+      PutImagePartWH(0,fPosition   ,fLight,0,640,2,fImage);
+      PutImagePartWH(0,fPosition+28,fLight2,0,640,2,fImage);
+      BarWH(0,fPosition+2,640,26,5,27,40);
+    end;
+    ioGoingOut:begin
+      PutImagePartWH(fFase*CursorMul,fPosition   ,fLight,0,640-fFase*CursorMul,2,fImage);
+      PutImagePartWH(fFase*CursorMul,fPosition+28,fLight2,0,640-fFase*CursorMul,2,fImage);
+      bar(fFase*CursorMul,fPosition+2,639,fPosition+27,5,27,40);
+      inc(fFase);
+      if fFase=CursorSteps then fInOutState:=ioHidden;
+    end;
+  end;
+{  if (fFase>0) and (fFase<=CursorSteps) then begin
     PutImagePart(0,fPosition   ,640-fFase*CursorMul+fLight,0,639+fLight,1,fImage);
     PutImagePart(0,fPosition+28,640-fFase*CursorMul+fLight2,0,639+fLight2,1,fImage);
     bar(0,fPosition+2,fFase*CursorMul-1,fPosition+27,5,27,40);
     inc(fFase);
-  end;
-  if (fFase=CursorSteps+1) then begin
-    PutImagePart(0,fPosition   ,fLight,0,fLight+639,1,fImage);
-    PutImagePart(0,fPosition+28,fLight2,0,fLight2+639,1,fImage);
-    bar(0,fPosition+2,639,fPosition+27,5,27,40);
-  end;
-  if (fFase>CursorSteps+1) and (fFase<=CursorSteps<<1+1) then begin
+  end;}
+{  if (fFase=CursorSteps+1) then begin
+    PutImagePartWH(0,fPosition   ,fLight,0,640,2,fImage);
+    PutImagePartWH(0,fPosition+28,fLight2,0,640,2,fImage);
+    BarWH(0,fPosition+2,640,26,5,27,40);
+  end;}
+{  if (fFase>CursorSteps+1) and (fFase<=CursorSteps<<1+1) then begin
     PutImagePart((fFase-CursorSteps-1)*CursorMul,fPosition   ,fLight,0,fLight+639-(fFase-CursorSteps-1)*CursorMul,1,fImage);
     PutImagePart((fFase-CursorSteps-1)*CursorMul,fPosition+28,fLight2,0,fLight2+639-(fFase-CursorSteps-1)*CursorMul,1,fImage);
     bar((fFase-CursorSteps-1)*CursorMul,fPosition+2,639,fPosition+27,5,27,40);
     inc(fFase);
-  end;
+  end;}
 end;
 
 function TPSCursor.GetPosition:integer;
@@ -123,6 +152,7 @@ end;
 procedure TPSCursor.Restart;
 begin
   fDelay:=fSaveDelay;
+  fInOutState:=ioComingInDelay;
   fFase:=0
 end;
 

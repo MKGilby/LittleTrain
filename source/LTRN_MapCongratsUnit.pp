@@ -30,6 +30,8 @@ type
 
   TMapCongrats=class(TMapBase)
     function Play:integer; override; // Result: 0-Completed, 1-Escaped, 2-Dead
+  private
+    procedure CreatePresentsAndPath;
   end;
 
 implementation
@@ -81,7 +83,7 @@ begin
       end;
     2:begin   // Waiting a little bit
         inc(fCounter);
-        if fCounter=2*60 then begin
+        if fCounter=20 then begin
           fCounter:=0;
           inc(fState);
           fSprite.ReverseAnim:=false;
@@ -171,9 +173,24 @@ begin
     if keys[OptionsKey] then Options.Run;
     if Curtain.State=0 then begin
       case fState of
+        0:begin  // Wait a little bit
+            inc(fCounter);
+            if fCounter=60 then begin
+              inc(fState);
+              fCounter:=0;
+            end;
+          end;
+        1:begin  // Create new presents and path
+            inc(fCounter);
+            if fCounter=10 then begin
+              CreatePresentsAndPath;
+              inc(fState);
+              fCounter:=0;
+            end;
+          end;
         2:begin  // Wait a little bit
             inc(fCounter);
-            if fCounter=60*2 then begin
+            if fCounter=60 then begin
               inc(fState);
               fCounter:=0;
             end;
@@ -191,7 +208,7 @@ begin
           end;
         4:begin  // Move around, pick up cargo and come back to signal
             inc(fCounter);
-            if fCounter=150 then begin
+            if fCounter=135 then begin
               fExit.SetAnimation(Animations['=']);
               fMap.Tiles[fExit.X>>5,(fExit.Y-48)>>5]:=61;
             end;
@@ -219,7 +236,9 @@ begin
             inc(fCounter);
             BlueEngine.Move;
             if BlueEngine.Finished then begin
-              inc(fState);
+              for i:=6 to 18 do fMap.Tiles[i,7]:=32;
+              BlueEngine.Reset;
+              fState:=0;
               fCounter:=0;
             end;
           end;
@@ -246,6 +265,42 @@ begin
   FreeAndNil(BlueEngine);
   FreeAndNil(fLogo);
   Result:=1;
+end;
+
+procedure TMapCongrats.CreatePresentsAndPath;
+var
+  path,s:string;i,j,preY:integer;
+  cols:array[0..17] of integer;
+begin
+  path:='LLLLLUU';
+  for i:=0 to 17 do cols[i]:=0;
+  for i:=0 to 7 do begin
+    repeat
+      j:=random(17)+1;
+    until cols[j]=0;
+    cols[j]:=random(4)+2;
+  end;
+  preY:=5;
+  s:='';
+  j:=ord('s');
+  for i:=0 to 17 do begin
+    if cols[i]=0 then
+      s+='R'
+    else begin
+      while preY<cols[i] do begin path+='D';inc(preY);end;
+      while preY>cols[i] do begin path+='U';dec(preY);end;
+      path+=s;
+      s:='R';
+      fMap.Tiles[i+1,cols[i]]:=j;
+      fSprites[i+1,cols[i]]:=TAnimatedSprite.Create((i+1)<<5,cols[i]<<5+48,Animations[chr(j)]);
+      inc(j);
+    end;
+  end;
+  path+=s;
+  delete(path,length(path),1);
+  while preY<7 do begin path+='D';inc(preY);end;
+  path+='LLLLLLLLLLLL';
+  fPlayer.AddReplay(path);
 end;
 
 end.

@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2019. 11. 14. 15:48:59
+(..system..) Starting Application. 2019. 11. 15. 13:40:07
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -154,4 +154,4 @@ Minimum logging level set to STATUS
 () 127. 86 (1)
 () 128. 87 (1)
 () 129. 88 (1)
-(..system..) Terminating Application. 2019. 11. 14. 15:48:59
+(..system..) Terminating Application. 2019. 11. 15. 13:40:07

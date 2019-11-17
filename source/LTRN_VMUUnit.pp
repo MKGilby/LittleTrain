@@ -105,7 +105,7 @@ end;
 initialization
   Log.LogStatus('Initializing VMU...','LTRN_VMUUnit.pp, Initialize');
   VMU:=TVMU.Create;
-  VMU.CompleteAllMaps(1);
+//  VMU.CompleteAllMaps(1);
   Log.LogStatus('VMU initialized.','LTRN_VMUUnit.pp, Initialize');
 
 finalization

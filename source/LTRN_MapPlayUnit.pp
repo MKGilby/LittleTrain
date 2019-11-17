@@ -66,12 +66,8 @@ begin
         dec(fGoodies);
         if fGoodies=0 then begin
           WC['DoorOpen']._wave.Play;
-          for i:=0 to 19 do
-            for j:=0 to 11 do
-              if fMap.Tiles[i,j]=33 then begin
-                fSprites[i,j].Paused:=false;
-                fMap.Tiles[i,j]:=34;
-              end;
+          fExit.Paused:=false;
+          fMap.Tiles[fExit.X>>5,(fExit.Y-48)>>5]:=34;
         end;
         FreeAndNil(fSprites[fPlayer.CargoX,fPlayer.CargoY]);
 //        fSprites[fPlayer.CargoX,fPlayer.CargoY]:=nil;
@@ -83,7 +79,6 @@ begin
                        else Result:=0;
   if fPlayer.IsDead then Result:=2;
   if fPlayer.ReachedExit then begin
-    WC['Complete']._wave.Play;
     if (fState in [0,1]) or (fBest>fScore) then begin
       fBest:=fScore;
       UpdateImage;

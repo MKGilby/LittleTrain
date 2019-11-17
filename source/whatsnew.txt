@@ -1,16 +1,19 @@
 Todo:
-* Make the congratulations map endless: When the engine stops at
+* EYE-CANDY: When completing a map, during the end of map sfx, the wagons should
+  be rushing into the exit with increasing speed.
+  (Curtain should be delayed a few secs.)
+
+
+2019.11.15
+* BUGFIX: PSCursor caused range check error in rare conditions.
+* Congratulations map is endless now: When the engine stops at
   the red-light, another engine (a blue one) comes from right and goes
   away with the wagons. Then the light changes to green, more present appears
   and the train goes to pick them up again. Light changes back to red after
   the engine passes it.
   (This increases the probability to the player listens to the "congrats" music
   in its entirety.)
-* EYE-CANDY: When completing a map, during the end of map sfx, the wagons should
-  be rushing into the exit with increasing speed.
-  (Curtain should be delayed a few secs.)
-* Draw a tunnel in the wall piece for the entry/exit point of the blue engine.
-
+* Tried the tunnel, not made it any better, so removed it.
 
 2019.11.14
 * Explosion keeps the direction of the engine.
