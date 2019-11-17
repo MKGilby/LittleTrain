@@ -41,7 +41,7 @@ type
     fMap:TRawMap;
     fReplay:string;
     fPickedUp,fMoved:boolean;
-    fState:(sPlaying,sExit0,sExit1,sExit2);  // Exit0: Just hit exit, Exit1:wagons run into exit, Exit2:really finished.
+    fState:(sPlaying,sExit0,sExit1,sExit2,sExit3);  // Exit0: Just hit exit, Exit1:wagons run into exit, Exit2:really finished.
     fDead:byte;
     fSolution:array of char;
     function fReachedExit:boolean;
@@ -112,6 +112,7 @@ begin
   case fDead of
     0:begin
 //        Log.Trace(fReplay);
+        if fState=sExit2 then fState:=sExit3;
         if fMap.AutoPlay then begin
           if length(fReplay)>0 then begin
             Keys[SDLK_UP]:=fReplay[1]='U';
@@ -132,7 +133,7 @@ begin
         dec(fMoveDelay);
         if (fSpeed=32767) and ((fDirX<>0) or (fDirY<>0)) then fMoveDelay:=0;
         if (fMoveDelay=0) then begin
-          if (fDirX<>0) or (fDirY<>0) then begin
+          if (fDirX<>0) or (fDirY<>0) or (fState=sExit1) then begin
             if length(fReplay)>0 then delete(fReplay,1,1);
             fOldDirX:=fDirX;
             fOldDirY:=fDirY;
@@ -193,8 +194,8 @@ begin
   //            Log.Trace(fTrain[0]._sprite.FrameDelay);
               exit;
             end;
-            if (fState=sExit1) and (fSpeed>1) then dec(fSpeed);
-            if (fDirX<>0) or (fDirY<>0) then begin
+            if (fState=sExit1) and (fSpeed>2) then dec(fSpeed);
+            if (fDirX<>0) or (fDirY<>0) or (fState=sExit1) then begin
               fMap.Tiles[fTrain[length(fTrain)-1]._sprite.X>>5,
                          (fTrain[length(fTrain)-1]._sprite.Y-48)>>5]:=32;
               if fMap.Tiles[fPx,fPy]>96 then begin
@@ -208,7 +209,11 @@ begin
                 fTrain[0]._sprite.MoveRel(fDirX*32,fDirY*32);
                 if (fDirX<>0) or (fDirY<>0) then fMoved:=true;
                 fMap.Tiles[tx>>5+fDirX,(ty-48)>>5+fDirY]:=31;
-                if fState=sExit0 then fState:=sExit1;
+                if fState=sExit0 then begin
+                  fState:=sExit1;
+                  fDirX:=0;
+                  fDirY:=0;
+                end;
               end;
               for i:=1 to length(fTrain)-1 do
                 if (fTrain[i]._sprite.X<>fTrain[0]._sprite.X) or (fTrain[i]._sprite.Y<>fTrain[0]._sprite.Y) then begin
@@ -340,7 +345,7 @@ end;
 
 function TPlayer.fReachedExit:boolean;
 begin
-  Result:=(fState=sExit2);
+  Result:=(fState=sExit3);
 end;
 
 procedure TPlayer.fSetExit(value:boolean);

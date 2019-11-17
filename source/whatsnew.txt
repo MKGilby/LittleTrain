@@ -1,8 +1,9 @@
 Todo:
-* EYE-CANDY: When completing a map, during the end of map sfx, the wagons should
-  be rushing into the exit with increasing speed.
-  (Curtain should be delayed a few secs.)
+* Stopped blue animation (only puffing).
 
+2019.11.17
+* EYE-CANDY: When completing a map, during the end of map sfx, the wagons are
+  rushing into the exit with increasing speed.
 
 2019.11.15
 * BUGFIX: PSCursor caused range check error in rare conditions.

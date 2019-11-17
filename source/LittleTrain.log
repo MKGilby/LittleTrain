@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2019. 11. 15. 16:09:50
+(..system..) Starting Application. 2019. 11. 17. 13:08:35
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -80,82 +80,17 @@ Minimum logging level set to STATUS
 (MKFonts.pas, LoadFont) Font.8
 (MKFonts.pas, LoadFont) Font successfully loaded.
 (LTRN_MapListUnit.pp, TMapList.Create) 51 map(s) loaded.
-< Trace > 
-< Trace > Length: 1 - T[0](x,y): (128,336) - T[last](x,y): (128,336)
-< Trace > Length: 1 - T[0](x,y): (160,336) - T[last](x,y): (160,336)
-< Trace > Length: 1 - T[0](x,y): (192,336) - T[last](x,y): (192,336)
-< Trace > Length: 1 - T[0](x,y): (192,304) - T[last](x,y): (192,304)
-< Trace > Pickup x,y,type: 6, 7, 67
-< Trace > Length: 2 - T[0](x,y): (192,272) - T[last](x,y): (192,304)
-< Trace > Pickup x,y,type: 6, 6, 67
-< Trace > Length: 3 - T[0](x,y): (192,240) - T[last](x,y): (192,304)
-< Trace > Pickup x,y,type: 6, 5, 67
-< Trace > Length: 4 - T[0](x,y): (192,208) - T[last](x,y): (192,304)
-< Trace > Pickup x,y,type: 6, 4, 67
-< Trace > Length: 5 - T[0](x,y): (192,176) - T[last](x,y): (192,304)
-< Trace > Pickup x,y,type: 6, 3, 65
-< Trace > Length: 6 - T[0](x,y): (192,144) - T[last](x,y): (192,304)
-< Trace > Length: 6 - T[0](x,y): (224,144) - T[last](x,y): (192,272)
-< Trace > Length: 6 - T[0](x,y): (224,176) - T[last](x,y): (192,240)
-< Trace > Pickup x,y,type: 7, 5, 67
-< Trace > Length: 7 - T[0](x,y): (224,208) - T[last](x,y): (192,240)
-< Trace > Pickup x,y,type: 7, 6, 67
-< Trace > Length: 8 - T[0](x,y): (224,240) - T[last](x,y): (192,240)
-< Trace > Pickup x,y,type: 7, 7, 67
-< Trace > Length: 9 - T[0](x,y): (224,272) - T[last](x,y): (192,240)
-< Trace > Pickup x,y,type: 8, 7, 67
-< Trace > Length: 10 - T[0](x,y): (256,272) - T[last](x,y): (192,240)
-< Trace > Pickup x,y,type: 8, 6, 67
-< Trace > Length: 11 - T[0](x,y): (256,240) - T[last](x,y): (192,240)
-< Trace > Pickup x,y,type: 8, 5, 67
-< Trace > Length: 12 - T[0](x,y): (256,208) - T[last](x,y): (192,240)
-< Trace > Pickup x,y,type: 8, 4, 67
-< Trace > Length: 13 - T[0](x,y): (256,176) - T[last](x,y): (192,240)
-< Trace > Pickup x,y,type: 8, 3, 65
-< Trace > Length: 14 - T[0](x,y): (256,144) - T[last](x,y): (192,240)
-< Trace > Length: 14 - T[0](x,y): (288,144) - T[last](x,y): (192,208)
-< Trace > Length: 14 - T[0](x,y): (288,176) - T[last](x,y): (192,176)
-< Trace > Pickup x,y,type: 9, 5, 67
-< Trace > Length: 15 - T[0](x,y): (288,208) - T[last](x,y): (192,176)
-< Trace > Pickup x,y,type: 9, 6, 67
-< Trace > Length: 16 - T[0](x,y): (288,240) - T[last](x,y): (192,176)
-< Trace > Pickup x,y,type: 9, 7, 67
-< Trace > Length: 17 - T[0](x,y): (288,272) - T[last](x,y): (192,176)
-< Trace > Pickup x,y,type: 10, 7, 67
-< Trace > Length: 18 - T[0](x,y): (320,272) - T[last](x,y): (192,176)
-< Trace > Pickup x,y,type: 10, 6, 67
-< Trace > Length: 19 - T[0](x,y): (320,240) - T[last](x,y): (192,176)
-< Trace > Pickup x,y,type: 10, 5, 67
-< Trace > Length: 20 - T[0](x,y): (320,208) - T[last](x,y): (192,176)
-< Trace > Pickup x,y,type: 10, 4, 67
-< Trace > Length: 21 - T[0](x,y): (320,176) - T[last](x,y): (192,176)
-< Trace > Pickup x,y,type: 10, 3, 65
-< Trace > Length: 22 - T[0](x,y): (320,144) - T[last](x,y): (192,176)
-< Trace > Length: 22 - T[0](x,y): (352,144) - T[last](x,y): (192,144)
-< Trace > Pickup x,y,type: 12, 3, 65
-< Trace > Length: 23 - T[0](x,y): (384,144) - T[last](x,y): (192,144)
-< Trace > Pickup x,y,type: 12, 4, 67
-< Trace > Length: 24 - T[0](x,y): (384,176) - T[last](x,y): (192,144)
-< Trace > Pickup x,y,type: 12, 5, 67
-< Trace > Length: 25 - T[0](x,y): (384,208) - T[last](x,y): (192,144)
-< Trace > Pickup x,y,type: 11, 5, 67
-< Trace > Length: 26 - T[0](x,y): (352,208) - T[last](x,y): (192,144)
-< Trace > Pickup x,y,type: 11, 6, 67
-< Trace > Length: 27 - T[0](x,y): (352,240) - T[last](x,y): (192,144)
-< Trace > Pickup x,y,type: 11, 7, 67
-< Trace > Length: 28 - T[0](x,y): (352,272) - T[last](x,y): (192,144)
-< Trace > Pickup x,y,type: 12, 7, 67
-< Trace > Length: 29 - T[0](x,y): (384,272) - T[last](x,y): (192,144)
-< Trace > Pickup x,y,type: 12, 6, 67
-< Trace > Length: 30 - T[0](x,y): (384,240) - T[last](x,y): (192,144)
-< Trace > Length: 30 - T[0](x,y): (416,240) - T[last](x,y): (224,144)
-< Trace > Length: 30 - T[0](x,y): (416,272) - T[last](x,y): (224,176)
-< Trace > Length: 30 - T[0](x,y): (416,304) - T[last](x,y): (224,208)
-< Trace > Length: 30 - T[0](x,y): (416,336) - T[last](x,y): (224,240)
-< Trace > Length: 30 - T[0](x,y): (384,336) - T[last](x,y): (224,272)
-< Trace > Length: 30 - T[0](x,y): (352,336) - T[last](x,y): (256,272)
-< Trace > Length: 30 - T[0](x,y): (320,336) - T[last](x,y): (256,240)
-< Trace > Length: 30 - T[0](x,y): (288,336) - T[last](x,y): (256,208)
-< Trace > Length: 30 - T[0](x,y): (288,368) - T[last](x,y): (256,176)
-< Trace > Length: 30 - T[0](x,y): (288,400) - T[last](x,y): (256,144)
-< Trace > Pickup x,y,type: 9, 12, 280404842
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+(MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
+(MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
+(MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
+(MK_SDL.pas, Finalize) MK_SDL: Average ms remaining in each frame: 14
+(LTRN_VMUUnit.pp, Finalize) Freeing VMU...
+(LTRN_VMUUnit.pp, Finalize) VMU freed.
+(MKAudio.pas, Finalize) BASS: Shutdown...
+(..system..) Terminating Application. 2019. 11. 17. 13:09:29
