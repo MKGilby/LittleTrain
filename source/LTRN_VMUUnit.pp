@@ -99,6 +99,8 @@ begin
   if iSlot in [1..5] then begin
     j:=128;
     for i:=0 to 49 do WriteData(iSlot-1,fLevelPacks.IndexOf(LevelPackName),i*2,2,j);
+    j:=0;
+    WriteData(iSlot-1,fLevelPacks.IndexOf(LevelPackName),0,2,j);
   end else Log.LogWarning('Invalid slot number! (Got: '+inttostr(iSlot)+'; Should be: 1..5)',Istr);
 end;
 

@@ -32,6 +32,7 @@ const Istr=Fstr+'TMain.Create';
 begin
   MKStreamOpener.SetBaseDir('..\data');
   Log.SetLogLevel(llStatus);
+//  Log.SetLogLevel(llAll);
   randomize;
 
 // Write log file header

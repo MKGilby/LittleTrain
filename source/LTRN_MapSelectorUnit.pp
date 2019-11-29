@@ -55,9 +55,9 @@ begin
 //    LogTicks.LogTicks(inttostr(i));
   end;
   fMaps[50]:=TMapCongrats.Create(236+50*176,fTop,50,fVMUSlot);
-  fMaps[50].SetState(1);
+//  fMaps[50].SetState(1);
   if trgt=-1 then begin trgt:=50*176;slev:=50;end;
-
+  if j=0 then fMaps[50].SetState(1);
   fLogo:=TImage.Create('logo.tga');
 end;
 
@@ -183,7 +183,7 @@ begin
             for i:=0 to 50 do fMaps[i].MoveRelX(+ad2[spd]);
             posi-=ad2[spd];
           end;
-          if keys[SDLK_Space] or keys[SDLK_Return] then begin
+          if (keys[SDLK_Space] or keys[SDLK_Return]) and (fMaps[slev].State>0) then begin
             Mode:=4;
             Curtain.StartClose;
             BASS_ChannelSlideAttribute(MC['Menu']._music.Handle, BASS_ATTRIB_VOL,0, 300);
@@ -199,6 +199,7 @@ begin
           repeat
             i:=fMaps[slev].Play;
           until i in [0,1];
+          ClearKeys;
           if fMaps[slev].Congratulations then begin
             MC['Ending']._music.Stop;
             MC['Ending']._music.Volume:=VMU.MusicVolume;
@@ -216,6 +217,7 @@ begin
                 inc(j);
               end;
             end;
+            if j=0 then fMaps[50].SetState(1);
             i:=ScanTotalScore;
             if i<>fTotalScore then begin
               fTotalScore:=i;

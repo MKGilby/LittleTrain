@@ -9,7 +9,7 @@
 
 uses SysUtils, LTRN_MainUnit, RawPictureTGAUnit, LTRN_MapPlayUnit, LTRN_MapCongratsUnit;
 
-{!Build} const Build='0508'; BDate='2019.10.03';
+{!Build} const Build='0509'; BDate='2019.11.29';
          const Version='0.1';
 
 var

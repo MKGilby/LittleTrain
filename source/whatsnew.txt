@@ -1,5 +1,12 @@
 Todo:
-* Stopped blue animation (only puffing).
+
+
+2019.11.29
+* TEditBox fix: follow changes in class.
+* Fixed cherry and cake animations.
+* Fixed app icon.
+* Maps not yet uncovered are not selectable.
+* Congrats map is uncovered only when all other maps are complete.
 
 2019.11.17
 * EYE-CANDY: When completing a map, during the end of map sfx, the wagons are
@@ -14,7 +21,7 @@ Todo:
   the engine passes it.
   (This increases the probability to the player listens to the "congrats" music
   in its entirety.)
-* Tried the tunnel, not made it any better, so removed it.
+* Tried the tunnel graphics, not made it any better, so removed it.
 
 2019.11.14
 * Explosion keeps the direction of the engine.

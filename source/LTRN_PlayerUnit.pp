@@ -73,7 +73,7 @@ begin
   fDirY:=0;fOldDirY:=0;
 //  if fMap.AutoPlay then Log.Trace('Autoplay!') else Log.Trace('Not autoplay!');
   fReplay:=fMap.Solution;
-  Log.Trace(fReplay);
+//  Log.Trace(fReplay);
   case iSpeed of
     0:fSpeed:=32767;
     1:fSpeed:=60;
@@ -199,7 +199,7 @@ begin
               fMap.Tiles[fTrain[length(fTrain)-1]._sprite.X>>5,
                          (fTrain[length(fTrain)-1]._sprite.Y-48)>>5]:=32;
               if fMap.Tiles[fPx,fPy]>96 then begin
-                Log.Trace(Format('Pickup x,y,type: %d, %d, %d',[fPx,fPy,fMap.Tiles[fPx,fPy]-32]));
+//                Log.Trace(Format('Pickup x,y,type: %d, %d, %d',[fPx,fPy,fMap.Tiles[fPx,fPy]-32]));
                 fPickedUp:=true;
                 AddWagon(fMap.Tiles[fPx,fPy]-32);
               end;
@@ -240,8 +240,8 @@ begin
                   tx:=ttx;
                   ty:=tty;
                 end;
-              Log.Trace(Format('Length: %d - T[0](x,y): (%d,%d) - T[last](x,y): (%d,%d)',
-                [length(fTrain),fTrain[0]._sprite.X,fTrain[0]._sprite.Y,fTrain[length(fTrain)-1]._sprite.X,fTrain[length(fTrain)-1]._sprite.Y]));
+//              Log.Trace(Format('Length: %d - T[0](x,y): (%d,%d) - T[last](x,y): (%d,%d)',
+//                [length(fTrain),fTrain[0]._sprite.X,fTrain[0]._sprite.Y,fTrain[length(fTrain)-1]._sprite.X,fTrain[length(fTrain)-1]._sprite.Y]));
               if (length(fTrain)>1) and
                  (fTrain[length(fTrain)-1]._sprite.X=fTrain[0]._sprite.X) and
                  (fTrain[length(fTrain)-1]._sprite.Y=fTrain[0]._sprite.Y) then

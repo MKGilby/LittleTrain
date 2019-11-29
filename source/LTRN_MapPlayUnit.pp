@@ -43,6 +43,7 @@ begin
     for i:=0 to 19 do
       for j:=0 to 11 do
         if fSprites[i,j]<>nil then fSprites[i,j].Draw;
+//        if (i=4) and (j=2) and (fSprites[i,j]<>nil) then fSprites[i,j].LogSpriteData;
     fExit.Draw;
     fPlayer.Draw;
 //    bar(50,456,189,479,0,0,0);

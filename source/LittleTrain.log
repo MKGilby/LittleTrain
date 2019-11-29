@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2019. 11. 17. 13:08:35
+(..system..) Starting Application. 2019. 11. 29. 14:50:55
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -15,7 +15,7 @@
 (uses) MKStream.pas, version 2.08
 (uses) RawPictureUnit.pas, version 1.31
 (uses) ImageUnit.pas, version 1.11
-(uses) MK_SDL.pas, version 1.2.0b
+(uses) MK_SDL.pas, version 1.20b
 (uses) MKAudio.pas, version 1.0.0
 (uses) MusicUnit.pas, version 1.02
 (uses) MKINIFile.pas, version 2.17
@@ -27,7 +27,7 @@
 (LTRN_VMUUnit.pp, Initialize) VMU initialized.
 (uses) WaveUnit.pas, version 1.01a
 (uses) WaveCollectionUnit.pas, version 1.54a
-(uses) FontCollectionUnit.pas, version 1.07
+(uses) FontCollectionUnit.pas, version 1.08
 (uses) ScrollUnit.pas, version 2.07
 (uses) StackUnit.pas, version 1.02
 (uses) MKMouse.pas, version 2.03
@@ -35,19 +35,17 @@
 (uses) LexerUnit.pas, version 1.18
 (uses) MaskUnit.pas, version 1.01
 (uses) ImageListUnit.pas, version 1.00
-(uses) AnimationListUnit.pas, version 1.01
+(uses) AnimationListUnit.pas, version 1.02
 (uses) ILBInterpreterUnit.pas, version 1.00
 (uses) ImageListLoaderUnit.pas, version 1.00
-(uses) SetupCommandUnit.pas, version 1.08
-(uses) VisualComponentUnit.pas, version 1.06
-(uses) vcc_EditBox.pas, version 3.05a
+(uses) vcc_EditBox.pas, version 3.06
 (uses) LogicalSpriteUnit.pas, version 1.01
 (uses) AnimatedSpriteUnit.pas, version 1.01
 (uses) FastPaletteUnit.pas, version 1.05
 (uses) RawPictureTGAUnit.pas, version 1.01
 Minimum logging level set to STATUS
 -------------------------------------------------------------------------
-<LTRN_MainUnit.pp, TMain.Create> LittleTrain V0.1 Build 0508 (2019.10.03)
+<LTRN_MainUnit.pp, TMain.Create> LittleTrain V0.1 Build 0509 (2019.11.29)
 -------------------------------------------------------------------------
 (MKAudio.pas, Init_Audio) BASS V2.4 loaded.
 (MKAudio.pas, Init_Audio) BASS: Device initialized.
@@ -80,6 +78,8 @@ Minimum logging level set to STATUS
 (MKFonts.pas, LoadFont) Font.8
 (MKFonts.pas, LoadFont) Font successfully loaded.
 (LTRN_MapListUnit.pp, TMapList.Create) 51 map(s) loaded.
+(MusicUnit.pas, TMusic.Play) BASS: Music started.
+(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
 (WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
 (WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
 (WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
@@ -89,8 +89,8 @@ Minimum logging level set to STATUS
 (MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
 (MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
 (MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
-(MK_SDL.pas, Finalize) MK_SDL: Average ms remaining in each frame: 14
+(MK_SDL.pas, Finalize) MK_SDL: Average ms remaining in each frame: 15
 (LTRN_VMUUnit.pp, Finalize) Freeing VMU...
 (LTRN_VMUUnit.pp, Finalize) VMU freed.
 (MKAudio.pas, Finalize) BASS: Shutdown...
-(..system..) Terminating Application. 2019. 11. 17. 13:09:29
+(..system..) Terminating Application. 2019. 11. 29. 14:52:15
