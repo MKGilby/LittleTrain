@@ -33,17 +33,20 @@ begin
   MKStreamOpener.SetBaseDir('..\data');
   Log.SetLogLevel(llStatus);
 //  Log.SetLogLevel(llAll);
+
   randomize;
+  while (length(build)>0) and (build[1]='0') do delete(build,1,1);
+  if length(build)>0 then build:='.'+build;
 
 // Write log file header
-  Log.LogAppHead('LittleTrain V'+Version+' Build '+Build+' ('+BDate+')',Istr);
+  Log.LogAppHead('LittleTrain V'+Version+Build+' (Build date: '+BDate+')',Istr);
 
 // Set up gfx and sound engine
   Log.LogDebug('Setting up SDL and BASS...',Istr);
   if uppercase(paramstr(1))='FULLSCREEN' then SDLInit(640,480,32,MKSDL_SECONDARYSURFACE or SDL_FULLSCREEN)
 //                                         else SDLInit(1280,960,32,MKSDL_SECONDARYSURFACE or MKSDL_2X2Pixels);
                                          else SDLInit(640,480,32,MKSDL_SECONDARYSURFACE);
-  SDL_WM_SetCaption(pchar('LittleTrain V'+Version+' Build '+Build+' (C) 2014-2019 MKSZTSZ'), nil);
+  SDL_WM_SetCaption(pchar('LittleTrain V'+Version+Build+' by MKSZTSZ - Build date: '+BDate), nil);
   SDL_ShowCursor(SDL_Disable);
   SetFPS(60);
   Init_Audio;

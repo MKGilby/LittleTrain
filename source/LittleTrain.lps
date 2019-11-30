@@ -3,12 +3,12 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="11"/>
-    <BuildModes Active="Debug"/>
+    <BuildModes Active="Release"/>
     <Units Count="38">
       <Unit0>
         <Filename Value="LittleTrain.pas"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="27" Y="13"/>
+        <CursorPos Y="12"/>
         <UsageCount Value="98"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -16,9 +16,10 @@
       <Unit1>
         <Filename Value="LTRN_MainUnit.pp"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="21"/>
-        <CursorPos X="3" Y="35"/>
+        <TopLine Value="19"/>
+        <CursorPos X="47" Y="33"/>
         <UsageCount Value="98"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -35,7 +36,6 @@
       <Unit3>
         <Filename Value="LTRN_VMUUnit.pp"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="12"/>
         <TopLine Value="72"/>
         <CursorPos Y="103"/>
@@ -121,7 +121,6 @@
         <EditorIndex Value="6"/>
         <TopLine Value="206"/>
         <CursorPos X="27" Y="217"/>
-        <FoldState Value=" T3nB0421711!"/>
         <UsageCount Value="88"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
@@ -341,119 +340,119 @@
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="210" Column="53" TopLine="185"/>
+        <Caret Line="206" Column="45" TopLine="184"/>
       </Position1>
       <Position2>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="206" Column="45" TopLine="184"/>
+        <Caret Line="285" TopLine="199"/>
       </Position2>
       <Position3>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="285" TopLine="199"/>
+        <Caret Line="201" Column="98" TopLine="191"/>
       </Position3>
       <Position4>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="201" Column="98" TopLine="191"/>
+        <Caret Line="44" Column="49" TopLine="25"/>
       </Position4>
       <Position5>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="44" Column="49" TopLine="25"/>
+        <Caret Line="126" Column="20" TopLine="108"/>
       </Position5>
       <Position6>
-        <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="126" Column="20" TopLine="108"/>
+        <Filename Value="LTRN_PlayerSelectUnit.pp"/>
+        <Caret Line="29" Column="72"/>
       </Position6>
       <Position7>
         <Filename Value="LTRN_PlayerSelectUnit.pp"/>
-        <Caret Line="29" Column="72"/>
+        <Caret Line="154" Column="3" TopLine="119"/>
       </Position7>
       <Position8>
-        <Filename Value="LTRN_PlayerSelectUnit.pp"/>
-        <Caret Line="154" Column="3" TopLine="119"/>
+        <Filename Value="B:\Programming\unitsrc\mk_sdl\FontCollectionUnit.pas"/>
+        <Caret Line="317" TopLine="294"/>
       </Position8>
       <Position9>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\FontCollectionUnit.pas"/>
-        <Caret Line="317" TopLine="294"/>
+        <Caret Line="346" TopLine="301"/>
       </Position9>
       <Position10>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\FontCollectionUnit.pas"/>
-        <Caret Line="346" TopLine="301"/>
+        <Caret Line="70" TopLine="70"/>
       </Position10>
       <Position11>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\FontCollectionUnit.pas"/>
-        <Caret Line="70" TopLine="70"/>
+        <Caret Line="279" Column="39" TopLine="256"/>
       </Position11>
       <Position12>
-        <Filename Value="B:\Programming\unitsrc\mk_sdl\FontCollectionUnit.pas"/>
-        <Caret Line="279" Column="39" TopLine="256"/>
+        <Filename Value="B:\Programming\unitsrc\mk_sdl\AnimatedSpriteUnit.pas"/>
+        <Caret Line="152" TopLine="143"/>
       </Position12>
       <Position13>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\AnimatedSpriteUnit.pas"/>
-        <Caret Line="152" TopLine="143"/>
+        <Caret Line="231" TopLine="194"/>
       </Position13>
       <Position14>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\AnimatedSpriteUnit.pas"/>
-        <Caret Line="231" TopLine="194"/>
+        <Caret Line="207" Column="59" TopLine="182"/>
       </Position14>
       <Position15>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\AnimatedSpriteUnit.pas"/>
-        <Caret Line="207" Column="59" TopLine="182"/>
+        <Caret Line="160" TopLine="124"/>
       </Position15>
       <Position16>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\AnimatedSpriteUnit.pas"/>
-        <Caret Line="160" TopLine="124"/>
       </Position16>
       <Position17>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\AnimatedSpriteUnit.pas"/>
+        <Caret Line="166" Column="52" TopLine="142"/>
       </Position17>
       <Position18>
-        <Filename Value="B:\Programming\unitsrc\mk_sdl\AnimatedSpriteUnit.pas"/>
-        <Caret Line="166" Column="52" TopLine="142"/>
+        <Filename Value="LTRN_MapCongratsUnit.pp"/>
+        <Caret Line="214" TopLine="200"/>
       </Position18>
       <Position19>
         <Filename Value="LTRN_MapCongratsUnit.pp"/>
-        <Caret Line="214" TopLine="200"/>
       </Position19>
       <Position20>
         <Filename Value="LTRN_MapCongratsUnit.pp"/>
+        <Caret Line="72" Column="14" TopLine="34"/>
       </Position20>
       <Position21>
         <Filename Value="LTRN_MapCongratsUnit.pp"/>
-        <Caret Line="72" Column="14" TopLine="34"/>
       </Position21>
       <Position22>
-        <Filename Value="LTRN_MapCongratsUnit.pp"/>
+        <Filename Value="LTRN_PlayerUnit.pp"/>
+        <Caret Line="348" Column="25" TopLine="265"/>
       </Position22>
       <Position23>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="348" Column="25" TopLine="265"/>
       </Position23>
       <Position24>
         <Filename Value="LTRN_PlayerUnit.pp"/>
+        <Caret Line="74" Column="59" TopLine="36"/>
       </Position24>
       <Position25>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="74" Column="59" TopLine="36"/>
+        <Caret Line="76" Column="9" TopLine="38"/>
       </Position25>
       <Position26>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="76" Column="9" TopLine="38"/>
+        <Caret Line="114" Column="15" TopLine="76"/>
       </Position26>
       <Position27>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="114" Column="15" TopLine="76"/>
+        <Caret Line="194" Column="21" TopLine="157"/>
       </Position27>
       <Position28>
         <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="194" Column="21" TopLine="157"/>
+        <Caret Line="202" Column="23" TopLine="165"/>
       </Position28>
       <Position29>
-        <Filename Value="LTRN_PlayerUnit.pp"/>
-        <Caret Line="202" Column="23" TopLine="165"/>
-      </Position29>
-      <Position30>
         <Filename Value="LTRN_MapSelectorUnit.pp"/>
         <Caret Line="59" Column="21" TopLine="44"/>
+      </Position29>
+      <Position30>
+        <Filename Value="LTRN_MainUnit.pp"/>
+        <Caret Line="39" Column="44" TopLine="21"/>
       </Position30>
     </JumpHistory>
     <RunParams>

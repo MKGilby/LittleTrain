@@ -9,8 +9,8 @@
 
 uses SysUtils, LTRN_MainUnit, RawPictureTGAUnit, LTRN_MapPlayUnit, LTRN_MapCongratsUnit;
 
-{!Build} const Build='0509'; BDate='2019.11.29';
-         const Version='0.1';
+{!Build} const Build='0000'; BDate='2019.11.30';
+         const Version='1.00';
 
 var
   Main:TMain;

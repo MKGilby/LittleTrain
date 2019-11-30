@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2019. 11. 29. 14:50:55
+(..system..) Starting Application. 2019. 11. 30. 14:28:51
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -44,9 +44,9 @@
 (uses) FastPaletteUnit.pas, version 1.05
 (uses) RawPictureTGAUnit.pas, version 1.01
 Minimum logging level set to STATUS
--------------------------------------------------------------------------
-<LTRN_MainUnit.pp, TMain.Create> LittleTrain V0.1 Build 0509 (2019.11.29)
--------------------------------------------------------------------------
+---------------------------------------------------------------------------
+<LTRN_MainUnit.pp, TMain.Create> LittleTrain V1.00 (Build date: 2019.11.30)
+---------------------------------------------------------------------------
 (MKAudio.pas, Init_Audio) BASS V2.4 loaded.
 (MKAudio.pas, Init_Audio) BASS: Device initialized.
 {MAD4LowLevelUnit.pas, TMAD4LowLevel.Mount} Not a MAD4 file!
@@ -78,8 +78,6 @@ Minimum logging level set to STATUS
 (MKFonts.pas, LoadFont) Font.8
 (MKFonts.pas, LoadFont) Font successfully loaded.
 (LTRN_MapListUnit.pp, TMapList.Create) 51 map(s) loaded.
-(MusicUnit.pas, TMusic.Play) BASS: Music started.
-(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
 (WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
 (WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
 (WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
@@ -89,8 +87,8 @@ Minimum logging level set to STATUS
 (MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
 (MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
 (MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
-(MK_SDL.pas, Finalize) MK_SDL: Average ms remaining in each frame: 15
+(MK_SDL.pas, Finalize) MK_SDL: Average ms remaining in each frame: 13
 (LTRN_VMUUnit.pp, Finalize) Freeing VMU...
 (LTRN_VMUUnit.pp, Finalize) VMU freed.
 (MKAudio.pas, Finalize) BASS: Shutdown...
-(..system..) Terminating Application. 2019. 11. 29. 14:52:15
+(..system..) Terminating Application. 2019. 11. 30. 14:34:44

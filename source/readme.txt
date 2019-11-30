@@ -6,8 +6,14 @@ Original:
     Vlak (C) 1993 Miroslav Nemeèek (PC EGA)
 
 This version:
-    LittleTrain (C) 2006-2009 MKSZTSZ  *** Absolutely Freeware! ***
-  
+    LittleTrain by MKSZTSZ  *** Absolutely Freeware! ***
+
+Music:
+    Infamous  (www.infamousuk.com)
+
+Sound effects:
+    Mike Fraley
+
                         -----------------------
 
 Game objective:
@@ -20,6 +26,16 @@ Game objective:
 Controls:
 
     Cursor keys to move, Escape to exit.
+
+                        -----------------------
+
+Source code available at github:
+
+    https://github.com/MKGilby/LittleTrain
+
+    and
+
+    https://github.com/MKGilby/unitsrc
 
                         -----------------------
 
