@@ -1,6 +1,9 @@
 Todo:
 
 
+2019.11.30
+* V1.00 released
+
 2019.11.29
 * TEditBox fix: follow changes in class.
 * Fixed cherry and cake animations.
