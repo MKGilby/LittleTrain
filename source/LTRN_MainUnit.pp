@@ -18,9 +18,10 @@ type
 
 implementation
 
-uses sysutils, mk_sdl, MKAudio, sdl, Logger, MusicCollectionUnit, SmallFontUnit,
-     MAD4HighLevelUnit, LTRN_VMUUnit, WaveCollectionUnit, FontCollectionUnit,
-     ImageUnit, MKStream, LTRN_ScrollUnit, LTRN_OptionsUnit, LTRN_CurtainUnit,
+uses sysutils, mk_sdl, MKAudio, sdl, Logger, MusicListUnit, SmallFontUnit,
+     MAD4HighLevelUnit, WaveListUnit, FontListUnit,
+     ImageUnit, MKStream, ASHInterpreterUnit,
+     LTRN_VMUUnit, LTRN_ScrollUnit, LTRN_OptionsUnit, LTRN_CurtainUnit,
      LTRN_IntroUnit, LTRN_PlayerSelectUnit, LTRN_SharedUnit,
      LTRN_MapSelectorUnit, LTRN_MapImagesUnit;
 
@@ -57,20 +58,28 @@ begin
   else MAD4.Mount(paramstr(0));
 //  MAD.Verbose:=true;
 
+  Log.LogDebug('Loading scripts...');
+  ASHI:=TASHInterpreter.Create('scripts.bin');
+
 // Load music from music.mad
   Log.LogDebug('Loading music...',Istr);
-  MC.Load('controls.ini','Music');
-  MC.List;
-  MC.GlobalVolume:=VMU.MusicVolume;
+  Muzax:=TMusicList.Create;
+  ASHI.RunBlock('Muzax',Muzax);
+//  Muzax.Load('controls.ini','Music');
+//  MC.List;
+  Muzax.GlobalVolume:=VMU.MusicVolume;
 
 // Load sound fx
   Log.LogDebug('Loading sound fx...',Istr);
-  WC.Load('controls.ini','Waves');
-  WC.GlobalVolume:=VMU.SoundVolume;
+  Waves:=TWaveList.Create;
+  ASHI.RunBlock('Waves',Waves);
+//  waves.Load('controls.ini','Waves');
+  Waves.GlobalVolume:=VMU.SoundVolume;
 
 // Load fonts
   Log.LogDebug('Loading fonts...',Istr);
-  FC.Load('controls.ini','Game.Fonts');
+  Fonts:=TFontList.Create;
+  ASHI.RunBlock('Fonts',Fonts);
   CreateSmallFont;
   SmallFont.SetColorKey(0,0,0);
 
@@ -103,8 +112,10 @@ begin
   FreeAndNil(Curtain);
   FreeAndNil(Sprites);
   FreeAndNil(Animations);
-  WC.Clear;
-  MC.Clear;
+  FreeAndNil(Fonts);
+  FreeAndNil(Muzax);
+  FreeAndNil(Waves);
+  FreeAndNil(ASHI);
   SDLDone;
   inherited ;
 end;
@@ -112,7 +123,7 @@ end;
 procedure TMain.Run;
 var i:integer;
 begin
-  MC['Menu']._music.Play;
+  Muzax['Menu']._music.Play;
   Intro;
 
   PlayerSelect:=TPlayerSelect.Create;
@@ -125,20 +136,8 @@ begin
     FreeAndNil(MapSelector);
   end;
 
-  MC['Menu']._music.Stop;
+  Muzax['Menu']._music.Stop;
 end;
-
-{procedure TMain.CreateLittleBlocks;
-const images='abcdefghijklmnopqr!%#';
-var i:integer;atm:TImage;
-begin
-  for i:=0 to 20 do begin
-    atm:=TImage.Create(32,32);
-    atm.PutimagePart(0,0,0,0,31,31,IC.FindImage(images[i+1]));
-    atm.ShrinkImage4;
-    IC.Add(atm,images[i+1]+'~');
-  end;
-end;}
 
 end.
 

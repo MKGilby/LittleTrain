@@ -1,5 +1,5 @@
-< Trace > 23327625 ticks (Start)
-< Trace > 93 ticks (LoadImages)
+< Trace > 23510203 ticks (Start)
+< Trace > 78 ticks (LoadImages)
 < Trace > Listing LogTicks registers:
-< Trace > Reg[2]=300 (100%)
+< Trace > Reg[2]=296 (100%)
 < Trace > Listing Logticks registers ended.

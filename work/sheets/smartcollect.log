@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2019. 11. 15. 13:40:07
+(..system..) Starting Application. 2020. 02. 21. 13:22:11
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -6,15 +6,12 @@
 (uses) MKToolbox.pas, version 3.42
 (uses) MAD4LowLevelUnit.pas, version 1.10a
 (uses) MyZStreamUnit.pas, version 1.02
-(uses) RLEUnit.pas, version 1.25a
-(uses) HuffmanUnit.pas, version 1.03a
-(uses) CodingUnit.pas, version 1.08
-(uses) CompressorUnit.pas, version 1.22
-(uses) MAD4MidLevelUnit.pas, version 1.10a
+(uses) CompressorUnit.pas, version 1.23
+(uses) MAD4MidLevelUnit.pas, version 1.11
 (uses) MAD4HighLevelUnit.pas, version 1.05
-(uses) MKStream.pas, version 2.08
-(uses) RawPictureUnit.pas, version 1.31
-(uses) FastPaletteUnit.pas, version 1.05
+(uses) MKStream.pas, version 2.09
+(uses) RawPictureUnit.pas, version 1.33
+(uses) FastPaletteUnit.pas, version 1.06a
 (uses) RawPictureTGAUnit.pas, version 1.01
 (uses) RawPictureCELUnit.pas, version 1.00
 (uses) CSVRead2Unit.pas, version 1.07
@@ -154,4 +151,4 @@ Minimum logging level set to STATUS
 () 127. 86 (1)
 () 128. 87 (1)
 () 129. 88 (1)
-(..system..) Terminating Application. 2019. 11. 15. 13:40:07
+(..system..) Terminating Application. 2020. 02. 21. 13:22:11

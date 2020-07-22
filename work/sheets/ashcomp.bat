@@ -1,3 +1,2 @@
-ashcompiler sprites.ash
-ashtest sprites.bin
+ashcompiler sprites.ash intro.ash anims.ash fonts.ash music.ash waves.ash scripts.bin
 @pause >nul

@@ -23,9 +23,9 @@ var PlayerSelect:TPlayerSelect;
 
 implementation
 
-uses SysUtils, SDL, MK_SDL, MKFonts, MKToolBox, Logger,
-     vcc_Editbox, WaveCollectionUnit, MusicCollectionUnit, PSLineUnit,
-     PSCursorUnit, LTRN_OptionsUnit, FontCollectionUnit,
+uses SysUtils, SDL, MK_SDL, MKToolBox, Logger, FontUnit,
+     vcc_Editbox, PSLineUnit,
+     PSCursorUnit, LTRN_OptionsUnit,
      LTRN_ScrollUnit, LTRN_VMUUnit, LTRN_MapImagesUnit, LTRN_SharedUnit;
 
 const Interval=10;
@@ -33,7 +33,7 @@ const Interval=10;
 function TPlayerSelect.Run:integer;
 begin
   ClearScreen(0,0,0);
-  PutImage(140,0,'logo.tga');
+  PutImage(149,3,'logo.tga');
 //  CheckPlayers;
   repeat
     fActPlayer:=SelectPlayer(fActPlayer);
@@ -94,17 +94,17 @@ begin
       keys[SDLK_Up]:=false;
       dec(act);
       Cursor.MoveTo(act*32+156);
-      WC['MenuMoveTick']._wave.Play;
+      Waves['MenuMoveTick']._wave.Play;
     end;
     if keys[SDLK_Down] and (act<4) then begin
       keys[SDLK_Down]:=false;
       inc(act);
       Cursor.MoveTo(act*32+156);
-      WC['MenuMoveTick']._wave.Play;
+      Waves['MenuMoveTick']._wave.Play;
     end;
     inc(cnt);
   until (keys[SDLK_Escape] or keys[SDLK_Space] or keys[SDLK_Return] or keys[SDLK_Delete]) and (cnt>Interval*8+LineOneStepTime);
-  WC['MenuSelect']._wave.Play;
+  Waves['MenuSelect']._wave.Play;
   Cursor.StartOut;
   for i:=0 to 7 do Lines[i].StartOut;
   cnt:=0;
@@ -145,7 +145,7 @@ begin
   EditBox.Height:=26;
   EditBox.TextAlign:=mjCenter;
   EditBox.TextOffsetY:=4;
-  EditBox.Font:=FC.FontByIndex[3];
+  EditBox.Font:=Fonts.FontByIndex[3];
   EditBox.TextCase:=tcDontCare;
   EditBox.MaxLength:=32;
   EditBox.Transparent:=true;
@@ -168,13 +168,13 @@ begin
     cnt:=0;
     for i:=1 to 5 do
       if EditBox.Text=VMU.GetName(i) then begin
-        FC.FontByIndex[5].OutText('Name already exists!',320,320,mjCenter);
+        Fonts.FontByIndex[5].OutText('Name already exists!',320,320,mjCenter);
         cnt:=1;
       end;
     Scroll.Draw(0);
     Flip;
   until (keys[SDLK_Return] and (length(EditBox.Text)>0) and (cnt=0)) or keys[SDLK_Escape];
-  WC['MenuSelect']._wave.Play;
+  Waves['MenuSelect']._wave.Play;
   Cursor.StartOut;
   FreeAndNil(Lines[1]);
   Lines[1]:=TPSLine.Create(#3+EditBox.Text,147,Interval);
@@ -229,16 +229,16 @@ begin
       keys[SDLK_Up]:=false;
       dec(act);
       Cursor.MoveTo(act*32+188);
-      WC['MenuMoveTick']._wave.Play;
+      Waves['MenuMoveTick']._wave.Play;
     end;
     if keys[SDLK_Down] and (act<1) then begin
       keys[SDLK_Down]:=false;
       inc(act);
       Cursor.MoveTo(act*32+188);
-      WC['MenuMoveTick']._wave.Play;
+      Waves['MenuMoveTick']._wave.Play;
     end;
   until (keys[SDLK_Escape] or keys[SDLK_Space] or keys[SDLK_Return]) and (cnt>Interval*5+64);
-  WC['MenuSelect']._wave.Play;
+  Waves['MenuSelect']._wave.Play;
   Cursor.StartOut;
   for i:=0 to 4 do Lines[i].StartOut;
   cnt:=0;

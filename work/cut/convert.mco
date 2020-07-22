@@ -1,0 +1,7 @@
+r tga logobig_uncropped.tga 1
+m crop 0 0 0 1
+w tga logobig.tga 1
+
+r tga logo_uncropped.tga 1
+m crop 0 0 0 1
+w tga logo.tga 1

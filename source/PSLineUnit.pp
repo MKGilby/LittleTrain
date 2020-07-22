@@ -29,7 +29,7 @@ const LineOneStepTime=16;
 
 implementation
 
-uses SDL, MKFonts, FontCollectionUnit;
+uses SDL, LTRN_SharedUnit, FontUnit;
 
 const LineMul=16; // 256 div LineOneStepTime;
 
@@ -59,7 +59,7 @@ begin
   if fWImage<>nil then FreeAndNIL(fWImage);
   fTIMage:=TImage.Create(640,22);
   fWIMage:=TImage.Create(640,22);
-  FC.OutText(fTImage,fText,320,0,mjCenter);
+  Fonts.OutText(fTImage,fText,320,0,mjCenter);
   SDL_LockSurface(fTImage.Surface);
   SDL_LockSurface(fWImage.Surface);
 

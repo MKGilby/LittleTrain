@@ -21,8 +21,8 @@ var
 
 implementation
 
-uses SysUtils, SDL, MK_SDL, MKFonts, Logger, Bass, LTRN_VMUUnit, LTRN_SharedUnit,
-     MusicCollectionUnit, WaveCollectionUnit, ImageUnit, FontCollectionUnit;
+uses SysUtils, SDL, MK_SDL, Logger, Bass, LTRN_VMUUnit, LTRN_SharedUnit,
+     ImageUnit, FontUnit;
 
 const
   X=320;Y=240;Width=520;Height=144;
@@ -35,9 +35,9 @@ begin
   fMenu.Width:=Width;
   fMenu.Height:=Height;
   fMenu.CycleOptions:=false;
-  fMenu.BaseFont:=FC.FontByIndex[8];
-  fMenu.HighlightFont:=FC.FontByIndex[1];
-  fMenu.HeaderFont:=FC.FontByIndex[5];
+  fMenu.BaseFont:=Fonts.FontByIndex[8];
+  fMenu.HighlightFont:=Fonts.FontByIndex[1];
+  fMenu.HeaderFont:=Fonts.FontByIndex[5];
   fMenu.TextAlign:=mjCenter;
   fMenu.TextOffsetY:=8;
   fMenu.RowHeight:=36;
@@ -64,7 +64,8 @@ begin
   sv:=VMU.SoundVolume;
   atm:=TImage.Create(640,480);
   GetImage(0,0,atm);
-  SDL_SetAlpha(atm.surface,SDL_SRCALPHA or SDL_RLEACCEL or SDL_HWACCEL,64);
+  atm.SetAlpha(64);
+//  SDL_SetAlpha(atm.surface,SDL_SRCALPHA or SDL_RLEACCEL or SDL_HWACCEL,64);
   ClearScreen(0,0,0);
   PutImage(0,0,atm);
   ClearKeys;
@@ -78,12 +79,12 @@ begin
     mv:=strtoint(fMenu.GetValue('MV'))/10;
     if VMU.MusicVolume<>mv then begin
       VMU.MusicVolume:=mv;
-      MC.GlobalVolume:=mv;
+      Muzax.GlobalVolume:=mv;
     end;
     sv:=strtoint(fMenu.GetValue('SV'))/10;
     if VMU.SoundVolume<>sv then begin
       VMU.SoundVolume:=sv;
-      WC.GlobalVolume:=sv;
+      Waves.GlobalVolume:=sv;
     end;
 //    bar(0,316,639,395,0,0,0);
 //    putimage(0,336+trunc(sin(ffase*2.25*pi/180)*20),FBar);

@@ -16,11 +16,11 @@ var Scroll:TLTRN_Scroll;
 
 implementation
 
-uses FontCollectionUnit;
+uses LTRN_SharedUnit;
 
 constructor TLTRN_Scroll.Create;
 begin
-  inherited Create(FC.FontByIndex[4],452,0,20);
+  inherited Create(Fonts.FontByIndex[4],452,0,20);
   LoadText('scroll.txt');
 end;
 

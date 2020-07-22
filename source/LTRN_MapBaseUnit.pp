@@ -47,9 +47,8 @@ type
 
 implementation
 
-uses MKToolBox, Logger, MKFonts, SDL, mk_sdl, WaveCollectionUnit,
-     MusicCollectionUnit, FontCollectionUnit, LTRN_VMUUnit,
-     LTRN_MapImagesUnit, LTRN_SharedUnit;
+uses MKToolBox, Logger, SDL, mk_sdl,
+     LTRN_VMUUnit, LTRN_MapImagesUnit, LTRN_SharedUnit;
 
 constructor TMapBase.Create(iX,iY,iMapNo,iVMUSlot:integer);
 //var i,j:integer;

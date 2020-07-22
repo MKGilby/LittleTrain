@@ -201,23 +201,41 @@ begin
   FreeAndNil(rp);
 end;
 
+procedure SaveSheetV(no:integer);
+var i,cnt:integer;rp:TRawPicture;
+begin
+  cnt:=0;
+  for i:=0 to Frames.Count-1 do
+    if Frames[i]._fileindex=no then inc(cnt);
+  rp:=TRawPicture.Create(BLOCKWIDTH,cnt*BLOCKHEIGHT);
+  cnt:=0;
+  for i:=0 to FrameOrder.Count-1 do begin
+    if Frames[FrameOrder[i]]._fileindex=no then begin
+      Frames[FrameOrder[i]]._image.CopyTo(0,0,BLOCKWIDTH,BLOCKHEIGHT,0,cnt*BLOCKHEIGHT,rp);
+      inc(cnt);
+    end;
+  end;
+  rp.WriteFile('sprites'+inttostr(no)+'.tga','TGA');
+  FreeAndNil(rp);
+end;
+
 procedure SaveSheets;
 var i,Max:integer;
 begin
   Max:=-1;
   for i:=0 to Frames.Count-1 do if Frames[i]._fileindex>Max then Max:=Frames[i]._fileindex;
-  for i:=0 to Max do SaveSheet(i);
+  for i:=0 to Max do SaveSheetV(i);
 end;
 
 procedure CopyToSheets(SC:TStringList;pre,srcindex,infileindex,cnt:integer;var notrotatedwidth,rotatedwidth:integer);
 begin
   if pre and 1>0 then begin // Notrotated
-    SC.Add(Format('CopyPartialImage source "sprites%d" leftb %d top 0 target "notrotated" leftb %d topb 0 widthb %d heightb 1',
+    SC.Add(Format('CopyPartialImage source "sprites%d.tga" leftb %d top 0 target "notrotated" leftb %d topb 0 widthb %d heightb 1',
                   [srcindex,infileindex,notrotatedwidth,cnt]));
     notrotatedwidth+=cnt;
   end;
   if pre and 2>0 then begin // Rotated
-    SC.Add(Format('CopyPartialImage source "sprites%d" leftb %d top 0 target "rotated" leftb %d topb 0 widthb %d heightb 1',
+    SC.Add(Format('CopyPartialImage source "sprites%d.tga" leftb %d top 0 target "rotated" leftb %d topb 0 widthb %d heightb 1',
                   [srcindex,infileindex,rotatedwidth,cnt]));
     rotatedwidth+=cnt;
   end;
@@ -229,7 +247,7 @@ begin
   ei:=Images.IndexOf('%');
   if ei=-1 then raise Exception.Create('Engine image not found!');
   for i:=0 to Images[ei]._frames.Count-1 do begin
-    SC.Add(Format('CopyPartialImage source "sprites%d" leftb %d top 0 target "rotated" leftb %d top 0 widthb 1 heightb 1',
+    SC.Add(Format('CopyPartialImage source "sprites%d.tga" leftb %d top 0target "rotated" leftb %d top 0 widthb 1 heightb 1',
       [Frames[Images[ei]._frames[i]]._fileindex,Frames[Images[ei]._frames[i]]._sheetoffset,rotatedwidth+i]));
   end;
 //  SC.Add(Format('CopyPartialImage source "rotated" leftb %d top 0 target "rotated" leftb %d top 0 widthb 8 heightb 1',
@@ -268,8 +286,8 @@ begin
   SC.Add('NewImage name "present" width 32 height 32');
   SC.Add('NewImage name "wrapper" width 32 height 32');
   for i:=0 to 7 do begin
-    SC.Add('CopyPartialImage source "conga" left 0 top 0 target "present" left 0 top 0 widthb 1 heightb 1');
-    SC.Add('CopyPartialImage source "conga" leftb 1 top 0 target "wrapper" left 0 top 0 widthb 1 heightb 1');
+    SC.Add('CopyPartialImage source "conga.tga" left 0 top 0 target "present" left 0 top 0 widthb 1 heightb 1');
+    SC.Add('CopyPartialImage source "conga.tga" leftb 1 top 0 target "wrapper" left 0 top 0 widthb 1 heightb 1');
     SC.Add(Format('RecolorRGB name "present" r %d g %d b %d',[Colors[ColPairs[i,0],0],Colors[ColPairs[i,0],1],Colors[ColPairs[i,0],2]]));
     SC.Add(Format('RecolorRGB name "wrapper" r %d g %d b %d',[Colors[ColPairs[i,1],0],Colors[ColPairs[i,1],1],Colors[ColPairs[i,1],2]]));
     SC.Add('CopyImage source "wrapper" target "present" colorkeyrgb 0 0 0');
@@ -288,19 +306,19 @@ const
   Colors:array[0..5,0..2] of integer=((255,0,0),(0,255,0),(0,64,255),(255,255,0),(255,0,255),(0,255,255));
 var ci,i:integer;
 begin
-  SC.Add('LoadImage name "congafnt" filename "congafnt.tga"');
+  SC.Add('LoadImage name "congafnt.tga" filename "congafnt.tga"');
   SC.Add('NewImage name "fonttmp" width 144 height 21');
   SC.Add('NewImage name "wagon" widthb 2 heightb 1');
 
   ci:=0;
   for i:=0 to 7 do begin
-    SC.Add('CopyPartialImage source "conga" leftb 2 top 0 target "wagon" left 0 top 0 widthb 1 heightb 1 transform "H"');
-    SC.Add('CopyPartialImage source "conga" leftb 2 top 0 target "wagon" leftb 1 top 0 widthb 1 heightb 1 transform "H"');
-    SC.Add('CopyImage source "congafnt" target "fonttmp"');
+    SC.Add('CopyPartialImage source "conga.tga" leftb 2 top 0 target "wagon" left 0 top 0 widthb 1 heightb 1 transform "H"');
+    SC.Add('CopyPartialImage source "conga.tga" leftb 2 top 0 target "wagon" leftb 1 top 0 widthb 1 heightb 1 transform "H"');
+    SC.Add('CopyImage source "congafnt.tga" target "fonttmp"');
     SC.Add(Format('RecolorRGB name "fonttmp" r %d g %d b %d',[Colors[ci,0],Colors[ci,1],Colors[ci,2]]));
     SC.Add(Format('CopyPartialImage source "fonttmp" left %d top 0 target "wagon" left 2 top 2 width 12 height 21',[(pos(CongaText[i*2+1],CongaFont)-1)*12]));
     SC.Add(Format('CopyPartialImage source "fonttmp" left %d top 0 target "wagon" left 50 top 2 width 12 height 21',[(pos(CongaText[i*2+2],CongaFont)-1)*12]));
-    SC.Add('CopyImage source "congafnt" target "fonttmp"');
+    SC.Add('CopyImage source "congafnt.tga" target "fonttmp"');
     SC.Add(Format('RecolorRGB name "fonttmp" r %d g %d b %d',[Colors[ci+1,0],Colors[ci+1,1],Colors[ci+1,2]]));
     SC.Add(Format('CopyPartialImage source "fonttmp" left %d top 0 target "wagon" left 18 top 2 width 12 height 21',[(pos(CongaText[i*2+2],CongaFont)-1)*12]));
     SC.Add(Format('CopyPartialImage source "fonttmp" left %d top 0 target "wagon" left 34 top 2 width 12 height 21',[(pos(CongaText[i*2+1],CongaFont)-1)*12]));
@@ -315,15 +333,15 @@ begin
   end;
   SC.Add('FreeImage name "wagon"');
   SC.Add('FreeImage name "fonttmp"');
-  SC.Add('FreeImage name "congafnt"');
+  SC.Add('FreeImage name "congafnt.tga"');
 end;
 
 procedure AddConga(SC,ANIM:TStringList;var rotatedwidth:integer;var notrotatedwidth:integer);
 begin
-  SC.Add('LoadImage name "conga" filename "conga.tga"');
+  SC.Add('LoadImage name "conga.tga" filename "conga.tga"');
   AddCongaPresents(SC,ANIM,notrotatedwidth);
   AddCongaWagons(SC,ANIM,rotatedwidth);
-  SC.Add('FreeImage name "conga"');
+  SC.Add('FreeImage name "conga.tga"');
 end;
 
 procedure AddRotatedExplosion(SC,ANIM:TStringList;var notrotatedwidth:integer);
@@ -407,17 +425,22 @@ var
 begin
   SC:=TStringList.Create;
   ANIM:=TStringList.Create;
+  ANIM.Add('ASHScript 1.2 revision 4');
+  ANIM.Add('BlockSize width 32 height 32');
+  ANIM.Add('sub type Animations name "Anims"');
 
-  SC.Add('ASHScript 1.1 revision 0');
+  SC.Add('ASHScript 1.2 revision 4');
+  SC.Add('sub type ImageScript name "Images"');
   SC.Add('BlockSize width 32 height 32');
   SC.Add('NewImage name "notrotated" widthb %d heightb 1');
   SC.Add('NewImage name "rotated" widthb %d heightb 4');
   LoadedSheets:=TStringList.Create;
   for i:=0 to FrameOrder.Count-1 do begin
     s:='sprites'+inttostr(Frames[FrameOrder[i]]._fileindex);
-    if LoadedSheets.IndexOf(s)=-1 then begin
-      SC.Add(Format('LoadImage name "%s" filename "%s.tga"',[s,s]));
-      LoadedSheets.Add(s);
+    if LoadedSheets.IndexOf(s+'.tga')=-1 then begin
+      SC.Add(Format('LoadImage name "%s.tga" filename "%s.tga"',[s,s]));
+      SC.Add(Format('RearrangeTilesV2H name "%s.tga" width 32 height 32',[s]));
+      LoadedSheets.Add(s+'.tga');
     end;
   end;
   rotatedwidth:=0;
@@ -462,9 +485,9 @@ begin
   SC.Add(Format('CopyPartialImageRepeat count %d deltaleftb 1 deltatop 0 source "rotated" leftb 0 top 0 target "rotated" leftb 0 topb 1 widthb 1 heightb 1 transform "H"',[rotatedwidth]));
   SC.Add(Format('CopyPartialImageRepeat count %d deltaleftb 1 deltatop 0 source "rotated" leftb 0 top 0 target "rotated" leftb 0 topb 2 widthb 1 heightb 1 transform "HR"',[rotatedwidth]));
   SC.Add(Format('CopyPartialImageRepeat count %d deltaleftb 1 deltatop 0 source "rotated" leftb 0 top 0 target "rotated" leftb 0 topb 3 widthb 1 heightb 1 transform "Hr"',[rotatedwidth]));
-  SC[2]:=Format(SC[2],[notrotatedwidth]);
-  SC[3]:=Format(SC[3],[rotatedwidth]);
-  SC.AddStrings(Anim);
+  SC[3]:=Format(SC[3],[notrotatedwidth]);
+  SC[4]:=Format(SC[4],[rotatedwidth]);
+  ANIM.SaveToFile('anims.ash');
   FreeAndNil(ANIM);
   SC.SaveToFile('sprites.ash');
   FreeAndNil(SC);

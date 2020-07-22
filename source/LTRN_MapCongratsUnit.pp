@@ -36,9 +36,8 @@ type
 
 implementation
 
-uses sdl, mk_sdl, ImageUnit, MKFonts, FontCollectionUnit, MusicCollectionUnit,
-  WaveCollectionUnit, LTRN_SharedUnit, LTRN_OptionsUnit, Bass,
-  Logger, SysUtils;
+uses sysutils, Bass, sdl, mk_sdl, Logger, ImageUnit, FontUnit,
+  LTRN_SharedUnit, LTRN_OptionsUnit;
 
 //                                                         +-------------+
 // ------------------------------------------------------= | TBlueEngine | =---
@@ -146,7 +145,7 @@ begin
   fMap.Reset;
   fScore:=0;
   fLogo:=TImage.Create('logo.tga');
-  PutImage(140,0,flogo);
+  PutImage(149,3,flogo);
 
   DrawMap;
   BlueEngine:=TBlueEngine.Create(fPlayer);
@@ -155,10 +154,10 @@ begin
 
   repeat
     ClearScreen(0,0,0);
-    PutImage(140,0,flogo);
-    FC.FontByIndex[3].OutText('You completed the game!',320,368,mjCenter);
-    FC.FontByIndex[1].OutText('I hope you enjoyed playing it,',320,412,mjCenter);
-    FC.FontByIndex[0].OutText('as much as I enjoyed making it!',320,434,mjCenter);
+    PutImage(149,3,flogo);
+    Fonts.FontByIndex[3].OutText('You completed the game!',320,368,mjCenter);
+    Fonts.FontByIndex[1].OutText('I hope you enjoyed playing it,',320,412,mjCenter);
+    Fonts.FontByIndex[0].OutText('as much as I enjoyed making it!',320,434,mjCenter);
     for i:=0 to 19 do
       for j:=0 to 11 do
         if fSprites[i,j]<>nil then fSprites[i,j].Draw;
@@ -214,7 +213,7 @@ begin
             end;
             fPlayer.Move;
             if fPlayer.PickedUpCargo then begin
-              WC['Pickup']._wave.Play;
+              Waves['Pickup']._wave.Play;
               FreeAndNil(fSprites[fPlayer.CargoX,fPlayer.CargoY]);
               fMap.Tiles[fPlayer.CargoX,fPlayer.CargoY]:=31;
             end;
@@ -252,7 +251,7 @@ begin
   if fPlayer.IsDead then Result:=2;
   Curtain.StartClose;
   if Result<>2 then begin
-    BASS_ChannelSlideAttribute(MC['Ending']._music.Handle, BASS_ATTRIB_VOL,0, 300)
+    BASS_ChannelSlideAttribute(Muzax['Ending']._music.Handle, BASS_ATTRIB_VOL,0, 300)
   end;
   repeat
     fPlayer.Draw;

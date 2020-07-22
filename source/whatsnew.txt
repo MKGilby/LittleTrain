@@ -1,5 +1,23 @@
 Todo:
+* The music seems to start a bit early in the intro. (Or the pictures start late)
 
+2020.01.15
+* Under the hood: following unit changes.
+* Cropped the logos to reduce file size.
+* Music MP3s are packed too. (Increasing memory usage, decreasing file size)
+* Music files are loaded by ASHScript.
+* Wave files are loaded by ASHScript.
+* Settings.ini is no longer needed.
+
+2020.01.09
+* Fonts are loaded by ASHScript.
+
+2020.01.06
+* Intro images are loaded by ASHScript.
+
+2020.01.03
+* Datafile rebuild: no prepocessing, only ZLib used.
+* Recompiled with latest ASHScript.
 
 2019.11.30
 * V1.00 released

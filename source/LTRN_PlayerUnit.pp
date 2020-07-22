@@ -56,7 +56,7 @@ type
      
 implementation
      
-uses SysUtils, SDL, MK_SDL, WaveCollectionUnit, Logger, LTRN_SharedUnit;
+uses SysUtils, SDL, MK_SDL, Logger, LTRN_SharedUnit;
      
 constructor TPlayer.Create(ix,iy,iSpeed:integer;iMap:TRawMap);
 begin
@@ -163,7 +163,7 @@ begin
             if fMap.Tiles[fPx,fPy]=34 then begin
               fState:=sExit0;
               if fSpeed>10 then fSpeed:=10;
-              WC['Complete']._wave.Play;
+              Waves['Complete']._wave.Play;
             end else
             if fMap.Tiles[fPx,fPy]=61 then begin
               fPx-=fDirX;
@@ -181,7 +181,7 @@ begin
               fState:=sExit2;
             end else
             if (fMap.Tiles[fPx,fPy] in [31,33,35]) and (fState=sPlaying) then begin
-              WC['Explosion']._wave.Play;
+              Waves['Explosion']._wave.Play;
               fDead:=1;
               if fDirX=1 then
                 fTrain[0]._sprite.SetAnimation(Animations['c1'],true)
