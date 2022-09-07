@@ -87,7 +87,7 @@ begin
 end;
 
 procedure TSlotSelector.Run(pPreselected: integer);
-var i:integer;
+var cnt,i:integer;
   Cursor:TPSCursor;
 begin
   if (pPreselected<1) or (pPreselected>5) then pPreselected:=1;
@@ -97,10 +97,12 @@ begin
 //  bar(0,SLOTSTOP,PrimaryWindow.Width,SLOTHEIGHT*5,0,0,0);
   ClearKeys;
   repeat
+    Scroll.Move(2);
     bar(0,TOP-4,PrimaryWindow.Width,PrimaryWindow.Height-TOP,0,0,0);
     Cursor.Draw;
     for i:=0 to 7 do
       Lines[i].Draw;
+    Scroll.Draw(0);
     Flip;
     HandleMessages;
     if keys[SDL_SCANCODE_UP] and (pPreselected>1) then begin
@@ -116,6 +118,21 @@ begin
       MM.Waves['MenuMoveTick']._wave.Play;
     end;
   until keys[SDL_SCANCODE_ESCAPE];
+  MM.Waves['MenuSelect']._wave.Play;
+  Cursor.StartOut;
+  for i:=0 to 7 do Lines[i].StartOut;
+  cnt:=0;
+  repeat
+    Scroll.Move(1);
+    bar(0,64,639,405,0,0,0);
+    bar(0,452,639,471,0,0,0);
+    inc(cnt);
+    Cursor.Draw;
+    for i:=0 to 7 do
+      Lines[i].Draw;
+    Scroll.Draw(0);
+    Flip;
+  until cnt=Interval*8+LineOneStepTime;
   FreeAndNil(Cursor);
 end;
 

@@ -131,28 +131,11 @@ begin
     ioGoingOut:begin
       PutTexturePart(fFase*CursorMul,fPosition   ,fLight,0,640-fFase*CursorMul,2,fImage);
       PutTexturePart(fFase*CursorMul,fPosition+28,fLight2,0,640-fFase*CursorMul,2,fImage);
-      Bar(fFase*CursorMul,fPosition+2,640-fFase*CursorMul,fPosition+27,5,27,40);
+      Bar(fFase*CursorMul,fPosition+2,640-fFase*CursorMul,26,5,27,40);
       inc(fFase);
       if fFase=CursorSteps then fInOutState:=ioHidden;
     end;
   end;
-{  if (fFase>0) and (fFase<=CursorSteps) then begin
-    PutImagePart(0,fPosition   ,640-fFase*CursorMul+fLight,0,639+fLight,1,fImage);
-    PutImagePart(0,fPosition+28,640-fFase*CursorMul+fLight2,0,639+fLight2,1,fImage);
-    bar(0,fPosition+2,fFase*CursorMul-1,fPosition+27,5,27,40);
-    inc(fFase);
-  end;}
-{  if (fFase=CursorSteps+1) then begin
-    PutImagePartWH(0,fPosition   ,fLight,0,640,2,fImage);
-    PutImagePartWH(0,fPosition+28,fLight2,0,640,2,fImage);
-    BarWH(0,fPosition+2,640,26,5,27,40);
-  end;}
-{  if (fFase>CursorSteps+1) and (fFase<=CursorSteps<<1+1) then begin
-    PutImagePart((fFase-CursorSteps-1)*CursorMul,fPosition   ,fLight,0,fLight+639-(fFase-CursorSteps-1)*CursorMul,1,fImage);
-    PutImagePart((fFase-CursorSteps-1)*CursorMul,fPosition+28,fLight2,0,fLight2+639-(fFase-CursorSteps-1)*CursorMul,1,fImage);
-    bar((fFase-CursorSteps-1)*CursorMul,fPosition+2,639,fPosition+27,5,27,40);
-    inc(fFase);
-  end;}
 end;
 
 function TPSCursor.GetPosition:integer;

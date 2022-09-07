@@ -74,7 +74,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="B:\Programming\unitsrc\CSVUnits\;B:\Programming\unitsrc\;B:\Programming\unitsrc\MKCompression\;B:\Programming\unitsrc\Datafiles\"/>
+            <OtherUnitFiles Value="..\units;..\units\SDL2"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>

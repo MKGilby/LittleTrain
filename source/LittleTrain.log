@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2022. 09. 05. 15:40:51
+(..system..) Starting Application. 2022. 09. 07. 14:48:56
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -546,4 +546,4 @@ Minimum logging level set to ALL
 () Freeing VMU...
 () VMU freed.
 (MKAudio.pas, Finalize) BASS: Shutdown...
-(..system..) Terminating Application. 2022. 09. 05. 15:41:07
+(..system..) Terminating Application. 2022. 09. 07. 14:49:07
