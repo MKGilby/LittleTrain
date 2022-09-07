@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Release"/>
+    <Units>
+      <Unit>
+        <Filename Value="TileBuild.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <TopLine Value="28"/>
+        <CursorPos X="72" Y="36"/>
+        <FoldState Value=" T3jJ0{12}"/>
+        <UsageCount Value="22"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\units\ARGBImageUnit.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="68"/>
+        <CursorPos X="22" Y="94"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\units\AnimationDataUnit.pas"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="28"/>
+        <CursorPos X="75" Y="49"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\units\ARGBImagePNGReaderUnit.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="14"/>
+        <CursorPos X="51" Y="40"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\units\ARGBImagePNGWriterUnit.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="16"/>
+        <CursorPos X="51" Y="42"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\units\MKStream.pas"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="274"/>
+        <CursorPos Y="299"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="101" Column="43" TopLine="93"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="172" TopLine="132"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="101" Column="14" TopLine="96"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="173" TopLine="137"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="17" Column="11"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="40" Column="34" TopLine="8"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="33" Column="12" TopLine="9"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="31" Column="8" TopLine="21"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="43" TopLine="27"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="64" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="69" Column="4" TopLine="43"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="32" Column="39" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="115" Column="42" TopLine="70"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="152" Column="6" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="112" Column="3" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="34" Column="5" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="192" Column="3" TopLine="167"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="63" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="198" Column="5" TopLine="148"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="57" Column="45" TopLine="10"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="83" TopLine="62"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="95" TopLine="63"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="74" TopLine="67"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="84" TopLine="51"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="48" Column="37" TopLine="18"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="100" TopLine="49"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="68" Column="3" TopLine="45"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="45" Column="48" TopLine="26"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="101" Column="8" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="36" Column="72" TopLine="28"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode="default">
+        <Mode Name="default">
+          <local>
+            <WorkingDirectory Value="b:\Projects\LittleTrain\work\tiles\"/>
+          </local>
+        </Mode>
+      </Modes>
+    </RunParams>
+    <HistoryLists>
+      <List Name="WorkingDirectory" Type="File" Count="2">
+        <Item1 Value="b:\Projects\LittleTrain\work\tiles\"/>
+      </List>
+      <List Name="LaunchingApplication" Type="File" Count="1">
+        <Item1 Value="C:\Windows\system32\cmd.exe /C ${TargetCmdLine}"/>
+      </List>
+      <List Name="CommandLineParameters" Count="1"/>
+    </HistoryLists>
+  </ProjectSession>
+</CONFIG>

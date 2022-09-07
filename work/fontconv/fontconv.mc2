@@ -1,0 +1,7 @@
+r bmp font2.bmp 1
+r bmf font2.bmf 1
+w png font2.png 1
+
+r gsd font.gsd 1
+r bmf font.bmf 1
+w png font.png 1

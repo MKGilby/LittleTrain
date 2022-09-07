@@ -1,0 +1,18 @@
+r tga mksztsz_noremakes.tga 1
+m crop 0 0 0 255 1
+w png mksztsz.png 1
+
+r tga infamous_logo.tga 1
+m crop 0 0 0 255 1
+w png infamous_logo.png 1
+
+r tga logobig_uncropped.tga 1
+m crop 0 0 0 255 1
+w png logobig.png 1
+
+r tga logo_uncropped.tga 1
+m crop 0 0 0 255 1
+w png logo.png 1
+
+r tga unknown.tga 1
+w png unknown.png 1

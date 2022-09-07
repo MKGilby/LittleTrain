@@ -1,1 +1,0 @@
-@LittleTrain.exe fullscreen

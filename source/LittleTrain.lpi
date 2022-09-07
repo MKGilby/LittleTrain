@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
-    <Version Value="11"/>
+    <Version Value="12"/>
     <PathDelim Value="\"/>
     <General>
       <Flags>
         <MainUnitHasCreateFormStatements Value="False"/>
         <MainUnitHasTitleStatement Value="False"/>
+        <MainUnitHasScaledStatement Value="False"/>
+        <CompatibilityMode Value="True"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <MainUnit Value="0"/>
       <Title Value="LittleTrain"/>
       <UseAppBundle Value="False"/>
       <ResourceType Value="res"/>
@@ -34,7 +35,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="B:\Programming\unitsrc\CSVUnits\;B:\Programming\unitsrc\;B:\Programming\unitsrc\MKCompression\;B:\Programming\unitsrc\Datafiles\;B:\Programming\unitsrc\mk_sdl\;B:\Programming\unitsrc\PlayerRegistry\"/>
+            <OtherUnitFiles Value="..\units;..\units\SDL2"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -73,7 +74,7 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="B:\Programming\unitsrc\CSVUnits\;B:\Programming\unitsrc\;B:\Programming\unitsrc\MKCompression\;B:\Programming\unitsrc\Datafiles\;B:\Programming\unitsrc\mk_sdl\;B:\Programming\unitsrc\PlayerRegistry\"/>
+            <OtherUnitFiles Value="B:\Programming\unitsrc\CSVUnits\;B:\Programming\unitsrc\;B:\Programming\unitsrc\MKCompression\;B:\Programming\unitsrc\Datafiles\"/>
             <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -107,88 +108,55 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <Units Count="20">
+    <Units Count="12">
       <Unit0>
         <Filename Value="LittleTrain.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
-        <Filename Value="LTRN_MainUnit.pp"/>
+        <Filename Value="LTRN_MainUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit1>
       <Unit2>
-        <Filename Value="LTRN_SharedUnit.pp"/>
+        <Filename Value="LTRN_SharedUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit2>
       <Unit3>
-        <Filename Value="LTRN_VMUUnit.pp"/>
+        <Filename Value="LTRN_VMUUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit3>
       <Unit4>
-        <Filename Value="LTRN_IntroUnit.pp"/>
+        <Filename Value="LTRN_IntroUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit4>
       <Unit5>
-        <Filename Value="PSLineUnit.pp"/>
+        <Filename Value="LTRN_ScrollUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit5>
       <Unit6>
-        <Filename Value="LTRN_ScrollUnit.pp"/>
+        <Filename Value="LTRN_OptionsUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit6>
       <Unit7>
-        <Filename Value="LTRN_PlayerSelectUnit.pp"/>
+        <Filename Value="LTRN_CurtainUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit7>
       <Unit8>
-        <Filename Value="LTRN_MapBaseUnit.pp"/>
+        <Filename Value="LTRN_MapListUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit8>
       <Unit9>
-        <Filename Value="LTRN_OptionsUnit.pp"/>
+        <Filename Value="LTRN_SlotSelectUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit9>
       <Unit10>
-        <Filename Value="LTRN_MapImagesUnit.pp"/>
+        <Filename Value="PSLineUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit10>
       <Unit11>
-        <Filename Value="B:\Programming\unitsrc\PlayerRegistry\PlayerRegistryUnit.pas"/>
+        <Filename Value="PSCursorUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit11>
-      <Unit12>
-        <Filename Value="LTRN_PlayerUnit.pp"/>
-        <IsPartOfProject Value="True"/>
-      </Unit12>
-      <Unit13>
-        <Filename Value="LTRN_MapSelectorUnit.pp"/>
-        <IsPartOfProject Value="True"/>
-      </Unit13>
-      <Unit14>
-        <Filename Value="LTRN_CurtainUnit.pp"/>
-        <IsPartOfProject Value="True"/>
-      </Unit14>
-      <Unit15>
-        <Filename Value="PSCursorUnit.pp"/>
-        <IsPartOfProject Value="True"/>
-      </Unit15>
-      <Unit16>
-        <Filename Value="B:\Programming\unitsrc\mk_sdl\MK_SDL.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="mk_sdl"/>
-      </Unit16>
-      <Unit17>
-        <Filename Value="LTRN_MapListUnit.pp"/>
-        <IsPartOfProject Value="True"/>
-      </Unit17>
-      <Unit18>
-        <Filename Value="LTRN_MapPlayUnit.pp"/>
-        <IsPartOfProject Value="True"/>
-      </Unit18>
-      <Unit19>
-        <Filename Value="LTRN_MapCongratsUnit.pp"/>
-        <IsPartOfProject Value="True"/>
-      </Unit19>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -199,7 +167,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="B:\Programming\unitsrc\CSVUnits\;B:\Programming\unitsrc\;B:\Programming\unitsrc\MKCompression\;B:\Programming\unitsrc\Datafiles\;B:\Programming\unitsrc\mk_sdl\;B:\Programming\unitsrc\PlayerRegistry\"/>
+      <OtherUnitFiles Value="B:\Programming\unitsrc\CSVUnits\;B:\Programming\unitsrc\;B:\Programming\unitsrc\MKCompression\;B:\Programming\unitsrc\Datafiles\"/>
       <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Parsing>

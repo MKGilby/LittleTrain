@@ -1,5 +1,24 @@
 Todo:
-* The music seems to start a bit early in the intro. (Or the pictures start late)
++ Add scroll
++ Make Space/Enter and Del work in slot selector
+
+
+2022.09.05
+* Save slot selector is now displayed as nicely as player selector.
+
+2022.09.03
+* Player name won't be stored, you can only select save slot.
+  (Progress % and score will be displayed.)
+
+2022.08.31
+* Intro is working again.
+
+2022.08.30
+* Started reworking with SDL2.
+* Version number increased to V1.10 .
+* Graphical assets are converted to PNG.
+* No more ASHscript. :)
+* Coding is not started yet.
 
 2020.01.15
 * Under the hood: following unit changes.

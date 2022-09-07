@@ -1,0 +1,54 @@
+; This file is the base of the spritesheet creation
+
+; Create a spritesheet:
+
+SpriteSheet
+  Width 529
+  Height 529
+  Name sprites01.png
+
+; Add files:
+; filename "SpriteName" FrameDelay [Looped Paused RandomStart Pingpong Rotated]
+
+Files
+  crash1.cel "c1" 1 Rotated
+  crash2.cel "c2" 6
+  engine.cel "%" 6 Rotated
+  door.cel "!" 6 Paused
+  wall.cel "#" 0
+  g01.cel "a" 6 Looped randomstart
+  g02.cel "b" 0
+  g03.cel "c" 6 Looped
+  g04.cel "d" 0
+  g05.cel "e" 6 Looped
+  g06.tga "f" 6 Looped RandomStart Pingpong
+  g07.cel "g" 0
+  g08.cel "h" 0
+  g09.cel "i" 0
+  g10.tga "j" 6 Looped randomstart pingpong
+  g11.cel "k" 6 Looped randomstart
+  g12.cel "l" 0
+  g13.cel "m" 6 Looped randomstart
+  g14.cel "n" 6 Looped randomstart
+  g15.cel "o" 10 Looped
+  g16.cel "p" 6 Looped randomstart
+  g17.cel "q" 0
+  g18.cel "r" 0
+  t01.cel "A" 6 Looped Randomstart rotated
+  t02.cel "B" 0 rotated
+  t03.cel "C" 0 rotated
+  t04.cel "D" 0 rotated
+  t05.cel "E" 0 rotated
+  t06.cel "F" 0 rotated
+  t07.cel "G" 0 rotated
+  t08.cel "H" 0 rotated
+  t09.cel "I" 0 rotated
+  t10.cel "J" 0 rotated
+  t11.cel "K" 0 rotated
+  t12.cel "L" 0 rotated
+  t13.cel "M" 0 rotated
+  t14.cel "N" 0 rotated
+  t15.cel "O" 0 rotated
+  t16.cel "P" 0 rotated
+  t17.cel "Q" 0 rotated
+  t18.cel "R" 0 rotated

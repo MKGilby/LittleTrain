@@ -23,8 +23,8 @@ var PlayerSelect:TPlayerSelect;
 
 implementation
 
-uses SysUtils, SDL, MK_SDL, MKToolBox, Logger, FontUnit,
-     vcc_Editbox, PSLineUnit,
+uses SysUtils, SDL2, mk_sdl2, MKToolBox, Logger, Font2Unit,
+     PSLineUnit,
      PSCursorUnit, LTRN_OptionsUnit,
      LTRN_ScrollUnit, LTRN_VMUUnit, LTRN_MapImagesUnit, LTRN_SharedUnit;
 

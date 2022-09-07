@@ -1,132 +1,549 @@
-(..system..) Starting Application. 2020. 02. 21. 14:06:48
+(..system..) Starting Application. 2022. 09. 05. 15:40:51
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
-(uses) Lists.pas, version 3.15
-(uses) MKToolbox.pas, version 3.42
-(uses) MAD4LowLevelUnit.pas, version 1.10a
+(uses) Lists.pas, version 3.17
+(uses) AnimationDataUnit.pas, version 1.08
+(uses) FontDataUnit.pas, version 1.00
+(uses) MKToolbox.pas, version 3.47
+(uses) MKStream.pas, version 3.00
+(uses) ARGBImageUnit.pas, version 1.20
+(uses) mk_sdl2.pas, version 1.08
+(uses) MKAudio.pas, version 1.00a
+(uses) MAD4LowLevelUnit.pas, version 2.02
 (uses) MyZStreamUnit.pas, version 1.02
-(uses) CompressorUnit.pas, version 1.23
-(uses) MAD4MidLevelUnit.pas, version 1.11
-(uses) MAD4HighLevelUnit.pas, version 1.05
-(uses) MKStream.pas, version 2.09
-(uses) RawPictureUnit.pas, version 1.33
-(uses) ImageUnit.pas, version 1.13
-(uses) MK_SDL.pas, version 1.20b
-(uses) MKAudio.pas, version 1.00
+(uses) CompressorUnit.pas, version 1.25
+(uses) MAD4MidLevelUnit.pas, version 2.01
+(uses) PlayerRegistryUnit.pas, version 3.07
+(uses) Mask2Unit.pas, version 1.00
+(uses) Font2Unit.pas, version 1.06
+(uses) FontList2Unit.pas, version 1.02
 (uses) MusicUnit.pas, version 1.02
-(uses) MusicListUnit.pas, version 1.00
-(uses) FontUnit.pas, version 1.00
-(uses) MKRFontUnit.pas, version 1.00
-(uses) SmallFontUnit.pas, version 1.06
+(uses) MusicListUnit.pas, version 1.01
 (uses) WaveUnit.pas, version 1.02
 (uses) WaveListUnit.pas, version 1.00
-(uses) FontListUnit.pas, version 1.00
-(uses) ASHInterpreterUnit.pas, version 1.04
-(uses) PlayerRegistryUnit.pas, version 3.06
-(LTRN_VMUUnit.pp, Initialize) Initializing VMU...
-(LTRN_VMUUnit.pp, Initialize) VMU initialized.
-(uses) ScrollUnit.pas, version 2.09
-(uses) MKINIFile.pas, version 2.17
-(uses) LexerUnit.pas, version 1.18
-(uses) MaskUnit.pas, version 1.01
-(uses) ImageListUnit.pas, version 1.00
-(uses) AnimationUnit.pas, version 1.00
-(uses) AnimationListUnit.pas, version 1.03
+(uses) Animation2Unit.pas, version 1.06
+(uses) MediaManagerUnit.pas, version 1.07
+(uses) Scroll2Unit.pas, version 1.01
 (uses) StackUnit.pas, version 1.02
-(uses) MKMouse.pas, version 2.03
-(uses) vcc_Menu.pas, version 2.15
-(uses) vcc_EditBox.pas, version 3.08
-(uses) LogicalSpriteUnit.pas, version 1.01
-(uses) AnimatedSpriteUnit.pas, version 1.01
-(uses) FastPaletteUnit.pas, version 1.06a
-(uses) RawPictureTGAUnit.pas, version 1.01
-(uses) TGAFontUnit.pas, version 1.00
-Minimum logging level set to STATUS
------------------------------------------------------------------------------
-<LTRN_MainUnit.pp, TMain.Create> LittleTrain V1.00.1 (Build date: 2020.01.15)
------------------------------------------------------------------------------
+(uses) MKMouse2.pas, version 1.00
+(uses) MKINIFile.pas, version 2.17
+(uses) vcc_Menu2.pas, version 1.01
+(uses) CRC32Unit.pas, version 1.01
+(uses) ARGBImagePNGReaderUnit.pas, version 1.06
+Minimum logging level set to ALL
+---------------------------------------------
+<> LittleTrain V1.10 (Build date: 2022.09.03)
+---------------------------------------------
+<> Setting up SDL and BASS...
 (MKAudio.pas, Init_Audio) BASS V2.4 loaded.
 (MKAudio.pas, Init_Audio) BASS: Device initialized.
-{MAD4LowLevelUnit.pas, TMAD4LowLevel.Mount} Not a MAD4 file!
+() Loading VMU...
+<> Loading assets...
+<>   sprites...
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('sprites01.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (sprites01.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('logo.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (logo.png)
+<>   musics...
+<MKStream.pas, TMKStreamOpener.OpenStream> GetFileInfo('littletrain_opt.mp3')
 (MusicUnit.pas, TMusic.Create) BASS: Loading littletrain_opt.mp3 was successful. (fMusic=2952790017)
+<MKStream.pas, TMKStreamOpener.OpenStream> GetFileInfo('littletrain_in.mp3')
 (MusicUnit.pas, TMusic.Create) BASS: Loading littletrain_in.mp3 was successful. (fMusic=2952790018)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('littletrain_end.mo3')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (littletrain_end.mo3)
 (MusicUnit.pas, TMusic.Create) BASS: Loading littletrain_end.mo3 was successful. (fMusic=2684354563)
-< Trace > Name=Pickup, Filename=pick-up.mp3
-< Trace > Name=Explosion, Filename=xplode.mp3
-< Trace > Name=Complete, Filename=exit.mp3
-< Trace > Name=DoorOpen, Filename=open.mp3
-< Trace > Name=MenuMoveTick, Filename=menutick.mp3
-< Trace > Name=MenuSelect, Filename=select.mp3
-(LTRN_MapListUnit.pp, TMapList.Create) 51 map(s) loaded.
+<>   sound fx...
+<MKStream.pas, TMKStreamOpener.OpenStream> GetFileInfo('pick-up.mp3')
+<WaveUnit.pas, TWave.Create> Not compressed (..\data\pick-up.mp3,0,8402)
+<WaveUnit.pas, TWave.Create> BASS: Loading pick-up.mp3 was successful. (fWave=-1879048187)
+<MKStream.pas, TMKStreamOpener.OpenStream> GetFileInfo('xplode.mp3')
+<WaveUnit.pas, TWave.Create> Not compressed (..\data\xplode.mp3,0,34185)
+<WaveUnit.pas, TWave.Create> BASS: Loading xplode.mp3 was successful. (fWave=-1879048185)
+<MKStream.pas, TMKStreamOpener.OpenStream> GetFileInfo('exit.mp3')
+<WaveUnit.pas, TWave.Create> Not compressed (..\data\exit.mp3,0,75038)
+<WaveUnit.pas, TWave.Create> BASS: Loading exit.mp3 was successful. (fWave=-1879048183)
+<MKStream.pas, TMKStreamOpener.OpenStream> GetFileInfo('open.mp3')
+<WaveUnit.pas, TWave.Create> Not compressed (..\data\open.mp3,0,65561)
+<WaveUnit.pas, TWave.Create> BASS: Loading open.mp3 was successful. (fWave=-1879048181)
+<MKStream.pas, TMKStreamOpener.OpenStream> GetFileInfo('menutick.mp3')
+<WaveUnit.pas, TWave.Create> Not compressed (..\data\menutick.mp3,0,3340)
+<WaveUnit.pas, TWave.Create> BASS: Loading menutick.mp3 was successful. (fWave=-1879048179)
+<MKStream.pas, TMKStreamOpener.OpenStream> GetFileInfo('select.mp3')
+<WaveUnit.pas, TWave.Create> Not compressed (..\data\select.mp3,0,17115)
+<WaveUnit.pas, TWave.Create> BASS: Loading select.mp3 was successful. (fWave=-1879048177)
+<>   fonts...
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font2.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font2.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
+<>   maps...
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('maps.bin')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (maps.bin)
+() 51 map(s) loaded.
+<> Creating persistent entities...
+<>   scroll...
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('scroll.txt')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (scroll.txt)
+< Trace > 640
+< Trace > 65
+<>   curtain...
+<>   options dialog...
+<vcc_Menu2.pas, TMenu.FillItems> Parent=-1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 0
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 2
+<vcc_Menu2.pas, TMenu.FillItems> Parent=-1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 0
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 2
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 3
 (MusicUnit.pas, TMusic.Play) BASS: Music started.
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
-[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (0,0)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('mksztsz.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (mksztsz.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('infamous_logo.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (infamous_logo.png)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (1,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (3,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+[PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
 (MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
-(MusicUnit.pas, TMusic.Play) BASS: Music started.
-(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
-(MusicUnit.pas, TMusic.Play) BASS: Music started.
-(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
+<> Freeing persistent entities...
+<>   options dialog...
+<>   curtain...
+<>   scroll...
+<> Freeing assets...
+<>   maps...
+<>   media...
+<WaveListUnit.pas, TWaveListItem.Destroy> Destroying wave Pickup
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+<WaveListUnit.pas, TWaveListItem.Destroy> Destroying wave Explosion
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+<WaveListUnit.pas, TWaveListItem.Destroy> Destroying wave Complete
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+<WaveListUnit.pas, TWaveListItem.Destroy> Destroying wave DoorOpen
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+<WaveListUnit.pas, TWaveListItem.Destroy> Destroying wave MenuMoveTick
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+<WaveListUnit.pas, TWaveListItem.Destroy> Destroying wave MenuSelect
+(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
+<MusicListUnit.pas, TMusicListItem.Destroy> Destroying music Menu
 (MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
+<MusicListUnit.pas, TMusicListItem.Destroy> Destroying music Ingame
 (MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
+<MusicListUnit.pas, TMusicListItem.Destroy> Destroying music Ending
 (MusicUnit.pas, TMusic.Destroy) BASS: Music freed.
-(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
-(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
-(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
-(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
-(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
-(WaveUnit.pas, TWave.Destroy) BASS: Wave freed.
-(MK_SDL.pas, Finalize) MK_SDL: Average ms remaining in each frame: 13
-(LTRN_VMUUnit.pp, Finalize) Freeing VMU...
-(LTRN_VMUUnit.pp, Finalize) VMU freed.
+() Freeing VMU...
+() VMU freed.
 (MKAudio.pas, Finalize) BASS: Shutdown...
-(..system..) Terminating Application. 2020. 02. 21. 14:07:45
+(..system..) Terminating Application. 2022. 09. 05. 15:41:07
