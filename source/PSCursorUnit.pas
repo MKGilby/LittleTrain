@@ -9,13 +9,16 @@ interface
 
 uses mk_sdl2;
 
-type TPSCursor=class
+type
+
+{ TPSCursor }
+
+ TPSCursor=class
        constructor Create(iPosition,iDelay:integer);
        destructor Destroy; override;
        procedure StartOut;
        procedure Draw;
        procedure MoveTo(iPosition:integer);
-       function GetPosition:integer;
        procedure Restart;
      private
        fDelay:integer;
@@ -27,6 +30,9 @@ type TPSCursor=class
        fInOutState:(ioHidden,ioComingInDelay,ioComingIn,ioVisible,ioGoingOutDelay,ioGoingOut);
        fFase:integer;
        fLight,fLight2:integer;
+       procedure fSetPosition(pValue:integer);
+     public
+       property Position:integer read fPosition write fSetPosition;
      end;
      
 implementation
@@ -138,16 +144,17 @@ begin
   end;
 end;
 
-function TPSCursor.GetPosition:integer;
-begin
-  Result:=fPosition;
-end;
-
 procedure TPSCursor.Restart;
 begin
   fDelay:=fSaveDelay;
   fInOutState:=ioComingInDelay;
   fFase:=0
+end;
+
+procedure TPSCursor.fSetPosition(pValue:integer);
+begin
+  fPosition:=pValue;
+  fTPosition:=pvalue;
 end;
 
 end.

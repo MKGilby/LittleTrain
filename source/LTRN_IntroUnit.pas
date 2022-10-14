@@ -89,18 +89,17 @@ begin
   if esc then exit;
 
   atm.ARGBImage.Clear;
-  MM.Images.ItemByName['Logo'].CopyTo(0,0,atmi.Width,atmi.Height,149,3,atm.ARGBImage);
-//  atmI:=TARGBImage.Create('logo.png');
-//  atmI.CopyTo(0,0,atmi.Width,atmi.Height,149,3,atm.ARGBImage);
-//  FreeAndNil(atmI);
+  atmi:=MM.Images.ItemByName['Logo'];
+  atmi.CopyTo(0,0,atmi.Width,atmi.Height,149,3,atm.ARGBImage);
+
   MM.Fonts['3'].OutText(atm.ARGBImage,'Original (C)''93 Miroslav Nemecek',320,64,mjCenter);
   MM.Fonts['3'].OutText(atm.ARGBImage,'This version (C) 2022 MKSZTSZ',320,96,mjCenter);
 
   MM.Fonts['3'].SetAlpha(192);
   MM.Fonts['3'].OutText(atm.ARGBImage,'Tools used to create this game:',20,150,mjLeft);
   MM.Fonts['3'].SetAlpha(255);
-  MM.Fonts['3'].OutText(atm.ARGBImage,'- Lazarus V2.2.2',60,182,mjLeft);
-  MM.Fonts['3'].OutText(atm.ARGBImage,'- JEDI-SDL',60,214,mjLeft);
+  MM.Fonts['3'].OutText(atm.ARGBImage,'- Lazarus V2.2.4',60,182,mjLeft);
+  MM.Fonts['3'].OutText(atm.ARGBImage,'- JEDI-SDL2',60,214,mjLeft);
   MM.Fonts['3'].OutText(atm.ARGBImage,'- BASS V2.4',60,246,mjLeft);
   MM.Fonts['3'].OutText(atm.ARGBImage,'- PoV-Ray V3.61',60,278,mjLeft);
 

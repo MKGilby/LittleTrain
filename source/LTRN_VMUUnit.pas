@@ -10,7 +10,6 @@ uses PlayerRegistryUnit, BASS, SDL;
 const
   VMUFileName:string='LittleTrain.vmu';
   LevelPackName:string='<internal>';
-  CFG=#0'*CFG';
 
 type
 
@@ -37,7 +36,9 @@ implementation
 
 uses SysUtils, Logger;
 
-const Fstr='LTRN_VMUUnit.pp, ';
+const
+  Fstr='LTRN_VMUUnit.pp, ';
+  CFG=#0'*CFG';
 
 constructor TVMU.Create;
 var i:integer;
@@ -51,6 +52,7 @@ begin
   AddPlayer(CFG);
   if not ReadData(CFG,CFG,0,sizeof(Float),fSoundVolume) then fSoundVolume:=1;
   if not ReadData(CFG,CFG,sizeof(Float),sizeof(Float),fMusicVolume) then fMusicVolume:=1;
+  fMusicVolume:=0;
 end;
 
 destructor TVMU.Destroy;

@@ -1,7 +1,10 @@
 Todo:
-+ Add scroll
-+ Make Space/Enter and Del work in slot selector
++ Make Space/Enter work in slot selector
 
+
+2022.10.14
+* You can reset progress on slots (press DEL to initiate resetting progress
+  on the selected slot).
 
 2022.09.07
 * Renamed build batch files.

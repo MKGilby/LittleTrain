@@ -80,7 +80,7 @@ begin
   Intro;
 
   SlotSelect:=TSlotSelector.Create;
-  SlotSelect.Run;
+  i:=SlotSelect.Run;
   FreeAndNil(SlotSelect);
 
 {  if i in [0..4] then begin
