@@ -89,6 +89,8 @@
 //   + TNamedList.ItemByName added
 // V3.17 - Gilby - 2020.10.13
 //   - TCallBackStringList removed, TStringList already have a ForEach callback.
+// V3.18 - Gilby - 2022.10.06
+//   - Removed TGenericList, use fgl unit instead.
 
 {$ifdef fpc}
   {$smartlink on}
@@ -147,17 +149,6 @@ type
   end;
 
 {$ifdef fpc}
-  TGenericList<T>=class(TList)
-  public
-    destructor Destroy; override;
-    procedure Clear; override;
-  private
-    function fGetItem(index:integer):T;
-    procedure fSetItem(index:integer;item:T);
-  public
-    property Items[index:integer]:T read fGetItem write fSetItem; default;
-  end;
-
   TNamedList<T>=class(TStringList)
   public
     destructor Destroy; override;
@@ -187,8 +178,9 @@ implementation
 
 uses SysUtils, Logger, QuickSortUnit;
 
-const Fstr='Lists.pas, ';
-      Version='3.17';
+const
+  Fstr={$I %FILE%}+', ';
+  Version='3.18';
 
 constructor TFileSearchList.Create(iPath:string;iAttr:integer);
 begin
@@ -372,36 +364,6 @@ begin
 end;
 
 {$ifdef fpc}
-destructor TGenericList<T>.Destroy;
-begin
-  Clear;
-  inherited ;
-end;
-
-procedure TGenericList<T>.Clear;
-var i:integer;
-begin
-  for i:=0 to Self.Count-1 do begin
-    Items[i].Free;
-    Items[i]:=nil;
-  end;
-  inherited;
-end;
-
-function TGenericList<T>.fGetItem(index:integer):T;
-begin
-  if (index>=0) and (index<Count) then
-    Result:=T(inherited Items[index])
-  else
-    Result:=nil;
-end;
-
-procedure TGenericList<T>.fSetItem(index:integer;item:T);
-begin
-  if (index>=0) and (index<Count) then
-    inherited Items[index]:=item;
-end;
-
 destructor TNamedList<T>.Destroy;
 begin
   Clear;

@@ -16,7 +16,7 @@ type
     destructor Destroy; override;
     procedure Run;
   private
-    fVersionString:string;
+//    fVersionString:string;
     fMainWindow:TWindow;
   end;
 

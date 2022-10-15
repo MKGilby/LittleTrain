@@ -5,7 +5,7 @@ unit LTRN_VMUUnit;
 
 interface
 
-uses PlayerRegistryUnit, BASS, SDL;
+uses PlayerRegistryUnit, BASS;
 
 const
   VMUFileName:string='LittleTrain.vmu';
@@ -98,10 +98,9 @@ begin
 end;
 
 function TVMU.GetCompletedMapCount(pSlot: integer): integer;
-var i,j:integer;
+var i:integer;
 begin
   if pSlot in [1..5] then begin
-    j:=fLevelPacks.IndexOf(LevelPackName);
     Result:=0;
     for i:=0 to 49 do
       if GetMapState(pSlot,i)>0 then inc(Result);

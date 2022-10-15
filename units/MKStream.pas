@@ -78,6 +78,8 @@
 //    * Fixed a range check error
 //  V3.00: 2021.11.15 - Gilby
 //    * Complete rework
+//  V3.01: 2022.10.06 - Gilby
+//    * Using fgl.TFGObjectList for TStreams instead of Lists.TGenericList
 
 {$ifdef fpc}
   {$mode delphi}
@@ -87,7 +89,7 @@ unit MKStream;
 
 interface
 
-uses Classes, Lists;
+uses Classes, Lists, fgl;
 
 type
   TMKFileInfo=record
@@ -119,7 +121,7 @@ type
     _StreamOpener:TStreamOpener;
   end;
 
-  TStreams=TGenericList<TStreamsItem>;
+  TStreams=TFPGObjectList<TStreamsItem>;
 
   TMKStreamOpener=class
     constructor Create;
@@ -164,8 +166,9 @@ implementation
 
 uses SysUtils, MKToolBox, Logger;
 
-const Fstr='MKStream.pas, ';
-      Version='3.00';
+const
+  Fstr={$I %FILE%}+', ';
+  Version='3.01';
 
 var ExePath:string;
 
@@ -190,7 +193,6 @@ begin
 end;
 
 destructor TMKStreamOpener.Destroy;
-var i:integer;
 begin
 //  for i:=0 to fStreams.Count-1 do FreeAndNil(fStreams[i]._StreamOpener);
   FreeAndNil(fStreams);

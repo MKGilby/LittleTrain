@@ -5,7 +5,7 @@ unit LTRN_MapListUnit;
 interface
 
 uses
-  Classes, Lists;
+  Classes, Lists, fgl;
 
 type
   TRawMap=class
@@ -31,7 +31,7 @@ type
     property Congratulations:boolean read fCongratulations;
   end;
 
-  TMapList=class(TGenericList<TRawMap>)
+  TMapList=class(TFPGObjectList<TRawMap>)
     constructor Create(iFilename:String); overload;
     constructor Create(iSource:TStream); overload;
   end;

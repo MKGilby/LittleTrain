@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="12"/>
     <BuildModes Active="Debug"/>
-    <Units Count="69">
+    <Units Count="71">
       <Unit0>
         <Filename Value="LittleTrain.pas"/>
         <IsPartOfProject Value="True"/>
@@ -15,16 +15,17 @@
       <Unit1>
         <Filename Value="LTRN_MainUnit.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="44"/>
-        <CursorPos Y="83"/>
+        <TopLine Value="50"/>
+        <CursorPos X="5" Y="72"/>
         <UsageCount Value="138"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="LTRN_SharedUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="9"/>
         <TopLine Value="13"/>
         <CursorPos X="29" Y="45"/>
         <UsageCount Value="136"/>
@@ -33,18 +34,16 @@
       <Unit3>
         <Filename Value="LTRN_VMUUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="6"/>
-        <CursorPos Y="13"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="30" Y="8"/>
         <UsageCount Value="130"/>
-        <Loaded Value="True"/>
       </Unit3>
       <Unit4>
         <Filename Value="LTRN_IntroUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="51"/>
         <UsageCount Value="128"/>
-        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="LTRN_ScrollUnit.pas"/>
@@ -75,17 +74,16 @@
         <Filename Value="LTRN_MapListUnit.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="5"/>
-        <CursorPos X="56" Y="142"/>
+        <CursorPos X="32" Y="35"/>
         <UsageCount Value="119"/>
         <Loaded Value="True"/>
       </Unit8>
       <Unit9>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="59"/>
-        <CursorPos X="13" Y="98"/>
+        <TopLine Value="36"/>
+        <CursorPos X="46" Y="56"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit9>
@@ -509,8 +507,9 @@
       <Unit64>
         <Filename Value="..\units\MKMouse2.pas"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="18" Y="22"/>
-        <UsageCount Value="9"/>
+        <TopLine Value="13"/>
+        <CursorPos X="32" Y="22"/>
+        <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit64>
       <Unit65>
@@ -523,10 +522,11 @@
       </Unit65>
       <Unit66>
         <Filename Value="..\units\ARGBImageUnit.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="304"/>
-        <CursorPos Y="330"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="412"/>
+        <CursorPos X="54" Y="433"/>
         <UsageCount Value="10"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit66>
       <Unit67>
@@ -544,126 +544,144 @@
         <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit68>
+      <Unit69>
+        <Filename Value="..\units\MKStream.pas"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="126"/>
+        <CursorPos Y="196"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit69>
+      <Unit70>
+        <Filename Value="..\units\PlayerRegistryUnit.pas"/>
+        <EditorIndex Value="7"/>
+        <TopLine Value="514"/>
+        <CursorPos X="16" Y="536"/>
+        <UsageCount Value="10"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit70>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="115" Column="10" TopLine="70"/>
       </Position1>
       <Position2>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="18" Column="20"/>
+        <Caret Line="140" TopLine="88"/>
       </Position2>
       <Position3>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="137" TopLine="86"/>
+        <Caret Line="32" Column="5"/>
       </Position3>
       <Position4>
-        <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="121" Column="6" TopLine="89"/>
+        <Filename Value="PSCursorUnit.pas"/>
+        <Caret Line="87" TopLine="36"/>
       </Position4>
       <Position5>
-        <Filename Value="LTRN_MainUnit.pas"/>
-        <Caret Line="60" Column="53" TopLine="44"/>
+        <Filename Value="LTRN_SlotSelectUnit.pas"/>
+        <Caret Line="154" Column="10" TopLine="109"/>
       </Position5>
       <Position6>
-        <Filename Value="LTRN_VMUUnit.pas"/>
-        <Caret Line="38" Column="7"/>
+        <Filename Value="LTRN_SlotSelectUnit.pas"/>
+        <Caret Line="7" Column="30" TopLine="6"/>
       </Position6>
       <Position7>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="124" TopLine="85"/>
+        <Caret Line="75" Column="29" TopLine="49"/>
       </Position7>
       <Position8>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
+        <Caret Line="201" Column="32" TopLine="153"/>
       </Position8>
       <Position9>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="140" TopLine="88"/>
+        <Caret Line="148" Column="53" TopLine="123"/>
       </Position9>
       <Position10>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="32" Column="5"/>
+        <Caret Line="82" TopLine="74"/>
       </Position10>
       <Position11>
-        <Filename Value="PSCursorUnit.pas"/>
-        <Caret Line="87" TopLine="36"/>
+        <Filename Value="LTRN_SlotSelectUnit.pas"/>
+        <Caret Line="149" Column="55" TopLine="123"/>
       </Position11>
       <Position12>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="154" Column="10" TopLine="109"/>
+        <Caret Line="171" Column="10" TopLine="141"/>
       </Position12>
       <Position13>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="7" Column="30" TopLine="6"/>
+        <Caret Line="180" Column="6" TopLine="149"/>
       </Position13>
       <Position14>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="75" Column="29" TopLine="49"/>
+        <Caret Line="140" TopLine="94"/>
       </Position14>
       <Position15>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="201" Column="32" TopLine="153"/>
+        <Caret Line="93" Column="30" TopLine="67"/>
       </Position15>
       <Position16>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="148" Column="53" TopLine="123"/>
+        <Caret Line="92" Column="32" TopLine="66"/>
       </Position16>
       <Position17>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="82" TopLine="74"/>
+        <Caret Line="122" TopLine="92"/>
       </Position17>
       <Position18>
-        <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="149" Column="55" TopLine="123"/>
+        <Filename Value="PSCursorUnit.pas"/>
+        <Caret Line="155" Column="30" TopLine="103"/>
       </Position18>
       <Position19>
-        <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="171" Column="10" TopLine="141"/>
+        <Filename Value="PSCursorUnit.pas"/>
+        <Caret Line="18" TopLine="11"/>
       </Position19>
       <Position20>
-        <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="180" Column="6" TopLine="149"/>
+        <Filename Value="PSCursorUnit.pas"/>
+        <Caret Line="33" Column="9" TopLine="10"/>
       </Position20>
       <Position21>
-        <Filename Value="LTRN_VMUUnit.pas"/>
-        <Caret Line="55" Column="18" TopLine="15"/>
+        <Filename Value="LTRN_SlotSelectUnit.pas"/>
+        <Caret Line="98" Column="13" TopLine="59"/>
       </Position21>
       <Position22>
-        <Filename Value="LTRN_VMUUnit.pas"/>
-        <Caret Line="40"/>
+        <Filename Value="LTRN_MainUnit.pas"/>
+        <Caret Line="72" Column="5" TopLine="50"/>
       </Position22>
       <Position23>
-        <Filename Value="LTRN_VMUUnit.pas"/>
-        <Caret Line="13"/>
+        <Filename Value="LTRN_MapListUnit.pas"/>
+        <Caret Line="142" Column="56"/>
       </Position23>
       <Position24>
-        <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="140" TopLine="94"/>
+        <Filename Value="..\units\MKStream.pas"/>
+        <Caret Line="95" Column="12" TopLine="78"/>
       </Position24>
       <Position25>
-        <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="93" Column="30" TopLine="67"/>
+        <Filename Value="LTRN_MapListUnit.pas"/>
+        <Caret Line="35" Column="32"/>
       </Position25>
       <Position26>
-        <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="92" Column="32" TopLine="66"/>
+        <Filename Value="..\units\MKStream.pas"/>
+        <Caret Line="95" Column="12" TopLine="78"/>
       </Position26>
       <Position27>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="122" TopLine="92"/>
+        <Caret Line="56" Column="46" TopLine="36"/>
       </Position27>
       <Position28>
-        <Filename Value="PSCursorUnit.pas"/>
-        <Caret Line="155" Column="30" TopLine="103"/>
+        <Filename Value="..\units\MKStream.pas"/>
+        <Caret Line="196" TopLine="126"/>
       </Position28>
       <Position29>
-        <Filename Value="PSCursorUnit.pas"/>
-        <Caret Line="18" TopLine="11"/>
+        <Filename Value="..\units\PlayerRegistryUnit.pas"/>
+        <Caret Line="536" Column="16" TopLine="514"/>
       </Position29>
       <Position30>
-        <Filename Value="PSCursorUnit.pas"/>
-        <Caret Line="33" Column="9" TopLine="10"/>
+        <Filename Value="..\units\ARGBImageUnit.pas"/>
+        <Caret Line="433" Column="54" TopLine="412"/>
       </Position30>
     </JumpHistory>
     <RunParams>

@@ -2,6 +2,9 @@ Todo:
 + Make Space/Enter work in slot selector
 
 
+2022.10.15
+* Tidying up code.
+
 2022.10.14
 * You can reset progress on slots (press DEL to initiate resetting progress
   on the selected slot).

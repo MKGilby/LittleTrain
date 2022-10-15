@@ -9,6 +9,8 @@
 // Version info:
 //   V1.00 - 2021.01.30 - Gilby
 //     * Initial creation from MKMouse
+//   V1.01 - 2022.10.15 - Gilby
+//     * Replaced Lists.TGenericList with fgl.TFPGObjectList
 
 {$ifdef fpc}
   {$mode delphi}
@@ -19,7 +21,7 @@ unit MKMouse2;
 interface
 
 uses
-  Classes, SDL2, StackUnit, Lists;
+  Classes, SDL2, StackUnit, fgl;
 
 type
   TMouseEvent=function(Sender:TObject;x,y,buttons:integer):boolean of object;
@@ -65,7 +67,7 @@ type
   end;
 
   { *** You must add your mouse objects to this to handle events... *** }
-  TMouseObjects=class(TGenericList<TMouseObject>)
+  TMouseObjects=class(TFPGObjectList<TMouseObject>)
     constructor Create;
     destructor Destroy; override;
     procedure Draw;
@@ -89,8 +91,8 @@ implementation
 uses SysUtils, Logger, MK_SDL2;
 
 const 
-  Fstr='MKMouse2.pas, ';
-  Version='1.00';
+  Fstr={$I %FILE%}+', ';
+  Version='1.01';
 
 procedure Initialize;
 begin

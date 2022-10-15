@@ -533,7 +533,7 @@ begin
   Result:=true;
   if FileExists(pFilename) then begin
     Xs:=TFileStream.Create(pFilename,fmOpenRead);
-    SetLength(s,4);
+    s:=#0#0#0#0;
     Xs.Read(s[1],4);
     Xs.Free;
 
