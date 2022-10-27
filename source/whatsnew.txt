@@ -2,6 +2,15 @@ Todo:
 + Make Space/Enter work in slot selector
 
 
+2022.10.27
+* --- Project is being in a broken state, cannot compile now. ---
+* Added thumb images to create map previews.
+* Added map previews
+
+2022.10.21
+* Options menu works in slot selector. (Press F12 to invoke.)
+* When quitting, scroll and logo flies out.
+
 2022.10.15
 * Tidying up code.
 

@@ -33,6 +33,8 @@
 //     * From now TAnimation holds the entire Animation logic
 //  V1.06: Gilby - 2022.07.08
 //     + Added PutFramePart (with clipping)
+//  V1.07: Gilby - 2022.10.27
+//     + Added Finished property
 
 {$mode delphi}
 
@@ -74,6 +76,7 @@ type
     property FrameDelay:integer read fFrameDelay write fSetFrameDelay;
     property LoopDelay:integer read fLoopDelay write fSetLoopDelay;
     property CurrentFrameIndex:integer read fCurrentFrameIndex write fSetFrameIndex;
+    property Finished:boolean read fFinished;
   end;
 
   { TAnimations }
@@ -88,7 +91,7 @@ uses SysUtils, MKStream, Logger;
 
 const
   Fstr={$I %FILE%}+', ';
-  Version='1.06';
+  Version='1.07';
 
 { TAnimations }
 

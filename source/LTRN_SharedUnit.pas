@@ -5,7 +5,7 @@ unit LTRN_SharedUnit;
 interface
 
 uses MediaManagerUnit, sdl2, LTRN_CurtainUnit, LTRN_ScrollUnit, LTRN_MapListUnit,
-  LTRN_OptionsUnit;
+  LTRN_OptionsUnit, LTRN_MapImagesUnit;
 
 const
   DATAFILENAME='LittleTrain.data';
@@ -17,6 +17,7 @@ var
   MM:TMediaManager;
   MapList:TMapList;
   Options:TOptions;
+  MapImages:TMapImages;
 
 procedure LoadAssets;
 procedure FreeAssets;
@@ -91,6 +92,7 @@ begin
   Log.LogDebug('  maps...');
   MapList:=TMapList.Create('maps.bin');
 
+
   Log.LogDebug('Creating persistent entities...');
   Log.LogDebug('  scroll...');
   Scroll:=TLTRN_Scroll.Create;
@@ -101,6 +103,8 @@ begin
   Log.LogDebug('  options dialog...');
   Options:=TOptions.Create;
 
+  Log.LogDebug('  map thumbnails...');
+  MapImages:=TMapImages.Create(MapList);
   CreateShadow;
 end;
 

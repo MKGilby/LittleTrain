@@ -24,7 +24,7 @@ implementation
 
 uses
   SysUtils, Logger, MKStream, sdl2, MKAudio, MAD4MidLevelUnit, LTRN_VMUUnit,
-  LTRN_SharedUnit, LTRN_IntroUnit, LTRN_SlotSelectUnit;
+  LTRN_SharedUnit, LTRN_IntroUnit, LTRN_SlotSelectUnit, LTRN_MapSelectorUnit;
 
 constructor TMain.Create(iVersion, iBuildDate: String);
 begin
@@ -71,11 +71,11 @@ end;
 procedure TMain.Run;
 var i:integer;SlotSelect:TSlotSelector;
 begin
-  MM.Fonts.DemoFonts;
+{  MM.Fonts.DemoFonts;
   repeat
     Flip;
     HandleMessages;
-  until keys[SDL_SCANCODE_SPACE];
+  until keys[SDL_SCANCODE_SPACE];}
   MM.Musics['Menu']._music.Play;
   Intro;
 

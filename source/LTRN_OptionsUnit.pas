@@ -36,7 +36,7 @@ begin
   fMenu.HighlightFont:=MM.Fonts['1'];
   fMenu.HeaderFont:=MM.Fonts['5'];
   fMenu.TextAlign:=mjCenter;
-  fMenu.TextOffsetY:=8;
+  fMenu.TextOffsetY:=0;
   fMenu.RowHeight:=36;
 //  fMenu.AddItemExt('"@SETTINGS" "Back=B" "%MV%MUSIC VOLUME: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
 //  fMenu.AddItemExt('"%SV%EFFECTS VOLUME {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');

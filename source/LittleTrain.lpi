@@ -22,7 +22,7 @@
     <VersionInfo>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="7"/>
+      <BuildNr Value="12"/>
     </VersionInfo>
     <BuildModes Count="3">
       <Item1 Name="Default" Default="True"/>
@@ -114,7 +114,7 @@
         <Mode0 Name="default"/>
       </Modes>
     </RunParams>
-    <Units Count="12">
+    <Units Count="16">
       <Unit0>
         <Filename Value="LittleTrain.pas"/>
         <IsPartOfProject Value="True"/>
@@ -163,6 +163,22 @@
         <Filename Value="PSCursorUnit.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit11>
+      <Unit12>
+        <Filename Value="LTRN_MapSelectorUnit.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="LTRN_MapBaseUnit.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="LTRN_TrainPieceUnit.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="LTRN_MapImagesUnit.pas"/>
+        <IsPartOfProject Value="True"/>
+      </Unit15>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

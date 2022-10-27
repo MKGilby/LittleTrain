@@ -4,9 +4,19 @@ unit LTRN_SlotSelectUnit;
 
 interface
 
-uses PSLineUnit, PSCursorUnit;
+uses PSLineUnit, PSCursorUnit, mk_sdl2;
 
 type
+
+  { TLogo }
+
+  TLogo=class
+    constructor Create(iLeft,iTop:integer);
+    procedure Draw(fOffset:integer=0);
+  private
+    fLeft,fTop:integer;
+    fTexture:TTexture;
+  end;
 
   { TSlotVisual }
 
@@ -30,6 +40,7 @@ type
   private
     Lines:array[0..7] of TPSLine;
     Cursor:TPSCursor;
+    Logo:TLogo;
     function SelectSlot(pPreselected:integer):integer;
     procedure ResetSlot(iSlot:integer);
   end;
@@ -37,13 +48,27 @@ type
 implementation
 
 uses
-  SysUtils, LTRN_VMUUnit, LTRN_SharedUnit, Font2Unit, mk_sdl2, SDL2,
+  SysUtils, LTRN_VMUUnit, LTRN_SharedUnit, Font2Unit, SDL2,
   ARGBImageUnit;
 
 const
   INTERVAL=10;
   TOP=128;
   HEIGHT=32;
+
+{ TLogo }
+
+constructor TLogo.Create(iLeft,iTop:integer);
+begin
+  fLeft:=iLeft;
+  fTop:=iTop;
+  fTexture:=MM.Textures.ItemByName['Logo'];
+end;
+
+procedure TLogo.Draw(fOffset:integer);
+begin
+  PutTexture(fLeft,fTop+fOffset,fTexture);
+end;
 
 { TSlotVisual }
 
@@ -74,12 +99,14 @@ end;
 constructor TSlotSelector.Create;
 begin
   Cursor:=TPSCursor.Create(1*HEIGHT+TOP-4,0);
+  Logo:=TLogo.Create(149,3);
 end;
 
 destructor TSlotSelector.Destroy;
 var i:integer;
 begin
-  FreeAndNil(Cursor);
+  if Assigned(Logo) then FreeAndNil(Logo);
+  if Assigned(Cursor) then FreeAndNil(Cursor);
   for i:=0 to 7 do
     if Assigned(Lines[i]) then FreeAndNil(Lines[i]);
   inherited Destroy;
@@ -105,7 +132,8 @@ begin
   for i:=1 to 5 do
     Lines[i]:=TSlotVisual.Create(i,TOP+HEIGHT*i,INTERVAL*i);
   Lines[6]:=TPSLine.Create(#1'Arrows'#0' - Move, '#1'Space'#0' - Select',352,Interval*6);
-  Lines[7]:=TPSLine.Create(#1'Del'#0' - Reset, '#1'Esc'#0' - Quit',384,Interval*7);
+//  Lines[7]:=TPSLine.Create(#1'Del'#0' - Reset, '#1'Esc'#0' - Quit, '#1'F12'#0' - Options',384,Interval*7);
+  Lines[7]:=TPSLine.Create(#1'Del'#0' - Reset, '#1'F12'#0' - Settings, '#1'Esc'#0' - Quit',384,Interval*7);
   SDL_RenderClear(PrimaryWindow.Renderer);
   PutTexture(149,3,MM.Textures.ItemByName['Logo']);
   Cursor.Restart;
@@ -113,8 +141,10 @@ begin
   //  bar(0,SLOTSTOP,PrimaryWindow.Width,SLOTHEIGHT*5,0,0,0);
   ClearKeys;
   repeat
-    Scroll.Move(2);
-    bar(0,TOP-4,PrimaryWindow.Width,PrimaryWindow.Height-TOP,0,0,0);
+    Scroll.Move(1);
+    SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
+    SDL_RenderClear(PrimaryWindow.Renderer);
+    Logo.Draw;
     Cursor.Draw;
     for i:=0 to 7 do
       Lines[i].Draw;
@@ -133,7 +163,9 @@ begin
       Cursor.MoveTo(pPreselected*HEIGHT+TOP-4);
       MM.Waves['MenuMoveTick']._wave.Play;
     end;
-  until keys[SDL_SCANCODE_ESCAPE] or keys[SDL_SCANCODE_DELETE];
+    if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
+  until keys[SDL_SCANCODE_ESCAPE] or keys[SDL_SCANCODE_DELETE]
+        or keys[SDL_SCANCODE_SPACE] or keys[SDL_SCANCODE_RETURN];
   Result:=pPreselected;
   if keys[SDL_SCANCODE_DELETE] then Result+=8;
   if keys[SDL_SCANCODE_ESCAPE] then Result:=-1;
@@ -143,14 +175,23 @@ begin
   cnt:=0;
   repeat
     Scroll.Move(1);
-    bar(0,64,639,405,0,0,0);
-    bar(0,452,639,471,0,0,0);
+    SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
+    SDL_RenderClear(PrimaryWindow.Renderer);
+    if (cnt<48) or not keys[SDL_SCANCODE_ESCAPE] then
+      Logo.Draw
+    else
+      Logo.Draw(48-cnt);
     inc(cnt);
     Cursor.Draw;
     for i:=0 to 7 do
       Lines[i].Draw;
-    Scroll.Draw(0);
+    if (cnt<64) or not keys[SDL_SCANCODE_ESCAPE] then
+      Scroll.Draw(0)
+    else
+      Scroll.Draw(cnt-64);
     Flip;
+    HandleMessages;
+    if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
   until cnt=Interval*8+LineOneStepTime;
   for i:=0 to 7 do
     if Assigned(Lines[i]) then FreeAndNil(Lines[i]);
@@ -172,8 +213,9 @@ begin
   cnt:=1;
   repeat
     Scroll.Move(1);
-    bar(0,64,639,405,0,0,0);
-    bar(0,452,639,471,0,0,0);
+    SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
+    SDL_RenderClear(PrimaryWindow.Renderer);
+    Logo.Draw;
     inc(cnt);
     Cursor.Draw;
     for i:=0 to 4 do Lines[i].Draw;
@@ -192,6 +234,7 @@ begin
       Cursor.MoveTo(act*32+188);
       MM.Waves['MenuMoveTick']._wave.Play;
     end;
+    if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
   until (keys[SDL_SCANCODE_ESCAPE] or keys[SDL_SCANCODE_SPACE] or keys[SDL_SCANCODE_RETURN]) and (cnt>Interval*5+64);
   MM.Waves['MenuSelect']._wave.Play;
   Cursor.StartOut;
@@ -199,14 +242,16 @@ begin
   cnt:=0;
   repeat
     Scroll.Move(1);
-    bar(0,64,639,405,0,0,0);
-    bar(0,452,639,471,0,0,0);
-//    if (cnt mod Interval=0) and (cnt div Interval<5) then Lines[cnt div Interval]^.Start;
+    SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
+    SDL_RenderClear(PrimaryWindow.Renderer);
+    Logo.Draw;
     inc(cnt);
     Cursor.Draw;
     for i:=0 to 4 do Lines[i].Draw;
     Scroll.Draw(0);
     Flip;
+    HandleMessages;
+    if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
   until cnt=Interval*5+LineOneStepTime;
   if (act=1) and not keys[SDLK_Escape] then begin
     VMU.RenamePlayer(iSlot,'???'+inttostr(iSlot));

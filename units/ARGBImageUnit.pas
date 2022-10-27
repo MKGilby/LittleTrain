@@ -83,6 +83,9 @@
 //     + Line added.
 //   1.20 - Gilby - 2022.08.30
 //     * Rotate(2) was not implemented. Added it now.
+//   1.21 - Gilby - 2022.10.27
+//     + HalveImage(n:integer) added. It shrinks the image to 2^-n
+//     * Changed freemems to sizeless versions.
 
 {$ifdef fpc}
   {$mode delphi}
@@ -209,6 +212,9 @@ type
     // Makes the image N times bigger.
     procedure ResizeN(n:integer);
 
+    // Shrinks the image to 2^-n  (1=/2, 2=/4, etc...)
+    procedure HalveImage(n:integer);
+
     // Replace one exact color in image
     procedure ReplaceColor(sR,sG,sB,sA,tR,tG,tB,tA:uint32); overload;
 
@@ -285,7 +291,7 @@ uses SysUtils, MKToolBox, Logger, MKStream;
 
 const
   Fstr={$I %FILE%}+', ';
-  Version='1.20';
+  Version='1.21';
 
 var
   ARGBImageReaders:TARGBImageReaderList;
@@ -524,7 +530,7 @@ var r,g,b,w:longint;
     s1,s2,p:pointer;
 begin
   s1:=fRawdata;
-  getmem(p,fWidth*fHeight*4);
+  p:=getmem(fWidth*fHeight*4);
   s2:=p;
   for y:=0 to fHeight-1 do begin
     for x:=0 to fWidth-1 do begin
@@ -547,7 +553,8 @@ begin
       inc(s2,4);
     end;
   end;
-  freemem(fRawData,fWidth*fHeight*4);
+//  freemem(fRawData,fWidth*fHeight*4);
+  freemem(fRawData);
   fRawdata:=p;
 end;
 
@@ -577,7 +584,7 @@ procedure TARGBImage.Rotate(iAmount:word);
 //const Istr=Fstr+'TRawPicture.Rotate';
 var x,y:integer;s,t,p:pointer;
 begin
-  GetMem(p,fWidth*fHeight*4);
+  p:=GetMem(fWidth*fHeight*4);
 
   case iAmount mod 4 of
     0:exit;   // No rotate
@@ -619,7 +626,8 @@ begin
         x:=fWidth;fWidth:=fHeight;fHeight:=x;
       end;
   end;
-  freemem(fRawdata,fWidth*fHeight*4);
+  freemem(fRawData);
+//  freemem(fRawdata,fWidth*fHeight*4);
   fRawdata:=p;
 end;
 
@@ -781,10 +789,11 @@ begin
     end;
   w:=x2-x1+1;
   h:=y2-y1+1;
-  GetMem(p,w*h*4);
+  p:=GetMem(w*h*4);
   for j:=0 to h-1 do
     move((fRawData+((y1+j)*fWidth+x1)*4)^,(p+(j*w)*4)^,w*4);
-  FreeMem(fRawData,fWidth*fHeight*4);
+//  FreeMem(fRawData,fWidth*fHeight*4);
+  freemem(fRawData);
   fRawData:=p;
   fWidth:=w;
   fHeight:=h;
@@ -807,7 +816,7 @@ procedure TARGBImage.FlipH;
 var x,y:integer;s,t,p:pointer;
 begin
 //  Log.Trace('A1, '+inttostr(fWidth)+', '+inttostr(fHeight));
-  getmem(p,fWidth*fHeight*4);
+  p:=getmem(fWidth*fHeight*4);
 //  Log.Trace('A2');
   t:=p;
 //  Log.Trace('A3');
@@ -823,7 +832,8 @@ begin
     s+=fWidth*4*2;
   end;
 //  Log.Trace('A5');
-  freemem(fRawdata,fWidth*fHeight*4);
+//  freemem(fRawdata,fWidth*fHeight*4);
+  freemem(fRawData);
 //  Log.Trace('A6');
   fRawdata:=p;
 //  Log.Trace('A7');
@@ -832,7 +842,7 @@ end;
 procedure TARGBImage.FlipV;
 var x,y:integer;s,t,p:pointer;
 begin
-  getmem(p,fWidth*fHeight*4);
+  p:=getmem(fWidth*fHeight*4);
   s:=fRawdata+(fHeight-1)*fWidth*4;
   t:=p;
 
@@ -844,7 +854,8 @@ begin
     end;
     s-=fWidth*4*2;
   end;
-  freemem(fRawdata,fWidth*fHeight*4);
+//  freemem(fRawdata,fWidth*fHeight*4);
+  freemem(fRawData);
   fRawdata:=p;
 end;
 
@@ -860,7 +871,8 @@ begin
       move((s+(y>>1*fWidth+x>>1)*4)^,t^,4);
       t+=4;
     end;
-  freemem(fRawdata,fWidth*fHeight*4);
+//  freemem(fRawdata,fWidth*fHeight*4);
+  freemem(fRawData);
   fRawdata:=p;
   fWidth:=fWidth<<1;
   fHeight:=fHeight<<1;
@@ -882,10 +894,53 @@ begin
       inc(s,4);
     end;
 
-  freemem(fRawdata,fWidth*fHeight*4);
+//  freemem(fRawdata,fWidth*fHeight*4);
+  freemem(fRawData);
   fRawdata:=p;
   fWidth:=fWidth*n;
   fHeight:=fHeight*n;
+end;
+
+procedure TARGBImage.HalveImage(n:integer);
+var i,j,x,y,r,g,b,a,f:integer;s,t:pointer;
+begin
+  if (n>0) and (n<16) then begin
+    f:=1 << n;
+    if (fWidth mod f<>0) then begin
+      Log.LogError(Format('HalveImage: Cannot divide %d with %d!',[fWidth,f]));
+      exit;
+    end;
+    if (fHeight mod f<>0) then begin
+      Log.LogError(Format('HalveImage: Cannot divide %d with %d!',[fHeight,f]));
+      exit;
+    end;
+    fWidth:=fWidth div f;
+    fHeight:=fHeight div f;
+    t:=GetMem(fHeight*fWidth*4);
+    for j:=0 to fHeight-1 do begin
+      for i:=0 to fWidth-1 do begin
+        r:=0;g:=0;b:=0;a:=0;
+        for y:=0 to f-1 do begin
+//          s:=fRawdata+((j*f+y)*fWidth+(i*f))*4;
+          s:=fRawdata+(j*f+y)*fWidth*f*4+i*f*4;
+          for x:=0 to f-1 do begin
+            b+=byte((s)^);
+            g+=byte((s+1)^);
+            r+=byte((s+2)^);
+            a+=byte((s+3)^);
+            s+=4;
+          end;
+        end;
+        byte((t)^):=b div (f*f);
+        byte((t+1)^):=g div (f*f);
+        byte((t+2)^):=r div (f*f);
+        byte((t+3)^):=a div (f*f);
+        t+=4;
+      end;
+    end;
+    Freemem(fRawdata);
+    fRawdata:=t-fWidth*fHeight*4;
+  end;
 end;
 
 procedure TARGBImage.ReplaceColor(sR,sG,sB,sA,tR,tG,tB,tA:uint32);
@@ -1003,7 +1058,8 @@ begin
       for y:=0 to frameHeight-1 do
         move((p+(y*fWidth*4))^,(q+(y*newWidth*4))^,frameWidth*4);
     end;
-  FreeMem(fRawData,fWidth*fHeight*4);
+//  FreeMem(fRawData,fWidth*fHeight*4);
+  freemem(fRawData);
   fRawdata:=newRawData;
   fWidth:=newWidth;
   fHeight:=newHeight;
@@ -1194,7 +1250,8 @@ begin
   if i=-1 then raise Exception.Create('Extension not recognized! ('+ext+')');
   Xs:=MKStreamOpener.OpenStream(iFileName);
   if ARGBImageReaders[i].AffectsImage then begin
-    if (fRawdata<>nil) then Freemem(fRawdata,fWidth*fHeight*4);
+//    if (fRawdata<>nil) then Freemem(fRawdata,fWidth*fHeight*4);
+    if (fRawdata<>nil) then Freemem(fRawdata);
     fAnimations.Clear;
     if Assigned(fFontData) then FreeAndNil(fFontData);
   end;
@@ -1208,7 +1265,8 @@ begin
   i:=ARGBImageReaders.IndexOf(uppercase(pFileType));
   if i=-1 then raise Exception.Create('Filetype not recognized! ('+pFileType+')');
   if ARGBImageReaders[i].AffectsImage then begin
-    if (fRawdata<>nil) then Freemem(fRawdata,fWidth*fHeight*4);
+//    if (fRawdata<>nil) then Freemem(fRawdata,fWidth*fHeight*4);
+    if (fRawdata<>nil) then Freemem(fRawdata);
     fAnimations.Clear;
     if Assigned(fFontData) then FreeAndNil(fFontData);
   end;

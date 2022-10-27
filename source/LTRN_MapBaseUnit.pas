@@ -5,7 +5,7 @@ unit LTRN_MapBaseUnit;
 
 interface
 
-uses AnimatedSpriteUnit, LTRN_PlayerUnit, ImageUnit, Lists, LTRN_MapListUnit;
+uses AnimatedSprite2Unit, LTRN_PlayerUnit, LTRN_MapListUnit, mk_sdl2, ARGBImageUnit;
 
 type
   TMapBase=class
@@ -21,7 +21,8 @@ type
     fVMUSlot:integer;
     fState:integer;
     fBest:integer;
-    fImage:TImage;
+    fImage:TStreamingTexture;
+//    fTexture:TTexture;
     
     fSprites:array[0..19,0..11] of TAnimatedSprite;
     fMap:TRawMap;
@@ -47,7 +48,7 @@ type
 
 implementation
 
-uses MKToolBox, Logger, SDL, mk_sdl,
+uses MKToolBox, Logger, SDL2, SysUtils,
      LTRN_VMUUnit, LTRN_MapImagesUnit, LTRN_SharedUnit;
 
 constructor TMapBase.Create(iX,iY,iMapNo,iVMUSlot:integer);
@@ -63,7 +64,8 @@ begin
   fAutoPlay:=fMap.AutoPlay;
   fCongratulations:=fMap.Congratulations;
 
-  fImage:=TImage.Create(168,104);
+  fImage:=TStreamingTexture.Create(168,104);
+  SDL_SetTextureBlendMode(fImage.Texture,SDL_BLENDMODE_BLEND);
   fBest:=VMU.GetMapState(iVMUSlot,iMapNo);
   fState:=0;
   fPlayer:=nil;
@@ -73,18 +75,17 @@ end;
 
 destructor TMapBase.Destroy;
 begin
-  FreeAndNIL(fImage);
-//  FreeAndNIL(fThumb);
+  if Assigned(fImage) then FreeAndNIL(fImage);
   inherited ;
 end;
 
 procedure TMapBase.Draw(iAlpha:integer);
 begin
   if (fX>-168) and (fX<640) then begin
-    SDL_SetAlpha(fImage.Surface,SDL_SRCALPHA or SDL_HWACCEL, (255-(abs(236-fX)*255 div 404))*iAlpha div 255);
-    if fX<0 then PutImagePart(0,fY,-fX,0,167,103,fImage)
-    else if fX>472 then PutImagePart(fX,fY,0,0,640-fX,103,fImage)
-    else PutImage(fX,fY,fImage);
+    SDL_SetTextureAlphaMod(fImage.Texture,(255-(abs(236-fX)*255 div 404))*iAlpha div 255);
+    if fX<0 then PutTexturePart(0,fY,-fX,0,167,103,fImage)
+    else if fX>472 then PutTexturePart(fX,fY,0,0,640-fX,103,fImage)
+    else PutTexture(fX,fY,fImage);
   end;
 end;
 
@@ -97,10 +98,12 @@ procedure TMapBase.UpdateImage;
 const Colors:array[0..2,0..2] of integer=((128,0,0),(192,192,64),(0,144,0));
 var i:integer;
 begin
-  if fState=0 then fImage.PutImage(4,4,MapImages[0])
-              else fImage.PutImage(4,4,MapImages[fMapNo+1]);
+  if fState=0 then MapImages[0].CopyTo(0,0,MapImages[0].Width,MapImages[0].Height,4,4,fImage.ARGBImage)
+              else MapImages[fMapNo+1].CopyTo(0,0,MapImages[0].Width,MapImages[0].Height,4,4,fImage.ARGBImage);
+//  if fState=0 then fImage.PutImage(4,4,MapImages[0])
+//              else fImage.PutImage(4,4,MapImages[fMapNo+1]);
   for i:=0 to 3 do
-    fImage.rectangle(i,i,168-i*2,104-i*2,
+    fImage.ARGBImage.Rectangle(i,i,168-i*2,104-i*2,
               Colors[fState,0]*(i+1) div 4,Colors[fState,1]*(i+1) div 4,Colors[fState,2]*(i+1) div 4);
 end;
 
@@ -111,7 +114,7 @@ begin
   fGoodies:=0;
   for j:=0 to 11 do
     for i:=0 to 19 do begin
-      BarWH(i<<5,j<<5+48,32,32,0,0,0);
+      Bar(i<<5,j<<5+48,32,32,0,0,0);
       case fMap.Tiles[i,j] of
         32:;
         33:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,Animations[chr(33)]);
@@ -139,7 +142,7 @@ end;
 
 procedure TMapBase.SetState(iNewState:integer);
 begin
-  if iNewState in [0..2] then begin
+  if (iNewState in [0..2]) and (fState<>iNewState) then begin
     fState:=iNewState;
     UpdateImage;
   end;

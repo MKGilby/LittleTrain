@@ -1,5 +1,4 @@
-; This script is creates TGAs from CEL files
-; Only purpose is to be able to view files with an image viewer.
+; This script is creates TGAs from CEL files and creates thumbnail images.
 
 @ celtga
 r cel %1.cel 1
@@ -63,3 +62,90 @@ w tga g10.tga 2
 m create 32 32 1
 m bar 0 0 32 32 0 0 0 255 1
 w tga empty.tga 1
+
+m create 168 8 2
+r tga wall.tga 1
+m halve 2 1
+m copyto 0 0 8 8 0 0 1 2
+
+r tga engine.tga 1
+m halve 2 1
+m copyto 0 0 8 8 8 0 1 2
+
+r tga door.tga 1
+m halve 2 1
+m copyto 0 0 8 8 16 0 1 2
+
+r tga g01.tga 1
+m halve 2 1
+m copyto 0 0 8 8 24 0 1 2
+
+r tga g02.tga 1
+m halve 2 1
+m copyto 0 0 8 8 32 0 1 2
+
+r tga g03.tga 1
+m halve 2 1
+m copyto 0 0 8 8 40 0 1 2
+
+r tga g04.tga 1
+m halve 2 1
+m copyto 0 0 8 8 48 0 1 2
+
+r tga g05.tga 1
+m halve 2 1
+m copyto 0 0 8 8 56 0 1 2
+
+r tga g06.tga 1
+m halve 2 1
+m copyto 0 0 8 8 64 0 1 2
+
+r tga g07.tga 1
+m halve 2 1
+m copyto 0 0 8 8 72 0 1 2
+
+r tga g08.tga 1
+m halve 2 1
+m copyto 0 0 8 8 80 0 1 2
+
+r tga g09.tga 1
+m halve 2 1
+m copyto 0 0 8 8 88 0 1 2
+
+r tga g10.tga 1
+m halve 2 1
+m copyto 0 0 8 8 96 0 1 2
+
+r tga g11.tga 1
+m halve 2 1
+m copyto 0 0 8 8 104 0 1 2
+
+r tga g12.tga 1
+m halve 2 1
+m copyto 0 0 8 8 112 0 1 2
+
+r tga g13.tga 1
+m halve 2 1
+m copyto 0 0 8 8 120 0 1 2
+
+r tga g14.tga 1
+m halve 2 1
+m copyto 0 0 8 8 128 0 1 2
+
+r tga g15.tga 1
+m halve 2 1
+m copyto 0 0 8 8 136 0 1 2
+
+r tga g16.tga 1
+m halve 2 1
+m copyto 0 0 8 8 144 0 1 2
+
+r tga g17.tga 1
+m halve 2 1
+m copyto 0 0 8 8 152 0 1 2
+
+r tga g18.tga 1
+m halve 2 1
+m copyto 0 0 8 8 160 0 1 2
+
+w png ..\thumbs.png 2

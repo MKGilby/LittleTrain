@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2022. 08. 30. 11:53:02
+(..system..) Starting Application. 2022. 10. 27. 15:00:59
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -233,4 +233,4 @@
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\lampg.cel)
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('new\lampr.cel')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\lampr.cel)
-(..system..) Terminating Application. 2022. 08. 30. 11:53:03
+(..system..) Terminating Application. 2022. 10. 27. 15:00:59
