@@ -8,16 +8,6 @@ uses PSLineUnit, PSCursorUnit, mk_sdl2;
 
 type
 
-  { TLogo }
-
-  TLogo=class
-    constructor Create(iLeft,iTop:integer);
-    procedure Draw(fOffset:integer=0);
-  private
-    fLeft,fTop:integer;
-    fTexture:TTexture;
-  end;
-
   { TSlotVisual }
 
   TSlotVisual=class(TPSLine)
@@ -40,7 +30,6 @@ type
   private
     Lines:array[0..7] of TPSLine;
     Cursor:TPSCursor;
-    Logo:TLogo;
     function SelectSlot(pPreselected:integer):integer;
     procedure ResetSlot(iSlot:integer);
   end;
@@ -55,20 +44,6 @@ const
   INTERVAL=10;
   TOP=128;
   HEIGHT=32;
-
-{ TLogo }
-
-constructor TLogo.Create(iLeft,iTop:integer);
-begin
-  fLeft:=iLeft;
-  fTop:=iTop;
-  fTexture:=MM.Textures.ItemByName['Logo'];
-end;
-
-procedure TLogo.Draw(fOffset:integer);
-begin
-  PutTexture(fLeft,fTop+fOffset,fTexture);
-end;
 
 { TSlotVisual }
 
@@ -99,13 +74,12 @@ end;
 constructor TSlotSelector.Create;
 begin
   Cursor:=TPSCursor.Create(1*HEIGHT+TOP-4,0);
-  Logo:=TLogo.Create(149,3);
 end;
 
 destructor TSlotSelector.Destroy;
 var i:integer;
 begin
-  if Assigned(Logo) then FreeAndNil(Logo);
+//  if Assigned(Logo) then FreeAndNil(Logo);
   if Assigned(Cursor) then FreeAndNil(Cursor);
   for i:=0 to 7 do
     if Assigned(Lines[i]) then FreeAndNil(Lines[i]);
@@ -253,7 +227,7 @@ begin
     HandleMessages;
     if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
   until cnt=Interval*5+LineOneStepTime;
-  if (act=1) and not keys[SDLK_Escape] then begin
+  if (act=1) and not keys[SDL_SCANCODE_ESCAPE] then begin
     VMU.RenamePlayer(iSlot,'???'+inttostr(iSlot));
     VMU.ClearData('???'+inttostr(iSlot),LevelPackName);
   end;

@@ -36,7 +36,7 @@ begin
   fAnimRight:=MM.Animations.ItemByName[iType].SpawnAnimation;;
   fAnimUp:=MM.Animations.ItemByName[iType+'U'].SpawnAnimation;
   fAnimDown:=MM.Animations.ItemByName[iType+'D'].SpawnAnimation;
-  inherited Create(iX,iy,fAnimRight);
+  inherited Create(iX,iy,fAnimRight,false);
   fDir:='R';
 end;
 

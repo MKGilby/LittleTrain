@@ -49,7 +49,7 @@ type
 implementation
 
 uses MKToolBox, Logger, SDL2, SysUtils,
-     LTRN_VMUUnit, LTRN_MapImagesUnit, LTRN_SharedUnit;
+     LTRN_VMUUnit{, LTRN_MapImagesUnit}, LTRN_SharedUnit;
 
 constructor TMapBase.Create(iX,iY,iMapNo,iVMUSlot:integer);
 //var i,j:integer;
@@ -99,12 +99,13 @@ const Colors:array[0..2,0..2] of integer=((128,0,0),(192,192,64),(0,144,0));
 var i:integer;
 begin
   if fState=0 then MapImages[0].CopyTo(0,0,MapImages[0].Width,MapImages[0].Height,4,4,fImage.ARGBImage)
-              else MapImages[fMapNo+1].CopyTo(0,0,MapImages[0].Width,MapImages[0].Height,4,4,fImage.ARGBImage);
+              else MapImages[fMapNo+1].CopyTo(0,0,MapImages[fMapNo+1].Width,MapImages[fMapNo+1].Height,4,4,fImage.ARGBImage);
 //  if fState=0 then fImage.PutImage(4,4,MapImages[0])
 //              else fImage.PutImage(4,4,MapImages[fMapNo+1]);
   for i:=0 to 3 do
     fImage.ARGBImage.Rectangle(i,i,168-i*2,104-i*2,
               Colors[fState,0]*(i+1) div 4,Colors[fState,1]*(i+1) div 4,Colors[fState,2]*(i+1) div 4);
+  fImage.Update;
 end;
 
 procedure TMapBase.DrawMap;
@@ -117,14 +118,14 @@ begin
       Bar(i<<5,j<<5+48,32,32,0,0,0);
       case fMap.Tiles[i,j] of
         32:;
-        33:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,Animations[chr(33)]);
-        35:fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,Animations[chr(35)]);
+        33:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(33)].SpawnAnimation);
+        35:fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(35)].SpawnAnimation);
         37:fPlayer:=TPlayer.Create(i,j,3,fMap);
-        61:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,Animations[chr(61)]);
+//        61:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,Animations[chr(61)]);
         else begin
-          fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,Animations[chr(fMap.Tiles[i,j])]);
+          fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(fMap.Tiles[i,j])].SpawnAnimation);
           if fMap.Tiles[i,j] in [97..114] then inc(fGoodies);
-          if fMap.Tiles[i,j] in [99,101,111] then fSprites[i,j].LoopDelay:=20+random(60);
+          if fMap.Tiles[i,j] in [99,101,111] then fSprites[i,j].Animation.LoopDelay:=20+random(60);
         end;
       end;
     end;

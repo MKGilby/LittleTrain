@@ -83,11 +83,11 @@ begin
   i:=SlotSelect.Run;
   FreeAndNil(SlotSelect);
 
-{  if i in [0..4] then begin
-    MapSelector:=TMapSelector.Create(160,i+1);
+  if i in [0..4] then begin
+    MapSelector:=TMapSelector.Create(160,i);
     MapSelector.Run;
     FreeAndNil(MapSelector);
-  end;}
+  end;
 
   MM.Musics['Menu']._music.Stop;
 end;

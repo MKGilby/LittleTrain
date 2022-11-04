@@ -1,6 +1,14 @@
 Todo:
-+ Make Space/Enter work in slot selector
+* Fix bugs.
+* On map selector screen change the welcome n line to simple "Welcome!".
 
+
+2022.11.04
+* Space/Enter works in slot selector, map selector comes in.
+* Map selector works, you can play unlocked maps.
+* BUG: Some train pieces drawn wrongly
+* BUG: When hitting wall/wagon the animation doesn't play.
+* BUG: Engine animation doesn't play.
 
 2022.10.27
 * --- Project is being in a broken state, cannot compile now. ---

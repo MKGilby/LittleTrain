@@ -119,7 +119,7 @@ begin
   SDL_SetTextureBlendMode(atm.Texture, SDL_BLENDMODE_BLEND);
   RealIntro;
   FreeAndNIL(atm);
-  keys[SDLK_Escape]:=false;
+  keys[SDL_SCANCODE_ESCAPE]:=false;
 end;
 
 end.

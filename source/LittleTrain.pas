@@ -10,7 +10,7 @@
 uses
   SysUtils,
   LTRN_MainUnit,
-  ARGBImagePNGReaderUnit, LTRN_TrainPieceUnit;
+  ARGBImagePNGReaderUnit, LTRN_TrainPieceUnit,LTRN_PlayerUnit, LTRN_LogoUnit;
 
 const
   Version='1.10';

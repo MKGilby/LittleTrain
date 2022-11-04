@@ -18,7 +18,7 @@ type
 
 implementation
 
-uses SysUtils, SDL2, mk_sdl2, Logger, Bass, LTRN_VMUUnit, LTRN_SharedUnit,
+uses SysUtils, mk_sdl2, Logger, Bass, LTRN_VMUUnit, LTRN_SharedUnit,
   Font2Unit;
 
 const
@@ -86,12 +86,12 @@ begin
     fMenu.Draw;
     Flip;
     HandleMessages;
-{    if keys[SDLK_A] then begin
+{    if keys[SDL_scancode_A] then begin
       ScreenShot;
-      keys[SDLK_A]:=false;
+      keys[SDL_scancode_A]:=false;
     end;}
-//  until (keys[SDLK_Return] or keys[SDLK_Space]) or (keys[SDLK_Escape] and (fMenu.Selected=3));
-{    if fMenu.Finished and ((fMenu.Exitkey=SDLK_Space) or (fMenu.Exitkey=SDLK_Return)) then begin
+//  until (keys[SDL_scancode_Return] or keys[SDL_scancode_Space]) or (keys[SDL_scancode_Escape] and (fMenu.Selected=3));
+{    if fMenu.Finished and ((fMenu.Exitkey=SDL_scancode_Space) or (fMenu.Exitkey=SDL_scancode_Return)) then begin
       if (fMenu.SelectedLabel='SV') or (fMenu.SelectedLabel='MV') then begin
         fMenu.Finished:=false;
       end;

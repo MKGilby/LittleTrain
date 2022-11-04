@@ -5,7 +5,7 @@ unit LTRN_MapSelectorUnit;
 
 interface
 
-uses LTRN_MapBaseUnit, ImageUnit;
+uses LTRN_MapBaseUnit, PSLineUnit;
 
 type
   TMapSelector=class
@@ -16,7 +16,6 @@ type
     fTop:integer;
     fVMUSlot:integer;
     fMaps:array[0..50] of TMapBase;
-    fLogo:TImage;
     fTotalScore:integer;
     trgt:integer;
     slev:integer;
@@ -28,8 +27,8 @@ var MapSelector:TMapSelector;
 implementation
 
 uses
-  SysUtils, SDL, mk_sdl, MKToolBox, Logger, BASS,
-  LTRN_ScrollUnit, LTRN_SharedUnit, PSLineUnit, LTRN_OptionsUnit, LTRN_VMUUnit,
+  SysUtils, MKToolBox, Logger, BASS, sdl2, mk_sdl2,
+  LTRN_SharedUnit, LTRN_OptionsUnit, LTRN_VMUUnit,
   LTRN_MapPlayUnit, LTRN_MapCongratsUnit;
 
 constructor TMapSelector.Create(iTop,iVMUSlot:integer);
@@ -58,14 +57,12 @@ begin
 //  fMaps[50].SetState(1);
   if trgt=-1 then begin trgt:=50*176;slev:=50;end;
   if j=0 then fMaps[50].SetState(1);
-  fLogo:=TImage.Create('logo.tga');
 end;
 
 destructor TMapSelector.Destroy;
 var i:integer;
 begin
-  FreeAndNil(fLogo);
-  for i:=0 to 50 do fMaps[i].Free;
+  for i:=0 to 50 do if Assigned(fMaps[i]) then FreeAndNil(fMaps[i]);
   inherited ;
 end;
 
@@ -122,8 +119,9 @@ begin
 
   repeat
     Scroll.Move(1);
-    ClearScreen(0,0,0);
-    PutImage(149,3,fLogo);
+    SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
+    SDL_RenderClear(PrimaryWindow.Renderer);
+    Logo.Draw;
     for i:=0 to 5 do Lines[i].Draw;
 
     case mode of
@@ -147,31 +145,34 @@ begin
     end;
     Scroll.Draw(0);
     Curtain.Draw;
-    if keys[SDLK_F11] then begin
-      ClearScreen(0,0,0);
-      Fonts.DemoFonts;
+{$ifdef DEBUG}
+    if keys[SDL_SCANCODE_F11] then begin
+      SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
+      SDL_RenderClear(PrimaryWindow.Renderer);
+      MM.Fonts.DemoFonts;
     end;
+{$endif}
     Flip;
     HandleMessages;
     case mode of
       1:begin
-          if keys[SDLK_Escape] then begin
+          if keys[SDL_SCANCODE_ESCAPE] then begin
             mode:=2;
             for i:=0 to 5 do Lines[i].StartOut;
-            BASS_ChannelSlideAttribute(Muzax['Menu']._music.Handle, BASS_ATTRIB_VOL,0, 2000);
+            BASS_ChannelSlideAttribute(MM.Musics['Menu']._music.Handle, BASS_ATTRIB_VOL,0, 2000);
           end;
           if keys[OptionsKey] then Options.Run;
-          if keys[SDLK_Right] and (slev<50) then begin
+          if keys[SDL_SCANCODE_RIGHT] and (slev<50) then begin
             inc(trgt,176);
             inc(slev);
             ChangeLines;
-            keys[SDLK_Right]:=false;
+            keys[SDL_SCANCODE_RIGHT]:=false;
           end;
-          if keys[SDLK_Left] and (slev>0) then begin
+          if keys[SDL_SCANCODE_LEFT] and (slev>0) then begin
             dec(trgt,176);
             dec(slev);
             ChangeLines;
-            keys[SDLK_Left]:=false;
+            keys[SDL_SCANCODE_LEFT]:=false;
           end;
           if (abs(posi-trgt)>ad2[spd+1]) and (spd<6) then inc(spd);
           if (abs(posi-trgt)<ad2[spd+1]) and (spd>0) then dec(spd);
@@ -183,31 +184,31 @@ begin
             for i:=0 to 50 do fMaps[i].MoveRelX(+ad2[spd]);
             posi-=ad2[spd];
           end;
-          if (keys[SDLK_Space] or keys[SDLK_Return]) and (fMaps[slev].State>0) then begin
+          if (keys[SDL_SCANCODE_SPACE] or keys[SDL_SCANCODE_RETURN]) and (fMaps[slev].State>0) then begin
             Mode:=4;
             Curtain.StartClose;
-            BASS_ChannelSlideAttribute(Muzax['Menu']._music.Handle, BASS_ATTRIB_VOL,0, 300);
+            BASS_ChannelSlideAttribute(MM.Musics['Menu']._music.Handle, BASS_ATTRIB_VOL,0, 300);
           end;
         end;
       4:if Curtain.State=3 then begin
-          Muzax['Menu']._music.Stop;
-          Muzax['Menu']._music.Volume:=VMU.MusicVolume;
+          MM.Musics['Menu']._music.Stop;
+          MM.Musics['Menu']._music.Volume:=VMU.MusicVolume;
           if fMaps[slev].Congratulations then
-            Muzax['Ending']._music.Play
+            MM.Musics['Ending']._music.Play
           else
-            Muzax['Ingame']._music.Play;
+            MM.Musics['Ingame']._music.Play;
           repeat
             i:=fMaps[slev].Play;
           until i in [0,1];
           ClearKeys;
           if fMaps[slev].Congratulations then begin
-            Muzax['Ending']._music.Stop;
-            Muzax['Ending']._music.Volume:=VMU.MusicVolume;
+            MM.Musics['Ending']._music.Stop;
+            MM.Musics['Ending']._music.Volume:=VMU.MusicVolume;
           end else begin
-            Muzax['Ingame']._music.Stop;
-            Muzax['Ingame']._music.Volume:=VMU.MusicVolume;
+            MM.Musics['Ingame']._music.Stop;
+            MM.Musics['Ingame']._music.Volume:=VMU.MusicVolume;
           end;
-          Muzax['Menu']._music.Play;
+          MM.Musics['Menu']._music.Play;
           if i=0 then begin
             j:=0;
             for i:=0 to 49 do begin

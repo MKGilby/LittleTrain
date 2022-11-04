@@ -34,13 +34,6 @@
 //       sprites with not the same animation phase you have to create two
 //       animations.)
 //       Animation only advances when you call TAnimation.Animate! (not automatically)
-//  V1.05: Gilby - 2022.11.04
-//     + Added possibility of self-animated sprites.
-//       It will call Animation.Animate and Free the animation on Destroy.
-//       Self-animated is the default behaviour of TAnimatedSprite since
-//       it is closer to the original AnimatedSprite logic.
-//       If SetAnimation used on a self-animated sprite, it Frees the
-//       current animation and the new one will be Freed on Destroy.
 
 {$ifdef fpc}
   {$smartlink on}
@@ -58,17 +51,14 @@ type
   { TAnimatedSprite }
 
   TAnimatedSprite=class(TLogicalSprite)
-    constructor Create(iX,iY:integer;iAnimation:TAnimation;iSelfAnimated:boolean=true); overload;
-    destructor Destroy; override;
+    constructor Create(iX,iY:integer;iAnimation:TAnimation); overload;
     procedure SetAnimation(pAnimation:TAnimation;pResetFrameIndex:boolean=false);
     procedure Draw; override;
     procedure LogSpriteData;
   protected
     fAnimation:TAnimation;
-    fSelfAnimated:boolean;
   public
     property Animation:TAnimation read fAnimation;
-    property SelfAnimated:boolean read fSelfAnimated;
   end;
 
 //var
@@ -80,27 +70,18 @@ uses Logger, SysUtils, MK_SDL2;
 
 const
   Fstr={$I %FILE%}+', ';
-  Version='1.05';
+  Version='1.04';
 
-constructor TAnimatedSprite.Create(iX,iY:integer; iAnimation:TAnimation;
-  iSelfAnimated:boolean);
+constructor TAnimatedSprite.Create(iX,iY:integer;iAnimation:TAnimation);
 begin
   inherited Create(iX,iY,iAnimation.Width,iAnimation.Height);
   fAnimation:=iAnimation;
   fName:=iAnimation.Name;
-  fSelfAnimated:=iSelfAnimated;
-end;
-
-destructor TAnimatedSprite.Destroy;
-begin
-  if fSelfAnimated and Assigned(fAnimation) then FreeAndNil(fAnimation);
-  inherited Destroy;
 end;
 
 procedure TAnimatedSprite.SetAnimation(pAnimation:TAnimation;pResetFrameIndex:boolean=false);
 begin
   if Assigned(pAnimation) then begin
-    if fSelfAnimated and Assigned(fAnimation) then FreeAndNil(fAnimation);
     fAnimation:=pAnimation;
     fWidth:=fAnimation.Width;
     fHeight:=fAnimation.Height;
@@ -114,7 +95,6 @@ end;
 procedure TAnimatedSprite.Draw;
 begin
   if fDead or not fVisible then exit;
-  if fSelfAnimated then fAnimation.Animate;
   with fAnimation.Frames[fAnimation.CurrentFrameIndex] do
     PutTexturePart(fX-fAnimation.HotPointX,fY-fAnimation.HotPointY,x,y,w,h,fAnimation.Texture);
 end;

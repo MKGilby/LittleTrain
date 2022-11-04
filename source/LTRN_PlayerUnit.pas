@@ -74,7 +74,7 @@ begin
   fDeadAnimUp:=MM.Animations.ItemByName['c1U'].SpawnAnimation;
   fDeadAnimDown:=MM.Animations.ItemByName['c1D'].SpawnAnimation;
   fDeadAnimFinal:=MM.Animations.ItemByName['c2'].SpawnAnimation;
-  fTrain[0]:=TTrainPiece.Create(ix<<5,iy<<5,'R');
+  fTrain[0]:=TTrainPiece.Create(ix<<5,iy<<5+48,'%');
   if not fMap.Congratulations then
     fTrain[0].FaceRight
   else
@@ -300,7 +300,7 @@ end;
 
 function TPlayer.IsDead:boolean;
 begin
-  IsDead:=(fDead=2) and (keys[SDLK_Space] or keys[SDL_SCANCODE_UP] or keys[SDL_SCANCODE_DOWN] or keys[SDL_SCANCODE_LEFT] or keys[SDL_SCANCODE_RIGHT]);
+  IsDead:=(fDead=2) and (keys[SDL_SCANCODE_SPACE] or keys[SDL_SCANCODE_UP] or keys[SDL_SCANCODE_DOWN] or keys[SDL_SCANCODE_LEFT] or keys[SDL_SCANCODE_RIGHT]);
 end;
 
 function TPlayer.Moved:boolean;

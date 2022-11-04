@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2022. 10. 21. 10:25:56
+(..system..) Starting Application. 2022. 11. 04. 15:36:58
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -7,7 +7,7 @@
 (uses) FontDataUnit.pas, version 1.00
 (uses) MKToolbox.pas, version 3.47
 (uses) MKStream.pas, version 3.01
-(uses) ARGBImageUnit.pas, version 1.20
+(uses) ARGBImageUnit.pas, version 1.21
 (uses) mk_sdl2.pas, version 1.08
 (uses) MKAudio.pas, version 1.00a
 (uses) MAD4LowLevelUnit.pas, version 2.02
@@ -22,13 +22,15 @@
 (uses) MusicListUnit.pas, version 1.01
 (uses) WaveUnit.pas, version 1.02
 (uses) WaveListUnit.pas, version 1.00
-(uses) Animation2Unit.pas, version 1.06
+(uses) Animation2Unit.pas, version 1.07
 (uses) MediaManagerUnit.pas, version 1.07
 (uses) Scroll2Unit.pas, version 1.01
 (uses) StackUnit.pas, version 1.02
 (uses) MKMouse2.pas, version 1.01
 (uses) MKINIFile.pas, version 2.17
 (uses) vcc_Menu2.pas, version 1.01
+(uses) LogicalSpriteUnit.pas, version 1.01
+(uses) AnimatedSprite2Unit.pas, version 1.05
 (uses) CRC32Unit.pas, version 1.01
 (uses) ARGBImagePNGReaderUnit.pas, version 1.06
 Minimum logging level set to ALL
@@ -112,6 +114,12 @@ Minimum logging level set to ALL
 <vcc_Menu2.pas, TMenu.FillItems> Item added: 1
 <vcc_Menu2.pas, TMenu.FillItems> Item added: 2
 <vcc_Menu2.pas, TMenu.FillItems> Item added: 3
+<>   map thumbnails...
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('thumbs.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (thumbs.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('unknown.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (unknown.png)
+<>   logo...
 (MusicUnit.pas, TMusic.Play) BASS: Music started.
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('mksztsz.png')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (mksztsz.png)
@@ -516,7 +524,17 @@ Minimum logging level set to ALL
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
 (MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
+(MusicUnit.pas, TMusic.Play) BASS: Music started.
+(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
+(MusicUnit.pas, TMusic.Play) BASS: Music started.
+(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
+(MusicUnit.pas, TMusic.Play) BASS: Music started.
+(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
+(MusicUnit.pas, TMusic.Play) BASS: Music started.
+(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
 <> Freeing persistent entities...
+<>   logo...
+<>   map thumbnails...
 <>   options dialog...
 <>   curtain...
 <>   scroll...
@@ -544,4 +562,4 @@ Minimum logging level set to ALL
 () Freeing VMU...
 () VMU freed.
 (MKAudio.pas, Finalize) BASS: Shutdown...
-(..system..) Terminating Application. 2022. 10. 21. 10:26:00
+(..system..) Terminating Application. 2022. 11. 04. 15:38:34

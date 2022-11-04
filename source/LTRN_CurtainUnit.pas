@@ -7,31 +7,43 @@ unit LTRN_CurtainUnit;
 
 interface
 
-uses mk_sdl2;
+uses Animation2Unit;
 
 type
+
+  { TCurtain }
+
   TCurtain=class
     constructor Create;
+    destructor Destroy; override;
     procedure StartClose;
     procedure StartOpen;
     procedure Draw;
   public
     State:integer;
   private
-    fTexture:TTexture;
+    fAnimation:TAnimation;
+//    fTexture:TTexture;
     fFase,fDirection:integer;
   end;
 
 
 implementation
 
-uses LTRN_SharedUnit;
+uses SysUtils, LTRN_SharedUnit;
 
 constructor TCurtain.Create;
 begin
-  fTexture:=MM.Textures.ItemByName['#'];
+  fAnimation:=MM.Animations.ItemByName['#'].SpawnAnimation;
+//  fTexture:=MM.Animations.ItemByName['#'].SpawnAnimation.p;
   fFase:=-1;
   State:=0;
+end;
+
+destructor TCurtain.Destroy;
+begin
+  if Assigned(fAnimation) then FreeAndNil(fAnimation);
+  inherited Destroy;
 end;
 
 procedure TCurtain.StartClose;
@@ -56,7 +68,7 @@ begin
   if fFase>-1 then begin
     for j:=0 to fFase>>1 do
       for i:=0 to 19 do
-        PutTexture(i<<5,j<<5,fTexture);
+        fAnimation.PutFrame(i<<5,j<<5,0);
     fFase+=fDirection;
     if fFase=30 then begin
       fFase:=-1;

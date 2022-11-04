@@ -5,7 +5,7 @@ unit LTRN_SharedUnit;
 interface
 
 uses MediaManagerUnit, sdl2, LTRN_CurtainUnit, LTRN_ScrollUnit, LTRN_MapListUnit,
-  LTRN_OptionsUnit, LTRN_MapImagesUnit;
+  LTRN_OptionsUnit, LTRN_MapImagesUnit, LTRN_LogoUnit;
 
 const
   DATAFILENAME='LittleTrain.data';
@@ -18,6 +18,7 @@ var
   MapList:TMapList;
   Options:TOptions;
   MapImages:TMapImages;
+  Logo:TLogo;
 
 procedure LoadAssets;
 procedure FreeAssets;
@@ -63,7 +64,7 @@ begin
 
   Log.LogDebug('  fonts...');
   MM.Load('font.png','0');
-  MM.Fonts.ItemByName['0'].SetColor(128,255,224);
+  MM.Fonts['0'].SetColor(128,255,224);
   MM.Fonts.ItemByName['0'].SetColorKey(0,0,0);
   MM.Load('font.png','1');
   MM.Fonts.ItemByName['1'].SetColor(255,255,128);
@@ -105,12 +106,20 @@ begin
 
   Log.LogDebug('  map thumbnails...');
   MapImages:=TMapImages.Create(MapList);
+
+  Log.LogDebug('  logo...');
+  Logo:=TLogo.Create(149,3);
+
   CreateShadow;
 end;
 
 procedure FreeAssets;
 begin
   Log.LogDebug('Freeing persistent entities...');
+  Log.LogDebug('  logo...');
+  if Assigned(Logo) then FreeAndNil(Logo);
+  Log.LogDebug('  map thumbnails...');
+  if Assigned(MapImages) then FreeAndNil(MapImages);
   Log.LogDebug('  options dialog...');
   if Assigned(Options) then FreeAndNil(Options);
   Log.LogDebug('  curtain...');

@@ -6,9 +6,6 @@ interface
 
 uses mk_sdl2, Lists, LTRN_MapListUnit, ARGBImageUnit;
 
-// Map thumbnails in an imagecollection. Can create them 1 by 1 so you can load
-// them while showing the intro. But what if the user skips the intro?
-
 type
 
   { TMapImages }
@@ -25,7 +22,7 @@ type
 
 implementation
 
-uses sysutils, MKToolBox, Logger, LTRN_SharedUnit;
+uses sysutils, MKToolBox, Logger{, LTRN_SharedUnit};
 
 constructor TMapImages.Create(iMapList:TMapList);
 var i:integer;
@@ -33,7 +30,7 @@ begin
   inherited Create;
   fMapList:=iMapList;
   fThumbs:=TARGBImage.Create('thumbs.png');
-  AddObject('?',TStaticTexture.Create('unknown.png'));
+  AddObject('?',TARGBImage.Create('unknown.png'));
   for i:=0 to fMapList.Count-1 do CreateMapImage(i);
 end;
 
@@ -48,6 +45,7 @@ const THUMBCHARS='#%!abcdefghijklmnopqr';
 var Thumb:TARGBImage;Map:TRawMap;i,j,k:integer;
 begin
   Thumb:=TARGBImage.Create(160,96);
+  Thumb.Clear;
 
   Map:=fMapList.Items[pNextMap];
   for i:=0 to 19 do
