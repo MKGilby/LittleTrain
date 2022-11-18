@@ -5,7 +5,7 @@ unit LTRN_SharedUnit;
 interface
 
 uses MediaManagerUnit, sdl2, LTRN_CurtainUnit, LTRN_ScrollUnit, LTRN_MapListUnit,
-  LTRN_OptionsUnit, LTRN_MapImagesUnit, LTRN_LogoUnit;
+  LTRN_OptionsUnit, LTRN_MapImagesUnit, LTRN_LogoUnit, MKRFont2Unit;
 
 const
   DATAFILENAME='LittleTrain.data';
@@ -36,8 +36,6 @@ begin
 end;
 
 procedure LoadAssets;
-//const images='abcdefghijklmnopqr!%#stuvwxyz=';
-//var i:integer;atm:TARGBImage;
 begin
   Log.LogDebug('Loading assets...');
   MM:=TMediaManager.Create;
@@ -89,6 +87,8 @@ begin
   MM.Load('font.png','8');
   MM.Fonts.ItemByName['8'].SetColor(0,64,255);
   MM.Fonts.ItemByName['8'].SetColorKey(0,0,0);
+  MM.Fonts.Add(TMKRFont.Create('npi69.mkr'),'Debug');
+  MM.Fonts.ItemByName['Debug'].SetColorKey(0,0,0);
 
   Log.LogDebug('  maps...');
   MapList:=TMapList.Create('maps.bin');

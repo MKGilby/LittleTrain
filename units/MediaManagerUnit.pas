@@ -51,6 +51,8 @@
 //         if false, load will add MP3-s to Waves.
 //       Default value is true.
 //     + Added Assigned checks in destructor.
+//  V1.08: Gilby - 2022.11.17
+//     * The lists inside the MediaManager are now case sensitive.
 
 unit MediaManagerUnit;
 
@@ -131,7 +133,7 @@ uses SysUtils, Logger, Font2Unit, MKToolbox;
 
 const
   Fstr={$I %FILE%}+', ';
-  Version='1.07';
+  Version='1.08';
 
 { TAnimationDataWithTexture }
 
@@ -151,13 +153,21 @@ end;
 constructor TMediaManager.Create;
 begin
   fImages:=TImages.Create;
+  fImages.CaseSensitive:=true;
   fTextures:=TTextures.Create;
+  fTextures.CaseSensitive:=true;
   fSpawnedAnimations:=TAnimations.Create;
+  fSpawnedAnimations.CaseSensitive:=true;
   fAnimationDWTs:=TAnimationDWTs.Create;
+  fAnimationDWTs.CaseSensitive:=true;
   fMasks:=TMasks.Create;
+  fMasks.CaseSensitive:=true;
   fFonts:=TFontList.Create;
+  fFonts.CaseSensitive:=true;
   fMusics:=TMusicList.Create;
+  fMusics.CaseSensitive:=true;
   fWaves:=TWaveList.Create;
+  fWaves.CaseSensitive:=true;
   fTreatMP3AsMusic:=true;
 end;
 
@@ -220,6 +230,7 @@ begin
     fTextures.AddObject(pImageName,atmT);
     for i:=0 to pImage.Animations.Count-1 do begin
       atmA:=TAnimationDataWithTexture.Create(pImage.Animations[i],atmT,pImage);
+//      atmA.Animation.LogData;
       fAnimationDWTs.AddObject(atmA.Animation.Name,atmA);
       if pFlags and MM_CREATEMASKFORANIMATIONFRAMES<>0 then
         for j:=0 to atmA.Animation.FrameCount-1 do begin

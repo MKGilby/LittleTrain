@@ -124,6 +124,7 @@ end;
 procedure TPlayer.Move;
 var tx,ty,ttx,tty,i:integer;
 begin
+  fTrain[0].Animation.Animate;
   case fDead of
     0:begin
 //        Log.Trace(fReplay);
@@ -295,6 +296,7 @@ begin
     'L':fTrain[length(fTrain)-1]:=TTrainPiece.Create(fTrain[length(fTrain)-2].X+32,fTrain[length(fTrain)-2].Y,chr(iType));
     'R':fTrain[length(fTrain)-1]:=TTrainPiece.Create(fTrain[length(fTrain)-2].X-32,fTrain[length(fTrain)-2].Y,chr(iType));
   end;
+  with fTrain[Length(fTrain)-2] do fMap.Tiles[X>>5,(Y-48)>>5]:=31;
 //  fTrain[length(fTrain)-1]._sprite.FrameDelay:=6;
 end;
 

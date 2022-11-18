@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2022. 11. 04. 15:36:58
+(..system..) Starting Application. 2022. 11. 18. 15:24:51
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -23,19 +23,20 @@
 (uses) WaveUnit.pas, version 1.02
 (uses) WaveListUnit.pas, version 1.00
 (uses) Animation2Unit.pas, version 1.07
-(uses) MediaManagerUnit.pas, version 1.07
+(uses) MediaManagerUnit.pas, version 1.08
 (uses) Scroll2Unit.pas, version 1.01
 (uses) StackUnit.pas, version 1.02
 (uses) MKMouse2.pas, version 1.01
 (uses) MKINIFile.pas, version 2.17
 (uses) vcc_Menu2.pas, version 1.01
+(uses) MKRFont2Unit.pas, version 1.01
 (uses) LogicalSpriteUnit.pas, version 1.01
 (uses) AnimatedSprite2Unit.pas, version 1.05
 (uses) CRC32Unit.pas, version 1.01
 (uses) ARGBImagePNGReaderUnit.pas, version 1.06
 Minimum logging level set to ALL
 ---------------------------------------------
-<> LittleTrain V1.10 (Build date: 2022.09.03)
+<> LittleTrain V1.10 (Build date: 2022.11.18)
 ---------------------------------------------
 <> Setting up SDL and BASS...
 (MKAudio.pas, Init_Audio) BASS V2.4 loaded.
@@ -93,6 +94,8 @@ Minimum logging level set to ALL
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('font.png')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (font.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('npi69.mkr')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (npi69.mkr)
 <>   maps...
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('maps.bin')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (maps.bin)
@@ -528,10 +531,6 @@ Minimum logging level set to ALL
 (MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
 (MusicUnit.pas, TMusic.Play) BASS: Music started.
 (MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
-(MusicUnit.pas, TMusic.Play) BASS: Music started.
-(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
-(MusicUnit.pas, TMusic.Play) BASS: Music started.
-(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
 <> Freeing persistent entities...
 <>   logo...
 <>   map thumbnails...
@@ -562,4 +561,4 @@ Minimum logging level set to ALL
 () Freeing VMU...
 () VMU freed.
 (MKAudio.pas, Finalize) BASS: Shutdown...
-(..system..) Terminating Application. 2022. 11. 04. 15:38:34
+(..system..) Terminating Application. 2022. 11. 18. 15:25:51

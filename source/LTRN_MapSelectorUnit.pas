@@ -109,7 +109,7 @@ begin
 //  trgt:=0;
   spd:=0;
   fTotalScore:=ScanTotalScore;
-  Lines[0]:=TPSLine.Create(#0'Welcome '#1+VMU.GetName(fVMUSlot)+#0'!',80,0);
+  Lines[0]:=TPSLine.Create(#0'Welcome!',80,0);
   Lines[1]:=TPSLine.Create(#2'Select map to play!',112,10);
   Lines[2]:=TPSLine.Create('x',304,40);
   Lines[3]:=TPSLine.Create('x',336,50);

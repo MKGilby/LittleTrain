@@ -10,11 +10,11 @@
 uses
   SysUtils,
   LTRN_MainUnit,
-  ARGBImagePNGReaderUnit, LTRN_TrainPieceUnit,LTRN_PlayerUnit, LTRN_LogoUnit;
+  ARGBImagePNGReaderUnit;
 
 const
   Version='1.10';
-  BDate='2022.09.03';
+  BDate='2022.11.18';
 
 var
   Main:TMain;

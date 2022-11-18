@@ -3,8 +3,8 @@
 ; filename "SpriteName" FrameDelay [Looped Paused RandomStart Pingpong Rotated]
 
 crash1.cel "c1" 1 Rotated
-crash2.cel "c2" 6
-engine.cel "%" 6 Rotated
+crash2.cel "c2" 6 Looped
+engine.cel "%" 6 Looped Rotated
 door.cel "!" 6 Paused
 g03.cel "c" 6 Looped
 g11.cel "k" 6 Looped randomstart

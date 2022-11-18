@@ -53,6 +53,11 @@ begin
     end;}
     Curtain.Draw;
 //    if keys[SDL_Scancode_A] then ScreenShot;
+    if keys[SDL_SCANCODE_TAB] then begin
+      for j:=0 to 11 do
+        for i:=0 to 19 do
+          MM.Fonts.ItemByName['Debug'].OutText(inttostr(fMap.Tiles[i,j]),i*32+16,j*32+10+48,1);
+    end;
     Flip;
 //    fPlayer.Clear;
     HandleMessages;
