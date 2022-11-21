@@ -36,12 +36,15 @@ begin
 end;
 
 procedure LoadAssets;
+//var c:char;
 begin
   Log.LogDebug('Loading assets...');
   MM:=TMediaManager.Create;
 
   Log.LogDebug('  sprites...');
   MM.Load('sprites01.png');
+//  for c:='S' to 'Z' do
+//    MM.Animations.ItemByName[c].Animation.LogData;
   MM.Load('logo.png','Logo',MM_CREATETEXTUREWHENNOANIMATIONDATA);
 
   Log.LogDebug('  musics...');

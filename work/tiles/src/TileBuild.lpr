@@ -212,6 +212,8 @@ begin
         atma:=TAnimationData.Create(32,32);
         atma.Name:=chr(ord('s')+i);
         atma.AddFrame(0,0);
+        atma.Looped:=true;
+        atma.LoopDelay:=20;
         present.Animations.AddObject(atma.name,atma);
         fAtlas.AddImage(present);
       finally

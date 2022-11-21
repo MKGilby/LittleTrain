@@ -1,6 +1,16 @@
 Todo:
+* On the congratulations level the standing engine should animate the steam puffs.
 * Fix bugs.
 
+2022.11.21
+* Didn't have to rework the VMU, found the culprit line. Congratulations map
+  works now. (Unified the slot numbering tough.)
+* BUG: Music volume is not saved.
+
+2022.11.20
+* Tried to test the congratulations level but got stuck in slot number
+  inconsistency. So I want to rework the VMU and config handling.
+  Got the next two days off, so...
 
 2022.11.18
 * BUG narrowed down and FIXED: Hitting last wagon after picking up a cargo

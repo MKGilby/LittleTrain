@@ -56,6 +56,7 @@ begin
 
   Log.LogStatus('Loading VMU...');
   VMU:=TVMU.Create;
+  VMU.CompleteAllMaps(0);
 
   LoadAssets;
 end;
@@ -63,8 +64,10 @@ end;
 destructor TMain.Destroy;
 begin
   FreeAssets;
-  FreeAndNil(VMU);
-  FreeAndNil(fMainWindow);
+  Log.LogStatus('Freeing VMU...');
+  if Assigned(VMU) then FreeAndNil(VMU);
+  Log.LogStatus('Freeing Main Window...');
+  if Assigned(fMainWindow) then FreeAndNil(fMainWindow);
   inherited ;
 end;
 

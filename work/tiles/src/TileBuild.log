@@ -1,13 +1,13 @@
-(..system..) Starting Application. 2022. 11. 17. 10:57:19
+(..system..) Starting Application. 2022. 11. 21. 8:47:25
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
-(uses) Lists.pas, version 3.17
+(uses) Lists.pas, version 3.18
 (uses) AnimationDataUnit.pas, version 1.08
 (uses) FontDataUnit.pas, version 1.00
 (uses) MKToolbox.pas, version 3.47
-(uses) MKStream.pas, version 3.00
-(uses) ARGBImageUnit.pas, version 1.20
+(uses) MKStream.pas, version 3.01
+(uses) ARGBImageUnit.pas, version 1.21
 (uses) ARGBImageBMPReaderUnit.pas, version 1.00
 (uses) ARGBImageCELReaderUnit.pas, version 1.03
 (uses) CRC32Unit.pas, version 1.01
@@ -233,4 +233,4 @@
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\lampg.cel)
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('new\lampr.cel')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\lampr.cel)
-(..system..) Terminating Application. 2022. 11. 17. 10:57:19
+(..system..) Terminating Application. 2022. 11. 21. 8:47:25

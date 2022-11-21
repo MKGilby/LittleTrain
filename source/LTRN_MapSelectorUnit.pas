@@ -14,7 +14,7 @@ type
     function Run:integer;
   private
     fTop:integer;
-    fVMUSlot:integer;
+//    fVMUSlot:integer;
     fMaps:array[0..50] of TMapBase;
     fTotalScore:integer;
     trgt:integer;
@@ -35,25 +35,26 @@ constructor TMapSelector.Create(iTop,iVMUSlot:integer);
 var i,j:integer;
 begin
   fTop:=iTop;
-  fVMUSlot:=iVMUSlot;
+//  fVMUSlot:=iVMUSlot;
 
   trgt:=-1;
   j:=0;
 //  LogTicks.StartMeasuring;
   for i:=0 to 49 do begin
-    fMaps[i]:=TMapPlay.Create(236+i*176,fTop,i,fVMUSlot);
-    if fMaps[i].BestScore>0 then fMaps[i].SetState(2)
+    fMaps[i]:=TMapPlay.Create(236+i*176,fTop,i,iVMUSlot);
+    if fMaps[i].BestScore>0 then fMaps[i].SetState(MAPSTATE_COMPLETED)
                             else begin
       if trgt=-1 then begin
         trgt:=i*176;
         slev:=i;
       end;
-      if j<3 then fMaps[i].SetState(1) else fMaps[i].SetState(0);
+      if j<3 then fMaps[i].SetState(MAPSTATE_UNLOCKED)
+             else fMaps[i].SetState(MAPSTATE_LOCKED);
       inc(j);
     end;
 //    LogTicks.LogTicks(inttostr(i));
   end;
-  fMaps[50]:=TMapCongrats.Create(236+50*176,fTop,50,fVMUSlot);
+  fMaps[50]:=TMapCongrats.Create(236+50*176,fTop,50,iVMUSlot);
 //  fMaps[50].SetState(1);
   if trgt=-1 then begin trgt:=50*176;slev:=50;end;
   if j=0 then fMaps[50].SetState(1);

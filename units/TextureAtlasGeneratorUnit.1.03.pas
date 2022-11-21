@@ -43,7 +43,7 @@ unit TextureAtlasGeneratorUnit;
 interface
 
 uses
-  Classes, fgl, ARGBImageUnit;
+  Classes, Lists, ARGBImageUnit;
 
 type
 
@@ -67,7 +67,7 @@ type
 
   { TTextureLines }
 
-  TTextureLines=class(TFPGObjectList<TTextureLine>)
+  TTextureLines=class(TGenericList<TTextureLine>)
     function SearchLine(pWidth,pHeight:integer):TTextureLine;
     function CurrentTop:integer;
   end;

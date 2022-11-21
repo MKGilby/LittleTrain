@@ -26,7 +26,7 @@ type
   TSlotSelector=class
     constructor Create;
     destructor Destroy; override;
-    function Run(pPreselected:integer=1):integer;
+    function Run(pPreselected:integer=0):integer;
   private
     Lines:array[0..7] of TPSLine;
     Cursor:TPSCursor;
@@ -89,13 +89,13 @@ end;
 function TSlotSelector.Run(pPreselected: integer):integer;
 var i:integer;
 begin
-  if (pPreselected<1) or (pPreselected>5) then pPreselected:=1;
+  if (pPreselected<0) or (pPreselected>4) then pPreselected:=1;
   i:=pPreselected;
   repeat
     if (i and 8)<>0 then i:=i xor 8;
     i:=SelectSlot(i);
     if i>8 then ResetSlot(i-8);
-  until (i=-1) or (i in [1..5]);
+  until (i=-1) or (i in [0..4]);
   Result:=i;
 end;
 
@@ -104,14 +104,14 @@ var cnt,i:integer;
 begin
   Lines[0]:=TPSLine.Create(#2'Select save slot',96,0);
   for i:=1 to 5 do
-    Lines[i]:=TSlotVisual.Create(i,TOP+HEIGHT*i,INTERVAL*i);
+    Lines[i]:=TSlotVisual.Create(i-1,TOP+HEIGHT*i,INTERVAL*i);
   Lines[6]:=TPSLine.Create(#1'Arrows'#0' - Move, '#1'Space'#0' - Select',352,Interval*6);
 //  Lines[7]:=TPSLine.Create(#1'Del'#0' - Reset, '#1'Esc'#0' - Quit, '#1'F12'#0' - Options',384,Interval*7);
   Lines[7]:=TPSLine.Create(#1'Del'#0' - Reset, '#1'F12'#0' - Settings, '#1'Esc'#0' - Quit',384,Interval*7);
   SDL_RenderClear(PrimaryWindow.Renderer);
   PutTexture(149,3,MM.Textures.ItemByName['Logo']);
   Cursor.Restart;
-  Cursor.Position:=pPreselected*HEIGHT+TOP-4;
+  Cursor.Position:=(pPreselected+1)*HEIGHT+TOP-4;
   //  bar(0,SLOTSTOP,PrimaryWindow.Width,SLOTHEIGHT*5,0,0,0);
   ClearKeys;
   repeat
@@ -125,16 +125,16 @@ begin
     Scroll.Draw(0);
     Flip;
     HandleMessages;
-    if keys[SDL_SCANCODE_UP] and (pPreselected>1) then begin
+    if keys[SDL_SCANCODE_UP] and (pPreselected>0) then begin
       keys[SDL_SCANCODE_UP]:=false;
       dec(pPreselected);
-      Cursor.MoveTo(pPreselected*HEIGHT+TOP-4);
+      Cursor.MoveTo((pPreselected+1)*HEIGHT+TOP-4);
       MM.Waves['MenuMoveTick']._wave.Play;
     end;
-    if keys[SDL_SCANCODE_DOWN] and (pPreselected<5) then begin
+    if keys[SDL_SCANCODE_DOWN] and (pPreselected<4) then begin
       keys[SDL_SCANCODE_DOWN]:=false;
       inc(pPreselected);
-      Cursor.MoveTo(pPreselected*HEIGHT+TOP-4);
+      Cursor.MoveTo((pPreselected+1)*HEIGHT+TOP-4);
       MM.Waves['MenuMoveTick']._wave.Play;
     end;
     if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
@@ -177,7 +177,7 @@ var
   i,act:integer;
 begin
   Lines[0]:=TPSLine.Create(#2'Really delete progress',96,0);
-  Lines[1]:=TPSLine.Create(#1+'from slot '+inttostr(iSlot)+'?',128,Interval);
+  Lines[1]:=TPSLine.Create(#1+'from slot '+inttostr(iSlot+1)+'?',128,Interval);
   Lines[2]:=TPSLine.Create(#3+'No, just kidding!',192,Interval*2);
   Lines[3]:=TPSLine.Create(#3+'Yes, blow it away!',224,Interval*3);
   Lines[4]:=TPSLine.Create(#1'Arrows'#0' - Move, '#1'Space'#0' - Select',352,Interval*4);

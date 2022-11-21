@@ -17,9 +17,11 @@ type
     procedure FaceRight;
     procedure FaceUp;
     procedure FaceDown;
+    procedure Draw; override;
   private
     fAnimLeft,fAnimRight,fAnimUp,fAnimDown:TAnimation;
     fDir:char;
+    fType:char;
   public
     property Dir:char read fDir;
   end;
@@ -38,6 +40,7 @@ begin
   fAnimDown:=MM.Animations.ItemByName[iType+'D'].SpawnAnimation;
   inherited Create(iX,iy,fAnimRight,false);
   fDir:='R';
+  fType:=iType;
 end;
 
 destructor TTrainPiece.Destroy;
@@ -71,6 +74,12 @@ procedure TTrainPiece.FaceDown;
 begin
   SetAnimation(fAnimDown);
   fDir:='D';
+end;
+
+procedure TTrainPiece.Draw;
+begin
+  if fType<>'%' then Animation.Animate;
+  inherited Draw;
 end;
 
 end.

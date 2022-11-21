@@ -44,6 +44,6 @@ t15.cel "O" 0 rotated
 t16.cel "P" 0 rotated
 t17.cel "Q" 0 rotated
 t18.cel "R" 0 rotated
-blueengi.cel "*" 6
+blueengi.cel "*" 6 looped
 lampg.cel "-" 0
 lampr.cel "=" 0

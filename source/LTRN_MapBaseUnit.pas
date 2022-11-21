@@ -7,6 +7,11 @@ interface
 
 uses AnimatedSprite2Unit, LTRN_PlayerUnit, LTRN_MapListUnit, mk_sdl2, ARGBImageUnit;
 
+const
+  MAPSTATE_COMPLETED=2;
+  MAPSTATE_UNLOCKED=1;
+  MAPSTATE_LOCKED=0;
+
 type
   TMapBase=class
     constructor Create(iX,iY,iMapNo,iVMUSlot:integer);
@@ -66,7 +71,7 @@ begin
 
   fImage:=TStreamingTexture.Create(168,104);
   SDL_SetTextureBlendMode(fImage.Texture,SDL_BLENDMODE_BLEND);
-  fBest:=VMU.GetMapState(iVMUSlot,iMapNo);
+  fBest:=VMU.GetMapState(fVMUSlot,iMapNo);
   fState:=0;
   fPlayer:=nil;
   fExit:=nil;
@@ -98,8 +103,10 @@ procedure TMapBase.UpdateImage;
 const Colors:array[0..2,0..2] of integer=((128,0,0),(192,192,64),(0,144,0));
 var i:integer;
 begin
-  if fState=0 then MapImages[0].CopyTo(0,0,MapImages[0].Width,MapImages[0].Height,4,4,fImage.ARGBImage)
-              else MapImages[fMapNo+1].CopyTo(0,0,MapImages[fMapNo+1].Width,MapImages[fMapNo+1].Height,4,4,fImage.ARGBImage);
+  if fState=MAPSTATE_LOCKED then
+    MapImages[0].CopyTo(0,0,MapImages[0].Width,MapImages[0].Height,4,4,fImage.ARGBImage)
+  else
+    MapImages[fMapNo+1].CopyTo(0,0,MapImages[fMapNo+1].Width,MapImages[fMapNo+1].Height,4,4,fImage.ARGBImage);
 //  if fState=0 then fImage.PutImage(4,4,MapImages[0])
 //              else fImage.PutImage(4,4,MapImages[fMapNo+1]);
   for i:=0 to 3 do
@@ -121,7 +128,7 @@ begin
         33:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(33)].SpawnAnimation);
         35:fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(35)].SpawnAnimation);
         37:fPlayer:=TPlayer.Create(i,j,3,fMap);
-//        61:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,Animations[chr(61)]);
+        61:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(61)].SpawnAnimation);
         else begin
           fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(fMap.Tiles[i,j])].SpawnAnimation);
           if fMap.Tiles[i,j] in [97..114] then inc(fGoodies);
@@ -143,7 +150,8 @@ end;
 
 procedure TMapBase.SetState(iNewState:integer);
 begin
-  if (iNewState in [0..2]) and (fState<>iNewState) then begin
+  if (iNewState in [MAPSTATE_COMPLETED,MAPSTATE_LOCKED,MAPSTATE_UNLOCKED]) and
+     (fState<>iNewState) then begin
     fState:=iNewState;
     UpdateImage;
   end;
