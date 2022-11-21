@@ -22,7 +22,7 @@ uses SysUtils, mk_sdl2, Logger, Bass, LTRN_VMUUnit, LTRN_SharedUnit,
   Font2Unit;
 
 const
-  X=320;Y=240;Width=520;Height=144;
+  X=320;Y=240;Width=520;Height=36*5;
 
 constructor TOptions.Create;
 begin
@@ -40,8 +40,12 @@ begin
   fMenu.RowHeight:=36;
 //  fMenu.AddItemExt('"@SETTINGS" "Back=B" "%MV%MUSIC VOLUME: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
 //  fMenu.AddItemExt('"%SV%EFFECTS VOLUME {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
-  fMenu.AddItemExt('"@SETTINGS" "Back=B" "%MV%Music volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
-  fMenu.AddItemExt('"%SV%Effects volume {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
+  fMenu.AddItemExt('"@SETTINGS"');
+  fMenu.AddItemExt('"%FS%Full screen: {Yes=Y|No=N}"');
+  fMenu.AddItemExt('"%MV%Music volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
+  fMenu.AddItemExt('"%SV%Effects volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
+  fMenu.AddItemExt('"Back=B"');
+  if VMU.FullScreen then fMenu.SetValue('FS','Y') else fMenu.SetValue('FS','N');
   fMenu.SetValue('MV',inttostr(trunc(VMU.MusicVolume*10)));
   fMenu.SetValue('SV',inttostr(trunc(VMU.SoundVolume*10)));
 end;
@@ -53,7 +57,7 @@ begin
 end;
 
 procedure TOptions.Run;
-var mv,sv:float;
+var mv,sv:float;fs:boolean;
 begin
   fMenu.State:=msActive;
   fMenu.SelectedLabel:='B';
@@ -77,6 +81,10 @@ begin
     if VMU.SoundVolume<>sv then begin
       VMU.SoundVolume:=sv;
       MM.Waves.GlobalVolume:=sv;
+    end;
+    fs:=(fMenu.GetValue('FS')='Y');
+    if VMU.FullScreen<>fs then begin
+      VMU.FullScreen:=fs;
     end;
 //    bar(0,316,639,395,0,0,0);
 //    putimage(0,336+trunc(sin(ffase*2.25*pi/180)*20),FBar);

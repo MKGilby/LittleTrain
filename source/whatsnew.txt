@@ -2,6 +2,15 @@ Todo:
 * On the congratulations level the standing engine should animate the steam puffs.
 * Fix bugs.
 
+2022.11.21 - 2nd session
+* BUGFIX: Music volume was not saved. It was though, but when read back it was
+  set to zero for some reason.
+* Added fullscreen option to options.
+* BUG: Approaching the last wagon from the direction it comes from, makes
+  the game exit to the map selector screen.
+* Fullscreen with SDL_HINT_RENDER_SCALE_QUALITY='0' is okay, but whit '1' the
+  brick wall has a thin black line in the lower brick.
+
 2022.11.21
 * Didn't have to rework the VMU, found the culprit line. Congratulations map
   works now. (Unified the slot numbering tough.)

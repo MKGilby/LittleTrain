@@ -24,9 +24,11 @@ type
     procedure CompleteAllMaps(iSlot:integer);
   private
     fSoundVolume, fMusicVolume: float;
+    fFullScreen:boolean;
   public
     property SoundVolume:float read fSoundVolume write fSoundVolume;
     property MusicVolume:float read fMusicVolume write fMusicVolume;
+    property FullScreen:boolean read fFullScreen write fFullScreen;
   end;
 
 var VMU:TVMU;
@@ -48,15 +50,20 @@ begin
   for i:=fPlayers.Count to 4 do AddPlayer(chr(i));
   AddLevelPack(CFG);
   AddPlayer(CFG);
+  i:=0;
   if not ReadData(CFG,CFG,0,sizeof(Float),fSoundVolume) then fSoundVolume:=1;
   if not ReadData(CFG,CFG,sizeof(Float),sizeof(Float),fMusicVolume) then fMusicVolume:=1;
-  fMusicVolume:=0;
+  if not ReadData(CFG,CFG,2*sizeof(Float),1,i) then fFullScreen:=false
+    else fFullScreen:=(i=1);
 end;
 
 destructor TVMU.Destroy;
+var b:byte;
 begin
   WriteData(CFG,CFG,0,sizeof(Float),fSoundVolume);
   WriteData(CFG,CFG,sizeof(Float),sizeof(Float),fMusicVolume);
+  if fFullScreen then b:=1 else b:=0;
+  WriteData(CFG,CFG,2*sizeof(Float),1,b);
   Save(VMUFileName);
   inherited ;
 end;
@@ -98,12 +105,10 @@ begin
 end;
 
 procedure TVMU.CompleteAllMaps(iSlot:integer);
-var i,j:integer;
+var i:integer;
 begin
   if iSlot in [0..4] then begin
     for i:=0 to 49 do SetMapState(iSlot,i,128);
-    j:=0;
-//    WriteData(iSlot,fLevelPacks.IndexOf(LevelPackName),0,2,j);
   end else Log.LogWarning('Invalid slot number! (Got: '+inttostr(iSlot)+'; Should be: 0..4)');
 end;
 

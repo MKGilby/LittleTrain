@@ -14,7 +14,7 @@ uses
 
 const
   Version='1.10';
-  BDate='2022.11.18';
+  BDate='2022.11.21';
 
 var
   Main:TMain;

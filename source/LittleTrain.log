@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2022. 11. 21. 9:18:15
+(..system..) Starting Application. 2022. 11. 21. 20:40:48
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -36,12 +36,12 @@
 (uses) ARGBImagePNGReaderUnit.pas, version 1.06
 Minimum logging level set to ALL
 ---------------------------------------------
-<> LittleTrain V1.10 (Build date: 2022.11.18)
+<> LittleTrain V1.10 (Build date: 2022.11.21)
 ---------------------------------------------
+() Loading VMU...
 <> Setting up SDL and BASS...
 (MKAudio.pas, Init_Audio) BASS V2.4 loaded.
 (MKAudio.pas, Init_Audio) BASS: Device initialized.
-() Loading VMU...
 <> Loading assets...
 <>   sprites...
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('sprites01.png')
@@ -110,6 +110,11 @@ Minimum logging level set to ALL
 <>   options dialog...
 <vcc_Menu2.pas, TMenu.FillItems> Parent=-1
 <vcc_Menu2.pas, TMenu.FillItems> Item added: 0
+<vcc_Menu2.pas, TMenu.FillItems> Parent=-1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 0
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 1
+<vcc_Menu2.pas, TMenu.FillItems> Parent=-1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 0
 <vcc_Menu2.pas, TMenu.FillItems> Item added: 1
 <vcc_Menu2.pas, TMenu.FillItems> Item added: 2
 <vcc_Menu2.pas, TMenu.FillItems> Parent=-1
@@ -117,6 +122,12 @@ Minimum logging level set to ALL
 <vcc_Menu2.pas, TMenu.FillItems> Item added: 1
 <vcc_Menu2.pas, TMenu.FillItems> Item added: 2
 <vcc_Menu2.pas, TMenu.FillItems> Item added: 3
+<vcc_Menu2.pas, TMenu.FillItems> Parent=-1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 0
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 2
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 3
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 4
 <>   map thumbnails...
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('thumbs.png')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (thumbs.png)
@@ -426,6 +437,12 @@ Minimum logging level set to ALL
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
+<vcc_Menu2.pas, TMenu.FillItems> Parent=-1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 0
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 1
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 2
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 3
+<vcc_Menu2.pas, TMenu.FillItems> Item added: 4
 (MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
 <> Freeing persistent entities...
 <>   logo...
@@ -457,4 +474,4 @@ Minimum logging level set to ALL
 () Freeing VMU...
 () Freeing Main Window...
 (MKAudio.pas, Finalize) BASS: Shutdown...
-(..system..) Terminating Application. 2022. 11. 21. 9:18:20
+(..system..) Terminating Application. 2022. 11. 21. 20:41:02
