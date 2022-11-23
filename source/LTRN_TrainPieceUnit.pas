@@ -24,6 +24,7 @@ type
     fType:char;
   public
     property Dir:char read fDir;
+    property PieceType:char read fType;
   end;
 
 implementation

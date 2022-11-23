@@ -11,6 +11,15 @@ const
   DATAFILENAME='LittleTrain.data';
   OptionsKey=SDL_SCANCODE_F12;
 
+  TILE_OCCUPIED=31;
+  TILE_EMPTY=32;
+  TILE_CLOSEDEXIT=33;
+  TILE_OPENEDEXIT=34;
+  TILE_WALL=35;
+  TILE_PLAYER=37;
+  TILE_SIGNAL=61;
+
+
 var
   Curtain:TCurtain;
   Scroll:TLTRN_Scroll;
@@ -43,6 +52,7 @@ begin
 
   Log.LogDebug('  sprites...');
   MM.Load('sprites01.png');
+  MM.Load('wall.png');
 //  for c:='S' to 'Z' do
 //    MM.Animations.ItemByName[c].Animation.LogData;
   MM.Load('logo.png','Logo',MM_CREATETEXTUREWHENNOANIMATIONDATA);

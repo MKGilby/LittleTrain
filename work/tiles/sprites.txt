@@ -11,7 +11,7 @@ g11.cel "k" 6 Looped randomstart
 g14.cel "n" 6 Looped randomstart
 g13.cel "m" 6 Looped randomstart
 g05.cel "e" 6 Looped
-wall.cel "#" 0
+empty.tga "." 0
 g01.cel "a" 6 Looped randomstart
 g16.cel "p" 6 Looped randomstart
 g02.cel "b" 0

@@ -53,6 +53,7 @@ type
     procedure fSetExit(value:boolean);
     function fGetWagonCount:integer;
     function fGetWagon(index:integer):TTrainPiece;
+    procedure LogState;
   public
     property WagonCount:integer read fGetWagonCount;
     property Wagons[index:integer]:TTrainPiece read fGetWagon;
@@ -61,7 +62,7 @@ type
      
 implementation
      
-uses SysUtils, SDL2, mk_sdl2, Logger, LTRN_SharedUnit;
+uses SysUtils, SDL2, mk_sdl2, Logger, MKToolbox, LTRN_SharedUnit;
      
 constructor TPlayer.Create(ix,iy,iSpeed:integer;iMap:TRawMap);
 begin
@@ -125,6 +126,14 @@ procedure TPlayer.Move;
 var tx,ty,ttx,tty,i:integer;
 begin
   fTrain[0].Animation.Animate;
+{  case fState of
+    sPlaying:Log.Trace('Playing...');
+    sExit0:Log.Trace('Exit0...');
+    sExit1:Log.Trace('Exit1...');
+    sExit2:Log.Trace('Exit2...');
+    sExit3:Log.Trace('Exit3...');
+  end;}
+//  LogState;
   case fDead of
     0:begin
 //        Log.Trace(fReplay);
@@ -172,12 +181,12 @@ begin
             end;
             fPx+=fDirX;
             fPy+=fDirY;
-            if fMap.Tiles[fPx,fPy]=34 then begin
+            if fMap.Tiles[fPx,fPy]=TILE_OPENEDEXIT then begin
               fState:=sExit0;
               if fSpeed>10 then fSpeed:=10;
               MM.Waves['Complete']._wave.Play;
             end else
-            if fMap.Tiles[fPx,fPy]=61 then begin
+            if fMap.Tiles[fPx,fPy]=TILE_SIGNAL then begin
               fPx-=fDirX;
               fPy-=fDirY;
               if fDirX=1 then
@@ -192,7 +201,7 @@ begin
               fDirY:=0;
               fState:=sExit2;
             end else
-            if (fMap.Tiles[fPx,fPy] in [31,33,35]) and (fState=sPlaying) then begin
+            if (fMap.Tiles[fPx,fPy] in [TILE_OCCUPIED,TILE_CLOSEDEXIT,TILE_WALL]) and (fState=sPlaying) then begin
               MM.Waves['Explosion']._wave.Play;
               fDead:=1;
               if fDirX=1 then
@@ -204,12 +213,14 @@ begin
               else if fDirY=-1 then
                 fTrain[0].SetAnimation(fDeadAnimUp,true);
   //            Log.Trace(fTrain[0]._sprite.FrameDelay);
+//              Log.Trace(Format('Dead1. dX=%d, dY=%d',[fDirX,fDirY]));
+//              fTrain[0].LogSpriteData;
               exit;
             end;
             if (fState=sExit1) and (fSpeed>2) then dec(fSpeed);
             if (fDirX<>0) or (fDirY<>0) or (fState=sExit1) then begin
               fMap.Tiles[fTrain[length(fTrain)-1].X>>5,
-                        (fTrain[length(fTrain)-1].Y-48)>>5]:=32;
+                        (fTrain[length(fTrain)-1].Y-48)>>5]:=TILE_EMPTY;
               if fMap.Tiles[fPx,fPy]>96 then begin
 //                Log.Trace(Format('Pickup x,y,type: %d, %d, %d',[fPx,fPy,fMap.Tiles[fPx,fPy]-32]));
                 fPickedUp:=true;
@@ -220,7 +231,7 @@ begin
               if fState in [sPlaying,sExit0] then begin
                 fTrain[0].MoveRel(fDirX*32,fDirY*32);
                 if (fDirX<>0) or (fDirY<>0) then fMoved:=true;
-                fMap.Tiles[tx>>5+fDirX,(ty-48)>>5+fDirY]:=31;
+                fMap.Tiles[tx>>5+fDirX,(ty-48)>>5+fDirY]:=TILE_OCCUPIED;
                 if fState=sExit0 then begin
                   fState:=sExit1;
                   fDirX:=0;
@@ -228,7 +239,7 @@ begin
                 end;
               end;
               for i:=1 to length(fTrain)-1 do
-                if (fTrain[i].X<>fTrain[0].X) or (fTrain[i].Y<>fTrain[0].Y) then begin
+                if (fTrain[i].X<>fTrain[0].X) or (fTrain[i].Y<>fTrain[0].Y) or (fState=sPlaying) then begin
                   ttx:=fTrain[i].X;
                   tty:=fTrain[i].Y;
                   fTrain[i].X:=tx;
@@ -246,7 +257,10 @@ begin
                 end;
 //              Log.Trace(Format('Length: %d - T[0](x,y): (%d,%d) - T[last](x,y): (%d,%d)',
 //                [length(fTrain),fTrain[0]._sprite.X,fTrain[0]._sprite.Y,fTrain[length(fTrain)-1]._sprite.X,fTrain[length(fTrain)-1]._sprite.Y]));
-              if (length(fTrain)>1) and
+              // What the heck is this?
+              // This one signals the game loop to break when after exiting all
+              // the wagons reached the exit. Added the state checking.
+              if (fState=sExit1) and (length(fTrain)>1) and
                  (fTrain[length(fTrain)-1].X=fTrain[0].X) and
                  (fTrain[length(fTrain)-1].Y=fTrain[0].Y) then
                    fState:=sExit2;
@@ -289,6 +303,7 @@ end;
 
 procedure TPlayer.AddWagon(iType:integer);
 begin
+//  LogState;
   SetLength(fTrain,length(fTrain)+1);
   case fTrain[length(fTrain)-2].Dir of
     'U':fTrain[length(fTrain)-1]:=TTrainPiece.Create(fTrain[length(fTrain)-2].X,fTrain[length(fTrain)-2].Y+32,chr(iType));
@@ -296,7 +311,8 @@ begin
     'L':fTrain[length(fTrain)-1]:=TTrainPiece.Create(fTrain[length(fTrain)-2].X+32,fTrain[length(fTrain)-2].Y,chr(iType));
     'R':fTrain[length(fTrain)-1]:=TTrainPiece.Create(fTrain[length(fTrain)-2].X-32,fTrain[length(fTrain)-2].Y,chr(iType));
   end;
-  with fTrain[Length(fTrain)-2] do fMap.Tiles[X>>5,(Y-48)>>5]:=31;
+  with fTrain[Length(fTrain)-2] do fMap.Tiles[X>>5,(Y-48)>>5]:=TILE_OCCUPIED;
+//  LogState;
 //  fTrain[length(fTrain)-1]._sprite.FrameDelay:=6;
 end;
 
@@ -337,6 +353,34 @@ begin
     Result:=fTrain[index]
   else
     Result:=nil;
+end;
+
+procedure TPlayer.LogState;
+var s1,s2,s3,s4:string;i,j:integer;
+begin
+  s1:='Type ';
+  s2:='Dir  ';
+  s3:='X    ';
+  s4:='Y    ';
+  for i:=0 to length(fTrain)-1 do begin
+    s1+=' '+fTrain[i].PieceType+'  ';
+    s2+=' '+fTrain[i].Dir+'  ';
+    s3+=st(fTrain[i].X,3,' ')+' ';
+    s4+=st(fTrain[i].Y,3,' ')+' ';
+  end;
+  Log.LogDebug('--- Train and map dump starts. ---');
+  Log.LogDebug(Format('Train length: %d',[length(fTrain)]));
+  Log.LogDebug(s1);
+  Log.LogDebug(s2);
+  Log.LogDebug(s3);
+  Log.LogDebug(s4);
+  Log.LogDebug('Map dump');
+  for j:=0 to 11 do begin
+    s1:='';
+    for i:=0 to 19 do s1+=st(fMap.Tiles[i,j],3,' ')+' ';
+    Log.LogDebug(s1);
+  end;
+  Log.LogDebug('--- Train and map dump ends. ---');
 end;
 
 procedure TPlayer.AddReplay(pReplayString:string);

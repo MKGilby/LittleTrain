@@ -12,6 +12,7 @@ const
   MAPSTATE_UNLOCKED=1;
   MAPSTATE_LOCKED=0;
 
+
 type
   TMapBase=class
     constructor Create(iX,iY,iMapNo,iVMUSlot:integer);
@@ -124,11 +125,11 @@ begin
     for i:=0 to 19 do begin
       Bar(i<<5,j<<5+48,32,32,0,0,0);
       case fMap.Tiles[i,j] of
-        32:;
-        33:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(33)].SpawnAnimation);
-        35:fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(35)].SpawnAnimation);
-        37:fPlayer:=TPlayer.Create(i,j,3,fMap);
-        61:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(61)].SpawnAnimation);
+        TILE_EMPTY:;
+        TILE_CLOSEDEXIT:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(33)].SpawnAnimation);
+        TILE_WALL:fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(35)].SpawnAnimation);
+        TILE_PLAYER:fPlayer:=TPlayer.Create(i,j,3,fMap);
+        TILE_SIGNAL:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(61)].SpawnAnimation);
         else begin
           fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(fMap.Tiles[i,j])].SpawnAnimation);
           if fMap.Tiles[i,j] in [97..114] then inc(fGoodies);

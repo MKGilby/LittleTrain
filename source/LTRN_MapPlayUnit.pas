@@ -15,7 +15,7 @@ type
 implementation
 
 uses SysUtils, Bass, sdl2, mk_sdl2, MKToolbox, Font2Unit,
-  LTRN_SharedUnit, LTRN_OptionsUnit, LTRN_VMUUnit;
+  LTRN_SharedUnit, LTRN_OptionsUnit, LTRN_VMUUnit, Logger;
 
 function TMapPlay.Play:integer;
 var i,j:integer;
@@ -71,16 +71,20 @@ begin
         if fGoodies=0 then begin
           MM.Waves['DoorOpen']._wave.Play;
           fExit.Animation.Paused:=false;
-          fMap.Tiles[fExit.X>>5,(fExit.Y-48)>>5]:=34;
+          fMap.Tiles[fExit.X>>5,(fExit.Y-48)>>5]:=TILE_OPENEDEXIT;
         end;
         FreeAndNil(fSprites[fPlayer.CargoX,fPlayer.CargoY]);
 //        fSprites[fPlayer.CargoX,fPlayer.CargoY]:=nil;
-        fMap.Tiles[fPlayer.CargoX,fPlayer.CargoY]:=31;
+        fMap.Tiles[fPlayer.CargoX,fPlayer.CargoY]:=TILE_OCCUPIED;
       end;
     end;
   until keys[SDL_SCANCODE_ESCAPE] or fPlayer.ReachedExit or fPlayer.IsDead;
+  Log.Trace('Play loop exited.');
+  if keys[SDL_SCANCODE_ESCAPE] then Log.Trace('Escape is pressed.');
+  if fPlayer.ReachedExit then Log.Trace('Player is reached exit.');
+  if fPlayer.IsDead then Log.Trace('Player is dead.');
   if keys[SDL_SCANCODE_ESCAPE] then Result:=1
-                       else Result:=0;
+                               else Result:=0;
   if fPlayer.IsDead then Result:=2;
   if fPlayer.ReachedExit then begin
     if (fState in [0,1]) or (fBest>fScore) then begin

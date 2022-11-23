@@ -149,3 +149,17 @@ m halve 2 1
 m copyto 0 0 8 8 160 0 1 2
 
 w png ..\thumbs.png 2
+
+r cel wall.cel 1
+m create 34 34 2
+m copyto 0 0   32 32 1 1   1 2
+m copyto 0 0   32 1  1 33  1 2
+m copyto 0 0   1 32  33 1  1 2
+m copyto 0 31  32 1  1 0   1 2
+m copyto 31 0  1 32  0 1   1 2
+m copyto 0 0   1 1   33 33 1 2
+m copyto 31 0  1 1   0 33  1 2
+m copyto 0 31  1 1   33 0  1 2
+m copyto 31 31 1 1   0 0   1 2
+m addanimation # 32 32 1 0 0 0 4  1 1  2
+w png ..\wall.png 2

@@ -1,6 +1,12 @@
 Todo:
 * On the congratulations level the standing engine should animate the steam puffs.
+* Fullscreen setting should be instant. Now it requires restart.
 * Fix bugs.
+
+2022.11.23
+* BUGFIX: Approaching the last wagon from the direction it comes from, made
+  the game exit to the map selector screen.
+* Spritesheet modified so it doesn't mess up the wall with scale quality 1.
 
 2022.11.21 - 2nd session
 * BUGFIX: Music volume was not saved. It was though, but when read back it was

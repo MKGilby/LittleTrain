@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2022. 11. 21. 20:40:48
+(..system..) Starting Application. 2022. 11. 23. 15:17:48
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -46,6 +46,8 @@ Minimum logging level set to ALL
 <>   sprites...
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('sprites01.png')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (sprites01.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('wall.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (wall.png)
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('logo.png')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (logo.png)
 <>   musics...
@@ -137,6 +139,8 @@ Minimum logging level set to ALL
 (MusicUnit.pas, TMusic.Play) BASS: Music started.
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('mksztsz.png')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (mksztsz.png)
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('infamous_logo.png')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (infamous_logo.png)
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (2,0)
@@ -437,12 +441,12 @@ Minimum logging level set to ALL
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
-<vcc_Menu2.pas, TMenu.FillItems> Parent=-1
-<vcc_Menu2.pas, TMenu.FillItems> Item added: 0
-<vcc_Menu2.pas, TMenu.FillItems> Item added: 1
-<vcc_Menu2.pas, TMenu.FillItems> Item added: 2
-<vcc_Menu2.pas, TMenu.FillItems> Item added: 3
-<vcc_Menu2.pas, TMenu.FillItems> Item added: 4
+(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
+(MusicUnit.pas, TMusic.Play) BASS: Music started.
+< Trace > Play loop exited.
+< Trace > Escape is pressed.
+(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
+(MusicUnit.pas, TMusic.Play) BASS: Music started.
 (MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
 <> Freeing persistent entities...
 <>   logo...
@@ -474,4 +478,4 @@ Minimum logging level set to ALL
 () Freeing VMU...
 () Freeing Main Window...
 (MKAudio.pas, Finalize) BASS: Shutdown...
-(..system..) Terminating Application. 2022. 11. 21. 20:41:02
+(..system..) Terminating Application. 2022. 11. 23. 15:18:15
