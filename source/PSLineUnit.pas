@@ -6,12 +6,17 @@ interface
 
 uses mk_sdl2, ARGBImageUnit;
 
-type TPSLine=class
+type
+
+{ TPSLine }
+
+ TPSLine=class
        constructor Create(iText:String;iPosition,iDelay:integer);
        destructor Destroy; override;
        procedure StartOut;
        procedure Draw;
        procedure ChangeText(iNewText:string);
+       procedure InstantIn;
      private
        fText:String;
        fWImage,fTImage:TTexture;
@@ -120,6 +125,12 @@ procedure TPSLine.ChangeText(iNewText:string);
 begin
   fText:=iNewText;
   CreateImages;
+end;
+
+procedure TPSLine.InstantIn;
+begin
+  fFase:=LINEONESTEPTIME<<1+1;
+  fDelay:=0;
 end;
 
 end.

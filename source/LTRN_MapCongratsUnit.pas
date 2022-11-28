@@ -37,7 +37,7 @@ type
 implementation
 
 uses SysUtils, Bass, Logger, Font2Unit, sdl2, mk_sdl2,
-  LTRN_SharedUnit, LTRN_OptionsUnit;
+  LTRN_SharedUnit, LTRN_OptionsUnit, LTRN_CurtainUnit;
 
 //                                                         +-------------+
 // ------------------------------------------------------= | TBlueEngine | =---
@@ -168,8 +168,8 @@ begin
     Flip;
 
     HandleMessages;
-    if keys[OptionsKey] then Options.Run;
-    if Curtain.State=0 then begin
+    if keys[OPTIONSKEY] then Options.Run;
+    if Curtain.State=csIdle then begin
       case fState of
         0:begin  // Wait a little bit
             inc(fCounter);
@@ -256,7 +256,7 @@ begin
     fPlayer.Draw;
     Curtain.Draw;
     Flip;
-  until Curtain.State=3;
+  until Curtain.State=csFinished;
 //  if Run=0 then fPlayer^.SaveSolution(st(fMapNo,2,'0')+'.sol');
   ClearSprites;
 //  FreeAndNil(fMap);

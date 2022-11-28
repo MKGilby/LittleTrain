@@ -11,6 +11,8 @@ uses Animation2Unit;
 
 type
 
+  TCurtainState=(csIdle,csClosing,csOpening,csFinished);
+
   { TCurtain }
 
   TCurtain=class
@@ -20,7 +22,7 @@ type
     procedure StartOpen;
     procedure Draw;
   public
-    State:integer;
+    State:TCurtainState;
   private
     fAnimation:TAnimation;
 //    fTexture:TTexture;
@@ -35,9 +37,8 @@ uses SysUtils, LTRN_SharedUnit;
 constructor TCurtain.Create;
 begin
   fAnimation:=MM.Animations.ItemByName['#'].SpawnAnimation;
-//  fTexture:=MM.Animations.ItemByName['#'].SpawnAnimation.p;
   fFase:=-1;
-  State:=0;
+  State:=csIdle;
 end;
 
 destructor TCurtain.Destroy;
@@ -50,21 +51,21 @@ procedure TCurtain.StartClose;
 begin
   fDirection:=1;
   fFase:=0;
-  State:=1;
+  State:=csClosing;
 end;
 
 procedure TCurtain.StartOpen;
 begin
   fDirection:=-1;
   fFase:=29;
-  State:=2;
+  State:=csOpening;
 end;
 
 procedure TCurtain.Draw;
 var i,j:integer;
 begin
-  if State=3 then State:=0;  // Ez azért kell, hogy 1 ciklusig 3-assal jelzi,
-                             // hogy éppen akkor fejezte be.
+  // Ez azért kell, hogy 1 ciklusig 3-assal jelzi, hogy éppen akkor fejezte be.
+  if State=csFinished then State:=csIdle;
   if fFase>-1 then begin
     for j:=0 to fFase>>1 do
       for i:=0 to 19 do
@@ -72,9 +73,9 @@ begin
     fFase+=fDirection;
     if fFase=30 then begin
       fFase:=-1;
-      State:=3;
+      State:=csFinished;
     end else
-      if fFase=-1 then State:=3;
+      if fFase=-1 then State:=csFinished;
   end;
 end;
 

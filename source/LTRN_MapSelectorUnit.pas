@@ -28,7 +28,7 @@ implementation
 
 uses
   SysUtils, MKToolBox, Logger, BASS, sdl2, mk_sdl2,
-  LTRN_SharedUnit, LTRN_OptionsUnit, LTRN_VMUUnit,
+  LTRN_SharedUnit, LTRN_OptionsUnit, LTRN_VMUUnit, LTRN_CurtainUnit,
   LTRN_MapPlayUnit, LTRN_MapCongratsUnit;
 
 constructor TMapSelector.Create(iTop,iVMUSlot:integer);
@@ -162,7 +162,7 @@ begin
             for i:=0 to 5 do Lines[i].StartOut;
             BASS_ChannelSlideAttribute(MM.Musics['Menu']._music.Handle, BASS_ATTRIB_VOL,0, 2000);
           end;
-          if keys[OptionsKey] then Options.Run;
+          if keys[OPTIONSKEY] then Options.Run;
           if keys[SDL_SCANCODE_RIGHT] and (slev<50) then begin
             inc(trgt,176);
             inc(slev);
@@ -191,7 +191,7 @@ begin
             BASS_ChannelSlideAttribute(MM.Musics['Menu']._music.Handle, BASS_ATTRIB_VOL,0, 300);
           end;
         end;
-      4:if Curtain.State=3 then begin
+      4:if Curtain.State=csFinished then begin
           MM.Musics['Menu']._music.Stop;
           MM.Musics['Menu']._music.Volume:=VMU.MusicVolume;
           if fMaps[slev].Congratulations then
@@ -229,7 +229,7 @@ begin
           Curtain.StartOpen;
           mode:=5;
         end;
-      5:if Curtain.State=3 then mode:=1;
+      5:if Curtain.State=csFinished then mode:=1;
     end;
   until mode=3;
   Result:=0;

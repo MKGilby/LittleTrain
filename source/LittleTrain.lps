@@ -4,30 +4,31 @@
     <PathDelim Value="\"/>
     <Version Value="12"/>
     <BuildModes Active="Debug"/>
-    <Units Count="83">
+    <Units Count="84">
       <Unit0>
         <Filename Value="LittleTrain.pas"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="20" Y="17"/>
-        <UsageCount Value="178"/>
+        <CursorPos X="18" Y="26"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="LTRN_MainUnit.pas"/>
         <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="27"/>
-        <CursorPos Y="52"/>
-        <UsageCount Value="178"/>
+        <TopLine Value="61"/>
+        <CursorPos X="8" Y="102"/>
+        <UsageCount Value="186"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="LTRN_SharedUnit.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="9"/>
-        <TopLine Value="34"/>
-        <CursorPos X="23" Y="55"/>
-        <UsageCount Value="176"/>
+        <TopLine Value="108"/>
+        <CursorPos X="55" Y="115"/>
+        <UsageCount Value="184"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
@@ -36,7 +37,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="33"/>
         <CursorPos X="6" Y="108"/>
-        <UsageCount Value="170"/>
+        <UsageCount Value="178"/>
       </Unit3>
       <Unit4>
         <Filename Value="LTRN_IntroUnit.pas"/>
@@ -44,93 +45,93 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="73"/>
         <CursorPos X="32" Y="85"/>
-        <UsageCount Value="168"/>
+        <UsageCount Value="176"/>
       </Unit4>
       <Unit5>
         <Filename Value="LTRN_ScrollUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="44" Y="21"/>
-        <UsageCount Value="168"/>
+        <EditorIndex Value="6"/>
+        <CursorPos X="25" Y="35"/>
+        <UsageCount Value="176"/>
+        <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit5>
       <Unit6>
         <Filename Value="LTRN_OptionsUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="7"/>
-        <CursorPos X="36" Y="25"/>
-        <UsageCount Value="168"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="92"/>
+        <CursorPos Y="42"/>
+        <UsageCount Value="176"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit6>
       <Unit7>
         <Filename Value="LTRN_CurtainUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="3"/>
-        <TopLine Value="19"/>
-        <CursorPos Y="37"/>
-        <UsageCount Value="168"/>
-        <Loaded Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="15"/>
+        <UsageCount Value="176"/>
       </Unit7>
       <Unit8>
         <Filename Value="LTRN_MapListUnit.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="32" Y="35"/>
-        <UsageCount Value="159"/>
+        <UsageCount Value="167"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit8>
       <Unit9>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="8"/>
-        <TopLine Value="193"/>
-        <CursorPos Y="239"/>
-        <UsageCount Value="65"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="126"/>
+        <CursorPos Y="155"/>
+        <UsageCount Value="73"/>
         <Loaded Value="True"/>
       </Unit9>
       <Unit10>
         <Filename Value="PSLineUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="69"/>
-        <CursorPos X="21" Y="65"/>
-        <UsageCount Value="63"/>
+        <EditorIndex Value="8"/>
+        <TopLine Value="89"/>
+        <CursorPos X="8" Y="133"/>
+        <UsageCount Value="71"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit10>
       <Unit11>
         <Filename Value="PSCursorUnit.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
-        <CursorPos X="67" Y="35"/>
-        <UsageCount Value="62"/>
+        <TopLine Value="120"/>
+        <CursorPos X="26" Y="157"/>
+        <UsageCount Value="70"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit11>
       <Unit12>
         <Filename Value="LTRN_MapSelectorUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="18"/>
-        <CursorPos Y="51"/>
-        <UsageCount Value="58"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="34"/>
+        <CursorPos Y="20"/>
+        <UsageCount Value="66"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
         <Filename Value="LTRN_MapBaseUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="7"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="4" Y="14"/>
-        <UsageCount Value="58"/>
-        <Loaded Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
+        <UsageCount Value="66"/>
       </Unit13>
       <Unit14>
         <Filename Value="LTRN_TrainPieceUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="27"/>
         <CursorPos X="40" Y="27"/>
-        <UsageCount Value="48"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="56"/>
       </Unit14>
       <Unit15>
         <Filename Value="LTRN_MapImagesUnit.pas"/>
@@ -138,46 +139,46 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos X="15" Y="48"/>
-        <UsageCount Value="47"/>
+        <UsageCount Value="55"/>
       </Unit15>
       <Unit16>
         <Filename Value="LTRN_PlayerUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="353"/>
         <CursorPos X="12" Y="364"/>
-        <UsageCount Value="44"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="52"/>
       </Unit16>
       <Unit17>
         <Filename Value="LTRN_LogoUnit.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="36"/>
-        <UsageCount Value="44"/>
+        <UsageCount Value="52"/>
       </Unit17>
       <Unit18>
         <Filename Value="LTRN_MapPlayUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="20"/>
-        <CursorPos X="86" Y="59"/>
-        <UsageCount Value="44"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="69"/>
+        <CursorPos X="33" Y="107"/>
+        <UsageCount Value="52"/>
       </Unit18>
       <Unit19>
         <Filename Value="LTRN_MapCongratsUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="136"/>
-        <CursorPos X="30" Y="154"/>
-        <UsageCount Value="44"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="236"/>
+        <CursorPos X="33" Y="259"/>
+        <UsageCount Value="52"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit19>
       <Unit20>
         <Filename Value="PSLineUnit.pp"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="6" Y="10"/>
-        <UsageCount Value="122"/>
+        <UsageCount Value="121"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit20>
       <Unit21>
@@ -185,7 +186,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="4"/>
         <CursorPos X="6" Y="27"/>
-        <UsageCount Value="122"/>
+        <UsageCount Value="121"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit21>
       <Unit22>
@@ -193,19 +194,19 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="37"/>
         <CursorPos X="36" Y="50"/>
-        <UsageCount Value="122"/>
+        <UsageCount Value="121"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit22>
       <Unit23>
         <Filename Value="LTRN_PlayerUnit.pp"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="122"/>
+        <UsageCount Value="121"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit23>
       <Unit24>
         <Filename Value="LTRN_MapSelectorUnit.pp"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="122"/>
+        <UsageCount Value="121"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit24>
       <Unit25>
@@ -213,7 +214,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="105"/>
         <CursorPos X="32" Y="138"/>
-        <UsageCount Value="122"/>
+        <UsageCount Value="121"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit25>
       <Unit26>
@@ -221,7 +222,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="43"/>
         <CursorPos X="16" Y="68"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="87"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit26>
       <Unit27>
@@ -229,14 +230,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="193"/>
         <CursorPos X="20" Y="216"/>
-        <UsageCount Value="88"/>
+        <UsageCount Value="87"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit27>
       <Unit28>
         <Filename Value="LTRN_MapImagesUnit.pp"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="6" Y="7"/>
-        <UsageCount Value="118"/>
+        <UsageCount Value="117"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit28>
       <Unit29>
@@ -244,7 +245,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="117"/>
         <CursorPos Y="134"/>
-        <UsageCount Value="108"/>
+        <UsageCount Value="107"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit29>
       <Unit30>
@@ -253,21 +254,21 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="429"/>
         <CursorPos X="3" Y="431"/>
-        <UsageCount Value="108"/>
+        <UsageCount Value="107"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit30>
       <Unit31>
         <Filename Value="LTRN_InitFinalUnit.pp"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="9"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit31>
       <Unit32>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\ScrollUnit.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="31" Y="46"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit32>
       <Unit33>
@@ -275,13 +276,13 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="116"/>
         <CursorPos X="11" Y="130"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit33>
       <Unit34>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\FontCollectionUnit.pas"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="16"/>
+        <UsageCount Value="15"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit34>
       <Unit35>
@@ -289,7 +290,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="416"/>
         <CursorPos Y="434"/>
-        <UsageCount Value="17"/>
+        <UsageCount Value="16"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit35>
       <Unit36>
@@ -297,7 +298,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="154"/>
         <CursorPos X="15" Y="88"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit36>
       <Unit37>
@@ -305,7 +306,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="723"/>
         <CursorPos Y="827"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit37>
       <Unit38>
@@ -313,7 +314,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="424"/>
         <CursorPos Y="443"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit38>
       <Unit39>
@@ -321,7 +322,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="152"/>
         <CursorPos X="26" Y="175"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="2"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit39>
       <Unit40>
@@ -329,7 +330,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="255"/>
         <CursorPos X="14" Y="267"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit40>
       <Unit41>
@@ -337,7 +338,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="381"/>
         <CursorPos Y="404"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit41>
       <Unit42>
@@ -345,7 +346,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="134"/>
         <CursorPos Y="157"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit42>
       <Unit43>
@@ -353,7 +354,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="222"/>
         <CursorPos Y="240"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit43>
       <Unit44>
@@ -361,14 +362,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="126"/>
         <CursorPos Y="136"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="3"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit44>
       <Unit45>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\AnimatedSpriteUnit.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="28"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="32"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit45>
       <Unit46>
@@ -376,20 +377,20 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="158"/>
         <CursorPos X="3" Y="219"/>
-        <UsageCount Value="33"/>
+        <UsageCount Value="32"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit46>
       <Unit47>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\ImageListLoaderUnit.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="11" Y="42"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="4"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit47>
       <Unit48>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\MusicCollectionUnit.pas"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="12"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit48>
       <Unit49>
@@ -397,14 +398,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="19"/>
         <CursorPos X="3" Y="63"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="12"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit49>
       <Unit50>
         <Filename Value="B:\Programming\unitsrc\Script_ASH\ASH_ANInterpreterUnit.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="80"/>
-        <UsageCount Value="13"/>
+        <UsageCount Value="12"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit50>
       <Unit51>
@@ -412,7 +413,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="13"/>
         <CursorPos X="27" Y="51"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="5"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit51>
       <Unit52>
@@ -420,14 +421,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="107"/>
         <CursorPos X="29" Y="122"/>
-        <UsageCount Value="12"/>
+        <UsageCount Value="11"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit52>
       <Unit53>
         <Filename Value="B:\Programming\unitsrc\mk_sdl\FontListUnit.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="23" Y="38"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit53>
       <Unit54>
@@ -435,7 +436,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="58"/>
         <CursorPos X="26" Y="78"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit54>
       <Unit55>
@@ -443,7 +444,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="112"/>
         <CursorPos X="23" Y="132"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit55>
       <Unit56>
@@ -451,7 +452,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="36"/>
         <CursorPos Y="62"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit56>
       <Unit57>
@@ -459,7 +460,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="74"/>
         <CursorPos Y="98"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit57>
       <Unit58>
@@ -467,7 +468,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="45"/>
         <CursorPos X="25" Y="101"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit58>
       <Unit59>
@@ -475,7 +476,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos Y="48"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit59>
       <Unit60>
@@ -483,7 +484,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="120"/>
         <CursorPos X="6" Y="151"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit60>
       <Unit61>
@@ -491,14 +492,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="16"/>
         <CursorPos X="16" Y="29"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit61>
       <Unit62>
         <Filename Value="B:\Programming\unitsrc\Script_ASH\ASH_WAInterpreterUnit.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="33"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit62>
       <Unit63>
@@ -506,7 +507,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="125"/>
         <CursorPos Y="170"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit63>
       <Unit64>
@@ -514,7 +515,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="112"/>
         <CursorPos Y="135"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit64>
       <Unit65>
@@ -522,14 +523,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="61"/>
         <CursorPos Y="77"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit65>
       <Unit66>
         <Filename Value="..\units\MKAudio.pas"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="3" Y="25"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit66>
       <Unit67>
@@ -537,24 +538,22 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="172"/>
         <CursorPos X="36" Y="198"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit67>
       <Unit68>
         <Filename Value="..\units\MediaManagerUnit.pas"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="142"/>
         <CursorPos Y="150"/>
-        <UsageCount Value="16"/>
-        <Loaded Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
+        <UsageCount Value="15"/>
       </Unit68>
       <Unit69>
         <Filename Value="..\units\FontList2Unit.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="30"/>
         <CursorPos X="16" Y="70"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit69>
       <Unit70>
@@ -562,15 +561,15 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="14"/>
         <CursorPos X="3" Y="53"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit70>
       <Unit71>
         <Filename Value="..\units\vcc_Menu2.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="67"/>
-        <CursorPos X="38" Y="93"/>
-        <UsageCount Value="12"/>
+        <TopLine Value="142"/>
+        <CursorPos X="3" Y="113"/>
+        <UsageCount Value="11"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit71>
       <Unit72>
@@ -578,7 +577,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="13"/>
         <CursorPos X="32" Y="22"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit72>
       <Unit73>
@@ -586,14 +585,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="288"/>
         <CursorPos Y="314"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit73>
       <Unit74>
         <Filename Value="..\units\ARGBImageUnit.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="382"/>
         <CursorPos X="3" Y="389"/>
-        <UsageCount Value="17"/>
+        <UsageCount Value="16"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit74>
       <Unit75>
@@ -601,14 +600,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="240"/>
         <CursorPos X="6" Y="262"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit75>
       <Unit76>
         <Filename Value="..\units\Font2Unit.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit76>
       <Unit77>
@@ -616,28 +615,28 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="126"/>
         <CursorPos Y="196"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit77>
       <Unit78>
         <Filename Value="..\units\PlayerRegistryUnit.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="514"/>
         <CursorPos X="16" Y="536"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="7"/>
       </Unit78>
       <Unit79>
         <Filename Value="..\units\AnimatedSprite2Unit.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="82"/>
         <CursorPos X="36" Y="111"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
       </Unit79>
       <Unit80>
         <Filename Value="..\units\Animation2Unit.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="52"/>
         <CursorPos X="30" Y="79"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit80>
       <Unit81>
@@ -645,7 +644,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="360"/>
         <CursorPos Y="386"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="8"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit81>
       <Unit82>
@@ -653,129 +652,122 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="137"/>
         <CursorPos Y="138"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit82>
+      <Unit83>
+        <Filename Value="..\units\Scroll2Unit.pas"/>
+        <EditorIndex Value="7"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit83>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <JumpHistory Count="26" HistoryIndex="25">
       <Position1>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-      </Position1>
-      <Position2>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="204" Column="54" TopLine="166"/>
-      </Position2>
-      <Position3>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="234" Column="72" TopLine="196"/>
-      </Position3>
-      <Position4>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="314" Column="77" TopLine="275"/>
-      </Position4>
-      <Position5>
-        <Filename Value="LTRN_MapBaseUnit.pas"/>
-        <Caret Line="132" Column="19" TopLine="93"/>
-      </Position5>
-      <Position6>
-        <Filename Value="LTRN_MapBaseUnit.pas"/>
-        <Caret Line="17" Column="22"/>
-      </Position6>
-      <Position7>
-        <Filename Value="LTRN_MapBaseUnit.pas"/>
-        <Caret Line="134" Column="24" TopLine="95"/>
-      </Position7>
-      <Position8>
-        <Filename Value="LTRN_SharedUnit.pas"/>
-        <Caret Line="39" Column="3" TopLine="33"/>
-      </Position8>
-      <Position9>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="315" Column="3" TopLine="270"/>
-      </Position9>
-      <Position10>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-      </Position10>
-      <Position11>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="56" Column="18" TopLine="17"/>
-      </Position11>
-      <Position12>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="65" Column="34" TopLine="26"/>
-      </Position12>
-      <Position13>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="85" Column="58" TopLine="46"/>
-      </Position13>
-      <Position14>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="87" Column="8" TopLine="48"/>
-      </Position14>
-      <Position15>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="130" Column="17" TopLine="91"/>
-      </Position15>
-      <Position16>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="135" Column="8" TopLine="92"/>
-      </Position16>
-      <Position17>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="136" Column="8" TopLine="97"/>
-      </Position17>
-      <Position18>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="139" Column="14" TopLine="100"/>
-      </Position18>
-      <Position19>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="215" Column="20" TopLine="177"/>
-      </Position19>
-      <Position20>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="216" Column="20" TopLine="179"/>
-      </Position20>
-      <Position21>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="217" Column="28" TopLine="179"/>
-      </Position21>
-      <Position22>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="225" Column="22" TopLine="187"/>
-      </Position22>
-      <Position23>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="217" Column="30" TopLine="187"/>
-      </Position23>
-      <Position24>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="225" Column="22" TopLine="187"/>
-      </Position24>
-      <Position25>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="258" Column="20" TopLine="220"/>
-      </Position25>
-      <Position26>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="306" Column="8" TopLine="267"/>
-      </Position26>
-      <Position27>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="315" Column="8" TopLine="276"/>
-      </Position27>
-      <Position28>
-        <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="358" Column="22" TopLine="319"/>
-      </Position28>
-      <Position29>
         <Filename Value="LTRN_MainUnit.pas"/>
         <Caret Line="52" TopLine="27"/>
-      </Position29>
-      <Position30>
-        <Filename Value="..\units\MediaManagerUnit.pas"/>
-        <Caret Line="150" TopLine="142"/>
-      </Position30>
+      </Position1>
+      <Position2>
+        <Filename Value="LTRN_SharedUnit.pas"/>
+        <Caret Line="24" Column="3"/>
+      </Position2>
+      <Position3>
+        <Filename Value="LTRN_MapCongratsUnit.pas"/>
+        <Caret Line="172" Column="28" TopLine="150"/>
+      </Position3>
+      <Position4>
+        <Filename Value="LTRN_MapCongratsUnit.pas"/>
+        <Caret Line="126" Column="22" TopLine="102"/>
+      </Position4>
+      <Position5>
+        <Filename Value="LTRN_MapCongratsUnit.pas"/>
+        <Caret Line="40" Column="54"/>
+      </Position5>
+      <Position6>
+        <Filename Value="LTRN_MapCongratsUnit.pas"/>
+        <Caret Line="259" Column="33" TopLine="236"/>
+      </Position6>
+      <Position7>
+        <Filename Value="LTRN_MapSelectorUnit.pas"/>
+        <Caret Line="194" Column="26" TopLine="171"/>
+      </Position7>
+      <Position8>
+        <Filename Value="LTRN_MapSelectorUnit.pas"/>
+        <Caret Line="31" Column="69"/>
+      </Position8>
+      <Position9>
+        <Filename Value="LTRN_MapSelectorUnit.pas"/>
+        <Caret Line="232" Column="36" TopLine="194"/>
+      </Position9>
+      <Position10>
+        <Filename Value="LTRN_OptionsUnit.pas"/>
+        <Caret Line="21" Column="5"/>
+      </Position10>
+      <Position11>
+        <Filename Value="LittleTrain.pas"/>
+        <Caret Line="28"/>
+      </Position11>
+      <Position12>
+        <Filename Value="LTRN_MainUnit.pas"/>
+        <Caret Line="17" Column="25"/>
+      </Position12>
+      <Position13>
+        <Filename Value="LTRN_MainUnit.pas"/>
+        <Caret Line="79" TopLine="57"/>
+      </Position13>
+      <Position14>
+        <Filename Value="LTRN_MainUnit.pas"/>
+        <Caret Line="17" Column="8"/>
+      </Position14>
+      <Position15>
+        <Filename Value="LittleTrain.pas"/>
+        <Caret Line="26"/>
+      </Position15>
+      <Position16>
+        <Filename Value="LTRN_MainUnit.pas"/>
+        <Caret Line="17" Column="12"/>
+      </Position16>
+      <Position17>
+        <Filename Value="LTRN_SharedUnit.pas"/>
+        <Caret Line="12" Column="13"/>
+      </Position17>
+      <Position18>
+        <Filename Value="LTRN_OptionsUnit.pas"/>
+        <Caret Line="23" TopLine="4"/>
+      </Position18>
+      <Position19>
+        <Filename Value="LTRN_SlotSelectUnit.pas"/>
+        <Caret Line="98" Column="22" TopLine="73"/>
+      </Position19>
+      <Position20>
+        <Filename Value="LTRN_ScrollUnit.pas"/>
+        <Caret Line="21" Column="44"/>
+      </Position20>
+      <Position21>
+        <Filename Value="PSLineUnit.pas"/>
+        <Caret Line="19" Column="8" TopLine="2"/>
+      </Position21>
+      <Position22>
+        <Filename Value="LTRN_ScrollUnit.pas"/>
+        <Caret Line="21" Column="44"/>
+      </Position22>
+      <Position23>
+        <Filename Value="LTRN_ScrollUnit.pas"/>
+        <Caret Line="16" Column="6"/>
+      </Position23>
+      <Position24>
+        <Filename Value="LTRN_OptionsUnit.pas"/>
+        <Caret Line="35" Column="9" TopLine="28"/>
+      </Position24>
+      <Position25>
+        <Filename Value="LTRN_OptionsUnit.pas"/>
+        <Caret Line="82" Column="29"/>
+      </Position25>
+      <Position26>
+        <Filename Value="LTRN_OptionsUnit.pas"/>
+        <Caret Line="106" Column="27" TopLine="92"/>
+      </Position26>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>

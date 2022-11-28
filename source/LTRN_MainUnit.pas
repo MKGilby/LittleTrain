@@ -14,7 +14,7 @@ type
   TMain=class
     constructor Create(iVersion, iBuildDate:String);
     destructor Destroy; override;
-    procedure Run;
+    function Run(pFirstRun:boolean):boolean;
   private
 //    fVersionString:string;
     fMainWindow:TWindow;
@@ -75,7 +75,7 @@ begin
   inherited ;
 end;
 
-procedure TMain.Run;
+function TMain.Run(pFirstRun:boolean):boolean;
 var i:integer;SlotSelect:TSlotSelector;
 begin
 {  MM.Fonts.DemoFonts;
@@ -84,19 +84,26 @@ begin
     HandleMessages;
   until keys[SDL_SCANCODE_SPACE];}
   MM.Musics['Menu']._music.Play;
-  Intro;
+  if pFirstRun then Intro;
 
-  SlotSelect:=TSlotSelector.Create;
-  i:=SlotSelect.Run;
-  FreeAndNil(SlotSelect);
+  if ReturnTo in [rNone, rSlotSelector] then begin
+    SlotSelect:=TSlotSelector.Create;
+    if ReturnTo=rNone then
+      i:=SlotSelect.Run
+    else
+      i:=SlotSelect.Run(ReturnData[0]);
+    FreeAndNil(SlotSelect);
+  end;
 
   if i in [0..4] then begin
     MapSelector:=TMapSelector.Create(160,i);
     MapSelector.Run;
     FreeAndNil(MapSelector);
+    i:=-1;
   end;
 
   MM.Musics['Menu']._music.Stop;
+  Result:=(i=-1);
 end;
 
 end.

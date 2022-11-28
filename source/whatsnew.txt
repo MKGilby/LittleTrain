@@ -1,7 +1,13 @@
 Todo:
 * On the congratulations level the standing engine should animate the steam puffs.
-* Fullscreen setting should be instant. Now it requires restart.
-* Fix bugs.
+* Apply fullscreen setting on the map selector screen.
+* Fix bugs, if there are any.
+
+
+2022.11.28
+* Settings is restructured.
+* Fullscreen setting can be applied instantly when you're on the slot select screen.
+  (It not yet works on the map selector screen.)
 
 2022.11.23
 * BUGFIX: Approaching the last wagon from the direction it comes from, made

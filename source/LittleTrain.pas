@@ -8,20 +8,28 @@
 {$R LittleTrain.res}
 
 uses
-  SysUtils,
+  SysUtils, Logger,
   LTRN_MainUnit,
+  LTRN_SharedUnit,
   ARGBImagePNGReaderUnit;
 
 const
   Version='1.10';
-  BDate='2022.11.21';
+  BDate='2022.11.28';
 
 var
   Main:TMain;
+  res,firstrun:boolean;
 
 begin
-  Main:=TMain.Create(Version, BDate);
-  Main.Run;
-  FreeAndNil(Main);
+  firstrun:=true;
+  ReturnTo:=rNone;
+  repeat
+    Main:=TMain.Create(Version, BDate);
+    res:=Main.Run(firstrun);
+    FreeAndNil(Main);
+    firstrun:=false;
+    if not res then Log.LogStatus('Restarting!');
+  until res;
 end.
 

@@ -9,7 +9,7 @@ uses MediaManagerUnit, sdl2, LTRN_CurtainUnit, LTRN_ScrollUnit, LTRN_MapListUnit
 
 const
   DATAFILENAME='LittleTrain.data';
-  OptionsKey=SDL_SCANCODE_F12;
+  OPTIONSKEY=SDL_SCANCODE_F12;
 
   TILE_OCCUPIED=31;
   TILE_EMPTY=32;
@@ -28,6 +28,8 @@ var
   Options:TOptions;
   MapImages:TMapImages;
   Logo:TLogo;
+  ReturnTo:(rNone,rSlotSelector,rMapSelector);
+  ReturnData:array[0..3] of integer;
 
 procedure LoadAssets;
 procedure FreeAssets;
@@ -110,6 +112,7 @@ begin
   Log.LogDebug('Creating persistent entities...');
   Log.LogDebug('  scroll...');
   Scroll:=TLTRN_Scroll.Create;
+  if ReturnTo<>rNone then Scroll.Move2(ReturnData[3]);
 
   Log.LogDebug('  curtain...');
   Curtain:=TCurtain.Create;
@@ -138,7 +141,10 @@ begin
   Log.LogDebug('  curtain...');
   if Assigned(Curtain) then FreeAndNil(Curtain);
   Log.LogDebug('  scroll...');
-  if Assigned(Scroll) then FreeAndNil(Scroll);
+  if Assigned(Scroll) then begin
+    if ReturnTo<>rNone then ReturnData[3]:=Scroll.StepCount;
+    FreeAndNil(Scroll);
+  end;
   Log.LogDebug('Freeing assets...');
   Log.LogDebug('  maps...');
   if Assigned(MapList) then FreeAndNil(MapList);

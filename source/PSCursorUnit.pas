@@ -20,6 +20,7 @@ type
        procedure Draw;
        procedure MoveTo(iPosition:integer);
        procedure Restart;
+       procedure InstantIn;
      private
        fDelay:integer;
        fSaveDelay:integer;
@@ -149,6 +150,11 @@ begin
   fDelay:=fSaveDelay;
   fInOutState:=ioComingInDelay;
   fFase:=0
+end;
+
+procedure TPSCursor.InstantIn;
+begin
+  fInOutState:=ioVisible;
 end;
 
 procedure TPSCursor.fSetPosition(pValue:integer);

@@ -14,7 +14,7 @@ type
 
 implementation
 
-uses SysUtils, Bass, sdl2, mk_sdl2, MKToolbox, Font2Unit,
+uses SysUtils, Bass, sdl2, mk_sdl2, MKToolbox, Font2Unit, LTRN_CurtainUnit,
   LTRN_SharedUnit, LTRN_OptionsUnit, LTRN_VMUUnit, Logger;
 
 function TMapPlay.Play:integer;
@@ -61,8 +61,8 @@ begin
     Flip;
 //    fPlayer.Clear;
     HandleMessages;
-    if keys[OptionsKey] then Options.Run;
-    if Curtain.State=0 then begin
+    if keys[OPTIONSKEY] then Options.Run;
+    if Curtain.State=csIdle then begin
       fPlayer.Move;
       if fPlayer.Moved then inc(fScore,1);
       if fPlayer.PickedUpCargo then begin
@@ -104,7 +104,7 @@ begin
     fPlayer.Draw;
     Curtain.Draw;
     Flip;
-  until Curtain.State=3;
+  until Curtain.State=csFinished;
 //  if Run=0 then fPlayer^.SaveSolution(st(fMapNo,2,'0')+'.sol');
   ClearSprites;
 //  FreeAndNil(fMap);

@@ -95,7 +95,7 @@ begin
     if (i and 8)<>0 then i:=i xor 8;
     i:=SelectSlot(i);
     if i>8 then ResetSlot(i-8);
-  until (i=-1) or (i in [0..4]);
+  until (i=-1) or (i=-2) or (i in [0..4]);
   Result:=i;
 end;
 
@@ -110,12 +110,17 @@ begin
   Lines[7]:=TPSLine.Create(#1'Del'#0' - Reset, '#1'F12'#0' - Settings, '#1'Esc'#0' - Quit',384,Interval*7);
   SDL_RenderClear(PrimaryWindow.Renderer);
   PutTexture(149,3,MM.Textures.ItemByName['Logo']);
-  Cursor.Restart;
+  if ReturnTo=rNone then
+    Cursor.Restart
+  else begin
+    Cursor.InstantIn;
+    for i:=0 to 7 do Lines[i].InstantIn;
+  end;
   Cursor.Position:=(pPreselected+1)*HEIGHT+TOP-4;
   //  bar(0,SLOTSTOP,PrimaryWindow.Width,SLOTHEIGHT*5,0,0,0);
   ClearKeys;
   repeat
-    Scroll.Move(1);
+    Scroll.Move2(1);
     SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
     SDL_RenderClear(PrimaryWindow.Renderer);
     Logo.Draw;
@@ -137,36 +142,43 @@ begin
       Cursor.MoveTo((pPreselected+1)*HEIGHT+TOP-4);
       MM.Waves['MenuMoveTick']._wave.Play;
     end;
-    if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
+    if keys[OPTIONSKEY] then begin Options.Run;ClearKeys;end;
   until keys[SDL_SCANCODE_ESCAPE] or keys[SDL_SCANCODE_DELETE]
-        or keys[SDL_SCANCODE_SPACE] or keys[SDL_SCANCODE_RETURN];
+        or keys[SDL_SCANCODE_SPACE] or keys[SDL_SCANCODE_RETURN] or
+        Options.FullScreenChanged;
   Result:=pPreselected;
   if keys[SDL_SCANCODE_DELETE] then Result+=8;
   if keys[SDL_SCANCODE_ESCAPE] then Result:=-1;
-  MM.Waves['MenuSelect']._wave.Play;
-  Cursor.StartOut;
-  for i:=0 to 7 do Lines[i].StartOut;
-  cnt:=0;
-  repeat
-    Scroll.Move(1);
-    SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
-    SDL_RenderClear(PrimaryWindow.Renderer);
-    if (cnt<48) or not keys[SDL_SCANCODE_ESCAPE] then
-      Logo.Draw
-    else
-      Logo.Draw(48-cnt);
-    inc(cnt);
-    Cursor.Draw;
-    for i:=0 to 7 do
-      Lines[i].Draw;
-    if (cnt<64) or not keys[SDL_SCANCODE_ESCAPE] then
-      Scroll.Draw(0)
-    else
-      Scroll.Draw(cnt-64);
-    Flip;
-    HandleMessages;
-    if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
-  until cnt=Interval*8+LineOneStepTime;
+  if Options.FullScreenChanged then begin
+    ReturnTo:=rSlotSelector;
+    ReturnData[0]:=pPreselected;
+    Result:=-2;
+  end else begin
+    MM.Waves['MenuSelect']._wave.Play;
+    Cursor.StartOut;
+    for i:=0 to 7 do Lines[i].StartOut;
+    cnt:=0;
+    repeat
+      Scroll.Move(1);
+      SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
+      SDL_RenderClear(PrimaryWindow.Renderer);
+      if (cnt<48) or not keys[SDL_SCANCODE_ESCAPE] then
+        Logo.Draw
+      else
+        Logo.Draw(48-cnt);
+      inc(cnt);
+      Cursor.Draw;
+      for i:=0 to 7 do
+        Lines[i].Draw;
+      if (cnt<64) or not keys[SDL_SCANCODE_ESCAPE] then
+        Scroll.Draw(0)
+      else
+        Scroll.Draw(cnt-64);
+      Flip;
+      HandleMessages;
+      if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
+    until cnt=Interval*8+LineOneStepTime;
+  end;
   for i:=0 to 7 do
     if Assigned(Lines[i]) then FreeAndNil(Lines[i]);
 end;
