@@ -89,7 +89,7 @@ procedure TMapBase.Draw(iAlpha:integer);
 begin
   if (fX>-168) and (fX<640) then begin
     SDL_SetTextureAlphaMod(fImage.Texture,(255-(abs(236-fX)*255 div 404))*iAlpha div 255);
-    if fX<0 then PutTexturePart(0,fY,-fX,0,167,103,fImage)
+    if fX<0 then PutTexturePart(0,fY,-fX,0,fImage.Width+fX,103,fImage)
     else if fX>472 then PutTexturePart(fX,fY,0,0,640-fX,103,fImage)
     else PutTexture(fX,fY,fImage);
   end;

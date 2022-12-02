@@ -1,11 +1,22 @@
 Todo:
 * On the congratulations level the standing engine should animate the steam puffs.
-* Apply fullscreen setting on the map selector screen.
+* Add speed settings.
 * Fix bugs, if there are any.
 
 
+2022.12.02
+* The black engine's puffing effect is put into a separated animation.
+* Rotated the trainwreck sprite to match the train's last direction.
+* On the congratulations level the standing engine puffs the steam.
+* BUG: The blue engine puffs backwards when moving backwards.
+
+2022.11.29
+* Fullscreen setting can be applied instantly on the map selector screen too.
+* BUGFIX: Fixed a drawing glitch on map selector screen with maps going out
+  on the left side of the window.
+
 2022.11.28
-* Settings is restructured.
+* Settings menu is restructured.
 * Fullscreen setting can be applied instantly when you're on the slot select screen.
   (It not yet works on the map selector screen.)
 

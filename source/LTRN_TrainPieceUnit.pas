@@ -27,9 +27,60 @@ type
     property PieceType:char read fType;
   end;
 
+  { TEngine }
+
+  TEngine=class(TTrainPiece)
+    constructor Create(iX,iY:integer);
+    destructor Destroy; override;
+    procedure Draw; override;
+  private
+    fPuffAnimLeft,fPuffAnimRight,fPuffAnimUp,fPuffAnimDown:TAnimation;
+    fPuffing:boolean;
+  public
+    property Puffing:boolean read fPuffing write fPuffing;
+  end;
+
 implementation
 
 uses SysUtils, LTRN_SharedUnit;
+
+{ TEngine }
+
+constructor TEngine.Create(iX,iY:integer);
+begin
+  inherited Create(iX,iy,'%');
+  fPuffAnimLeft:=MM.Animations.ItemByName['~L'].SpawnAnimation;
+  fPuffAnimRight:=MM.Animations.ItemByName['~'].SpawnAnimation;;
+  fPuffAnimUp:=MM.Animations.ItemByName['~U'].SpawnAnimation;
+  fPuffAnimDown:=MM.Animations.ItemByName['~D'].SpawnAnimation;
+  fPuffing:=true;
+end;
+
+destructor TEngine.Destroy;
+begin
+  FreeAndNil(fPuffAnimLeft);
+  FreeAndNil(fPuffAnimRight);
+  FreeAndNil(fPuffAnimUp);
+  FreeAndNil(fPuffAnimDown);
+  inherited Destroy;
+end;
+
+procedure TEngine.Draw;
+begin
+  inherited Draw;
+  if fPuffing then begin
+    case fDir of
+      'L':fPuffAnimLeft.PutFrame(x,y);
+      'R':fPuffAnimRight.PutFrame(x,y);
+      'U':fPuffAnimUp.PutFrame(x,y);
+      'D':fPuffAnimDown.PutFrame(x,y);
+    end;
+    fPuffAnimLeft.Animate;
+    fPuffAnimRight.Animate;
+    fPuffAnimUp.Animate;
+    fPuffAnimDown.Animate;
+  end;
+end;
 
 { TTrainPiece }
 

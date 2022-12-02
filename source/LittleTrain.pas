@@ -15,7 +15,7 @@ uses
 
 const
   Version='1.10';
-  BDate='2022.11.28';
+  BDate={$i %DATE%};
 
 var
   Main:TMain;

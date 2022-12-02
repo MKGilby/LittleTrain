@@ -5,7 +5,7 @@ unit LTRN_SharedUnit;
 interface
 
 uses MediaManagerUnit, sdl2, LTRN_CurtainUnit, LTRN_ScrollUnit, LTRN_MapListUnit,
-  LTRN_OptionsUnit, LTRN_MapImagesUnit, LTRN_LogoUnit, MKRFont2Unit;
+  LTRN_OptionsUnit, LTRN_MapImagesUnit, LTRN_LogoUnit, MKRFont2Unit, MKStream;
 
 const
   DATAFILENAME='LittleTrain.data';
@@ -47,14 +47,18 @@ begin
 end;
 
 procedure LoadAssets;
-//var c:char;
+var i:integer;
 begin
   Log.LogDebug('Loading assets...');
   MM:=TMediaManager.Create;
 
   Log.LogDebug('  sprites...');
-  MM.Load('sprites01.png');
-  MM.Load('wall.png');
+  i:=1;
+  while MKStreamOpener.FileExists(Format('sprites%.2d.png',[i])) do begin
+    MM.Load(Format('sprites%.2d.png',[i]));
+    inc(i);
+  end;
+//  MM.Load('wall.png');
 //  for c:='S' to 'Z' do
 //    MM.Animations.ItemByName[c].Animation.LogData;
   MM.Load('logo.png','Logo',MM_CREATETEXTUREWHENNOANIMATIONDATA);

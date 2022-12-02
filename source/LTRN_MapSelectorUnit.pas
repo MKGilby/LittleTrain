@@ -14,7 +14,7 @@ type
     function Run:integer;
   private
     fTop:integer;
-//    fVMUSlot:integer;
+    fVMUSlot:integer;
     fMaps:array[0..50] of TMapBase;
     fTotalScore:integer;
     trgt:integer;
@@ -35,7 +35,7 @@ constructor TMapSelector.Create(iTop,iVMUSlot:integer);
 var i,j:integer;
 begin
   fTop:=iTop;
-//  fVMUSlot:=iVMUSlot;
+  fVMUSlot:=iVMUSlot;
 
   trgt:=-1;
   j:=0;
@@ -57,6 +57,10 @@ begin
   fMaps[50]:=TMapCongrats.Create(236+50*176,fTop,50,iVMUSlot);
 //  fMaps[50].SetState(1);
   if trgt=-1 then begin trgt:=50*176;slev:=50;end;
+  if ReturnTo=rMapSelector then begin
+    slev:=ReturnData[1];
+    trgt:=ReturnData[2];
+  end;
   if j=0 then fMaps[50].SetState(1);
 end;
 
@@ -117,9 +121,17 @@ begin
   Lines[4]:=TPSLine.Create('x',368,60);
   Lines[5]:=TPSLine.Create('x',400,70);
   ChangeLines;
+  if ReturnTo=rMapSelector then begin
+    for i:=0 to 5 do
+      Lines[i].InstantIn;
+    posi:=trgt;
+    ReturnTo:=rNone;
+    for i:=0 to 50 do fMaps[i].MoveRelX(-trgt);
+    mode:=1;
+  end;
 
   repeat
-    Scroll.Move(1);
+    Scroll.Move2(1);
     SDL_SetRenderDrawColor(PrimaryWindow.Renderer,0,0,0,255);
     SDL_RenderClear(PrimaryWindow.Renderer);
     Logo.Draw;
@@ -231,8 +243,18 @@ begin
         end;
       5:if Curtain.State=csFinished then mode:=1;
     end;
-  until mode=3;
-  Result:=0;
+  until (mode=3) or (Options.FullScreenChanged);
+  if Options.FullScreenChanged then begin
+    MM.Musics['Menu']._music.Stop;
+    ReturnTo:=rMapSelector;
+    ReturnData[0]:=fVMUSlot;
+    ReturnData[1]:=slev;
+    ReturnData[2]:=trgt;
+    Result:=0;
+  end else begin
+    ReturnTo:=rNone;
+    Result:=-1;
+  end;
   for i:=0 to 5 do FreeAndNil(Lines[i]);
 end;
 

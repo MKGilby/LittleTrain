@@ -29,7 +29,6 @@ type
     fAtlas:TTextureAtlasGenerator;
     fWagonBTM,fSurprise,fCongaFnt:TARGBImage;
     procedure ProcessTextures;
-    procedure CreateSmallTextures;
     procedure ProcessFile(pLine:string);
     procedure CreatePresents;
     procedure CreateTextWagons;
@@ -43,8 +42,8 @@ begin
   if paramcount=1 then fInFilename:=paramstr(1) else fInFilename:='sprites.txt';
   MKStreamOpener.AddDirectory('.',0);
 //  fAtlas:=TTextureAtlasGenerator.Create(529,529,1);
-  fAtlas:=TTextureAtlasGenerator.Create(529,694,1);
-  fAtlas.TextureAtlas.Bar(0,0,fAtlas.TextureAtlas.Width,fAtlas.TextureAtlas.Height,0,0,0,255);
+//  fAtlas:=TTextureAtlasGenerator.Create(529,694,1);
+//  fAtlas.TextureAtlas.Bar(0,0,fAtlas.TextureAtlas.Width,fAtlas.TextureAtlas.Height,0,0,0,255);
   fWagonBTM:=TARGBImage.Create('new\wagonbtm.cel');
   fSurprise:=TARGBImage.Create('new\surprise.cel');
   fCongaFnt:=TARGBImage.Create('new\congafnt.cel');
@@ -56,7 +55,7 @@ begin
   if Assigned(fSurprise) then FreeAndNil(fSurprise);
   if Assigned(fWagonBTM) then FreeAndNil(fWagonBTM);
   if Assigned(fAtlas) then begin
-    fAtlas.TextureAtlas.WriteFile('sprites01.png','PNG');
+//    fAtlas.TextureAtlas.WriteFile('sprites01.png','PNG');
     FreeAndNil(fAtlas);
   end;
   inherited Destroy;
@@ -64,43 +63,68 @@ end;
 
 procedure TMain.Run;
 begin
-  CreateTextWagons;
+//  CreateTextWagons;
   ProcessTextures;
-  CreatePresents;
-//  CreateSmallTextures;
+//  CreatePresents;
 end;
 
 procedure TMain.ProcessTextures;
 var
-  s:string;
+  s,command,param,sheetfilename:string;
   t:textfile;
+  mode:(mScanning,mSpriteSheet,mFiles);
+  wi,he:integer;
 begin
   if not FileExists(fInFilename) then raise Exception.Create('File not found: '+fInFilename);
+  mode:=mScanning;
+  wi:=-1;
+  he:=-1;
+  sheetfilename:='';
+
   assignfile(t,fInFilename);
   reset(t);
-
   while not eof(t) do begin
     readln(t,s);
+    Log.Trace(s);
     if (length(s)>0) and (s[1]=';') then continue;
-
     s:=alltrim(s);
-    if s<>'' then begin
-      ProcessFile(s);
+
+    case mode of
+      mScanning:begin
+        if uppercase(s)='[SPRITESHEET]' then mode:=mSpriteSheet
+        else if uppercase(s)='[FILES]' then mode:=mFiles;
+      end;
+      mSpriteSheet:begin
+        command:=GetNthSegment(s,' ',1);
+        param:=GetNthSegment(s,' ',2);
+        if uppercase(command)='WIDTH' then wi:=strtoint(param)
+        else if uppercase(command)='HEIGHT' then he:=strtoint(param)
+        else if uppercase(command)='NAME' then sheetfilename:=param
+        else if command='' then begin
+          fAtlas:=TTextureAtlasGenerator.Create(wi,he,1);
+          fAtlas.TextureAtlas.Bar(0,0,fAtlas.TextureAtlas.Width,fAtlas.TextureAtlas.Height,0,0,0,255);
+          mode:=mScanning;
+        end;
+      end;
+      mFiles:begin
+        if s<>'' then begin
+          if s='*presents*' then CreatePresents
+          else if s='*congrats*' then CreateTextWagons
+          else ProcessFile(s);
+        end else begin
+          fAtlas.TextureAtlas.WriteFile(sheetfilename,'PNG');
+          FreeAndNil(fAtlas);
+          mode:=mScanning;
+        end;
+      end;
     end;
+
   end;
   closefile(t);
-end;
-
-procedure TMain.CreateSmallTextures;
-const images='abcdefghijklmnopqr!%#stuvwxyz=';
-var i:integer;tmp:TARGBImage;
-begin
-{  for i:=1 to length(images) do begin
-    tmp:=TARGBImage.Create(32,32);
-    with fAtlas.TextureAtlas.Animations.ItemByName[images[i]] do
-      fAtlas.TextureAtlas.Copy(Frames[0].x,Frames[0].y,32,32,tmp);
-    tmp.s
-  end;}
+  if assigned(fAtlas) then begin
+    fAtlas.TextureAtlas.WriteFile(sheetfilename,'PNG');
+    FreeAndNil(fAtlas);
+  end;
 end;
 
 procedure TMain.ProcessFile(pLine: string);
@@ -110,6 +134,7 @@ begin
   org:=TARGBImage.Create;
   try
     org.ReadFile(filename);
+    if pos('COLORKEY',uppercase(pLine))>0 then org.SetColorkey(0,0,0);
     name:=GetNthSegment(pLine,' ',2);
     if (length(name)>2) and (name[1]='"') and (name[length(name)]='"') then name:=copy(name,2,length(name)-2);
     FrameDelay:=strtoint(GetNthSegment(pLine,' ',3));
@@ -135,6 +160,7 @@ begin
     org:=TARGBImage.Create(filename);
     try
       org.FlipH;
+      if pos('COLORKEY',uppercase(pLine))>0 then org.SetColorkey(0,0,0);
       atma:=TAnimationData.Create(32,32);
       atma.Name:=name+'L';
       atma.FrameDelay:=FrameDelay;
@@ -153,6 +179,7 @@ begin
     try
       org.FlipH;
       org.Rotate(1);
+      if pos('COLORKEY',uppercase(pLine))>0 then org.SetColorkey(0,0,0);
       atma:=TAnimationData.Create(32,32);
       atma.Name:=name+'U';
       atma.FrameDelay:=FrameDelay;
@@ -171,6 +198,7 @@ begin
     try
       org.FlipH;
       org.Rotate(3);
+      if pos('COLORKEY',uppercase(pLine))>0 then org.SetColorkey(0,0,0);
       atma:=TAnimationData.Create(32,32);
       atma.Name:=name+'D';
       atma.FrameDelay:=FrameDelay;

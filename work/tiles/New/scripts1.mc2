@@ -1,4 +1,6 @@
 ; This script is creates TGAs from CEL files and creates thumbnail images.
+; Also creates the scalable wall sprite to use with
+; SDL_HINT_RENDER_SCALE_QUALITY='1'
 
 @ celtga
 r cel %1.cel 1
@@ -8,6 +10,8 @@ w tga %1.tga 1
 ! celtga crash1
 ! celtga crash2
 ! celtga engine
+! celtga enginewp
+! celtga puffing
 ! celtga door
 ! celtga wall
 
@@ -162,4 +166,4 @@ m copyto 31 0  1 1   0 33  1 2
 m copyto 0 31  1 1   33 0  1 2
 m copyto 31 31 1 1   0 0   1 2
 m addanimation # 32 32 1 0 0 0 4  1 1  2
-w png ..\wall.png 2
+w png ..\sprites02.png 2

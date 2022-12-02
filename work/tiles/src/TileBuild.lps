@@ -3,15 +3,15 @@
   <ProjectSession>
     <PathDelim Value="\"/>
     <Version Value="12"/>
-    <BuildModes Active="Release"/>
+    <BuildModes Active="Debug"/>
     <Units>
       <Unit>
         <Filename Value="TileBuild.lpr"/>
         <IsPartOfProject Value="True"/>
-        <TopLine Value="96"/>
-        <CursorPos X="27" Y="216"/>
-        <FoldState Value=" T3jJ0{1011 PjYja0%"/>
-        <UsageCount Value="22"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="76"/>
+        <CursorPos Y="98"/>
+        <UsageCount Value="23"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -53,43 +53,14 @@
       </Unit>
       <Unit>
         <Filename Value="..\..\..\units\TextureAtlasGeneratorUnit.pas"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="42"/>
-        <CursorPos X="37" Y="70"/>
+        <TopLine Value="88"/>
+        <CursorPos X="15" Y="177"/>
         <UsageCount Value="10"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="TileBuild.lpr"/>
-        <Caret Line="172" TopLine="132"/>
-      </Position>
-      <Position>
-        <Filename Value="TileBuild.lpr"/>
-        <Caret Line="101" Column="14" TopLine="96"/>
-      </Position>
-      <Position>
-        <Filename Value="TileBuild.lpr"/>
-        <Caret Line="173" TopLine="137"/>
-      </Position>
-      <Position>
-        <Filename Value="TileBuild.lpr"/>
-        <Caret Line="17" Column="11"/>
-      </Position>
-      <Position>
-        <Filename Value="TileBuild.lpr"/>
-        <Caret Line="40" Column="34" TopLine="8"/>
-      </Position>
-      <Position>
-        <Filename Value="TileBuild.lpr"/>
-        <Caret Line="33" Column="12" TopLine="9"/>
-      </Position>
-      <Position>
-        <Filename Value="TileBuild.lpr"/>
-        <Caret Line="31" Column="8" TopLine="21"/>
-      </Position>
       <Position>
         <Filename Value="TileBuild.lpr"/>
         <Caret Line="43" TopLine="27"/>
@@ -182,12 +153,41 @@
         <Filename Value="TileBuild.lpr"/>
         <Caret Line="216" Column="27" TopLine="96"/>
       </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="110" Column="42" TopLine="75"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="80" TopLine="53"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="126" Column="50" TopLine="111"/>
+      </Position>
+      <Position>
+        <Filename Value="..\..\..\units\TextureAtlasGeneratorUnit.pas"/>
+        <Caret Line="186" TopLine="163"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="97" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="88" Column="18" TopLine="77"/>
+      </Position>
+      <Position>
+        <Filename Value="TileBuild.lpr"/>
+        <Caret Line="66" Column="3" TopLine="34"/>
+      </Position>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode="default">
         <Mode Name="default">
           <local>
+            <CommandLineParams Value="sprites.txt"/>
             <WorkingDirectory Value="b:\Projects\LittleTrain\work\tiles\"/>
           </local>
         </Mode>
@@ -199,6 +199,9 @@
       </List>
       <List Name="LaunchingApplication" Type="File" Count="1">
         <Item1 Value="C:\Windows\system32\cmd.exe /C ${TargetCmdLine}"/>
+      </List>
+      <List Name="CommandLineParameters" Count="2">
+        <Item1 Value="sprites.txt"/>
       </List>
     </HistoryLists>
   </ProjectSession>

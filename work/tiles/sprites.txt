@@ -1,17 +1,34 @@
 ; This file is the base of the spritesheet creation
 
-; filename "SpriteName" FrameDelay [Looped Paused RandomStart Pingpong Rotated]
+; Format:
+;
+; [SpriteSheet]
+;   Width n
+;   Height n
+;   Name s
+; Creates a new spritesheet
+;
+; [Files]
+;   filename "SpriteName" FrameDelay [Looped Paused RandomStart Pingpong Rotated Colorkey]
+; Add a file to the previously created spritesheet
+;
+; Special lines:
+;   *congrats* - adds the colored congratulations wagons
+;   *presents* - adds the 8 present sprites
 
-crash1.cel "c1" 1 Rotated
-crash2.cel "c2" 6 Looped
-engine.cel "%" 6 Looped Rotated
+[SpriteSheet]
+Width 529
+Height 397
+Name sprites01.png
+
+[Files]
 door.cel "!" 6 Paused
 g03.cel "c" 6 Looped
 g11.cel "k" 6 Looped randomstart
 g14.cel "n" 6 Looped randomstart
 g13.cel "m" 6 Looped randomstart
 g05.cel "e" 6 Looped
-empty.tga "." 0
+lampr.cel "=" 0
 g01.cel "a" 6 Looped randomstart
 g16.cel "p" 6 Looped randomstart
 g02.cel "b" 0
@@ -25,7 +42,7 @@ g15.cel "o" 10 Looped
 g12.cel "l" 0
 g17.cel "q" 0
 g18.cel "r" 0
-empty.tga "." 0
+lampg.cel "-" 0
 t01.cel "A" 6 Looped Randomstart rotated
 t02.cel "B" 0 rotated
 t03.cel "C" 0 rotated
@@ -45,5 +62,31 @@ t16.cel "P" 0 rotated
 t17.cel "Q" 0 rotated
 t18.cel "R" 0 rotated
 blueengi.cel "*" 6 looped
-lampg.cel "-" 0
-lampr.cel "=" 0
+*presents*
+
+[SpriteSheet]
+Width 529
+Height 34
+Name sprites03.png
+
+[Files]
+puffing.cel "~" 6 looped rotated colorkey
+
+[SpriteSheet]
+Width 529
+Height 133
+Name sprites04.png
+
+[Files]
+*congrats*
+
+[SpriteSheet]
+Width 265
+Height 364
+Name sprites05.png
+
+[Files]
+crash1.cel "c1" 3 Rotated
+crash2.cel "c2" 6 Looped Rotated
+enginewp.cel "%" 6 Looped Rotated
+

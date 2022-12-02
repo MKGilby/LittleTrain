@@ -23,12 +23,14 @@ type
 implementation
 
 uses
-  SysUtils, Logger, MKStream, sdl2, MKAudio, MAD4MidLevelUnit, LTRN_VMUUnit,
-  LTRN_SharedUnit, LTRN_IntroUnit, LTRN_SlotSelectUnit, LTRN_MapSelectorUnit;
+  SysUtils, Logger, MKStream, sdl2, MKAudio, MAD4MidLevelUnit, MKToolbox,
+  LTRN_VMUUnit, LTRN_SharedUnit, LTRN_IntroUnit, LTRN_SlotSelectUnit,
+  LTRN_MapSelectorUnit;
 
 constructor TMain.Create(iVersion, iBuildDate: String);
 begin
   randomize;
+  iBuildDate:=replace(iBuildDate,'/','.');
 
 {$IFDEF DEBUG}
   // Set data directory path to allow running without datafile
@@ -95,11 +97,13 @@ begin
     FreeAndNil(SlotSelect);
   end;
 
-  if i in [0..4] then begin
-    MapSelector:=TMapSelector.Create(160,i);
-    MapSelector.Run;
-    FreeAndNil(MapSelector);
-    i:=-1;
+  if ReturnTo in [rNone, rMapSelector] then begin
+    if ReturnTo=rMapSelector then i:=ReturnData[0];
+    if i in [0..4] then begin
+      MapSelector:=TMapSelector.Create(160,i);
+      i:=MapSelector.Run;
+      FreeAndNil(MapSelector);
+    end;
   end;
 
   MM.Musics['Menu']._music.Stop;

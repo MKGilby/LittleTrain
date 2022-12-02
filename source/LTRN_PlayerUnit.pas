@@ -10,13 +10,7 @@ interface
 uses LTRN_MapListUnit, AnimatedSprite2Unit, Animation2Unit, LTRN_TrainPieceUnit;
 
 type
-{  TTrainPiece=record
-    _sprite:TAnimatedSprite;
 
-    _type:char;
-    _dir:char;
-  end;}
-  
   { TPlayer }
 
   TPlayer=class
@@ -37,7 +31,8 @@ type
     procedure AddReplay(pReplayString:string);
   private
     fDeadAnimLeft,fDeadAnimRight,fDeadAnimUp,fDeadAnimDown:TAnimation;
-    fDeadAnimFinal:TAnimation;
+    fDeadAnimFinalLeft,fDeadAnimFinalRight,
+    fDeadAnimFinalUp,fDeadAnimFinalDown:TAnimation;
     fTrain:array of TTrainPiece;
     fPx,fPy:integer;
     fMoveDelay,fSpeed,fSaveSpeed:integer;
@@ -74,8 +69,11 @@ begin
   fDeadAnimRight:=MM.Animations.ItemByName['c1'].SpawnAnimation;
   fDeadAnimUp:=MM.Animations.ItemByName['c1U'].SpawnAnimation;
   fDeadAnimDown:=MM.Animations.ItemByName['c1D'].SpawnAnimation;
-  fDeadAnimFinal:=MM.Animations.ItemByName['c2'].SpawnAnimation;
-  fTrain[0]:=TTrainPiece.Create(ix<<5,iy<<5+48,'%');
+  fDeadAnimFinalLeft:=MM.Animations.ItemByName['c2L'].SpawnAnimation;
+  fDeadAnimFinalRight:=MM.Animations.ItemByName['c2'].SpawnAnimation;
+  fDeadAnimFinalUp:=MM.Animations.ItemByName['c2U'].SpawnAnimation;
+  fDeadAnimFinalDown:=MM.Animations.ItemByName['c2D'].SpawnAnimation;
+  fTrain[0]:=TEngine.Create(ix<<5,iy<<5+48);
   if not fMap.Congratulations then
     fTrain[0].FaceRight
   else
@@ -105,7 +103,10 @@ end;
 destructor TPlayer.Destroy;
 var i:integer;
 begin
-  if Assigned(fDeadAnimFinal) then FreeAndNil(fDeadAnimFinal);
+  if Assigned(fDeadAnimFinalLeft) then FreeAndNil(fDeadAnimFinalLeft);
+  if Assigned(fDeadAnimFinalRight) then FreeAndNil(fDeadAnimFinalRight);
+  if Assigned(fDeadAnimFinalUp) then FreeAndNil(fDeadAnimFinalUp);
+  if Assigned(fDeadAnimFinalDown) then FreeAndNil(fDeadAnimFinalDown);
   if Assigned(fDeadAnimDown) then FreeAndNil(fDeadAnimDown);
   if Assigned(fDeadAnimUp) then FreeAndNil(fDeadAnimUp);
   if Assigned(fDeadAnimRight) then FreeAndNil(fDeadAnimRight);
@@ -204,6 +205,7 @@ begin
             if (fMap.Tiles[fPx,fPy] in [TILE_OCCUPIED,TILE_CLOSEDEXIT,TILE_WALL]) and (fState=sPlaying) then begin
               MM.Waves['Explosion']._wave.Play;
               fDead:=1;
+              TEngine(fTrain[0]).Puffing:=false;
               if fDirX=1 then
                 fTrain[0].SetAnimation(fDeadAnimRight,true)
               else if fDirX=-1 then
@@ -279,7 +281,15 @@ begin
     1:begin
         if fTrain[0].Animation.Finished then begin
           fDead:=2;
-          fTrain[0].SetAnimation(fDeadAnimFinal,true);
+//          fTrain[0].SetAnimation(fDeadAnimFinal,true);
+          if fDirX=1 then
+            fTrain[0].SetAnimation(fDeadAnimFinalRight,true)
+          else if fDirX=-1 then
+            fTrain[0].SetAnimation(fDeadAnimFinalLeft,true)
+          else if fDirY=1 then
+            fTrain[0].SetAnimation(fDeadAnimFinalDown,true)
+          else if fDirY=-1 then
+            fTrain[0].SetAnimation(fDeadAnimFinalUp,true);
         end;
       end;
   end;
