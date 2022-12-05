@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2022. 12. 02. 20:35:12
+(..system..) Starting Application. 2022. 12. 05. 10:40:16
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -36,7 +36,7 @@
 (uses) ARGBImagePNGReaderUnit.pas, version 1.06
 Minimum logging level set to ALL
 ---------------------------------------------
-<> LittleTrain V1.10 (Build date: 2022.12.02)
+<> LittleTrain V1.10 (Build date: 2022.12.05)
 ---------------------------------------------
 () Loading VMU...
 <> Setting up SDL and BASS...
@@ -437,10 +437,6 @@ Minimum logging level set to ALL
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
 [PlayerRegistryUnit.pas, TPlayerRegistry.ReadData] Data record not found. (4,0)
 (MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
-(MusicUnit.pas, TMusic.Play) BASS: Music started.
-(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
-(MusicUnit.pas, TMusic.Play) BASS: Music started.
-(MusicUnit.pas, TMusic.Stop) BASS: Music stopped.
 <> Freeing persistent entities...
 <>   logo...
 <>   map thumbnails...
@@ -471,4 +467,4 @@ Minimum logging level set to ALL
 () Freeing VMU...
 () Freeing Main Window...
 (MKAudio.pas, Finalize) BASS: Shutdown...
-(..system..) Terminating Application. 2022. 12. 02. 20:36:23
+(..system..) Terminating Application. 2022. 12. 05. 10:40:26

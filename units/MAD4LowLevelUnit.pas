@@ -276,7 +276,7 @@ begin
     for i:=fChunkList.Count-1 downto 0 do
       TMAD4ChunkData(fChunklist.Objects[i]).Free;
   end;
-  FreeAndNil(fStream);
+  if Assigned(fStream) then FreeAndNil(fStream);
   if Assigned(fChunkList) then FreeAndNil(fChunkList);
   inherited ;
 end;
@@ -285,60 +285,65 @@ function TMAD4LowLevel.ReadChunkData(iPosition:integer):TMAD4ChunkData;
 const Istr=Fstr+'TMAD4LowLevel.ReadChunkData';
 var s:string;
 begin
-  Result:=TMAD4ChunkData.Create;
-  fStream.Seek(iPosition,soFromBeginning);
-  with Result do begin
-    _start:=fStream.Position;
-    fStream.Read(_fourcc,4);
-    s:=#0#0#0#0;
-    move(_fourcc,s[1],4);
-    fStream.Read(_size,4);
-    Log.LogDebug('Chunk found: '+s+' (start: '+inttostr(_start)+', size: '+inttostr(_size)+')',Istr);
-    fStream.Seek(_size,soFromCurrent);
+  if Assigned(fStream) then begin
+    Result:=TMAD4ChunkData.Create;
+    fStream.Seek(iPosition,soFromBeginning);
+    with Result do begin
+      _start:=fStream.Position;
+      fStream.Read(_fourcc,4);
+      s:=#0#0#0#0;
+      move(_fourcc,s[1],4);
+      fStream.Read(_size,4);
+      Log.LogDebug('Chunk found: '+s+' (start: '+inttostr(_start)+', size: '+inttostr(_size)+')',Istr);
+      fStream.Seek(_size,soFromCurrent);
+    end;
   end;
 end;
 
 procedure TMAD4LowLevel.UpdateENDS;
 var s:AnsiString;i,j:integer;atm:TMAD4ChunkData;
 begin
-  fStream.Seek(-12,soFromEnd);
-  s:=#0#0#0#0;
-  fStream.Read(s[1],4);
-  i:=0;
-  fStream.Read(i,4);
-  if (s<>'ENDS') or (i<>4) then begin
-    j:=fStream.Size;
-    i:=j+12;
-    fStream.Seek(0,soFromEnd);
-    s:='ENDS'#4#0#0#0;
-    fStream.Write(s[1],8);
-    fStream.Write(i,4);
-  end else begin
-    i:=fStream.Size;
-    fStream.Write(i,4);
-    j:=i-12;
-  end;
-  if not fWriteOnly then begin
-    if (fChunkList.Count>0) and
-       (TMAD4ChunkData(fChunkList.Objects[fChunkList.Count-1])._fourcc=_ends) then begin
-      TMAD4ChunkData(fChunkList.Objects[fChunkList.Count-1])._start:=j;
+  if Assigned(fStream) then begin
+    fStream.Seek(-12,soFromEnd);
+    s:=#0#0#0#0;
+    fStream.Read(s[1],4);
+    i:=0;
+    fStream.Read(i,4);
+    if (s<>'ENDS') or (i<>4) then begin
+      j:=fStream.Size;
+      i:=j+12;
+      fStream.Seek(0,soFromEnd);
+      s:='ENDS'#4#0#0#0;
+      fStream.Write(s[1],8);
+      fStream.Write(i,4);
     end else begin
-      atm:=TMAD4ChunkData.Create;
-      atm._start:=j;
-      atm._size:=4;
-      atm._fourcc:=_ends;
-      fChunkList.AddObject(st(atm._start,9,' '),atm);
+      i:=fStream.Size;
+      fStream.Write(i,4);
+      j:=i-12;
     end;
+    if not fWriteOnly then begin
+      if (fChunkList.Count>0) and
+         (TMAD4ChunkData(fChunkList.Objects[fChunkList.Count-1])._fourcc=_ends) then begin
+        TMAD4ChunkData(fChunkList.Objects[fChunkList.Count-1])._start:=j;
+      end else begin
+        atm:=TMAD4ChunkData.Create;
+        atm._start:=j;
+        atm._size:=4;
+        atm._fourcc:=_ends;
+        fChunkList.AddObject(st(atm._start,9,' '),atm);
+      end;
+    end;
+    i:=fStream.Size-8;
+    fStream.Seek(4,soFromBeginning);
+    fStream.Write(i,4);
   end;
-  i:=fStream.Size-8;
-  fStream.Seek(4,soFromBeginning);
-  fStream.Write(i,4);
 end;
 
 function TMAD4LowLevel.Add(iFourCC:cardinal;iData:TStream;iSkipExactCheck:boolean=false):integer;
 const Istr=Fstr+'TMAD4LowLevel.Add';
 var i,j,k:integer;atm:TMAD4ChunkData;
 begin
+  if not Assigned(fStream) then exit;
   Log.LogDebug(inttohex(iFourCC,8),Istr);
   if (iFourCC=_null) or (iFourCC=_ends) then begin
     Log.LogError('Invalid FourCC! ('+IntToHex(iFourCC,8)+')',Istr);
@@ -456,6 +461,7 @@ begin
     Result:=-1;
     exit;
   end;
+  if not Assigned(fStream) then exit;
   if not fWriteOnly then begin
     Log.LogWarning('Add untyped data currently only supported with WriteOnly archives!',Istr);
   end else begin
@@ -471,6 +477,7 @@ end;
 procedure TMAD4LowLevel.Delete(iStart:integer);
 var i:integer;
 begin
+  if not Assigned(fStream) then exit;
   if fWriteOnly then exit;
   for i:=0 to fChunkList.Count-1 do
     with TMAD4ChunkData(fChunkList.Objects[i]) do
@@ -484,31 +491,35 @@ end;
 function TMAD4LowLevel.ReadMem(iStart:integer):TMemoryStream;
 var i:integer;
 begin
-  if not fWriteOnly then
-    for i:=0 to fChunkList.Count-1 do
-      with TMAD4ChunkData(fChunkList.Objects[i]) do
-        if _start=iStart then begin
-          Result:=TMemoryStream.Create;
-          fStream.Seek(_start+8,soFromBeginning);
-          Result.CopyFrom(fStream,_size);
-          Result.Seek(0,soFromBeginning);
-          exit;
-        end;
+  if Assigned(fStream) then begin
+    if not fWriteOnly then
+      for i:=0 to fChunkList.Count-1 do
+        with TMAD4ChunkData(fChunkList.Objects[i]) do
+          if _start=iStart then begin
+            Result:=TMemoryStream.Create;
+            fStream.Seek(_start+8,soFromBeginning);
+            Result.CopyFrom(fStream,_size);
+            Result.Seek(0,soFromBeginning);
+            exit;
+          end;
+  end;
   Result:=nil;
 end;
 
 function TMAD4LowLevel.ReadFile(iStart:integer;var iSize:integer):TFileStream;
 var i:integer;
 begin
-  if not fWriteOnly then
-    for i:=0 to fChunkList.Count-1 do
-      with TMAD4ChunkData(fChunkList.Objects[i]) do
-        if _start=iStart then begin
-          Result:=TFileStream.Create(string(fFileName),fmOpenRead or fmShareDenyNone);
-          Result.Seek(_start+8,soFromBeginning);
-          iSize:=_size;
-          exit;
-        end;
+  if Assigned(fStream) then begin
+    if not fWriteOnly then
+      for i:=0 to fChunkList.Count-1 do
+        with TMAD4ChunkData(fChunkList.Objects[i]) do
+          if _start=iStart then begin
+            Result:=TFileStream.Create(string(fFileName),fmOpenRead or fmShareDenyNone);
+            Result.Seek(_start+8,soFromBeginning);
+            iSize:=_size;
+            exit;
+          end;
+  end;
   Result:=nil;
 end;
 
@@ -516,18 +527,20 @@ function TMAD4LowLevel.GetFullChunk(iStart:integer):TStream;
 const Istr=Fstr+'TMAD4LowLevel.GetFullChunk';
 var i:integer;
 begin
-  if not fWriteOnly then
-    for i:=0 to fChunkList.Count-1 do
-      with TMAD4ChunkData(fChunkList.Objects[i]) do
-        if _start=iStart then begin
-          Log.LogDebug('Full chunk data:',Istr);
-          Log.LogDebug('  Start: '+inttostr(_start),Istr);
-          Log.LogDebug('  Size: '+inttostr(_size),Istr);
-          fStream.Seek(_start,soFromBeginning);
-          Result:=TMemoryStream.Create;
-          Result.CopyFrom(fStream,int64(_size)+8);
-          exit;
-        end;
+  if Assigned(fStream) then begin
+    if not fWriteOnly then
+      for i:=0 to fChunkList.Count-1 do
+        with TMAD4ChunkData(fChunkList.Objects[i]) do
+          if _start=iStart then begin
+            Log.LogDebug('Full chunk data:',Istr);
+            Log.LogDebug('  Start: '+inttostr(_start),Istr);
+            Log.LogDebug('  Size: '+inttostr(_size),Istr);
+            fStream.Seek(_start,soFromBeginning);
+            Result:=TMemoryStream.Create;
+            Result.CopyFrom(fStream,int64(_size)+8);
+            exit;
+          end;
+  end;
   Result:=nil;
 end;
 
@@ -535,53 +548,59 @@ procedure TMAD4LowLevel.WriteNull(iStart,iSize:integer);
 const Istr=Fstr+'TMAD4LowLevel.WriteNull';
 var s:AnsiString;i:integer;
 begin
-  Log.LogDebug('Start: '+inttostr(iStart)+', Size: '+inttostr(iSize),Istr);
-  fStream.Seek(iStart,soFromBeginning);
-  s:='NULL';
-  fStream.Write(s[1],4);
-  fStream.Write(iSize,4);
-  for i:=0 to (iSize div 4096)-1 do fStream.Write(NullBuffer^,4096);
-  if iSize mod 4096>0 then fStream.Write(NullBuffer^,iSize mod 4096);
+  if Assigned(fStream) then begin
+    Log.LogDebug('Start: '+inttostr(iStart)+', Size: '+inttostr(iSize),Istr);
+    fStream.Seek(iStart,soFromBeginning);
+    s:='NULL';
+    fStream.Write(s[1],4);
+    fStream.Write(iSize,4);
+    for i:=0 to (iSize div 4096)-1 do fStream.Write(NullBuffer^,4096);
+    if iSize mod 4096>0 then fStream.Write(NullBuffer^,iSize mod 4096);
+  end;
 end;
 
 procedure TMAD4LowLevel.AddFullChunk(iChunk:TStream;pSkipExactCheck:boolean=false);
 //const Istr=Fstr+'TMAD4LowLevel.AddFullChunk';
 var fcc:cardinal;Xs:TStream;
 begin
-  if fWriteOnly then exit;
-  iChunk.Seek(0,soFromBeginning);
-  fcc:=0;
-  iChunk.Read(fcc,4);
-  iChunk.Seek(8,soFromBeginning);
-  Xs:=TMemoryStream.Create;
-  Xs.CopyFrom(iChunk,iChunk.Size-8);
-  Add(fcc,Xs,pSkipExactCheck);
-  FreeAndNil(Xs);
+  if Assigned(fStream) then begin
+    if fWriteOnly then exit;
+    iChunk.Seek(0,soFromBeginning);
+    fcc:=0;
+    iChunk.Read(fcc,4);
+    iChunk.Seek(8,soFromBeginning);
+    Xs:=TMemoryStream.Create;
+    Xs.CopyFrom(iChunk,iChunk.Size-8);
+    Add(fcc,Xs,pSkipExactCheck);
+    FreeAndNil(Xs);
+  end;
 end;
 
 procedure TMAD4LowLevel.CombineNulls;
 const Istr=Fstr+'TMAD4LowLevel.CombineNulls';
 var i:integer;s:AnsiString;
 begin
-  if fWriteOnly then exit;
-  Log.LogDebug('Before combining NULLs',Istr);
-//  fChunkList.Sort;
-//  ListChunks;
-  for i:=fChunkList.Count-2 downto 0 do begin
-//    Log.Trace(i);
-    if (Chunks[i]._fourcc=_null) and
-       (Chunks[i+1]._fourcc=_null) then begin
-         s:=#0#0#0#0#0#0#0#0;
-         Chunks[i]._size:=Chunks[i]._size+Chunks[i+1]._size+8;
-         fStream.Seek(Chunks[i]._start+4,soFromBeginning);
-         fStream.Write(Chunks[i]._size,4);
-         fStream.Seek(Chunks[i+1]._start,soFromBeginning);
-         fStream.Write(s[1],8);
-         Chunks[i+1].Free;
-         fChunkList.Delete(i+1);
-       end;
-  end;      
-  Log.LogDebug('After combining NULLs',Istr);
+  if Assigned(fStream) then begin
+    if fWriteOnly then exit;
+    Log.LogDebug('Before combining NULLs',Istr);
+  //  fChunkList.Sort;
+  //  ListChunks;
+    for i:=fChunkList.Count-2 downto 0 do begin
+  //    Log.Trace(i);
+      if (Chunks[i]._fourcc=_null) and
+         (Chunks[i+1]._fourcc=_null) then begin
+           s:=#0#0#0#0#0#0#0#0;
+           Chunks[i]._size:=Chunks[i]._size+Chunks[i+1]._size+8;
+           fStream.Seek(Chunks[i]._start+4,soFromBeginning);
+           fStream.Write(Chunks[i]._size,4);
+           fStream.Seek(Chunks[i+1]._start,soFromBeginning);
+           fStream.Write(s[1],8);
+           Chunks[i+1].Free;
+           fChunkList.Delete(i+1);
+         end;
+    end;
+    Log.LogDebug('After combining NULLs',Istr);
+  end;
 end;
 
 procedure TMAD4LowLevel.ListChunks;

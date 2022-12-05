@@ -1,8 +1,11 @@
 Todo:
-* On the congratulations level the standing engine should animate the steam puffs.
 * Add speed settings.
 * Fix bugs, if there are any.
 
+
+2022.12.05
+* BUGFIX: The blue engine puffed backwards when moved backwards.
+* BUGFIX: Release version didn't work.
 
 2022.12.02
 * The black engine's puffing effect is put into a separated animation.

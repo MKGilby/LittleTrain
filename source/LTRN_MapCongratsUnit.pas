@@ -5,7 +5,7 @@ unit LTRN_MapCongratsUnit;
 interface
 
 uses
-  fgl, LTRN_MapBaseUnit, AnimatedSprite2Unit, LTRN_PlayerUnit;
+  fgl, LTRN_MapBaseUnit, AnimatedSprite2Unit, LTRN_PlayerUnit, Animation2Unit;
 
 type
   TWagons=TFPGObjectList<TAnimatedSprite>;
@@ -20,6 +20,7 @@ type
   private
     fPlayer:TPlayer;
     fSprite:TAnimatedSprite;
+    fPuffing1,fPuffing2:TAnimation;
     fWagons:TWagons;
     fState:integer;  // 0-Waiting to start, 1-Coming in, 2-Waiting a bit, 3-Going out, 4-Finished
     fCounter:integer;  // Tick count within the current state
@@ -47,14 +48,18 @@ constructor TBlueEngine.Create(iPlayer:TPlayer);
 begin
   fSprite:=TAnimatedSprite.Create(19*32,7*32+48,MM.Animations.ItemByName['*'].SpawnAnimation);
   fSprite.Visible:=false;  // Initially it is invisible. Call Start to start sequence.
+  fPuffing1:=MM.Animations.ItemByName['~'].SpawnAnimation;
+  fPuffing2:=MM.Animations.ItemByName['@'].SpawnAnimation;
   fPlayer:=iPlayer;
   fWagons:=TWagons.Create;
 end;
 
 destructor TBlueEngine.Destroy;
 begin
-  FreeAndNil(fWagons);
-  FreeAndNil(fSprite);
+  if Assigned(fPuffing2) then FreeAndNil(fPuffing2);
+  if Assigned(fPuffing1) then FreeAndNil(fPuffing1);
+  if Assigned(fWagons) then FreeAndNil(fWagons);
+  if Assigned(fSprite) then FreeAndNil(fSprite);
   inherited ;
 end;
 
@@ -62,6 +67,15 @@ procedure TBlueEngine.Draw;
 var i:integer;
 begin
   fSprite.Draw;
+  if fSprite.Visible then begin
+    if fState=1 then begin
+      fPuffing2.PutFrame(fSprite.X,fSprite.Y);
+      fPuffing2.Animate;
+    end else begin
+      fPuffing1.PutFrame(fSprite.X,fSprite.Y);
+      fPuffing1.Animate;
+    end;
+  end;
   for i:=0 to fWagons.Count-1 do fWagons[i].Draw;
 end;
 

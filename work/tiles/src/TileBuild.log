@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2022. 12. 02. 20:10:49
+(..system..) Starting Application. 2022. 12. 05. 10:00:41
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -272,15 +272,15 @@
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\t18.cel)
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('new\t18.cel')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\t18.cel)
-< Trace > blueengi.cel "*" 6 looped
-<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('new\blueengi.cel')
-<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\blueengi.cel)
+< Trace > bluengwp.cel "*" 6 looped
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('new\bluengwp.cel')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\bluengwp.cel)
 < Trace > *presents*
 < Trace > 
 <> Got:      ColourType=2, AlphaMode=0, BitDepth=8, Greyscaled=False
 < Trace > [SpriteSheet]
-< Trace > Width 529
-< Trace > Height 34
+< Trace > Width 133
+< Trace > Height 166
 < Trace > Name sprites03.png
 < Trace > 
 < Trace > [Files]
@@ -293,6 +293,9 @@
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\puffing.cel)
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('new\puffing.cel')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\puffing.cel)
+< Trace > puffing2.cel "@" 6 looped colorkey
+<MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('new\puffing2.cel')
+<MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\puffing2.cel)
 < Trace > 
 <> Got:      ColourType=4, AlphaMode=2, BitDepth=8, Greyscaled=True
 < Trace > [SpriteSheet]
@@ -339,4 +342,4 @@
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\enginewp.cel)
 < Trace > 
 <> Got:      ColourType=3, AlphaMode=0, BitDepth=8, Greyscaled=False
-(..system..) Terminating Application. 2022. 12. 02. 20:10:49
+(..system..) Terminating Application. 2022. 12. 05. 10:00:41

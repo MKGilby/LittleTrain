@@ -115,6 +115,7 @@ begin
   else begin
     Cursor.InstantIn;
     for i:=0 to 7 do Lines[i].InstantIn;
+    ReturnTo:=rNone;
   end;
   Cursor.Position:=(pPreselected+1)*HEIGHT+TOP-4;
   //  bar(0,SLOTSTOP,PrimaryWindow.Width,SLOTHEIGHT*5,0,0,0);

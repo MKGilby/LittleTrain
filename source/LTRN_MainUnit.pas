@@ -28,6 +28,7 @@ uses
   LTRN_MapSelectorUnit;
 
 constructor TMain.Create(iVersion, iBuildDate: String);
+var MAD4:TMAD4MidLevel;
 begin
   randomize;
   iBuildDate:=replace(iBuildDate,'/','.');
@@ -57,6 +58,15 @@ begin
   SDL_ShowCursor(SDL_Disable);
   SetFPS(60);
   Init_Audio;
+{$IFNDEF DEBUG}
+  // Try to mount the main executable, it should contain the datafile at the end.
+  try
+    MAD4:=TMAD4MidLevel.Create(paramstr(0));
+    MKStreamOpener.AddOtherSource(MAD4, 0);
+  except
+    on exception do ;
+  end;
+{$ENDIF}
   if FileExists(DATAFILENAME) then MKStreamOpener.AddOtherSource(
     TMAD4MidLevel.Create(DATAFILENAME),
     0
