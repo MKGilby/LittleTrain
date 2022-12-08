@@ -8,8 +8,8 @@ interface
 uses PlayerRegistryUnit, BASS;
 
 const
-  VMUFileName:string='LittleTrain.vmu';
-  LevelPackName:string='<internal>';
+  VMUFILENAME:string='LittleTrain.vmu';
+  LEVELPACKNAME:string='<internal>';
 
 type
 
@@ -18,17 +18,23 @@ type
   TVMU=class(TPlayerRegistry)
     constructor Create;
     destructor Destroy; override;
-    function GetMapState(iSlot,iMapNo:integer):integer;
-    procedure SetMapState(iSlot,iMapNo,iState:integer);
-    function GetCompletedMapCount(pSlot:integer):integer;
-    procedure CompleteAllMaps(iSlot:integer);
+    procedure SelectSlot(pSlot:integer);
+    function GetMapState(iMapNo:integer):integer;
+    procedure SetMapState(iMapNo,iState:integer);
+    function GetCompletedMapCount:integer;
+    procedure CompleteAllMaps;
   private
     fSoundVolume, fMusicVolume: float;
     fFullScreen:boolean;
+    fSpeed:integer;
+    fSlot:integer;
+    fLevelPackID:integer;
+    procedure fSetSpeed(value:integer);
   public
     property SoundVolume:float read fSoundVolume write fSoundVolume;
     property MusicVolume:float read fMusicVolume write fMusicVolume;
     property FullScreen:boolean read fFullScreen write fFullScreen;
+    property Speed:integer read fSpeed write fSetSpeed;
   end;
 
 var VMU:TVMU;
@@ -45,16 +51,19 @@ var i:integer;
 begin
   inherited Create;
   Verbose:=false;
-  Load(VMUFileName);
-  AddLevelPack(LevelPackName);
+  Load(VMUFILENAME);
+  AddLevelPack(LEVELPACKNAME);
   for i:=fPlayers.Count to 4 do AddPlayer(chr(i));
   AddLevelPack(CFG);
   AddPlayer(CFG);
   i:=0;
+  fSlot:=-1;
+  fSpeed:=-1;
   if not ReadData(CFG,CFG,0,sizeof(Float),fSoundVolume) then fSoundVolume:=1;
   if not ReadData(CFG,CFG,sizeof(Float),sizeof(Float),fMusicVolume) then fMusicVolume:=1;
   if not ReadData(CFG,CFG,2*sizeof(Float),1,i) then fFullScreen:=false
     else fFullScreen:=(i=1);
+  fLevelPackID:=LevelPacks.IndexOf(LEVELPACKNAME);
 end;
 
 destructor TVMU.Destroy;
@@ -64,52 +73,78 @@ begin
   WriteData(CFG,CFG,sizeof(Float),sizeof(Float),fMusicVolume);
   if fFullScreen then b:=1 else b:=0;
   WriteData(CFG,CFG,2*sizeof(Float),1,b);
-  Save(VMUFileName);
+  Save(VMUFILENAME);
   inherited ;
 end;
 
-function TVMU.GetMapState(iSlot,iMapNo:integer):integer;
-//const Istr=Fstr+'TVMU.GetMapState';
-var i,j:integer;
+procedure TVMU.SelectSlot(pSlot:integer);
 begin
-  if iSlot in [0..4] then
+  // -1 means unselect slot
+  if (pSlot>=-1) and (pSlot<=4) then begin
+    if fSlot<>-1 then WriteData(fSlot,fLevelPackID,104,1,fSpeed);
+    fSlot:=pSlot;
+    fSpeed:=0;
+    if fSlot<>-1 then begin
+      if not ReadData(fSlot,fLevelPackID,104,1,fSpeed) then fSpeed:=3;
+    end else
+      fSpeed:=-1;
+  end else Log.LogWarning('Invalid slot number! (Got: '+inttostr(pSlot)+'; Should be: -1..4)');
+end;
+
+function TVMU.GetMapState(iMapNo:integer):integer;
+//const Istr=Fstr+'TVMU.GetMapState';
+var i:integer;
+begin
+  if fSlot in [0..4] then
     if (iMapNo in [0..50]) then begin
       i:=0;
-      j:=fLevelPacks.IndexOf(LevelPackName);
-      if ReadData(iSlot,j,iMapNo*2,2,i) then Result:=i
-                                        else Result:=0;
+      if ReadData(fSlot,fLevelPackID,iMapNo*2,2,i) then
+        Result:=i
+      else
+        Result:=0;
     end else Log.LogWarning('Invalid map number! (Got: '+inttostr(iMapNo)+'; Should be: 0..49)')
-  else Log.LogWarning('Invalid slot number! (Got: '+inttostr(iSlot)+'; Should be: 0..4)');
+  else Result:=0;
 end;
 
-procedure TVMU.SetMapState(iSlot,iMapNo,iState:integer);
-var i:integer;
+procedure TVMU.SetMapState(iMapNo,iState:integer);
 begin
-  if iSlot in [0..4] then
+  if fSlot in [0..4] then
     if iMapNo in [0..50] then begin
-      i:=fLevelPacks.IndexOf(LevelPackName);
-      WriteData(iSlot,i,iMapNo*2,2,iState)
+      WriteData(fSlot,fLevelPackID,iMapNo*2,2,iState)
     end
     else Log.LogWarning('Invalid map number! (Got: '+inttostr(iMapNo)+'; Should be: 0..49)')
-  else Log.LogWarning('Invalid slot number! (Got: '+inttostr(iSlot)+'; Should be: 0..4)');
+  else begin
+    Log.LogWarning('Invalid slot number! (Got: '+inttostr(fSlot)+'; Should be: 0..4)');
+    Log.LogWarning('Missed calling SelectSlot?');
+  end;
 end;
 
-function TVMU.GetCompletedMapCount(pSlot: integer): integer;
+function TVMU.GetCompletedMapCount:integer;
 var i:integer;
 begin
-  if pSlot in [0..4] then begin
+  if fSlot in [0..4] then begin
     Result:=0;
     for i:=0 to 49 do
-      if GetMapState(pSlot,i)>0 then inc(Result);
-  end else Log.LogWarning('Invalid slot number! (Got: '+inttostr(pSlot)+'; Should be: 0..4)');
+      if GetMapState(i)>0 then inc(Result);
+  end else Result:=0;
 end;
 
-procedure TVMU.CompleteAllMaps(iSlot:integer);
+procedure TVMU.CompleteAllMaps;
 var i:integer;
 begin
-  if iSlot in [0..4] then begin
-    for i:=0 to 49 do SetMapState(iSlot,i,128);
-  end else Log.LogWarning('Invalid slot number! (Got: '+inttostr(iSlot)+'; Should be: 0..4)');
+  if fSlot in [0..4] then begin
+    for i:=0 to 49 do SetMapState(i,128);
+  end else begin
+    Log.LogWarning('Invalid slot number! (Got: '+inttostr(fSlot)+'; Should be: 0..4)');
+    Log.LogWarning('Missed calling SelectSlot?');
+  end;
+end;
+
+procedure TVMU.fSetSpeed(value:integer);
+begin
+  if value in [0..5] then begin
+    fSpeed:=value;
+  end;
 end;
 
 end.

@@ -52,11 +52,13 @@ var i:integer;atmT:TARGBImage;
 begin
   fVMUSlotNumber:=iVMUSlot;
   i:=(MapList.Count-1);
-  fProgressPercent:=VMU.GetCompletedMapCount(fVMUSlotNumber)*100 div (MapList.Count-1);
+  VMU.SelectSlot(iVMUSlot);
+  fProgressPercent:=VMU.GetCompletedMapCount*100 div (MapList.Count-1);
   fScore:=0;
   for i:=0 to MapList.Count-2 do
-    if VMU.GetMapState(fVMUSlotNumber,i)>0 then
-      fScore:=fScore+MapList[i].ParScore-VMU.GetMapState(fVMUSlotNumber,i);
+    if VMU.GetMapState(i)>0 then
+      fScore:=fScore+MapList[i].ParScore-VMU.GetMapState(i);
+  VMU.SelectSlot(-1);
   atmT:=TARGBImage.Create(640,22);
   atmT.bar(0,0,atmT.Width,atmt.Height,0,0,0,0);
   MM.Fonts.OutText(atmt,Format(#3'%d.  '#6'Progress: '#1'%d%%',[fVMUSlotNumber,fProgressPercent]),64,0,mjLeft);
@@ -242,7 +244,7 @@ begin
   until cnt=Interval*5+LineOneStepTime;
   if (act=1) and not keys[SDL_SCANCODE_ESCAPE] then begin
     VMU.RenamePlayer(iSlot,'???'+inttostr(iSlot));
-    VMU.ClearData('???'+inttostr(iSlot),LevelPackName);
+    VMU.ClearData('???'+inttostr(iSlot),LEVELPACKNAME);
   end;
   for i:=0 to 4 do
     if Assigned(Lines[i]) then FreeAndNil(Lines[i]);

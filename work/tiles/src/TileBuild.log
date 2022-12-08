@@ -1,4 +1,4 @@
-(..system..) Starting Application. 2022. 12. 05. 10:00:41
+(..system..) Starting Application. 2022. 12. 08. 13:51:16
 (..system..) (Status) [Warning] {Error} <Debug>
 (uses) Logger.pas, version 1.14
 (uses) QuickSortUnit.pas, version 1.01
@@ -282,6 +282,7 @@
 < Trace > Width 133
 < Trace > Height 166
 < Trace > Name sprites03.png
+< Trace > Colorkey
 < Trace > 
 < Trace > [Files]
 < Trace > puffing.cel "~" 6 looped rotated colorkey
@@ -297,7 +298,7 @@
 <MKStream.pas, TMKStreamOpener.OpenStream> OpenStream('new\puffing2.cel')
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\puffing2.cel)
 < Trace > 
-<> Got:      ColourType=4, AlphaMode=2, BitDepth=8, Greyscaled=True
+<> Got:      ColourType=0, AlphaMode=1, BitDepth=8, Greyscaled=True
 < Trace > [SpriteSheet]
 < Trace > Width 529
 < Trace > Height 133
@@ -342,4 +343,4 @@
 <MKStream.pas, TMKStreamOpener.OpenStream> Check in cache (new\enginewp.cel)
 < Trace > 
 <> Got:      ColourType=3, AlphaMode=0, BitDepth=8, Greyscaled=False
-(..system..) Terminating Application. 2022. 12. 05. 10:00:41
+(..system..) Terminating Application. 2022. 12. 08. 13:51:17

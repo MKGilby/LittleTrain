@@ -15,7 +15,7 @@ const
 
 type
   TMapBase=class
-    constructor Create(iX,iY,iMapNo,iVMUSlot:integer);
+    constructor Create(iX,iY,iMapNo:integer);
     destructor Destroy; override;
     function Play:integer; virtual; abstract; // Result: 0-Completed, 1-Escaped, 2-Dead
     procedure Draw(iAlpha:integer=255);
@@ -24,7 +24,6 @@ type
   protected
     fX,fY:integer;
     fMapNo:integer;
-    fVMUSlot:integer;
     fState:integer;
     fBest:integer;
     fImage:TStreamingTexture;
@@ -57,13 +56,12 @@ implementation
 uses MKToolBox, Logger, SDL2, SysUtils,
      LTRN_VMUUnit{, LTRN_MapImagesUnit}, LTRN_SharedUnit;
 
-constructor TMapBase.Create(iX,iY,iMapNo,iVMUSlot:integer);
+constructor TMapBase.Create(iX,iY,iMapNo:integer);
 //var i,j:integer;
 begin
   fX:=iX;
   fY:=iY;
   fMapNo:=iMapNo;
-  fVMUSlot:=iVMUSlot;
 
   fMap:=MapList.Items[iMapNo];
   fParScore:=fMap.ParScore;
@@ -72,7 +70,7 @@ begin
 
   fImage:=TStreamingTexture.Create(168,104);
   SDL_SetTextureBlendMode(fImage.Texture,SDL_BLENDMODE_BLEND);
-  fBest:=VMU.GetMapState(fVMUSlot,iMapNo);
+  fBest:=VMU.GetMapState(iMapNo);
   fState:=0;
   fPlayer:=nil;
   fExit:=nil;
@@ -128,7 +126,7 @@ begin
         TILE_EMPTY:;
         TILE_CLOSEDEXIT:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(33)].SpawnAnimation);
         TILE_WALL:fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(35)].SpawnAnimation);
-        TILE_PLAYER:fPlayer:=TPlayer.Create(i,j,3,fMap);
+        TILE_PLAYER:fPlayer:=TPlayer.Create(i,j,fMap);
         TILE_SIGNAL:fExit:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(61)].SpawnAnimation);
         else begin
           fSprites[i,j]:=TAnimatedSprite.Create(i<<5,j<<5+48,MM.Animations.ItemByName[chr(fMap.Tiles[i,j])].SpawnAnimation);

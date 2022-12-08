@@ -9,7 +9,7 @@ uses LTRN_MapBaseUnit, PSLineUnit;
 
 type
   TMapSelector=class
-    constructor Create(iTop,iVMUSlot:integer);
+    constructor Create(iTop:integer);
     destructor Destroy; override;
     function Run:integer;
   private
@@ -31,17 +31,16 @@ uses
   LTRN_SharedUnit, LTRN_OptionsUnit, LTRN_VMUUnit, LTRN_CurtainUnit,
   LTRN_MapPlayUnit, LTRN_MapCongratsUnit;
 
-constructor TMapSelector.Create(iTop,iVMUSlot:integer);
+constructor TMapSelector.Create(iTop:integer);
 var i,j:integer;
 begin
   fTop:=iTop;
-  fVMUSlot:=iVMUSlot;
 
   trgt:=-1;
   j:=0;
 //  LogTicks.StartMeasuring;
   for i:=0 to 49 do begin
-    fMaps[i]:=TMapPlay.Create(236+i*176,fTop,i,iVMUSlot);
+    fMaps[i]:=TMapPlay.Create(236+i*176,fTop,i);
     if fMaps[i].BestScore>0 then fMaps[i].SetState(MAPSTATE_COMPLETED)
                             else begin
       if trgt=-1 then begin
@@ -54,7 +53,7 @@ begin
     end;
 //    LogTicks.LogTicks(inttostr(i));
   end;
-  fMaps[50]:=TMapCongrats.Create(236+50*176,fTop,50,iVMUSlot);
+  fMaps[50]:=TMapCongrats.Create(236+50*176,fTop,50);
 //  fMaps[50].SetState(1);
   if trgt=-1 then begin trgt:=50*176;slev:=50;end;
   if ReturnTo=rMapSelector then begin

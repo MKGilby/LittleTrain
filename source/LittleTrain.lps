@@ -9,35 +9,34 @@
         <Filename Value="LittleTrain.pas"/>
         <IsPartOfProject Value="True"/>
         <CursorPos Y="28"/>
-        <UsageCount Value="192"/>
+        <UsageCount Value="195"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="LTRN_MainUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="38"/>
-        <CursorPos X="33" Y="54"/>
-        <UsageCount Value="192"/>
+        <TopLine Value="81"/>
+        <CursorPos Y="116"/>
+        <UsageCount Value="195"/>
         <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="LTRN_SharedUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="11"/>
-        <TopLine Value="47"/>
-        <CursorPos X="25" Y="70"/>
-        <UsageCount Value="190"/>
+        <EditorIndex Value="12"/>
+        <UsageCount Value="193"/>
         <Loaded Value="True"/>
       </Unit2>
       <Unit3>
         <Filename Value="LTRN_VMUUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="33"/>
-        <CursorPos X="6" Y="108"/>
-        <UsageCount Value="184"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="14"/>
+        <CursorPos Y="83"/>
+        <UsageCount Value="187"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit3>
       <Unit4>
         <Filename Value="LTRN_IntroUnit.pas"/>
@@ -45,22 +44,22 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="73"/>
         <CursorPos X="32" Y="85"/>
-        <UsageCount Value="182"/>
+        <UsageCount Value="185"/>
       </Unit4>
       <Unit5>
         <Filename Value="LTRN_ScrollUnit.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="25" Y="35"/>
-        <UsageCount Value="182"/>
+        <UsageCount Value="185"/>
       </Unit5>
       <Unit6>
         <Filename Value="LTRN_OptionsUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="5"/>
-        <TopLine Value="91"/>
-        <CursorPos Y="42"/>
-        <UsageCount Value="182"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="53"/>
+        <CursorPos Y="80"/>
+        <UsageCount Value="185"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -68,23 +67,23 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="15"/>
-        <UsageCount Value="182"/>
+        <UsageCount Value="185"/>
       </Unit7>
       <Unit8>
         <Filename Value="LTRN_MapListUnit.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="32" Y="35"/>
-        <UsageCount Value="173"/>
+        <UsageCount Value="176"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit8>
       <Unit9>
         <Filename Value="LTRN_SlotSelectUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="4"/>
-        <TopLine Value="56"/>
-        <CursorPos X="58" Y="104"/>
-        <UsageCount Value="79"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="36"/>
+        <CursorPos X="58" Y="60"/>
+        <UsageCount Value="82"/>
         <Loaded Value="True"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit9>
@@ -94,7 +93,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="89"/>
         <CursorPos X="8" Y="133"/>
-        <UsageCount Value="77"/>
+        <UsageCount Value="80"/>
       </Unit10>
       <Unit11>
         <Filename Value="PSCursorUnit.pas"/>
@@ -102,34 +101,34 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="120"/>
         <CursorPos X="26" Y="157"/>
-        <UsageCount Value="76"/>
+        <UsageCount Value="79"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit11>
       <Unit12>
         <Filename Value="LTRN_MapSelectorUnit.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="113"/>
-        <CursorPos X="13" Y="130"/>
-        <UsageCount Value="72"/>
+        <TopLine Value="21"/>
+        <CursorPos X="52" Y="56"/>
+        <UsageCount Value="75"/>
         <Loaded Value="True"/>
       </Unit12>
       <Unit13>
         <Filename Value="LTRN_MapBaseUnit.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="79"/>
-        <CursorPos X="59" Y="92"/>
-        <UsageCount Value="72"/>
+        <TopLine Value="106"/>
+        <CursorPos Y="129"/>
+        <UsageCount Value="75"/>
         <Loaded Value="True"/>
       </Unit13>
       <Unit14>
         <Filename Value="LTRN_TrainPieceUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="10"/>
         <TopLine Value="45"/>
         <CursorPos Y="71"/>
-        <UsageCount Value="62"/>
+        <UsageCount Value="65"/>
         <Loaded Value="True"/>
       </Unit14>
       <Unit15>
@@ -138,15 +137,16 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="8"/>
         <CursorPos X="15" Y="48"/>
-        <UsageCount Value="61"/>
+        <UsageCount Value="64"/>
       </Unit15>
       <Unit16>
         <Filename Value="LTRN_PlayerUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="8"/>
-        <TopLine Value="114"/>
-        <CursorPos X="3" Y="129"/>
-        <UsageCount Value="58"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="9"/>
+        <TopLine Value="238"/>
+        <CursorPos Y="280"/>
+        <UsageCount Value="61"/>
         <Loaded Value="True"/>
       </Unit16>
       <Unit17>
@@ -154,23 +154,25 @@
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="-1"/>
         <CursorPos Y="36"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="61"/>
       </Unit17>
       <Unit18>
         <Filename Value="LTRN_MapPlayUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
+        <EditorIndex Value="8"/>
         <TopLine Value="69"/>
-        <CursorPos X="33" Y="107"/>
-        <UsageCount Value="58"/>
+        <CursorPos X="23" Y="93"/>
+        <UsageCount Value="61"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit18>
       <Unit19>
         <Filename Value="LTRN_MapCongratsUnit.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="11"/>
         <TopLine Value="48"/>
         <CursorPos X="21" Y="64"/>
-        <UsageCount Value="58"/>
+        <UsageCount Value="61"/>
         <Loaded Value="True"/>
       </Unit19>
       <Unit20>
@@ -534,12 +536,10 @@
       </Unit66>
       <Unit67>
         <Filename Value="..\units\MAD4MidLevelUnit.pas"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="206"/>
         <CursorPos X="3" Y="215"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit67>
       <Unit68>
         <Filename Value="..\units\MediaManagerUnit.pas"/>
@@ -567,8 +567,8 @@
       <Unit71>
         <Filename Value="..\units\vcc_Menu2.pas"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="142"/>
-        <CursorPos X="3" Y="113"/>
+        <TopLine Value="297"/>
+        <CursorPos Y="300"/>
         <UsageCount Value="11"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit71>
@@ -619,10 +619,12 @@
       </Unit77>
       <Unit78>
         <Filename Value="..\units\PlayerRegistryUnit.pas"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="514"/>
-        <CursorPos X="16" Y="536"/>
-        <UsageCount Value="7"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="419"/>
+        <CursorPos X="3" Y="423"/>
+        <UsageCount Value="11"/>
+        <Loaded Value="True"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit78>
       <Unit79>
         <Filename Value="..\units\AnimatedSprite2Unit.pas"/>
@@ -662,133 +664,132 @@
       </Unit83>
       <Unit84>
         <Filename Value="..\units\MAD4LowLevelUnit.pas"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="610"/>
         <CursorPos X="49" Y="633"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
-        <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit84>
     </Units>
     <JumpHistory Count="30" HistoryIndex="29">
       <Position1>
-        <Filename Value="LTRN_MainUnit.pas"/>
-        <Caret Line="27" Column="77" TopLine="9"/>
+        <Filename Value="LTRN_OptionsUnit.pas"/>
+        <Caret Line="160" Column="42" TopLine="118"/>
       </Position1>
       <Position2>
-        <Filename Value="LTRN_MapSelectorUnit.pas"/>
-        <Caret Line="229" Column="20" TopLine="184"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="39" Column="15" TopLine="26"/>
       </Position2>
       <Position3>
-        <Filename Value="LTRN_MapSelectorUnit.pas"/>
-        <Caret Line="38"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="52" Column="6" TopLine="20"/>
       </Position3>
       <Position4>
-        <Filename Value="LTRN_MapSelectorUnit.pas"/>
-        <Caret Line="130" Column="13" TopLine="113"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="96" TopLine="82"/>
       </Position4>
       <Position5>
         <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="364" Column="12" TopLine="137"/>
+        <Caret Line="369" Column="7" TopLine="347"/>
       </Position5>
       <Position6>
         <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="52" Column="24" TopLine="25"/>
       </Position6>
       <Position7>
         <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="56" Column="20" TopLine="17"/>
+        <Caret Line="380" TopLine="368"/>
       </Position7>
       <Position8>
         <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="136" Column="10" TopLine="97"/>
+        <Caret Line="161" Column="17" TopLine="139"/>
       </Position8>
       <Position9>
         <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="306" Column="10" TopLine="267"/>
+        <Caret Line="67" Column="13" TopLine="45"/>
       </Position9>
       <Position10>
         <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="315" Column="10" TopLine="276"/>
+        <Caret Line="160" Column="13" TopLine="139"/>
       </Position10>
       <Position11>
         <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="358" Column="24" TopLine="319"/>
+        <Caret Line="402" Column="5" TopLine="356"/>
       </Position11>
       <Position12>
-        <Filename Value="LTRN_TrainPieceUnit.pas"/>
-        <Caret Line="33" Column="6" TopLine="4"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="62" TopLine="47"/>
       </Position12>
       <Position13>
-        <Filename Value="LTRN_TrainPieceUnit.pas"/>
-        <Caret Line="71" Column="22" TopLine="30"/>
+        <Filename Value="LTRN_VMUUnit.pas"/>
+        <Caret Line="83" TopLine="14"/>
       </Position13>
       <Position14>
-        <Filename Value="LTRN_TrainPieceUnit.pas"/>
-        <Caret Line="68" Column="25"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="62" Column="79" TopLine="46"/>
       </Position14>
       <Position15>
         <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="75" TopLine="42"/>
+        <Caret Line="161" Column="24" TopLine="139"/>
       </Position15>
       <Position16>
         <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="106" TopLine="83"/>
+        <Caret Line="189" TopLine="171"/>
       </Position16>
       <Position17>
-        <Filename Value="LTRN_MapCongratsUnit.pas"/>
-        <Caret Line="259" Column="33" TopLine="179"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="17" Column="30"/>
       </Position17>
       <Position18>
         <Filename Value="LTRN_PlayerUnit.pas"/>
-        <Caret Line="21" Column="15"/>
+        <Caret Line="86" Column="30" TopLine="71"/>
       </Position18>
       <Position19>
-        <Filename Value="LTRN_MapCongratsUnit.pas"/>
-        <Caret Line="67" Column="12" TopLine="36"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="89" Column="13" TopLine="71"/>
       </Position19>
       <Position20>
-        <Filename Value="LTRN_MapCongratsUnit.pas"/>
-        <Caret Line="23" Column="14"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="90" Column="13" TopLine="71"/>
       </Position20>
       <Position21>
-        <Filename Value="LTRN_MainUnit.pas"/>
-        <Caret Line="103" Column="22" TopLine="75"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="91" Column="13" TopLine="71"/>
       </Position21>
       <Position22>
-        <Filename Value="LTRN_SlotSelectUnit.pas"/>
-        <Caret Line="29" Column="14" TopLine="5"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="92" Column="13" TopLine="71"/>
       </Position22>
       <Position23>
-        <Filename Value="LTRN_MainUnit.pas"/>
-        <Caret Line="64" Column="40" TopLine="38"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="93" Column="13" TopLine="71"/>
       </Position23>
       <Position24>
-        <Filename Value="..\units\MAD4MidLevelUnit.pas"/>
-        <Caret Line="140" Column="17" TopLine="117"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="94" Column="13" TopLine="71"/>
       </Position24>
       <Position25>
-        <Filename Value="..\units\MAD4MidLevelUnit.pas"/>
-        <Caret Line="215" Column="3" TopLine="206"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="96" Column="9" TopLine="71"/>
       </Position25>
       <Position26>
-        <Filename Value="..\units\MAD4LowLevelUnit.pas"/>
-        <Caret Line="122" Column="17" TopLine="99"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="189" Column="21" TopLine="178"/>
       </Position26>
       <Position27>
-        <Filename Value="LTRN_MainUnit.pas"/>
-        <Caret Line="61" Column="5" TopLine="38"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="155" Column="43" TopLine="116"/>
       </Position27>
       <Position28>
-        <Filename Value="LTRN_MainUnit.pas"/>
-        <Caret Line="67" Column="22" TopLine="38"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="188" Column="29" TopLine="150"/>
       </Position28>
       <Position29>
-        <Filename Value="..\units\MAD4LowLevelUnit.pas"/>
-        <Caret Line="238" TopLine="208"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="183" TopLine="183"/>
       </Position29>
       <Position30>
-        <Filename Value="..\units\MAD4LowLevelUnit.pas"/>
-        <Caret Line="633" Column="49" TopLine="610"/>
+        <Filename Value="LTRN_PlayerUnit.pas"/>
+        <Caret Line="188" Column="29" TopLine="180"/>
       </Position30>
     </JumpHistory>
     <RunParams>

@@ -68,6 +68,7 @@ bluengwp.cel "*" 6 looped
 Width 133
 Height 166
 Name sprites03.png
+Colorkey
 
 [Files]
 puffing.cel "~" 6 looped rotated colorkey

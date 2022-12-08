@@ -74,6 +74,7 @@ var
   t:textfile;
   mode:(mScanning,mSpriteSheet,mFiles);
   wi,he:integer;
+  colorkey:boolean;
 begin
   if not FileExists(fInFilename) then raise Exception.Create('File not found: '+fInFilename);
   mode:=mScanning;
@@ -83,6 +84,7 @@ begin
 
   assignfile(t,fInFilename);
   reset(t);
+  Colorkey:=false;
   while not eof(t) do begin
     readln(t,s);
     Log.Trace(s);
@@ -100,9 +102,13 @@ begin
         if uppercase(command)='WIDTH' then wi:=strtoint(param)
         else if uppercase(command)='HEIGHT' then he:=strtoint(param)
         else if uppercase(command)='NAME' then sheetfilename:=param
+        else if uppercase(command)='COLORKEY' then colorkey:=true
         else if command='' then begin
           fAtlas:=TTextureAtlasGenerator.Create(wi,he,1);
-          fAtlas.TextureAtlas.Bar(0,0,fAtlas.TextureAtlas.Width,fAtlas.TextureAtlas.Height,0,0,0,255);
+          if not Colorkey then
+            fAtlas.TextureAtlas.Bar(0,0,fAtlas.TextureAtlas.Width,fAtlas.TextureAtlas.Height,0,0,0,255)
+          else
+            fAtlas.TextureAtlas.Bar(0,0,fAtlas.TextureAtlas.Width,fAtlas.TextureAtlas.Height,0,0,0,0);
           mode:=mScanning;
         end;
       end;
@@ -114,6 +120,7 @@ begin
         end else begin
           fAtlas.TextureAtlas.WriteFile(sheetfilename,'PNG');
           FreeAndNil(fAtlas);
+          Colorkey:=false;
           mode:=mScanning;
         end;
       end;

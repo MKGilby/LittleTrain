@@ -19,6 +19,7 @@ type
     fMenu:TMenu;
     fFullScreenChanged:boolean;
 //    function fGetFullScreenChanged:boolean;
+    procedure SetupMenu;
   public
     property FullScreenChanged:boolean read fFullScreenChanged;
   end;
@@ -32,49 +33,21 @@ const
   X=320;Y=240;Width=520;Height=36*5;
 
 constructor TOptions.Create;
-var Base,Sound,Video:string;
 begin
-  Base:='"@SETTINGS" "Sound settings=S" %s "Video settings=V" %s "Back=B"';
-  Sound:='> "@Sound settings" '+
-         '"%MV%Music volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}" '+
-         '"%SV%Effects volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}" '+
-         '"Back=B1" <';
-  Video:='> "@Video settings" "%FS%Full screen: {No=N|Yes=Y}" "Apply=A" "Cancel=B2" <';
   fMenu:=TMenu.Create;
-  fMenu.Left:=X-Width div 2;
-  fMenu.Top:=Y-Height div 2;
-  fMenu.Width:=Width;
-  fMenu.Height:=Height;
-  fMenu.CycleOptions:=false;
-  fMenu.BaseFont:=MM.Fonts['8'];
-  fMenu.HighlightFont:=MM.Fonts['1'];
-  fMenu.HeaderFont:=MM.Fonts['5'];
-  fMenu.TextAlign:=mjCenter;
-  fMenu.TextOffsetY:=0;
-  fMenu.RowHeight:=36;
-//  fMenu.AddItemExt('"@SETTINGS" "Back=B" "%MV%MUSIC VOLUME: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
-//  fMenu.AddItemExt('"%SV%EFFECTS VOLUME {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
-(*  fMenu.AddItemExt('"@SETTINGS"');
-  fMenu.AddItemExt('"%FS%Full screen: {Yes=Y|No=N}"');
-  fMenu.AddItemExt('"%MV%Music volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
-  fMenu.AddItemExt('"%SV%Effects volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
-  fMenu.AddItemExt('"Back=B"');*)
-  fMenu.AddItemExt(Format(Base,[Sound,Video]));
-  if VMU.FullScreen then fMenu.SetValue('FS','Y') else fMenu.SetValue('FS','N');
-  fMenu.SetValue('MV',inttostr(trunc(VMU.MusicVolume*10)));
-  fMenu.SetValue('SV',inttostr(trunc(VMU.SoundVolume*10)));
   fFullScreenChanged:=false;
 end;
 
 destructor TOptions.Destroy;
 begin
-  FreeAndNil(fMenu);
+  if Assigned(fMenu) then FreeAndNil(fMenu);
   inherited ;
 end;
 
 procedure TOptions.Run;
 var mv,sv:float;orgfs,fs:boolean;
 begin
+  SetupMenu;
   fMenu.State:=msActive;
   fMenu.SelectedLabel:='S';
   mv:=VMU.MusicVolume;
@@ -104,6 +77,7 @@ begin
     if VMU.FullScreen<>fs then begin
       VMU.FullScreen:=fs;
     end;
+    VMU.Speed:=strtoint(fMenu.GetValue('GS'));
     if fMenu.State=msSelected then begin
       if fMenu.SelectedLabel='B1' then begin
         fMenu.SelectedLabel:='S'; // Back
@@ -142,6 +116,50 @@ begin
     end;}
   until fMenu.State<>msActive;
   if VMU.FullScreen<>orgfs then fFullScreenChanged:=true;
+end;
+
+procedure TOptions.SetupMenu;
+var Base,Speed,Sound,Video:string;
+begin
+  Log.Trace('Speed at options.create = '+inttostr(VMU.Speed));
+  if VMU.Speed=-1 then
+    Base:='"@SETTINGS" "Sound settings=S" %s "Video settings=V" %s "Back=B"'
+  else
+    Base:='"@SETTINGS" %s "Sound settings=S" %s "Video settings=V" %s "Back=B"';
+  Speed:='"%GS%Game speed: {Still=0|Slowest=1|Slow=2|Normal=3|Fast=4|Fastest=5}" ';
+  Sound:='> "@Sound settings" '+
+         '"%MV%Music volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}" '+
+         '"%SV%Effects volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}" '+
+         '"Back=B1" <';
+  Video:='> "@Video settings" "%FS%Full screen: {No=N|Yes=Y}" "Apply=A" "Cancel=B2" <';
+  fMenu.Clear;
+  fMenu.Left:=X-Width div 2;
+  fMenu.Top:=Y-Height div 2;
+  fMenu.Width:=Width;
+  fMenu.Height:=Height;
+  fMenu.CycleOptions:=false;
+  fMenu.BaseFont:=MM.Fonts['8'];
+  fMenu.HighlightFont:=MM.Fonts['1'];
+  fMenu.HeaderFont:=MM.Fonts['5'];
+  fMenu.TextAlign:=mjCenter;
+  fMenu.TextOffsetY:=0;
+  fMenu.RowHeight:=36;
+//  fMenu.AddItemExt('"@SETTINGS" "Back=B" "%MV%MUSIC VOLUME: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
+//  fMenu.AddItemExt('"%SV%EFFECTS VOLUME {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
+(*  fMenu.AddItemExt('"@SETTINGS"');
+  fMenu.AddItemExt('"%FS%Full screen: {Yes=Y|No=N}"');
+  fMenu.AddItemExt('"%MV%Music volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
+  fMenu.AddItemExt('"%SV%Effects volume: {0%=0|10%=1|20%=2|30%=3|40%=4|50%=5|60%=6|70%=7|80%=8|90%=9|100%=10}"');
+  fMenu.AddItemExt('"Back=B"');*)
+  if VMU.Speed=-1 then
+    fMenu.AddItemExt(Format(Base,[Sound,Video]))
+  else begin
+    fMenu.AddItemExt(Format(Base,[Speed,Sound,Video]));
+    fMenu.SetValue('GS',inttostr(VMU.Speed));
+  end;
+  if VMU.FullScreen then fMenu.SetValue('FS','Y') else fMenu.SetValue('FS','N');
+  fMenu.SetValue('MV',inttostr(trunc(VMU.MusicVolume*10)));
+  fMenu.SetValue('SV',inttostr(trunc(VMU.SoundVolume*10)));
 end;
 
 {function TOptions.fGetFullScreenChanged:boolean;

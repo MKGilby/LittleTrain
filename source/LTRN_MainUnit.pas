@@ -72,7 +72,9 @@ begin
     0
   );
 
-  VMU.CompleteAllMaps(0);
+  VMU.SelectSlot(0);
+  VMU.CompleteAllMaps;
+  VMU.SelectSlot(-1);
 
   LoadAssets;
 end;
@@ -110,9 +112,11 @@ begin
   if ReturnTo in [rNone, rMapSelector] then begin
     if ReturnTo=rMapSelector then i:=ReturnData[0];
     if i in [0..4] then begin
-      MapSelector:=TMapSelector.Create(160,i);
+      VMU.SelectSlot(i);
+      MapSelector:=TMapSelector.Create(160);
       i:=MapSelector.Run;
       FreeAndNil(MapSelector);
+      VMU.SelectSlot(-1);
     end;
   end;
 

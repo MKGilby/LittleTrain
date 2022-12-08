@@ -90,7 +90,7 @@ begin
     if (fState in [0,1]) or (fBest>fScore) then begin
       fBest:=fScore;
       UpdateImage;
-      VMU.SetMapState(fVMUSlot,fMapNo,fBest);
+      VMU.SetMapState(fMapNo,fBest);
     end;
   end;
   Curtain.StartClose;

@@ -14,7 +14,7 @@ type
   { TPlayer }
 
   TPlayer=class
-    constructor Create(ix,iy,iSpeed:integer;iMap:TRawMap);
+    constructor Create(ix,iy:integer;iMap:TRawMap);
     destructor Destroy; override;
     procedure Draw;
 //    procedure Clear;
@@ -35,7 +35,8 @@ type
     fDeadAnimFinalUp,fDeadAnimFinalDown:TAnimation;
     fTrain:array of TTrainPiece;
     fPx,fPy:integer;
-    fMoveDelay,fSpeed,fSaveSpeed:integer;
+//    fMoveDelay,fSpeed,fSaveSpeed:integer;
+    fMoveDelay,fSpeed:integer;
     fDirX,fDirY:integer;
     fOldDirX,fOldDirY:integer;
     fMap:TRawMap;
@@ -48,6 +49,7 @@ type
     procedure fSetExit(value:boolean);
     function fGetWagonCount:integer;
     function fGetWagon(index:integer):TTrainPiece;
+    function GetSpeed:integer;
     procedure LogState;
   public
     property WagonCount:integer read fGetWagonCount;
@@ -57,9 +59,9 @@ type
      
 implementation
      
-uses SysUtils, SDL2, mk_sdl2, Logger, MKToolbox, LTRN_SharedUnit;
+uses SysUtils, SDL2, mk_sdl2, Logger, MKToolbox, LTRN_SharedUnit, LTRN_VMUUnit;
      
-constructor TPlayer.Create(ix,iy,iSpeed:integer;iMap:TRawMap);
+constructor TPlayer.Create(ix,iy:integer; iMap:TRawMap);
 begin
   fPx:=ix;
   fPy:=iy;
@@ -83,17 +85,17 @@ begin
 //  if fMap.AutoPlay then Log.Trace('Autoplay!') else Log.Trace('Not autoplay!');
   fReplay:=fMap.Solution;
 //  Log.Trace(fReplay);
-  case iSpeed of
+{  case iSpeed of
     0:fSpeed:=32767;
     1:fSpeed:=60;
     2:fSpeed:=40;
     3:fSpeed:=30;
     4:fSpeed:=20;
     5:fSpeed:=15;
-  end;
-  fSaveSpeed:=fSpeed;
+  end;}
+  fSpeed:=10;
   fState:=sPlaying;
-  fMoveDelay:=fSpeed;
+  fMoveDelay:=GetSpeed;
   fPickedUp:=false;
   fDead:=0;
   fMoved:=false;
@@ -157,7 +159,7 @@ begin
         if keys[SDL_SCANCODE_DOWN] and (fOldDirY>-1) then begin fDirX:=0;fDirY:=1;end;
         if keys[SDL_SCANCODE_LEFT] and (fOldDirX<1) then begin fDirX:=-1;fDirY:=0;end;
         dec(fMoveDelay);
-        if (fSpeed=32767) and ((fDirX<>0) or (fDirY<>0)) then fMoveDelay:=0;
+        if (VMU.Speed=0) and ((fDirX<>0) or (fDirY<>0)) then fMoveDelay:=0;
         if (fMoveDelay=0) then begin
           if (fDirX<>0) or (fDirY<>0) or (fState=sExit1) then begin
             if length(fReplay)>0 then delete(fReplay,1,1);
@@ -184,7 +186,7 @@ begin
             fPy+=fDirY;
             if fMap.Tiles[fPx,fPy]=TILE_OPENEDEXIT then begin
               fState:=sExit0;
-              if fSpeed>10 then fSpeed:=10;
+              fSpeed:=10;
               MM.Waves['Complete']._wave.Play;
             end else
             if fMap.Tiles[fPx,fPy]=TILE_SIGNAL then begin
@@ -267,7 +269,7 @@ begin
                  (fTrain[length(fTrain)-1].Y=fTrain[0].Y) then
                    fState:=sExit2;
             end;
-            if fSpeed=32767 then begin
+            if VMU.Speed=0 then begin
               fDirX:=0;fDirY:=0;
               keys[SDL_SCANCODE_UP]:=false;
               keys[SDL_SCANCODE_LEFT]:=false;
@@ -275,7 +277,7 @@ begin
               keys[SDL_SCANCODE_RIGHT]:=false;
             end;
           end;
-          fMoveDelay:=fSpeed;
+          if fState=sPlaying then fMoveDelay:=GetSpeed else fMoveDelay:=fSpeed;
         end;
       end;
     1:begin
@@ -363,6 +365,19 @@ begin
     Result:=fTrain[index]
   else
     Result:=nil;
+end;
+
+function TPlayer.GetSpeed:integer;
+begin
+  case VMU.Speed of
+    0:Result:=32767;
+    1:Result:=60;
+    2:Result:=40;
+    3:Result:=30;
+    4:Result:=20;
+    5:Result:=15;
+    else Result:=30;
+  end;
 end;
 
 procedure TPlayer.LogState;
