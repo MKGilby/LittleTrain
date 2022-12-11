@@ -35,6 +35,7 @@ type
     property MusicVolume:float read fMusicVolume write fMusicVolume;
     property FullScreen:boolean read fFullScreen write fFullScreen;
     property Speed:integer read fSpeed write fSetSpeed;
+    property Slot:integer read fSlot write SelectSlot;
   end;
 
 var VMU:TVMU;

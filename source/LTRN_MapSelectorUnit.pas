@@ -14,7 +14,6 @@ type
     function Run:integer;
   private
     fTop:integer;
-    fVMUSlot:integer;
     fMaps:array[0..50] of TMapBase;
     fTotalScore:integer;
     trgt:integer;
@@ -246,7 +245,7 @@ begin
   if Options.FullScreenChanged then begin
     MM.Musics['Menu']._music.Stop;
     ReturnTo:=rMapSelector;
-    ReturnData[0]:=fVMUSlot;
+    ReturnData[0]:=VMU.Slot;
     ReturnData[1]:=slev;
     ReturnData[2]:=trgt;
     Result:=0;

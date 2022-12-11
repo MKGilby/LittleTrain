@@ -2,6 +2,10 @@ Todo:
 * Fix bugs, if there are any.
 
 
+2022.12.11
+* BUGFIX: Changing full screen mode on map selector screen always brings you back
+  to slot 0.
+
 2022.12.08
 * Added speed settings. Speed is saved for each slot.
 * There are 5 speed settings + "Still" for the players who only want to solve the
