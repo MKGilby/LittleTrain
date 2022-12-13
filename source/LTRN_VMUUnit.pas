@@ -28,6 +28,7 @@ type
     fSoundVolume, fMusicVolume: float;
     fFullScreen:boolean;
     fSpeed:integer;
+    fScalingQuality:integer;
     fSlot:integer;
     fLevelPackID:integer;
     procedure fSetSpeed(value:integer);
@@ -37,6 +38,7 @@ type
     property FullScreen:boolean read fFullScreen write fFullScreen;
     property Speed:integer read fSpeed write fSetSpeed;
     property Slot:integer read fSlot write SelectSlot;
+    property ScalingQuality:integer read fScalingQuality write fScalingQuality;
   end;
 
 var VMU:TVMU;
@@ -63,9 +65,13 @@ begin
   fSpeed:=-1;
   if not ReadData(CFG,CFG,0,sizeof(Float),fSoundVolume) then fSoundVolume:=1;
   if not ReadData(CFG,CFG,sizeof(Float),sizeof(Float),fMusicVolume) then fMusicVolume:=1;
-  if not ReadData(CFG,CFG,2*sizeof(Float),1,i) then fFullScreen:=false
-    else fFullScreen:=(i=1);
-  fFullScreen:=false;
+  if not ReadData(CFG,CFG,2*sizeof(Float),1,i) then begin
+    fFullScreen:=false;
+    fScalingQuality:=0;
+  end else begin
+    fFullScreen:=(i and 1=1);
+    fScalingQuality:=(i and $06)>>1;
+  end;
   fLevelPackID:=LevelPacks.IndexOf(LEVELPACKNAME);
 end;
 
@@ -75,6 +81,7 @@ begin
   WriteData(CFG,CFG,0,sizeof(Float),fSoundVolume);
   WriteData(CFG,CFG,sizeof(Float),sizeof(Float),fMusicVolume);
   if fFullScreen then b:=1 else b:=0;
+  b+=fScalingQuality*2;
   WriteData(CFG,CFG,2*sizeof(Float),1,b);
   Save(VMUFILENAME);
   inherited ;

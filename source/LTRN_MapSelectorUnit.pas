@@ -81,7 +81,7 @@ end;
 function TMapSelector.Run:integer;
 var mode,fase,i,j,posi,spd:integer;
     Lines:array[0..5] of TPSLine;
-const ad2:array[0..7] of integer=(0,1,2,4,8,16,32,64);
+const ad2:array[0..8] of integer=(0,1,2,4,8,16,32,64,128);
 
   procedure ChangeLines;
   var s:string;
@@ -185,7 +185,7 @@ begin
             ChangeLines;
             keys[SDL_SCANCODE_LEFT]:=false;
           end;
-          if (abs(posi-trgt)>ad2[spd+1]) and (spd<6) then inc(spd);
+          if (abs(posi-trgt)>ad2[spd+1]) and (spd<7) then inc(spd);
           if (abs(posi-trgt)<ad2[spd+1]) and (spd>0) then dec(spd);
           if posi<trgt then begin
             for i:=0 to 50 do fMaps[i].MoveRelX(-ad2[spd]);

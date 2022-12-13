@@ -1,11 +1,14 @@
 Todo:
-* Add scaling quality to video settings.
 
 
 2022.12.13
 * Under the hood: Settings reworked, you can specify which settings to show
   (Sound, Video, Speed)
 * You can only set sound settings while in-game.
+* Added scaling quality to video settings. (Only has meaning in fullscreen,
+  applied on selecting Apply.)
+* BUGFIX: Speed was not preset in options to actual speed.
+* RELEASE: V1.10 released, I think it's completed.
 
 2022.12.11
 * BUGFIX: Changing full screen mode on map selector screen always brings you back

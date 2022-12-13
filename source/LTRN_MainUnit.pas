@@ -52,7 +52,7 @@ begin
   Log.LogDebug('Setting up SDL and BASS...');
   if VMU.FullScreen then begin
     fMainWindow:=TWindow.CreateFullScreenBordered(640,480,Format('LittleTrain V%s by MKSZTSZ - Build date: %s',[iVersion,iBuildDate]));
-    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, '1');
+    SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, pchar(inttostr(VMU.ScalingQuality)));
   end else
     fMainWindow:=TWindow.Create(SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,640,480,Format('LittleTrain V%s by MKSZTSZ - Build date: %s',[iVersion,iBuildDate]));
   SDL_ShowCursor(SDL_Disable);
@@ -72,9 +72,9 @@ begin
     0
   );
 
-  VMU.SelectSlot(0);
+{  VMU.SelectSlot(0);
   VMU.CompleteAllMaps;
-  VMU.SelectSlot(-1);
+  VMU.SelectSlot(-1);}
 
   LoadAssets;
 end;
