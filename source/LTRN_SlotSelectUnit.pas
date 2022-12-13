@@ -37,7 +37,7 @@ type
 implementation
 
 uses
-  SysUtils, LTRN_VMUUnit, LTRN_SharedUnit, Font2Unit, SDL2,
+  SysUtils, LTRN_VMUUnit, LTRN_SharedUnit, Font2Unit, LTRN_OptionsUnit, SDL2,
   ARGBImageUnit;
 
 const
@@ -145,7 +145,11 @@ begin
       Cursor.MoveTo((pPreselected+1)*HEIGHT+TOP-4);
       MM.Waves['MenuMoveTick']._wave.Play;
     end;
-    if keys[OPTIONSKEY] then begin Options.Run;ClearKeys;end;
+    if keys[OPTIONSKEY] then begin
+      Options.Run(SOUND_SETTINGS or VIDEO_SETTINGS);
+//      Options.Run(SOUND_SETTINGS);
+      ClearKeys;
+    end;
   until keys[SDL_SCANCODE_ESCAPE] or keys[SDL_SCANCODE_DELETE]
         or keys[SDL_SCANCODE_SPACE] or keys[SDL_SCANCODE_RETURN] or
         Options.FullScreenChanged;
@@ -179,7 +183,6 @@ begin
         Scroll.Draw(cnt-64);
       Flip;
       HandleMessages;
-      if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
     until cnt=Interval*8+LineOneStepTime;
   end;
   for i:=0 to 7 do
@@ -223,7 +226,10 @@ begin
       Cursor.MoveTo(act*32+188);
       MM.Waves['MenuMoveTick']._wave.Play;
     end;
-    if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
+    if keys[OPTIONSKEY] then begin
+      Options.Run(SOUND_SETTINGS or VIDEO_SETTINGS);
+      ClearKeys;
+    end;
   until (keys[SDL_SCANCODE_ESCAPE] or keys[SDL_SCANCODE_SPACE] or keys[SDL_SCANCODE_RETURN]) and (cnt>Interval*5+64);
   MM.Waves['MenuSelect']._wave.Play;
   Cursor.StartOut;
@@ -240,11 +246,12 @@ begin
     Scroll.Draw(0);
     Flip;
     HandleMessages;
-    if keys[SDL_SCANCODE_F12] then begin Options.Run;ClearKeys;end;
   until cnt=Interval*5+LineOneStepTime;
   if (act=1) and not keys[SDL_SCANCODE_ESCAPE] then begin
-    VMU.RenamePlayer(iSlot,'???'+inttostr(iSlot));
-    VMU.ClearData('???'+inttostr(iSlot),LEVELPACKNAME);
+//    VMU.RenamePlayer(iSlot,'???'+inttostr(iSlot));
+    VMU.SelectSlot(iSlot);
+    VMU.ClearSlot;
+    VMU.SelectSlot(-1);
   end;
   for i:=0 to 4 do
     if Assigned(Lines[i]) then FreeAndNil(Lines[i]);

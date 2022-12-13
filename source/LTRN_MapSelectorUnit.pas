@@ -172,7 +172,7 @@ begin
             for i:=0 to 5 do Lines[i].StartOut;
             BASS_ChannelSlideAttribute(MM.Musics['Menu']._music.Handle, BASS_ATTRIB_VOL,0, 2000);
           end;
-          if keys[OPTIONSKEY] then Options.Run;
+          if keys[OPTIONSKEY] then Options.Run(ALL_SETTINGS);
           if keys[SDL_SCANCODE_RIGHT] and (slev<50) then begin
             inc(trgt,176);
             inc(slev);

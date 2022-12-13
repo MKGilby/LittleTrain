@@ -21,6 +21,7 @@ type
     procedure SelectSlot(pSlot:integer);
     function GetMapState(iMapNo:integer):integer;
     procedure SetMapState(iMapNo,iState:integer);
+    procedure ClearSlot;
     function GetCompletedMapCount:integer;
     procedure CompleteAllMaps;
   private
@@ -64,6 +65,7 @@ begin
   if not ReadData(CFG,CFG,sizeof(Float),sizeof(Float),fMusicVolume) then fMusicVolume:=1;
   if not ReadData(CFG,CFG,2*sizeof(Float),1,i) then fFullScreen:=false
     else fFullScreen:=(i=1);
+  fFullScreen:=false;
   fLevelPackID:=LevelPacks.IndexOf(LEVELPACKNAME);
 end;
 
@@ -118,6 +120,11 @@ begin
     Log.LogWarning('Invalid slot number! (Got: '+inttostr(fSlot)+'; Should be: 0..4)');
     Log.LogWarning('Missed calling SelectSlot?');
   end;
+end;
+
+procedure TVMU.ClearSlot;
+begin
+  ClearData(fSlot,fLevelPackID);
 end;
 
 function TVMU.GetCompletedMapCount:integer;

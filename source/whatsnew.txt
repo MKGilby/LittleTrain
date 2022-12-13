@@ -1,6 +1,11 @@
 Todo:
-* Fix bugs, if there are any.
+* Add scaling quality to video settings.
 
+
+2022.12.13
+* Under the hood: Settings reworked, you can specify which settings to show
+  (Sound, Video, Speed)
+* You can only set sound settings while in-game.
 
 2022.12.11
 * BUGFIX: Changing full screen mode on map selector screen always brings you back

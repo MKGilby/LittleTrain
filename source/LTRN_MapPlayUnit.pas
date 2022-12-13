@@ -61,7 +61,9 @@ begin
     Flip;
 //    fPlayer.Clear;
     HandleMessages;
-    if keys[OPTIONSKEY] then Options.Run;
+    if keys[OPTIONSKEY] then begin
+      Options.Run(SOUND_SETTINGS);
+    end;
     if Curtain.State=csIdle then begin
       fPlayer.Move;
       if fPlayer.Moved then inc(fScore,1);
